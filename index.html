@@ -1,0 +1,1071 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="丝语 SOIE Hair Atelier：上海一对一预约制美发工作室。剪、染、烫、护，从一次认真的沟通开始。">
+<title>SOIE 丝语 Hair Atelier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<style>
+/* Layout: a cream atelier page on an asymmetric 12-column editorial grid with hairline rules;
+   the one loud moment is the pinned film that grows to full bleed mid-page. */
+:root {
+  --cream: #F5EFE7;
+  --paper: #FBF8F3;
+  --ink: #2B211C;
+  --ink-soft: #6E6057;
+  --line: #E3D7C9;
+  --line-strong: #CDBBA8;
+  --caramel: #9C6A47;
+  --milk: #E3C4AA;
+  --gold: #B08A5A;
+  --stage: #EEE5DA;
+
+  --display: "Bodoni Moda", "Noto Serif SC", "Songti SC", Georgia, serif;
+  --serif: "Noto Serif SC", "Songti SC", "Bodoni Moda", Georgia, serif;
+  --body: "Jost", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+
+  --fs-label: 0.75rem;
+  --fs-small: 0.875rem;
+  --fs-body: 1rem;
+  --fs-lead: clamp(1.0625rem, 1.4vw, 1.25rem);
+  --fs-h3: clamp(1.375rem, 2vw, 1.75rem);
+  --fs-h2: clamp(2.125rem, 4.6vw, 3.75rem);
+  --fs-statement: clamp(1.5rem, 3.3vw, 2.75rem);
+  --fs-wordmark: clamp(5.5rem, 21vw, 19rem);
+
+  --gutter: clamp(16px, 5vw, 72px);
+  --header-h: 68px;
+  --max: 1360px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+h1, h2, h3, p, ol, ul, dl, dd, figure { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--caramel); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: var(--fs-label); font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--caramel);
+}
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+.h2 {
+  font-family: var(--display); font-weight: 400; font-size: var(--fs-h2);
+  line-height: 1.12; letter-spacing: 0.01em; text-wrap: balance;
+}
+.lead { font-size: var(--fs-lead); color: var(--ink-soft); max-width: 34em; line-height: 1.8; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 26px;
+  font-size: var(--fs-small); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  text-decoration: none; border: 1px solid var(--ink); background: transparent; cursor: pointer;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+.btn-solid { background: var(--ink); color: var(--paper); }
+.btn-solid:hover { background: var(--caramel); border-color: var(--caramel); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+.btn svg { width: 14px; height: 14px; }
+
+/* ---------- header ---------- */
+.site-header {
+  position: fixed; inset: 0 0 auto; z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
+  transition: background .4s ease, box-shadow .4s ease;
+}
+.site-header.is-solid {
+  background: rgba(245, 239, 231, 0.86);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--line);
+}
+.header-inner {
+  height: var(--header-h); display: flex; align-items: center; gap: clamp(12px, 3vw, 36px);
+  max-width: 1480px; margin-inline: auto; padding-inline: var(--gutter);
+}
+.brand { display: inline-flex; align-items: baseline; gap: 10px; text-decoration: none; margin-right: auto; }
+.brand-latin { font-family: var(--display); font-size: 1.375rem; letter-spacing: 0.26em; }
+.brand-zh { font-family: var(--serif); font-size: 0.8125rem; letter-spacing: 0.3em; color: var(--ink-soft); }
+.nav { display: flex; gap: clamp(18px, 2.4vw, 34px); }
+.nav a {
+  position: relative; text-decoration: none; font-size: var(--fs-small); letter-spacing: 0.08em;
+  color: var(--ink-soft); padding-block: 6px; transition: color .25s ease;
+}
+.nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ink);
+  transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+}
+.nav a:hover, .nav a.is-active { color: var(--ink); }
+.nav a.is-active::after { transform: scaleX(1); }
+.lang {
+  display: inline-flex; border: 1px solid var(--line-strong); border-radius: 999px; padding: 3px;
+}
+.lang button {
+  border: 0; background: transparent; cursor: pointer; border-radius: 999px;
+  min-width: 40px; height: 30px; padding: 0 10px; font-size: 0.8125rem; letter-spacing: 0.06em; color: var(--ink-soft);
+}
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.header-cta { min-height: 38px; padding: 0 18px; font-size: 0.75rem; }
+.progress {
+  position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: var(--caramel);
+  transform: scaleX(var(--progress, 0)); transform-origin: left;
+}
+@media (max-width: 880px) {
+  .nav { display: none; }
+}
+@media (max-width: 420px) {
+  .brand-zh { display: none; }
+  .header-cta { padding: 0 12px; }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden;
+  padding-block: calc(var(--header-h) + 48px) clamp(28px, 5vh, 56px);
+}
+.hero-hair { position: absolute; inset: 0; width: 100%; height: 115%; pointer-events: none; }
+.hero-inner { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 28px; }
+.hero-copy { grid-column: 1 / span 6; display: grid; gap: 22px; justify-items: start; }
+.hero-title {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 1.35; letter-spacing: 0.04em; text-wrap: balance;
+}
+:root[lang="en"] .hero-title { font-family: var(--display); letter-spacing: 0; }
+.hero-sub { color: var(--ink-soft); max-width: 30em; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px; }
+.wordmark {
+  grid-column: 1 / -1; margin-top: clamp(16px, 4vh, 48px);
+  font-family: var(--display); font-weight: 400; font-size: var(--fs-wordmark);
+  line-height: 0.8; letter-spacing: 0.08em; margin-left: -0.04em;
+  display: flex; align-items: flex-end; gap: 0.12em; white-space: nowrap;
+}
+.wordmark small {
+  font-family: var(--serif); font-size: max(0.11em, 13px); letter-spacing: 0.5em; line-height: 1.4;
+  writing-mode: vertical-rl; color: var(--caramel); padding-bottom: 0.1em;
+}
+.hero-meta {
+  grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 32px;
+  padding-top: 18px; border-top: 1px solid var(--line-strong);
+  font-size: var(--fs-small); letter-spacing: 0.06em; color: var(--ink-soft);
+}
+.hero-meta .scroll-cue { margin-left: auto; display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.scroll-cue i { position: relative; display: block; width: 1px; height: 34px; background: var(--line-strong); overflow: hidden; }
+.scroll-cue i::after {
+  content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--ink);
+  animation: drip 2.2s cubic-bezier(.6, 0, .3, 1) infinite;
+}
+@keyframes drip { to { top: 100%; } }
+@media (max-width: 560px) {
+  .wordmark small { display: none; }
+}
+@media (max-width: 880px) {
+  .hero-copy { grid-column: 1 / -1; }
+  .hero-meta .scroll-cue { display: none; }
+}
+
+/* ---------- philosophy ---------- */
+.about { padding-block: clamp(96px, 16vh, 184px) clamp(80px, 12vh, 140px); }
+.about-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 40px; }
+.about-grid .eyebrow { grid-column: 1 / span 3; align-self: start; padding-top: 0.9em; }
+.statement {
+  grid-column: 4 / -1; font-family: var(--display); font-weight: 400;
+  font-size: var(--fs-statement); line-height: 1.55; letter-spacing: 0.02em; text-wrap: pretty;
+}
+:root[lang="zh-CN"] .statement { font-family: var(--serif); letter-spacing: 0.06em; }
+.statement .w { opacity: var(--o, 0.26); transition: opacity .25s linear; }
+.pillars {
+  grid-column: 4 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 44px);
+  padding-top: 32px; border-top: 1px solid var(--line-strong); margin-top: 24px;
+}
+.pillar { display: grid; gap: 8px; min-width: 0; }
+.pillar h3 { font-family: var(--serif); font-weight: 500; font-size: 1.125rem; letter-spacing: 0.04em; }
+:root[lang="en"] .pillar h3 { font-family: var(--display); letter-spacing: 0; font-size: 1.25rem; }
+.pillar p { color: var(--ink-soft); font-size: 0.9375rem; }
+@media (max-width: 880px) {
+  .about-grid .eyebrow, .statement, .pillars { grid-column: 1 / -1; }
+  .pillars { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- film ---------- */
+.film { position: relative; height: 270svh; background: var(--stage); }
+.film-stage {
+  position: sticky; top: 0; height: 100svh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  --chapters-h: 128px;
+}
+.film-head {
+  position: absolute; z-index: 2; left: 0; right: 0; top: calc(var(--header-h) + 3svh);
+  display: grid; gap: 14px; justify-items: start;
+  opacity: var(--head-o, 1); transform: translateY(var(--head-y, 0px));
+}
+.film-head .lead { max-width: 30em; }
+.film-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  max-height: calc(100svh - var(--chapters-h));
+  overflow: hidden; background: var(--stage);
+  transform: scale(var(--s, 0.56)); transform-origin: 50% 100%;
+  border-radius: var(--r, 0px);
+  will-change: transform;
+}
+.film-frame video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+  transform: scale(var(--vs, 1.1));
+}
+.film-toggle {
+  position: absolute; right: 18px; bottom: 18px; z-index: 2;
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(43, 33, 28, 0.25);
+  background: rgba(251, 248, 243, 0.78); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  display: grid; place-items: center; cursor: pointer; color: var(--ink);
+}
+.film-toggle svg { width: 16px; height: 16px; }
+.film-toggle .i-play { display: none; }
+.film-toggle[data-state="paused"] .i-play { display: block; }
+.film-toggle[data-state="paused"] .i-pause { display: none; }
+.chapters {
+  height: var(--chapters-h); flex: none;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 clamp(12px, 2.4vw, 36px);
+  align-content: center;
+}
+.chapter {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; row-gap: 2px; align-items: baseline;
+  width: 100%; text-align: left; border: 0; background: transparent; cursor: pointer; padding: 14px 0 0; position: relative;
+  color: var(--ink-soft); transition: color .3s ease;
+}
+.chapter::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--line-strong);
+}
+.chapter::after {
+  content: ""; position: absolute; left: 0; top: 0; height: 1px; width: 100%; background: var(--ink);
+  transform: scaleX(var(--cp, 0)); transform-origin: left;
+}
+.chapter.is-active { color: var(--ink); }
+.chapter .glyph { grid-row: span 2; font-family: var(--serif); font-size: 2.25rem; line-height: 1; color: inherit; }
+.chapter .name { font-family: var(--display); font-style: italic; font-size: 1.125rem; line-height: 1.3; }
+.chapter .name time { font-family: var(--body); font-style: normal; font-size: 0.75rem; letter-spacing: 0.12em; margin-left: 8px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.chapter .desc { font-size: 0.8125rem; line-height: 1.5; }
+@media (max-width: 880px) {
+  .film { height: 220svh; }
+  .film-stage { --chapters-h: 112px; justify-content: flex-end; padding-bottom: 5svh; }
+  .film-frame { transform: scale(var(--s, 0.86)); }
+  .chapter { grid-template-columns: minmax(0, 1fr); justify-items: start; }
+  .chapter .glyph { grid-row: auto; font-size: 1.75rem; }
+  .chapter .desc { display: none; }
+  .chapter .name time { display: none; }
+}
+
+/* ---------- services ---------- */
+.services { padding-block: clamp(96px, 14vh, 168px); position: relative; overflow: hidden; }
+.services-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 18px; align-items: end; margin-bottom: clamp(40px, 7vh, 72px); }
+.services-head > div { grid-column: 1 / span 6; display: grid; gap: 18px; justify-items: start; }
+.services-head .lead { grid-column: 8 / -1; font-size: 1rem; }
+.menu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 6vw, 96px); }
+.cat { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: clamp(16px, 2.4vw, 32px); padding-block: 36px 28px; border-top: 1px solid var(--line-strong); }
+.cat-glyph {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(3.75rem, 7vw, 6rem); line-height: 0.9;
+  color: var(--milk); will-change: transform;
+}
+.cat-body { min-width: 0; }
+.cat h3 { font-family: var(--display); font-weight: 400; font-size: var(--fs-h3); line-height: 1.2; margin-bottom: 14px; display: flex; align-items: baseline; gap: 12px; }
+.cat h3 span { font-family: var(--body); font-size: var(--fs-label); letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+.items { display: grid; }
+.item { padding-block: 12px; border-bottom: 1px dotted var(--line-strong); }
+.item:last-child { border-bottom: 0; }
+.item-row { display: flex; align-items: baseline; gap: 12px; }
+.item-name { font-weight: 400; min-width: 0; }
+.item-row::after { content: ""; order: 1; flex: 1; }
+.price { order: 2; font-variant-numeric: tabular-nums; font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; }
+.price .from { font-weight: 400; font-size: 0.8125rem; color: var(--ink-soft); margin-inline: 4px; }
+.item-meta { display: flex; gap: 14px; font-size: 0.8125rem; color: var(--ink-soft); line-height: 1.5; }
+.item-meta .dur { font-variant-numeric: tabular-nums; }
+.services-foot { margin-top: 28px; font-size: var(--fs-small); color: var(--ink-soft); max-width: 46em; }
+@media (max-width: 880px) {
+  .services-head > div, .services-head .lead { grid-column: 1 / -1; }
+  .menu { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- booking ---------- */
+.book { padding-block: clamp(80px, 12vh, 150px); background: var(--paper); border-top: 1px solid var(--line); }
+.book-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 7vw, 112px); align-items: start; }
+.book-intro { display: grid; gap: 18px; justify-items: start; margin-bottom: 40px; }
+.form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 28px; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+.field label, .field legend {
+  font-size: var(--fs-label); font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); padding: 0;
+}
+.field input, .field select, .field textarea {
+  width: 100%; border: 0; border-bottom: 1px solid var(--line-strong); background: transparent; border-radius: 0;
+  padding: 10px 0; font-size: 1rem; line-height: 1.5; transition: border-color .25s ease;
+}
+.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%), linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%); background-position: calc(100% - 10px) 52%, calc(100% - 5px) 52%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 24px; }
+.field textarea { resize: vertical; min-height: 88px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: var(--ink); box-shadow: 0 1px 0 var(--ink); }
+.field input::placeholder, .field textarea::placeholder { color: #A39488; }
+.field .err { min-height: 1.2em; font-size: 0.8125rem; color: #A3442E; line-height: 1.4; }
+.field.invalid input, .field.invalid select { border-bottom-color: #A3442E; }
+fieldset.field { border: 0; margin: 0; padding: 0; }
+.slots { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; }
+.field .slot { position: relative; padding: 0; font-size: 0.9375rem; font-weight: 400; letter-spacing: 0.02em; text-transform: none; color: var(--ink); }
+.slot input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; padding: 0; border: 0; opacity: 0; pointer-events: none; }
+.slot span {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 1px solid var(--line-strong);
+  font-size: 0.9375rem; font-variant-numeric: tabular-nums; cursor: pointer; transition: all .2s ease;
+}
+.slot span:hover { border-color: var(--ink); }
+.slot input:checked + span { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.slot input:focus-visible + span { outline: 2px solid var(--caramel); outline-offset: 2px; }
+.form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.form-actions p { font-size: 0.8125rem; color: var(--ink-soft); }
+.confirm { display: grid; gap: 20px; justify-items: start; padding: 32px 0; border-top: 1px solid var(--ink); }
+.confirm h3 { font-family: var(--display); font-weight: 400; font-size: var(--fs-h3); }
+:root[lang="zh-CN"] .confirm h3 { font-family: var(--serif); }
+.confirm dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 28px; width: 100%; }
+.confirm dt { font-size: var(--fs-label); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); padding-top: 3px; }
+.confirm dd { overflow-wrap: anywhere; }
+.confirm .note { font-size: var(--fs-small); color: var(--ink-soft); max-width: 36em; padding: 14px 16px; background: var(--cream); border-left: 2px solid var(--gold); }
+
+.visit { position: sticky; top: calc(var(--header-h) + 24px); display: grid; gap: 28px; padding: clamp(24px, 3vw, 40px); background: var(--cream); }
+.visit h3 { font-family: var(--display); font-weight: 400; font-size: var(--fs-h3); }
+:root[lang="zh-CN"] .visit h3 { font-family: var(--serif); }
+.visit dl { display: grid; gap: 22px; }
+.visit dt { font-size: var(--fs-label); font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); margin-bottom: 4px; }
+.visit dd { line-height: 1.7; }
+.visit .phone { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.visit .phone strong { font-weight: 500; font-size: 1.125rem; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; user-select: all; }
+.copy-btn { border: 1px solid var(--line-strong); background: transparent; min-height: 32px; padding: 0 12px; font-size: 0.75rem; letter-spacing: 0.12em; cursor: pointer; }
+.copy-btn:hover { border-color: var(--ink); }
+.hours { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 2px 20px; font-variant-numeric: tabular-nums; }
+.hours .muted { color: var(--ink-soft); }
+@media (max-width: 880px) {
+  .book-grid { grid-template-columns: minmax(0, 1fr); }
+  .visit { position: static; }
+}
+@media (max-width: 560px) {
+  .form { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- footer ---------- */
+.site-footer { background: var(--ink); color: var(--cream); padding-block: clamp(56px, 9vh, 96px) 32px; overflow: hidden; }
+.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; }
+.footer-mark { font-family: var(--display); font-size: clamp(3.5rem, 12vw, 9rem); line-height: 0.85; letter-spacing: 0.1em; }
+.footer-mark small { display: block; font-family: var(--serif); font-size: 0.16em; letter-spacing: 0.6em; color: var(--milk); margin-top: 18px; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: var(--fs-small); letter-spacing: 0.08em; }
+.footer-nav a { text-decoration: none; color: #D8CCBF; }
+.footer-nav a:hover { color: var(--cream); }
+.footer-bottom { margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(245, 239, 231, 0.18); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 0.8125rem; color: #B9AA9B; }
+
+/* ---------- motion ---------- */
+[data-speed] { will-change: transform; }
+.reveal-pre { opacity: 0; transform: translateY(28px); }
+.reveal-in { opacity: 1; transform: none; transition: opacity 1s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scroll-cue i::after { animation: none; }
+  .reveal-pre { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="SOIE 丝语">
+      <span class="brand-latin">SOIE</span><span class="brand-zh">丝语</span>
+    </a>
+    <nav class="nav" aria-label="主导航" data-i18n-aria="nav.label">
+      <a href="#about" data-i18n="nav.about">理念</a>
+      <a href="#film" data-i18n="nav.film">影片</a>
+      <a href="#services" data-i18n="nav.services">服务与价格</a>
+      <a href="#book" data-i18n="nav.book">预约</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="zh-CN" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-solid header-cta" href="#book" data-i18n="cta.book">预约</a>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+
+<main id="top">
+  <!-- hero -->
+  <section class="hero" aria-labelledby="wordmark">
+    <canvas class="hero-hair" id="hair" data-speed="0.3" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner">
+      <div class="hero-copy" data-speed="-0.16">
+        <p class="eyebrow" data-i18n="hero.eyebrow">上海 · 一对一预约制美发工作室</p>
+        <p class="hero-title" data-i18n="hero.title">让每一缕发丝，<br>说出你的语言。</p>
+        <p class="hero-sub" data-i18n="hero.sub">剪、染、烫、护，都从一次认真的沟通开始。每个时段只接待一位客人。</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="#book" data-i18n="hero.cta1">预约到店</a>
+          <a class="btn btn-ghost" href="#film">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+            <span data-i18n="hero.cta2">观看影片</span>
+          </a>
+        </div>
+      </div>
+      <h1 class="wordmark" id="wordmark" data-speed="-0.06">
+        <span>SOIE</span><small aria-hidden="true">丝语</small>
+        <span class="sr-only">丝语 Hair Atelier</span>
+      </h1>
+      <div class="hero-meta">
+        <span data-i18n="hero.hours">周二至周日 10:00–21:00</span>
+        <span data-i18n="hero.address">徐汇区梧桐路 18 号</span>
+        <a class="scroll-cue" href="#about"><span data-i18n="hero.scroll">向下滚动</span><i aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- philosophy -->
+  <section class="about" id="about" aria-labelledby="about-label">
+    <div class="wrap about-grid">
+      <p class="eyebrow" id="about-label" data-i18n="about.eyebrow">理念</p>
+      <p class="statement" id="statement" data-i18n="about.statement">我们相信，好的发型不是把你变成另一个人，而是让你更像自己。所以每一次剪刀落下之前，我们都先听你说。</p>
+      <div class="pillars">
+        <div class="pillar" data-reveal>
+          <h3 data-i18n="p1.t">一位客人，一个时段</h3>
+          <p data-i18n="p1.d">每个预约时段只服务一位客人，不赶时间，也不中途换人。</p>
+        </div>
+        <div class="pillar" data-reveal>
+          <h3 data-i18n="p2.t">先沟通，再动剪</h3>
+          <p data-i18n="p2.d">每次开始前有 15 分钟咨询，看发质、发流和脸型，再定方案。</p>
+        </div>
+        <div class="pillar" data-reveal>
+          <h3 data-i18n="p3.t">温和的配方</h3>
+          <p data-i18n="p3.d">染烫使用低氨植物配方，减少头皮负担，颜色也更耐看。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- film -->
+  <section class="film" id="film" aria-labelledby="film-title">
+    <div class="film-stage" id="film-stage">
+      <div class="film-head wrap">
+        <p class="eyebrow" data-i18n="film.eyebrow">影片</p>
+        <h2 class="h2" id="film-title" data-i18n="film.title">一缕发丝的四个瞬间</h2>
+        <p class="lead" data-i18n="film.desc">流动、修剪、上色、定型，是我们每天在工作台前做的四件事。</p>
+      </div>
+      <div class="film-frame" id="film-frame">
+        <video id="film-video" muted loop playsinline preload="metadata" poster="assets/soie-film-poster.jpg" aria-label="SOIE 品牌影片：发丝流动、修剪、染色与定型" data-i18n-aria="film.aria">
+          <source src="assets/soie-film.mp4" type="video/mp4">
+          <source src="assets/soie-film.webm" type="video/webm">
+        </video>
+        <button class="film-toggle" id="film-toggle" type="button" data-state="paused" aria-label="播放影片" data-i18n-aria="film.play">
+          <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+          <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <ol class="chapters wrap" id="chapters">
+        <li><button class="chapter" type="button" data-t="0" data-end="4">
+          <span class="glyph" aria-hidden="true">流</span>
+          <span class="name">Flow <time>00:00</time></span>
+          <span class="desc" data-i18n="ch1">观察发丝自然的走向</span>
+        </button></li>
+        <li><button class="chapter" type="button" data-t="4" data-end="8">
+          <span class="glyph" aria-hidden="true">剪</span>
+          <span class="name">Cut <time>00:04</time></span>
+          <span class="desc" data-i18n="ch2">沿着发型线精准修剪</span>
+        </button></li>
+        <li><button class="chapter" type="button" data-t="8" data-end="12">
+          <span class="glyph" aria-hidden="true">染</span>
+          <span class="name">Color <time>00:08</time></span>
+          <span class="desc" data-i18n="ch3">手刷挑染出柔和渐变</span>
+        </button></li>
+        <li><button class="chapter" type="button" data-t="12" data-end="16">
+          <span class="glyph" aria-hidden="true">型</span>
+          <span class="name">Style <time>00:12</time></span>
+          <span class="desc" data-i18n="ch4">吹整出有光泽的纹理</span>
+        </button></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- services -->
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="services-head">
+        <div>
+          <p class="eyebrow" data-i18n="svc.eyebrow">服务与价格</p>
+          <h2 class="h2" id="services-title" data-i18n="svc.title">价目表</h2>
+        </div>
+        <p class="lead" data-i18n="svc.lead">所有项目均含洗发与吹整。标注“起”的价格为起价，到店后根据发长与发量确认。</p>
+      </div>
+      <div class="menu" id="menu"></div>
+      <p class="services-foot" data-i18n="svc.foot">长发（过肩 15 cm 以上）或发量较多的客人，染烫项目另加 ¥100–300，咨询时会先告诉你。</p>
+    </div>
+  </section>
+
+  <!-- booking -->
+  <section class="book" id="book" aria-labelledby="book-title">
+    <div class="wrap book-grid">
+      <div>
+        <div class="book-intro">
+          <p class="eyebrow" data-i18n="book.eyebrow">预约</p>
+          <h2 class="h2" id="book-title" data-i18n="book.title">预约你的时段</h2>
+          <p class="lead" data-i18n="book.lead">选好项目和时间提交申请，门店会致电与你确认。</p>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <div class="field">
+            <label for="f-name" data-i18n="f.name">姓名</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="怎么称呼你" data-i18n-ph="f.name.ph" required>
+            <span class="err" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-phone" data-i18n="f.phone">手机号</label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="用于确认预约" data-i18n-ph="f.phone.ph" required>
+            <span class="err" aria-live="polite"></span>
+          </div>
+          <div class="field full">
+            <label for="f-service" data-i18n="f.service">服务项目</label>
+            <select id="f-service" name="service" required></select>
+            <span class="err" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-date" data-i18n="f.date">日期</label>
+            <input id="f-date" name="date" type="date" required>
+            <span class="err" aria-live="polite"></span>
+          </div>
+          <fieldset class="field full" id="f-time">
+            <legend data-i18n="f.time">时间</legend>
+            <div class="slots" id="slots"></div>
+            <span class="err" aria-live="polite"></span>
+          </fieldset>
+          <div class="field full">
+            <label for="f-notes" data-i18n="f.notes">备注（选填）</label>
+            <textarea id="f-notes" name="notes" rows="3" placeholder="现在的发长、想要的效果、过敏史等" data-i18n-ph="f.notes.ph"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-solid" type="submit" data-i18n="f.submit">提交预约</button>
+            <p data-i18n="f.hint">周一店休，最晚预约时段为 19:00。</p>
+          </div>
+        </form>
+
+        <div class="confirm" id="confirm" hidden>
+          <h3 data-i18n="c.title">预约申请已填写完成</h3>
+          <dl id="confirm-list"></dl>
+          <p class="note" data-i18n="c.note">这是演示网站，信息不会真正发送给门店。正式上线时可以接入预约系统、企业微信或邮件通知。</p>
+          <button class="btn btn-ghost" type="button" id="again" data-i18n="c.again">重新填写</button>
+        </div>
+      </div>
+
+      <aside class="visit" aria-labelledby="visit-title">
+        <h3 id="visit-title" data-i18n="v.title">到店信息</h3>
+        <dl>
+          <div>
+            <dt data-i18n="v.addr.l">地址</dt>
+            <dd data-i18n="v.addr">上海市徐汇区梧桐路 18 号 2 楼</dd>
+          </div>
+          <div>
+            <dt data-i18n="v.phone.l">电话</dt>
+            <dd class="phone"><strong id="phone">021-6123 4567</strong>
+              <button class="copy-btn" type="button" id="copy" data-i18n="v.copy">复制</button></dd>
+          </div>
+          <div>
+            <dt data-i18n="v.hours.l">营业时间</dt>
+            <dd class="hours">
+              <span data-i18n="v.d1">周二至周日</span><span>10:00–21:00</span>
+              <span class="muted" data-i18n="v.d2">周一</span><span class="muted" data-i18n="v.closed">店休</span>
+            </dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <p class="footer-mark">SOIE<small>丝语 · HAIR ATELIER</small></p>
+      <nav class="footer-nav" aria-label="页脚导航" data-i18n-aria="nav.footer">
+        <a href="#about" data-i18n="nav.about">理念</a>
+        <a href="#film" data-i18n="nav.film">影片</a>
+        <a href="#services" data-i18n="nav.services">服务与价格</a>
+        <a href="#book" data-i18n="nav.book">预约</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SOIE 丝语 Hair Atelier</span>
+      <span data-i18n="foot.addr">上海市徐汇区梧桐路 18 号 2 楼 · 021-6123 4567</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const lerp = (a, b, u) => a + (b - a) * u;
+
+  /* ---------- content ---------- */
+  const SERVICES = [
+    { glyph: '剪', zh: '剪发', en: 'Cut', items: [
+      { zh: '设计师剪发', en: 'Stylist cut', min: 60, price: 268 },
+      { zh: '总监剪发', en: 'Creative director cut', min: 75, price: 398 },
+      { zh: '儿童剪发（12 岁以下）', en: "Kids' cut (under 12)", min: 30, price: 128 },
+      { zh: '刘海修剪', en: 'Fringe trim', min: 15, price: 68 },
+    ] },
+    { glyph: '染', zh: '染发', en: 'Color', items: [
+      { zh: '单色染发', en: 'Single-process color', min: 120, price: 680, from: true },
+      { zh: '手刷挑染', en: 'Balayage', min: 180, price: 1280, from: true },
+      { zh: '漂发', en: 'Lightening', min: 150, price: 880, from: true },
+      { zh: '发根补染', en: 'Root touch-up', min: 75, price: 380 },
+    ] },
+    { glyph: '烫', zh: '烫发', en: 'Perm', items: [
+      { zh: '空气感纹理烫', en: 'Airy texture perm', min: 150, price: 980, from: true },
+      { zh: '数码烫', en: 'Digital perm', min: 180, price: 1180, from: true },
+      { zh: '离子拉直', en: 'Straightening', min: 180, price: 1080, from: true },
+    ] },
+    { glyph: '护', zh: '护理', en: 'Care', items: [
+      { zh: '头皮深层清洁', en: 'Scalp detox', min: 45, price: 380 },
+      { zh: '结构修护护理', en: 'Bond-repair treatment', min: 60, price: 480 },
+      { zh: '造型吹整', en: 'Blow-dry & style', min: 40, price: 158 },
+    ] },
+  ];
+  const SLOTS = ['10:00', '11:30', '13:00', '14:30', '16:00', '17:30', '19:00'];
+
+  const EN = {
+    'nav.label': 'Main', 'nav.footer': 'Footer',
+    'nav.about': 'About', 'nav.film': 'Film', 'nav.services': 'Services', 'nav.book': 'Booking', 'cta.book': 'Book',
+    'hero.eyebrow': 'Shanghai · One-to-one hair atelier',
+    'hero.title': 'Let every strand<br>speak your language.',
+    'hero.sub': 'Cut, color, perm and care, each starting with a real conversation. We see one guest per appointment.',
+    'hero.cta1': 'Book a visit', 'hero.cta2': 'Watch the film',
+    'hero.hours': 'Tue–Sun 10:00–21:00', 'hero.address': '18 Wutong Road, Xuhui', 'hero.scroll': 'Scroll',
+    'about.eyebrow': 'Philosophy',
+    'about.statement': 'We believe a good haircut doesn’t turn you into someone else. It makes you look more like yourself. So before the scissors move, we listen.',
+    'p1.t': 'One guest, one slot', 'p1.d': 'Each appointment is reserved for a single guest. Nobody rushes you, and nobody hands you off halfway.',
+    'p2.t': 'Talk first, then cut', 'p2.d': 'Every visit opens with a 15-minute consultation on hair texture, growth pattern and face shape.',
+    'p3.t': 'Gentle formulas', 'p3.d': 'Low-ammonia, plant-based color and perm products that are easier on the scalp and fade more gracefully.',
+    'film.eyebrow': 'The Film', 'film.title': 'Four moments in the life of a strand',
+    'film.desc': 'Flow, cut, color, style. The four things we do at the chair every day.',
+    'film.aria': 'SOIE brand film: hair flowing, being cut, colored and styled',
+    'film.play': 'Play film', 'film.pause': 'Pause film',
+    'ch1': 'Read how the hair falls', 'ch2': 'Cut precisely along the line', 'ch3': 'Hand-painted balayage', 'ch4': 'Glossy, lived-in texture',
+    'svc.eyebrow': 'Services & Pricing', 'svc.title': 'Price list',
+    'svc.lead': 'Every service includes a wash and blow-dry. Prices marked “from” are starting rates, confirmed in person based on length and thickness.',
+    'svc.foot': 'For long hair (15 cm or more past the shoulders) or very thick hair, color and perm services add ¥100–300. We’ll tell you during the consultation, before we start.',
+    'book.eyebrow': 'Booking', 'book.title': 'Reserve your chair', 'book.lead': 'Pick a service and a time, and the salon will call you to confirm.',
+    'f.name': 'Name', 'f.name.ph': 'What should we call you?',
+    'f.phone': 'Phone', 'f.phone.ph': 'So we can confirm your visit',
+    'f.service': 'Service', 'f.date': 'Date', 'f.time': 'Time',
+    'f.notes': 'Notes (optional)', 'f.notes.ph': 'Current length, the look you want, any allergies…',
+    'f.submit': 'Request booking', 'f.hint': 'Closed Mondays. Last booking starts at 19:00.',
+    'c.title': 'Your booking request is ready',
+    'c.note': 'This is a demo site, so nothing is sent to the salon. A live version can connect to a booking system, WeCom or email.',
+    'c.again': 'Start over',
+    'v.title': 'Visit us', 'v.addr.l': 'Address', 'v.addr': '2F, 18 Wutong Road, Xuhui District, Shanghai',
+    'v.phone.l': 'Phone', 'v.copy': 'Copy', 'v.hours.l': 'Hours', 'v.d1': 'Tue–Sun', 'v.d2': 'Monday', 'v.closed': 'Closed',
+    'foot.addr': '2F, 18 Wutong Road, Xuhui, Shanghai · 021-6123 4567',
+  };
+  // strings only used from script
+  const MSG = {
+    'zh-CN': {
+      pick: '请选择项目', min: '分钟', from: '起',
+      needName: '请填写称呼', needPhone: '请填写有效的手机号', needService: '请选择一个服务项目',
+      needDate: '请选择日期', past: '请选择今天或之后的日期', monday: '周一店休，请换一天', needTime: '请选择时间',
+      lName: '姓名', lPhone: '电话', lService: '项目', lWhen: '时间', lNotes: '备注',
+      copied: '已复制', copyFail: '请手动选中号码复制', play: '播放影片', pause: '暂停影片',
+      week: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+    },
+    en: {
+      pick: 'Choose a service', min: 'min', from: 'from',
+      needName: 'Please tell us your name', needPhone: 'Please enter a valid phone number', needService: 'Please choose a service',
+      needDate: 'Please choose a date', past: 'Please choose today or a later date', monday: 'We’re closed on Mondays. Please pick another day.', needTime: 'Please choose a time',
+      lName: 'Name', lPhone: 'Phone', lService: 'Service', lWhen: 'When', lNotes: 'Notes',
+      copied: 'Copied', copyFail: 'Select the number to copy it', play: 'Play film', pause: 'Pause film',
+      week: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    },
+  };
+
+  /* ---------- i18n ---------- */
+  const ZH = {};
+  $$('[data-i18n]').forEach(el => { ZH[el.dataset.i18n] = el.innerHTML; });
+  $$('[data-i18n-ph]').forEach(el => { ZH[el.dataset.i18nPh] = el.getAttribute('placeholder'); });
+  $$('[data-i18n-aria]').forEach(el => { ZH[el.dataset.i18nAria] = el.getAttribute('aria-label'); });
+
+  let lang = 'zh-CN';
+  try { const saved = localStorage.getItem('soie-lang'); if (saved === 'en' || saved === 'zh-CN') lang = saved; } catch (e) {}
+  const t = key => (lang === 'en' ? EN[key] : ZH[key]) ?? ZH[key] ?? key;
+  const m = key => MSG[lang][key];
+
+  function applyLang(next) {
+    lang = next;
+    root.lang = lang;
+    $$('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+    $$('[data-i18n-ph]').forEach(el => el.setAttribute('placeholder', t(el.dataset.i18nPh)));
+    $$('[data-i18n-aria]').forEach(el => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
+    $$('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    splitStatement();
+    renderMenu();
+    renderServiceOptions();
+    syncToggle();
+    if (!$('#confirm').hidden && lastBooking) showConfirm(lastBooking);
+    $$('.field.invalid').forEach(f => validateField(f));
+    measureFilm();
+    try { localStorage.setItem('soie-lang', lang); } catch (e) {}
+    requestTick();
+  }
+  $$('.lang button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+  /* ---------- statement: words light up as you scroll ---------- */
+  const statement = $('#statement');
+  let words = [];
+  function splitStatement() {
+    const text = statement.textContent.trim();
+    const parts = lang === 'en' ? text.split(/(\s+)/) : [...text];
+    statement.innerHTML = parts.map(p => /^\s+$/.test(p) ? p : `<span class="w">${p}</span>`).join('');
+    words = $$('.w', statement);
+  }
+
+  /* ---------- services ---------- */
+  const fmt = n => '¥' + n.toLocaleString('en-US');
+  function renderMenu() {
+    $('#menu').innerHTML = SERVICES.map((c, i) => `
+      <article class="cat" data-reveal>
+        <span class="cat-glyph" data-speed="${i % 2 ? 0.07 : 0.12}" aria-hidden="true">${c.glyph}</span>
+        <div class="cat-body">
+          <h3>${lang === 'en' ? c.en : c.zh}<span>${lang === 'en' ? c.zh : c.en}</span></h3>
+          <ul class="items">
+            ${c.items.map(it => `
+              <li class="item">
+                <div class="item-row">
+                  <span class="item-name">${lang === 'en' ? it.en : it.zh}</span>
+                  <span class="price">${it.from && lang === 'en' ? `<span class="from">${m('from')}</span>` : ''}${fmt(it.price)}${it.from && lang !== 'en' ? `<span class="from">${m('from')}</span>` : ''}</span>
+                </div>
+                <div class="item-meta">
+                  ${lang === 'en' ? '' : `<span>${it.en}</span>`}
+                  <span class="dur">${it.min} ${m('min')}</span>
+                </div>
+              </li>`).join('')}
+          </ul>
+        </div>
+      </article>`).join('');
+    collectParallax();
+  }
+
+  /* ---------- booking form ---------- */
+  const form = $('#form');
+  const sel = $('#f-service');
+  function renderServiceOptions() {
+    const keep = sel.value;
+    sel.innerHTML = `<option value="">${m('pick')}</option>` + SERVICES.map((c, ci) =>
+      `<optgroup label="${lang === 'en' ? c.en : c.zh}">${c.items.map((it, ii) =>
+        `<option value="${ci}-${ii}">${lang === 'en' ? it.en : it.zh} · ${it.from && lang === 'en' ? m('from') + ' ' : ''}${fmt(it.price)}${it.from && lang !== 'en' ? m('from') : ''}</option>`).join('')}</optgroup>`).join('');
+    sel.value = keep;
+  }
+  $('#slots').innerHTML = SLOTS.map((s, i) =>
+    `<label class="slot"><input type="radio" name="time" value="${s}" ${i === 0 ? 'id="f-time-first"' : ''}><span>${s}</span></label>`).join('');
+
+  const pad = n => String(n).padStart(2, '0');
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
+  $('#f-date').min = todayStr;
+
+  function fieldError(field) {
+    const input = $('input, select, textarea', field);
+    const v = (field.id === 'f-time' ? (form.elements.time.value || '') : input.value).trim();
+    switch (field.id === 'f-time' ? 'time' : input.name) {
+      case 'name': return v ? '' : m('needName');
+      case 'phone': return v.replace(/\D/g, '').length >= 7 ? '' : m('needPhone');
+      case 'service': return v ? '' : m('needService');
+      case 'date': {
+        if (!v) return m('needDate');
+        if (v < todayStr) return m('past');
+        return new Date(v + 'T12:00').getDay() === 1 ? m('monday') : '';
+      }
+      case 'time': return v ? '' : m('needTime');
+    }
+    return '';
+  }
+  function validateField(field) {
+    const err = fieldError(field);
+    field.classList.toggle('invalid', !!err);
+    const slot = $('.err', field);
+    if (slot) slot.textContent = err;
+    return !err;
+  }
+  const checked = () => $$('.field', form).filter(f => $('.err', f));
+  form.addEventListener('change', e => {
+    const f = e.target.closest('.field');
+    if (f && f.classList.contains('invalid')) validateField(f);
+    if (e.target.name === 'date') validateField(f);
+  });
+
+  let lastBooking = null;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = checked().filter(f => !validateField(f));
+    if (bad.length) {
+      const first = $('input, select, textarea', bad[0]);
+      first.focus({ preventScroll: true });
+      bad[0].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      return;
+    }
+    const fd = new FormData(form);
+    lastBooking = Object.fromEntries(fd.entries());
+    showConfirm(lastBooking);
+  });
+  function showConfirm(b) {
+    const [ci, ii] = b.service.split('-').map(Number);
+    const it = SERVICES[ci].items[ii];
+    const d = new Date(b.date + 'T12:00');
+    const when = lang === 'en'
+      ? `${m('week')[d.getDay()]}, ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} · ${b.time}`
+      : `${d.getFullYear()} 年 ${d.getMonth() + 1} 月 ${d.getDate()} 日（${m('week')[d.getDay()]}）${b.time}`;
+    const rows = [
+      [m('lName'), b.name], [m('lPhone'), b.phone],
+      [m('lService'), `${lang === 'en' ? it.en : it.zh} · ${it.min} ${m('min')}`],
+      [m('lWhen'), when],
+    ];
+    if (b.notes && b.notes.trim()) rows.push([m('lNotes'), b.notes.trim()]);
+    const list = $('#confirm-list');
+    list.innerHTML = '';
+    rows.forEach(([k, v]) => {
+      const dt = document.createElement('dt'); dt.textContent = k;
+      const dd = document.createElement('dd'); dd.textContent = v;
+      list.append(dt, dd);
+    });
+    form.hidden = true;
+    $('#confirm').hidden = false;
+  }
+  $('#again').addEventListener('click', () => {
+    form.reset();
+    lastBooking = null;
+    $$('.field', form).forEach(f => { f.classList.remove('invalid'); const s = $('.err', f); if (s) s.textContent = ''; });
+    $('#confirm').hidden = true;
+    form.hidden = false;
+    $('#f-name').focus();
+  });
+
+  $('#copy').addEventListener('click', async e => {
+    const btn = e.currentTarget;
+    const num = $('#phone').textContent;
+    try {
+      await navigator.clipboard.writeText(num);
+      btn.textContent = m('copied');
+    } catch (err) {
+      const r = document.createRange(); r.selectNodeContents($('#phone'));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = m('copyFail');
+    }
+    setTimeout(() => { btn.textContent = t('v.copy'); }, 1800);
+  });
+
+  /* ---------- film ---------- */
+  const video = $('#film-video');
+  const toggle = $('#film-toggle');
+  const chapters = $$('.chapter');
+  let userPaused = reduceMotion;
+  function syncToggle() {
+    const paused = video.paused;
+    toggle.dataset.state = paused ? 'paused' : 'playing';
+    toggle.setAttribute('aria-label', paused ? m('play') : m('pause'));
+  }
+  const tryPlay = () => { const p = video.play(); if (p) p.catch(() => {}); };
+  toggle.addEventListener('click', () => {
+    if (video.paused) { userPaused = false; tryPlay(); } else { userPaused = true; video.pause(); }
+  });
+  video.addEventListener('play', syncToggle);
+  video.addEventListener('pause', syncToggle);
+  chapters.forEach(c => c.addEventListener('click', () => {
+    video.currentTime = Number(c.dataset.t) + 0.05;
+    userPaused = false; tryPlay();
+  }));
+  function updateChapters() {
+    const ct = video.currentTime;
+    chapters.forEach(c => {
+      const a = Number(c.dataset.t), b = Number(c.dataset.end);
+      const on = ct >= a && ct < b;
+      c.classList.toggle('is-active', on);
+      c.style.setProperty('--cp', on ? ((ct - a) / (b - a)).toFixed(3) : 0);
+    });
+    if (!video.paused) requestAnimationFrame(updateChapters);
+  }
+  video.addEventListener('play', () => requestAnimationFrame(updateChapters));
+  video.addEventListener('seeked', updateChapters);
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { if (!userPaused) tryPlay(); } else video.pause();
+  }, { threshold: 0.25 }).observe($('#film-frame'));
+
+  /* ---------- reveal ---------- */
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('reveal-in'); e.target.classList.remove('reveal-pre'); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -8% 0px' });
+  function armReveals() {
+    if (reduceMotion) return;
+    $$('[data-reveal]').forEach(el => {
+      if (el.classList.contains('reveal-in') || el.classList.contains('reveal-pre')) return;
+      if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('reveal-pre'); io.observe(el); }
+    });
+  }
+
+  /* ---------- scroll engine: parallax, statement, pinned film ---------- */
+  const header = $('#header');
+  const progress = $('.progress');
+  const filmSec = $('#film'), stage = $('#film-stage'), frame = $('#film-frame'), head = $('.film-head');
+  const navLinks = $$('.nav a');
+  const sections = navLinks.map(a => $(a.getAttribute('href')));
+  let parallax = [];
+  function collectParallax() { parallax = reduceMotion ? [] : $$('[data-speed]'); }
+
+  let filmS0 = 0.56;
+  function measureFilm() {
+    if (innerWidth <= 880) { filmS0 = 0.86; return; }
+    const fh = frame.offsetHeight, headBottom = head.offsetTop + head.offsetHeight;
+    filmS0 = clamp((frame.offsetTop + fh - headBottom - 28) / fh, 0.4, 0.6);
+  }
+
+  let ticking = false;
+  function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(frameTick); } }
+  function frameTick() {
+    ticking = false;
+    const vh = innerHeight, y = scrollY;
+    const max = document.documentElement.scrollHeight - vh;
+    progress.style.setProperty('--progress', max > 0 ? (y / max).toFixed(4) : 0);
+    header.classList.toggle('is-solid', y > vh * 0.6);
+
+    let current = -1;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top <= vh * 0.4) current = i; });
+    navLinks.forEach((a, i) => a.classList.toggle('is-active', i === current));
+
+    for (const el of parallax) {
+      const r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) continue;
+      const offset = (r.top + r.height / 2 - vh / 2) * Number(el.dataset.speed);
+      el.style.transform = `translate3d(0, ${(-offset).toFixed(1)}px, 0)`;
+    }
+
+    // statement: from when its top reaches 85% of the viewport to when its bottom reaches 45%
+    const sr = statement.getBoundingClientRect();
+    const sp = clamp((vh * 0.85 - sr.top) / (sr.height + vh * 0.4));
+    const n = words.length;
+    words.forEach((w, i) => {
+      const o = reduceMotion ? 1 : 0.26 + 0.74 * clamp(sp * n * 1.15 - i);
+      w.style.setProperty('--o', o.toFixed(3));
+    });
+
+    // film: grows from a framed card to full bleed over the first 65% of the pin
+    const fr = filmSec.getBoundingClientRect();
+    const span = fr.height - vh;
+    const fp = reduceMotion ? 1 : clamp(-fr.top / (span * 0.65));
+    const e = 1 - Math.pow(1 - fp, 3);
+    const narrow = innerWidth <= 880;
+    const s = lerp(filmS0, 1, e);
+    frame.style.setProperty('--s', s.toFixed(4));
+    frame.style.setProperty('--r', (lerp(narrow ? 10 : 18, 0, e) / s).toFixed(2) + 'px');
+    frame.style.setProperty('--vs', lerp(1.12, 1, e).toFixed(4));
+    head.style.setProperty('--head-o', narrow ? 1 : clamp(1 - fp * 2.2).toFixed(3));
+    head.style.setProperty('--head-y', narrow ? '0px' : (-fp * 60).toFixed(1) + 'px');
+  }
+  addEventListener('scroll', requestTick, { passive: true });
+  addEventListener('resize', () => { measureFilm(); requestTick(); sizeHair(); });
+
+  /* ---------- hero hair (live strands, same model as the film) ---------- */
+  const cv = $('#hair'), ctx = cv.getContext('2d');
+  let W = 0, H = 0, strands = [], heroVisible = true, wind = 0, lastMX = null;
+  function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let x = Math.imul(seed ^ seed >>> 15, 1 | seed); x = x + Math.imul(x ^ x >>> 7, 61 | x) ^ x; return ((x ^ x >>> 14) >>> 0) / 4294967296; }; }
+  function sizeHair() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const r = cv.getBoundingClientRect();
+    if (!r.width) return;
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const R = rng(7);
+    const narrow = W < 880;
+    const x0 = narrow ? W * 0.02 : W * 0.46, x1 = narrow ? W * 0.98 : W * 1.02;
+    const count = Math.round(narrow ? 46 : 92);
+    strands = [];
+    for (let i = 0; i < count; i++) {
+      const clump = Math.floor(i / 4);
+      const u = i / (count - 1);
+      const x = lerp(x0, x1, u) + (R() - 0.5) * 18;
+      const depth = R();
+      strands.push({
+        x, y: -10 - R() * 20,
+        L: H * (narrow ? 0.62 : 0.86) * (0.82 + R() * 0.22),
+        a0: Math.PI / 2 + (u - 0.5) * -0.3,
+        ph: clump * 0.9 + R() * 0.5, amp: 0.7 + R() * 0.5,
+        w: lerp(0.7, 1.7, depth), a: narrow ? lerp(0.1, 0.26, depth) : lerp(0.18, 0.62, depth),
+        tone: R(),
+      });
+    }
+    drawHair(performance.now() / 1000);
+  }
+  const SEG = 30;
+  function drawHair(time) {
+    if (!W) return;
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineCap = 'round';
+    wind *= 0.96;
+    for (const s of strands) {
+      const ds = s.L / SEG, A = (0.1 + wind) * s.amp;
+      let x = s.x, y = s.y;
+      const g = ctx.createLinearGradient(0, s.y, 0, s.y + s.L);
+      g.addColorStop(0, 'rgba(59,42,33,0)');
+      g.addColorStop(0.16, `rgba(59,42,33,${s.a})`);
+      g.addColorStop(0.5, `rgba(${110 + s.tone * 20 | 0},70,48,${s.a})`);
+      g.addColorStop(0.82, `rgba(${190 + s.tone * 26 | 0},${150 + s.tone * 20 | 0},122,${s.a * 0.55})`);
+      g.addColorStop(1, 'rgba(214,180,150,0)');
+      ctx.strokeStyle = g; ctx.lineWidth = s.w;
+      ctx.beginPath(); ctx.moveTo(x, y);
+      let px = x, py = y;
+      for (let j = 0; j < SEG; j++) {
+        const sl = (j + 0.5) * ds, u = sl / s.L;
+        let a = Math.PI / 2 + (s.a0 - Math.PI / 2) * Math.exp(-sl / 240);
+        a += A * Math.pow(u, 1.25) * Math.sin(time * 1.6 - sl * 0.006 + s.ph);
+        x += Math.cos(a) * ds; y += Math.sin(a) * ds;
+        ctx.quadraticCurveTo(px, py, (px + x) / 2, (py + y) / 2);
+        px = x; py = y;
+      }
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    }
+  }
+  function loop(ts) {
+    if (heroVisible && !document.hidden) drawHair(ts / 1000);
+    requestAnimationFrame(loop);
+  }
+  addEventListener('pointermove', e => {
+    if (lastMX !== null) wind = Math.min(0.32, wind + Math.abs(e.clientX - lastMX) * 0.0009);
+    lastMX = e.clientX;
+  }, { passive: true });
+  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }).observe($('.hero'));
+
+  /* ---------- boot ---------- */
+  applyLang(lang);
+  collectParallax();
+  sizeHair();
+  if (!reduceMotion) requestAnimationFrame(loop);
+  armReveals();
+  requestTick();
+  syncToggle();
+  if (document.fonts) document.fonts.ready.then(() => { measureFilm(); requestTick(); });
+})();
+</script>
+</body>
+</html>
