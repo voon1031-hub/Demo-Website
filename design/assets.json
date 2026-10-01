@@ -1,0 +1,30 @@
+{
+  "higgsfieldProject": "MY FIZZ Website (9eeca652-8e4f-49fa-a764-326c0e36696e)",
+  "cdn": "https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/",
+  "images": {
+    "cansLineup": { "job": "b1f5e940-6558-4770-a025-748770362c6d", "file": "hf_20261001_095628_b1f5e940-6558-4770-a025-748770362c6d.png", "use": "approved MY FIZZ can design, og:image" },
+    "canPurple": { "job": "34e1e5a6-9793-4863-bc2f-0ad88c9da364", "file": "hf_20261001_100032_34e1e5a6-9793-4863-bc2f-0ad88c9da364.png", "use": "transparent cutout, drop scene + lineup card" },
+    "canOrange": { "job": "b3a4c150-e20e-4b6f-be4b-b472c8f3c2d6", "file": "hf_20261001_100031_b3a4c150-e20e-4b6f-be4b-b472c8f3c2d6.png", "use": "transparent cutout, drop scene + lineup card" },
+    "canGreen": { "job": "d952836d-9893-4270-bc13-06ae01e0704c", "file": "hf_20261001_100032_d952836d-9893-4270-bc13-06ae01e0704c.png", "use": "transparent cutout, drop scene + lineup card" },
+    "machine": { "job": "f99ca4f1-ac8e-46e0-8ad8-16b0d39d5d4e", "file": "hf_20261001_100434_f99ca4f1-ac8e-46e0-8ad8-16b0d39d5d4e.png", "use": "approved capsule vending machine (reference for keyframes)" },
+    "storyboard": { "job": "e9bcf2ef-ec8f-4698-825c-eae1c760c617", "file": "hf_20261001_100548_e9bcf2ef-ec8f-4698-825c-eae1c760c617.png", "use": "storyboard v2" },
+    "coinMacro": { "job": "f0daae3e-eeeb-4cbc-be4d-fb1832e2885a", "file": "hf_20261001_100907_f0daae3e-eeeb-4cbc-be4d-fb1832e2885a.png", "use": "coin video first frame / poster" },
+    "machineLit": { "job": "4517ce9b-1918-4fa2-8bf7-7f7ef9cba52e", "file": "hf_20261001_100907_4517ce9b-1918-4fa2-8bf7-7f7ef9cba52e.png", "use": "coin video last frame, Made in Malaysia image" },
+    "tubeBackground": { "job": "0cdf6cd7-3b53-4d35-b3c5-d20445af56fc", "file": "hf_20261001_100907_0cdf6cd7-3b53-4d35-b3c5-d20445af56fc.png", "use": "drop scene background" },
+    "fruitPurple": { "job": "519559d8-39fc-4bb9-a6e5-0490b048c22c", "file": "hf_20261001_100907_519559d8-39fc-4bb9-a6e5-0490b048c22c.png", "use": "floating ingredients, transparent" },
+    "fruitOrange": { "job": "eda2c36b-28e8-46af-9321-27e137f0c1a4", "file": "hf_20261001_100959_eda2c36b-28e8-46af-9321-27e137f0c1a4.png", "use": "floating ingredients, transparent" },
+    "fruitGreen": { "job": "df86a01b-4853-4902-a8be-ee57dd8aba04", "file": "hf_20261001_101000_df86a01b-4853-4902-a8be-ee57dd8aba04.png", "use": "floating ingredients, transparent" },
+    "trayPurple": { "job": "be938ea9-ded1-4db9-9cfb-b9059cee335d", "file": "hf_20261001_101000_be938ea9-ded1-4db9-9cfb-b9059cee335d.png", "use": "purple drink video first frame / poster" },
+    "trayOrange": { "job": "ded6e0b9-a2c9-422b-ba69-d7663699b7fc", "file": "hf_20261001_100959_ded6e0b9-a2c9-422b-ba69-d7663699b7fc.png", "use": "orange drink video first frame / poster" },
+    "trayGreen": { "job": "594dd9c8-fc91-4101-bc2f-cc9f39ff4f73", "file": "hf_20261001_101055_594dd9c8-fc91-4101-bc2f-cc9f39ff4f73.png", "use": "green drink video first frame / poster" },
+    "drinkPurple": { "job": "0b39ef0f-ae83-4cc8-88cd-6be2f446cfcb", "file": "hf_20261001_101055_0b39ef0f-ae83-4cc8-88cd-6be2f446cfcb.png", "use": "purple drink video last frame" },
+    "drinkOrange": { "job": "f2962b04-c951-4f16-a6f6-75bd01b618e5", "file": "hf_20261001_101055_f2962b04-c951-4f16-a6f6-75bd01b618e5.png", "use": "orange drink video last frame" },
+    "drinkGreen": { "job": "e8019860-feb8-45a1-9937-dd6e9fe74cf5", "file": "hf_20261001_101055_e8019860-feb8-45a1-9937-dd6e9fe74cf5.png", "use": "green drink video last frame" }
+  },
+  "videos": {
+    "coin": { "job": "3170ad1d-6296-4877-822d-746efb73f682", "file": "hf_20261001_102026_3170ad1d-6296-4877-822d-746efb73f682.mp4", "model": "kling3_0 pro, 10s, 16:9" },
+    "drinkPurple": { "job": "de87d131-2a6b-492e-9225-4248d2ce8ba6", "file": "hf_20261001_102107_de87d131-2a6b-492e-9225-4248d2ce8ba6.mp4", "model": "kling3_0 pro, 10s, 16:9" },
+    "drinkOrange": { "job": "51680635-3b4e-459d-886d-33d8642ea197", "file": "hf_20261001_102107_51680635-3b4e-459d-886d-33d8642ea197.mp4", "model": "kling3_0 pro, 10s, 16:9" },
+    "drinkGreen": { "job": "eaff4051-35c5-444d-a32c-ec607e4d427c", "file": "hf_20261001_102107_eaff4051-35c5-444d-a32c-ec607e4d427c.mp4", "model": "kling3_0 pro, 10s, 16:9" }
+  }
+}
