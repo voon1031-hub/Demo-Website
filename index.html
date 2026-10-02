@@ -1,17 +1,21 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <!--
   ══════════════════════════════════════════════════════════════════
-  ★ 素材与店铺资料 —— 只需要改这里 ★
+  ★ MEDIA & SHOP DETAILS — this is the only part you need to edit ★
 
-  video  : 背景短视频（建议 5–8 秒、静音、MP4/H.264、竖向 1080×1920 或以下，
-           单个文件尽量控制在 3MB 内，手机流量更友好）
-  poster : 视频封面图（JPG/WebP）。视频还没加载好、或手机省电模式不自动播放时显示。
+  video  : background clip (5–8 s, MP4/H.264, portrait 1080×1920 or smaller;
+           aim for under 3 MB per file so it loads fast on mobile data).
+           It always plays muted, so the audio track doesn't matter.
+  poster : cover image (JPG/WebP), shown until the video starts playing,
+           or when a phone blocks autoplay (e.g. iPhone Low Power Mode).
 
-  路径留空 "" 或文件不存在时，会显示深色占位画面 + 场景名称，不会黑屏。
-  直接把文件放进 videos/ 和 images/ 文件夹，用下面的文件名即可，无需改代码。
+  If a path is empty "" or the file is missing, a dark placeholder with the
+  scene name is shown instead, so the screen is never black.
+  Just drop your files into videos/ and images/ using the names below.
+  No code changes needed.
   ══════════════════════════════════════════════════════════════════
 -->
 <script>
@@ -26,23 +30,23 @@ window.FORNELLO = {
     visit:       { video: "videos/07-visit.mp4",       poster: "images/07-visit.jpg" }
   },
   contact: {
-    whatsapp: "60123456789",                       // 国际格式，只要数字（含国家码，不要 + 和 0 开头）
-    whatsappMessage: "你好 Fornello，我想订位：日期 / 时间 / 人数 —",
-    address: "Jalan Contoh 12, Kuala Lumpur",      // 显示在页面上，也用于 Google 地图导航
-    mapsUrl: "",                                   // 可选：填 Google 地图分享链接，会优先使用
+    whatsapp: "60123456789",                       // digits only, with country code (no "+", no leading 0)
+    whatsappMessage: "Hi Fornello! I'd like to book a table. Date / time / number of guests:",
+    address: "12 Jalan Contoh, Kuala Lumpur",      // shown on the page and used for Google Maps directions
+    mapsUrl: "",                                   // optional: paste a Google Maps share link to use instead
     hours: [
-      ["周二至周日", "11:30 – 22:00"],
-      ["周一", "店休"]
+      ["Tue – Sun", "11:30am – 10pm"],
+      ["Mon", "Closed"]
     ]
   },
-  signatureInterval: 3200                          // 第 5 屏三款披萨轮播间隔（毫秒）
+  signatureInterval: 3200                          // screen 5: time each signature pizza is shown (ms)
 };
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#16120F">
-<meta name="description" content="Fornello 柴火披萨 —— 柴火烤，现做现吃。72 小时慢发酵面团，每天早上新鲜进货。">
-<title>Fornello 柴火披萨</title>
+<meta name="description" content="Fornello: wood-fired pizza, made to order. 72-hour slow-rise dough and ingredients delivered fresh every morning.">
+<title>Fornello · Wood-Fired Pizza</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2316120F'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' text-anchor='middle' fill='%23E04A2F'%3EF%3C/text%3E%3C/svg%3E">
 <script>document.documentElement.classList.add('js');</script>
 
@@ -55,10 +59,9 @@ window.FORNELLO = {
     --charcoal: #16120F;
     --charcoal-2: #221B16;
 
-    --serif: "Playfair Display", "Bodoni 72", Didot, "Noto Serif SC", "Source Han Serif SC",
-             "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
-            "Noto Sans SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+    --serif: "Playfair Display", "Bodoni 72", Didot, "Bodoni MT", Baskerville,
+             "Hoefler Text", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
     --gutter: 24px;
     --dots-space: 52px;
@@ -77,7 +80,7 @@ window.FORNELLO = {
     overflow: hidden;
   }
 
-  /* ───────── 全屏分页容器 ───────── */
+  /* ───────── Full-screen snap container ───────── */
   .scroller {
     position: fixed;
     inset: 0;
@@ -103,7 +106,7 @@ window.FORNELLO = {
     isolation: isolate;
   }
 
-  /* ───────── 背景层：占位 / 封面 / 视频 / 遮罩 ───────── */
+  /* ───────── Background: placeholder / poster / video / shade ───────── */
   .bg { position: absolute; inset: 0; z-index: -1; }
 
   .ph {
@@ -112,7 +115,7 @@ window.FORNELLO = {
     background-size: cover;
     background-position: center;
   }
-  .ph::after {             /* 缓慢呼吸的光，让占位画面不至于死板 */
+  .ph::after {             /* slow breathing glow so the placeholder doesn't feel static */
     content: "";
     position: absolute; inset: 0;
     background: var(--glow, none);
@@ -143,8 +146,9 @@ window.FORNELLO = {
     border-top: 4.5px solid transparent;
     border-bottom: 4.5px solid transparent;
   }
-  .ph-label span { display: block; font-family: var(--serif); font-size: clamp(18px, 4.6vw, 26px); }
+  .ph-label span { display: block; font-family: var(--serif); font-style: italic; font-size: clamp(18px, 4.6vw, 26px); }
   .ph.has-poster .ph-label { display: none; }
+  @media (max-height: 640px) { .ph-label { top: 10%; } }   /* keep clear of the text on short screens */
 
   .bg video {
     position: absolute; inset: 0;
@@ -167,7 +171,7 @@ window.FORNELLO = {
       linear-gradient(to top, rgba(22,18,15,.96) 0%, rgba(22,18,15,.85) 45%, rgba(22,18,15,.3) 75%, rgba(22,18,15,.1) 100%);
   }
 
-  /* 各场景占位色调 */
+  /* Placeholder tint for each scene */
   .screen--fire        { --ph: radial-gradient(120% 70% at 50% 100%, #C2461E 0%, #6E220E 30%, #2A1610 62%, #120E0C 100%);
                          --glow: radial-gradient(60% 40% at 50% 92%, rgba(255,140,60,.35), transparent 70%); }
   .screen--dough       { --ph: radial-gradient(90% 60% at 35% 40%, #5E4E3C 0%, #2E251D 50%, #15110E 100%);
@@ -190,7 +194,7 @@ window.FORNELLO = {
 
   @keyframes breathe { from { opacity: .55; } to { opacity: 1; } }
 
-  /* ───────── 文字内容 ───────── */
+  /* ───────── Text content ───────── */
   .content {
     position: relative;
     width: 100%;
@@ -216,21 +220,22 @@ window.FORNELLO = {
   h1, h2 {
     font-family: var(--serif);
     font-weight: 600;
-    line-height: 1.08;
+    line-height: 1.04;
     letter-spacing: -.01em;
     text-shadow: 0 2px 24px rgba(0,0,0,.35);
+    text-wrap: balance;
   }
   h2 { font-size: clamp(40px, 11.5vw, 84px); }
   .lede {
     margin-top: 16px;
     font-size: clamp(16px, 4.3vw, 21px);
-    line-height: 1.6;
+    line-height: 1.55;
     color: var(--cream-dim);
     max-width: 30em;
     text-wrap: pretty;
   }
 
-  /* 开场 */
+  /* Opening */
   .brand {
     font-size: clamp(64px, 21vw, 168px);
     font-style: italic;
@@ -242,8 +247,8 @@ window.FORNELLO = {
   .tagline {
     margin-top: 18px;
     font-family: var(--serif);
-    font-size: clamp(20px, 5.8vw, 32px);
-    letter-spacing: .14em;
+    font-size: clamp(22px, 6.2vw, 34px);
+    letter-spacing: .01em;
     color: var(--cream);
   }
   .swipe-hint {
@@ -251,7 +256,8 @@ window.FORNELLO = {
     left: 0; right: 0;
     bottom: calc(16px + var(--safe-b));
     display: flex; flex-direction: column; align-items: center; gap: 4px;
-    font-size: 11px; letter-spacing: .3em; color: rgba(246,238,223,.6);
+    font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
+    color: rgba(246,238,223,.6);
     pointer-events: none;
   }
   .swipe-hint svg { animation: nudge 1.8s var(--ease) infinite; }
@@ -266,7 +272,7 @@ window.FORNELLO = {
   }
   .screen--fire .content { padding-bottom: calc(96px + var(--safe-b)); }
 
-  /* 价格 */
+  /* Price tag */
   .price {
     display: inline-flex; align-items: baseline; gap: 6px;
     margin-top: 18px;
@@ -281,10 +287,9 @@ window.FORNELLO = {
     box-shadow: 0 8px 28px rgba(224,74,47,.35);
   }
   .price small { font-family: var(--sans); font-size: .55em; font-weight: 500; opacity: .9; }
-  .title-row { display: flex; flex-wrap: wrap; align-items: flex-end; column-gap: 18px; }
 
-  /* 招牌款轮播 */
-  .rotator { display: grid; }
+  /* Signature pizza carousel */
+  .rotator { display: grid; align-items: end; }
   .pizza {
     grid-area: 1 / 1;
     opacity: 0;
@@ -297,9 +302,9 @@ window.FORNELLO = {
     display: block;
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(15px, 4vw, 19px);
-    color: var(--tomato);
-    margin-top: 6px;
+    font-size: clamp(16px, 4.3vw, 20px);
+    color: var(--cream-dim);
+    margin-top: 10px;
   }
   .ticks { display: flex; gap: 8px; margin-top: 26px; }
   .ticks button {
@@ -319,12 +324,13 @@ window.FORNELLO = {
   .ticks.paused button.on::after { animation: none; width: 100%; }
   @keyframes fill { from { width: 0; } to { width: 100%; } }
 
-  /* 好评 */
+  /* Review */
   blockquote {
     font-family: var(--serif);
-    font-size: clamp(26px, 7.4vw, 50px);
-    line-height: 1.32;
+    font-size: clamp(28px, 7.6vw, 52px);
+    line-height: 1.22;
     font-weight: 500;
+    font-style: italic;
     text-wrap: pretty;
     position: relative;
   }
@@ -332,6 +338,7 @@ window.FORNELLO = {
     content: "“";
     display: block;
     font-size: 2.4em;
+    font-style: normal;
     line-height: .6;
     height: .42em;
     color: var(--tomato);
@@ -339,7 +346,7 @@ window.FORNELLO = {
   .cite { margin-top: 20px; font-size: 14px; color: var(--cream-dim); letter-spacing: .06em; }
   .stars { color: var(--tomato); letter-spacing: .2em; margin-right: 8px; }
 
-  /* 到店 */
+  /* Visit */
   .info {
     margin-top: 22px;
     display: grid; gap: 14px;
@@ -350,18 +357,22 @@ window.FORNELLO = {
   .hours { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; }
   .hours dt { color: var(--cream-dim); }
   .hours dd { font-variant-numeric: tabular-nums; }
+  address { font-style: normal; }
 
   .actions { display: grid; gap: 12px; margin-top: 26px; }
   .btn {
     display: flex; align-items: center; justify-content: center; gap: 10px;
     min-height: 58px;
-    padding: 0 22px;
+    padding: 8px 20px;
     border-radius: 16px;
-    font-size: 17px; font-weight: 600; letter-spacing: .02em;
+    font-size: 17px; font-weight: 600; letter-spacing: .01em;
+    line-height: 1.2;
+    text-align: center;
     text-decoration: none;
     transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease;
     -webkit-tap-highlight-color: transparent;
   }
+  .btn svg { flex: 0 0 auto; }
   .btn:active { transform: scale(.97); }
   .btn--primary { background: var(--tomato); color: var(--cream); box-shadow: 0 10px 30px rgba(224,74,47,.35); }
   .btn--primary:hover { background: var(--tomato-deep); }
@@ -371,9 +382,9 @@ window.FORNELLO = {
     outline: 2px solid var(--cream); outline-offset: 3px;
   }
   .screen--visit .content { padding-bottom: calc(32px + var(--safe-b)); }
-  .screen--visit h2 { font-size: clamp(36px, 10vw, 72px); }
+  .screen--visit h2 { font-size: clamp(38px, 10.5vw, 76px); }
 
-  /* ───────── 小圆点导航 ───────── */
+  /* ───────── Dot navigation ───────── */
   .dots {
     position: fixed;
     right: 10px;
@@ -410,7 +421,7 @@ window.FORNELLO = {
   }
   .counter b { color: var(--cream); font-weight: 600; }
 
-  /* ───────── 淡入动画 ───────── */
+  /* ───────── Fade-in ───────── */
   .js .reveal > * {
     opacity: 0;
     transform: translateY(16px);
@@ -423,17 +434,23 @@ window.FORNELLO = {
   .js .screen.in .reveal > :nth-child(4) { transition-delay: .6s; }
   .js .screen.in .reveal > :nth-child(5) { transition-delay: .75s; }
 
-  /* ───────── iPad / 电脑 ───────── */
+  /* ───────── Phones: buttons use the full width (dots sit higher up) ───────── */
+  @media (max-width: 599px) {
+    .actions { margin-right: calc(var(--gutter) - var(--dots-space)); }
+  }
+
+  /* ───────── iPad / desktop ───────── */
   @media (min-width: 600px) {
     :root { --gutter: 56px; --dots-space: 80px; }
-    .actions { grid-template-columns: 1fr 1fr; max-width: 520px; }
+    .actions { max-width: 440px; }
     .dots { right: 22px; }
     .counter { right: 30px; top: calc(26px + var(--safe-t)); }
   }
   @media (min-width: 1024px) {
     :root { --gutter: 8vw; }
     .content { padding-bottom: calc(11vh + var(--safe-b)); }
-    .screen--visit .content { padding-bottom: 9vh; }
+    .screen--visit .content { max-width: 860px; padding-bottom: 9vh; }
+    .actions { grid-template-columns: 1fr 1fr; max-width: 600px; }
     .shade {
       background:
         linear-gradient(to bottom, rgba(22,18,15,.45) 0%, rgba(22,18,15,0) 16%),
@@ -442,16 +459,16 @@ window.FORNELLO = {
     }
     .info { font-size: 16px; }
   }
-  /* 横向矮屏（手机横放 / 小笔电）收紧尺寸 */
+  /* Short landscape screens (phone on its side / small laptops): tighten sizes */
   @media (max-height: 560px) and (orientation: landscape) {
     h2 { font-size: clamp(32px, 7vh + 2vw, 56px); }
     .brand { font-size: clamp(54px, 16vh, 110px); }
     .content { padding-bottom: calc(28px + var(--safe-b)); }
     .screen--fire .content { padding-bottom: 64px; }
     .info { margin-top: 12px; gap: 8px; }
-    .actions { margin-top: 14px; grid-template-columns: 1fr 1fr; }
-    .btn { min-height: 48px; }
-    .screen--visit .lede { display: none; }
+    .actions { margin-top: 14px; grid-template-columns: 1fr 1fr; max-width: none; }
+    .btn { min-height: 48px; font-size: 16px; }
+    .screen--visit h2 { font-size: clamp(30px, 6vh + 2vw, 48px); }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -465,132 +482,132 @@ window.FORNELLO = {
 
 <main class="scroller" id="scroller" tabindex="-1">
 
-  <!-- 1 · 开场 -->
-  <section class="screen screen--fire" data-media="fire" data-title="开场" aria-label="Fornello 开场">
+  <!-- 1 · Opening -->
+  <section class="screen screen--fire" data-media="fire" data-title="Welcome" aria-label="Welcome to Fornello">
     <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>视频占位</small><span>柴火烤炉 · 火焰</span></div></div>
+      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Wood-fired oven · flames</span></div></div>
       <div class="shade"></div>
     </div>
     <div class="content reveal">
-      <p class="eyebrow"><b>01</b><i>Pizza a legna</i></p>
+      <p class="eyebrow"><b>01</b><i>Wood-fired pizza</i></p>
       <h1 class="brand">Fornello<em>.</em></h1>
-      <p class="tagline">柴火烤，现做现吃</p>
+      <p class="tagline">Wood-fired. Made to order.</p>
     </div>
     <div class="swipe-hint" aria-hidden="true">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
-      <span class="touch">向上滑动</span><span class="desk">向下滚动</span>
+      <span class="touch">Swipe up</span><span class="desk">Scroll down</span>
     </div>
   </section>
 
-  <!-- 2 · 面团 -->
-  <section class="screen screen--dough" data-media="dough" data-title="面团">
+  <!-- 2 · Dough -->
+  <section class="screen screen--dough" data-media="dough" data-title="The dough">
     <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>视频占位</small><span>师傅揉面 · 面团发酵</span></div></div>
+      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Kneading · dough proofing</span></div></div>
       <div class="shade"></div>
     </div>
     <div class="content reveal">
-      <p class="eyebrow"><b>02</b><i>L’impasto</i></p>
-      <h2>72 小时<br>慢发酵</h2>
-      <p class="lede">面团静置三天，饼皮才有轻盈的气孔与麦香。</p>
+      <p class="eyebrow"><b>02</b><i>The dough</i></p>
+      <h2>72-hour<br>slow rise</h2>
+      <p class="lede">Three days of rest give our crust its airy bubbles and toasty depth.</p>
     </div>
   </section>
 
-  <!-- 3 · 食材 -->
-  <section class="screen screen--ingredients" data-media="ingredients" data-title="食材">
+  <!-- 3 · Ingredients -->
+  <section class="screen screen--ingredients" data-media="ingredients" data-title="Ingredients">
     <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>视频占位</small><span>番茄 · 罗勒 · 水牛芝士</span></div></div>
+      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Tomatoes · basil · buffalo mozzarella</span></div></div>
       <div class="shade"></div>
     </div>
     <div class="content reveal">
-      <p class="eyebrow"><b>03</b><i>Gli ingredienti</i></p>
-      <h2>每天早上<br>进货</h2>
-      <p class="lede">番茄、罗勒、水牛芝士 —— 当天新鲜，当天用完。</p>
+      <p class="eyebrow"><b>03</b><i>The ingredients</i></p>
+      <h2>Fresh every<br>morning</h2>
+      <p class="lede">Tomatoes, basil, buffalo mozzarella. In this morning, gone by tonight.</p>
     </div>
   </section>
 
-  <!-- 4 · 出炉 -->
-  <section class="screen screen--oven" data-media="oven" data-title="玛格丽特">
+  <!-- 4 · Out of the oven -->
+  <section class="screen screen--oven" data-media="oven" data-title="Margherita">
     <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>视频占位</small><span>披萨出炉 · 芝士牵丝</span></div></div>
+      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Out of the oven · cheese pull</span></div></div>
       <div class="shade"></div>
     </div>
     <div class="content reveal">
-      <p class="eyebrow"><b>04</b><i>Dal forno</i></p>
-      <h2>玛格丽特</h2>
-      <p class="lede">450°C 柴火炉，90 秒出炉，芝士正好牵丝。</p>
+      <p class="eyebrow"><b>04</b><i>The house classic</i></p>
+      <h2>Margherita</h2>
+      <p class="lede">90 seconds in a 450°C wood fire, and the cheese stretches just right.</p>
       <div><span class="price"><small>RM</small>28</span></div>
     </div>
   </section>
 
-  <!-- 5 · 招牌款 -->
-  <section class="screen screen--signature" data-media="signature" data-title="招牌款">
+  <!-- 5 · Signatures -->
+  <section class="screen screen--signature" data-media="signature" data-title="Signatures">
     <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>视频占位</small><span>三款招牌披萨 · 轮流特写</span></div></div>
+      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Three signature pizzas · close-ups</span></div></div>
       <div class="shade"></div>
     </div>
     <div class="content reveal">
-      <p class="eyebrow"><b>05</b><i>Le specialità</i></p>
+      <p class="eyebrow"><b>05</b><i>Signatures</i></p>
       <div class="rotator" id="rotator" aria-live="polite">
         <div class="pizza on">
-          <h2>帕尔玛火腿</h2>
-          <span class="it">Prosciutto e Rucola · 芝麻菜</span>
+          <h2>Prosciutto</h2>
+          <span class="it">Parma ham, peppery greens, aged parmesan</span>
           <span class="price"><small>RM</small>38</span>
         </div>
         <div class="pizza">
-          <h2>辣味萨拉米</h2>
-          <span class="it">Diavola · 意式辣肠</span>
+          <h2>Spicy Salami</h2>
+          <span class="it">Calabrian peppers, mozzarella, basil</span>
           <span class="price"><small>RM</small>34</span>
         </div>
         <div class="pizza">
-          <h2>四重芝士</h2>
-          <span class="it">Quattro Formaggi · 蜂蜜</span>
+          <h2>Four Cheese</h2>
+          <span class="it">Gorgonzola, fontina, parmesan, honey</span>
           <span class="price"><small>RM</small>36</span>
         </div>
       </div>
-      <div class="ticks" id="ticks" role="group" aria-label="切换招牌款"></div>
+      <div class="ticks" id="ticks" role="group" aria-label="Choose a signature pizza"></div>
     </div>
   </section>
 
-  <!-- 6 · 店内氛围 -->
-  <section class="screen screen--ambience" data-media="ambience" data-title="店内氛围">
+  <!-- 6 · Ambience -->
+  <section class="screen screen--ambience" data-media="ambience" data-title="Ambience">
     <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>视频占位</small><span>温暖灯光 · 客人用餐</span></div></div>
+      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Warm light · guests dining</span></div></div>
       <div class="shade"></div>
     </div>
     <div class="content reveal">
-      <p class="eyebrow"><b>06</b><i>La sala</i></p>
-      <blockquote>饼边焦香有嚼劲，每次来都像回到那不勒斯。</blockquote>
-      <p class="cite"><span class="stars" aria-label="五星">★★★★★</span>Google 评价 · 陈小姐</p>
+      <p class="eyebrow"><b>06</b><i>The room</i></p>
+      <blockquote>Charred, chewy, perfect crust. The closest thing to Naples in town.</blockquote>
+      <p class="cite"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>Google review · Sarah T.</p>
     </div>
   </section>
 
-  <!-- 7 · 到店 -->
-  <section class="screen screen--visit" data-media="visit" data-title="到店">
+  <!-- 7 · Visit -->
+  <section class="screen screen--visit" data-media="visit" data-title="Visit us">
     <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>视频占位</small><span>店门口 · 招牌灯</span></div></div>
+      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Storefront · lights on</span></div></div>
       <div class="shade"></div>
     </div>
     <div class="content reveal">
-      <p class="eyebrow"><b>07</b><i>Vieni a trovarci</i></p>
-      <h2>今晚，来坐坐</h2>
+      <p class="eyebrow"><b>07</b><i>Visit us</i></p>
+      <h2>See you tonight</h2>
       <div class="info">
         <div class="info-row">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <dl class="hours" id="hours"></dl>
+          <dl class="hours" id="hours" aria-label="Opening hours"></dl>
         </div>
         <div class="info-row">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-          <address id="address" style="font-style:normal"></address>
+          <address id="address"></address>
         </div>
       </div>
       <div class="actions">
         <a class="btn btn--primary" id="btn-wa" href="#" target="_blank" rel="noopener">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></svg>
-          WhatsApp 订位
+          Reserve on WhatsApp
         </a>
         <a class="btn btn--ghost" id="btn-map" href="#" target="_blank" rel="noopener">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
-          Google 地图导航
+          Google Maps Directions
         </a>
       </div>
     </div>
@@ -598,7 +615,7 @@ window.FORNELLO = {
 
 </main>
 
-<nav class="dots" id="dots" aria-label="页面导航"></nav>
+<nav class="dots" id="dots" aria-label="Sections"></nav>
 <div class="counter" aria-hidden="true"><b id="counter-cur">01</b> / <span id="counter-total">07</span></div>
 
 <script>
@@ -611,7 +628,7 @@ window.FORNELLO = {
   var current = -1;
   var pad = function (n) { return (n < 10 ? '0' : '') + n; };
 
-  /* ── 背景：封面图 + 视频 ── */
+  /* ── Background: poster + video ── */
   screens.forEach(function (s) {
     var m = (C.media && C.media[s.dataset.media]) || {};
     var ph = s.querySelector('.ph');
@@ -652,15 +669,15 @@ window.FORNELLO = {
   function play(v) {
     if (!v) return;
     var p = v.play();
-    if (p && p.catch) p.catch(function () { /* 被浏览器拦截时保留封面 */ });
+    if (p && p.catch) p.catch(function () { /* autoplay blocked: keep showing the poster */ });
   }
 
-  /* ── 小圆点 ── */
+  /* ── Dots ── */
   document.getElementById('counter-total').textContent = pad(screens.length);
   var dots = screens.map(function (s, i) {
     var b = document.createElement('button');
     b.type = 'button';
-    b.setAttribute('aria-label', '第 ' + (i + 1) + ' 屏：' + s.dataset.title);
+    b.setAttribute('aria-label', 'Section ' + (i + 1) + ': ' + s.dataset.title);
     b.appendChild(document.createElement('span'));
     b.addEventListener('click', function () { goTo(i); });
     dotsNav.appendChild(b);
@@ -672,7 +689,7 @@ window.FORNELLO = {
     scroller.scrollTo({ top: screens[i].offsetTop, behavior: reduceMotion ? 'auto' : 'smooth' });
   }
 
-  /* ── 切换当前屏 ── */
+  /* ── Switch active screen ── */
   function activate(i) {
     if (i === current || i < 0) return;
     current = i;
@@ -682,7 +699,7 @@ window.FORNELLO = {
     });
     load(i);
     play(screens[i]._video);
-    load(i + 1);                                   // 预载下一屏
+    load(i + 1);                                   // preload the next screen
     dots.forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
     document.getElementById('counter-cur').textContent = pad(i + 1);
     if (screens[i].contains(rotator)) startRotator(); else stopRotator();
@@ -701,7 +718,7 @@ window.FORNELLO = {
     }, { passive: true });
   }
 
-  /* ── 键盘（电脑） ── */
+  /* ── Keyboard (desktop) ── */
   document.addEventListener('keydown', function (e) {
     if (e.target.closest && e.target.closest('a, button') && (e.key === ' ' || e.key === 'Enter')) return;
     var k = e.key;
@@ -711,7 +728,7 @@ window.FORNELLO = {
     else if (k === 'End') { e.preventDefault(); goTo(screens.length - 1); }
   });
 
-  /* ── 招牌款轮播 ── */
+  /* ── Signature pizza carousel ── */
   var rotator = document.getElementById('rotator');
   var ticksEl = document.getElementById('ticks');
   var pizzas = Array.prototype.slice.call(rotator.querySelectorAll('.pizza'));
@@ -740,7 +757,7 @@ window.FORNELLO = {
       t.classList.toggle('done', j < n);
       t.setAttribute('aria-pressed', j === n ? 'true' : 'false');
     });
-    void ticks[n].offsetWidth;                     // 重新触发进度条动画
+    void ticks[n].offsetWidth;                     // restart the progress-bar animation
     ticks[n].classList.add('on');
   }
   function restartTimer() {
@@ -752,7 +769,7 @@ window.FORNELLO = {
   function stopRotator() { clearInterval(timer); timer = null; }
   showPizza(0);
 
-  /* ── 到店资料 ── */
+  /* ── Visit details ── */
   var ct = C.contact || {};
   var hoursEl = document.getElementById('hours');
   (ct.hours || []).forEach(function (h) {
@@ -767,7 +784,7 @@ window.FORNELLO = {
   document.getElementById('btn-map').href = ct.mapsUrl ||
     'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(ct.address || 'Fornello');
 
-  /* ── 自动播放被拦截时，首次触碰再试一次；切到后台时暂停 ── */
+  /* ── If autoplay was blocked, retry on first touch; pause when the tab is hidden ── */
   ['touchstart', 'pointerdown', 'keydown'].forEach(function (ev) {
     window.addEventListener(ev, function retry() {
       if (screens[current]) play(screens[current]._video);
@@ -776,9 +793,8 @@ window.FORNELLO = {
   });
   document.addEventListener('visibilitychange', function () {
     var v = screens[current] && screens[current]._video;
-    if (!v) return;
-    if (document.hidden) { v.pause(); stopRotator(); }
-    else { play(v); if (screens[current].contains(rotator)) restartTimer(); }
+    if (document.hidden) { if (v) v.pause(); stopRotator(); }
+    else { play(v); if (screens[current] && screens[current].contains(rotator)) restartTimer(); }
   });
 
   activate(Math.round(scroller.scrollTop / (scroller.clientHeight || 1)));
