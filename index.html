@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<!--
+  ══════════════════════════════════════════════════════════════════
+  ★ 素材与店铺资料 —— 只需要改这里 ★
+
+  video  : 背景短视频（建议 5–8 秒、静音、MP4/H.264、竖向 1080×1920 或以下，
+           单个文件尽量控制在 3MB 内，手机流量更友好）
+  poster : 视频封面图（JPG/WebP）。视频还没加载好、或手机省电模式不自动播放时显示。
+
+  路径留空 "" 或文件不存在时，会显示深色占位画面 + 场景名称，不会黑屏。
+  直接把文件放进 videos/ 和 images/ 文件夹，用下面的文件名即可，无需改代码。
+  ══════════════════════════════════════════════════════════════════
+-->
+<script>
+window.FORNELLO = {
+  media: {
+    fire:        { video: "videos/01-fire.mp4",        poster: "images/01-fire.jpg" },
+    dough:       { video: "videos/02-dough.mp4",       poster: "images/02-dough.jpg" },
+    ingredients: { video: "videos/03-ingredients.mp4", poster: "images/03-ingredients.jpg" },
+    oven:        { video: "videos/04-oven.mp4",        poster: "images/04-oven.jpg" },
+    signature:   { video: "videos/05-signature.mp4",   poster: "images/05-signature.jpg" },
+    ambience:    { video: "videos/06-ambience.mp4",    poster: "images/06-ambience.jpg" },
+    visit:       { video: "videos/07-visit.mp4",       poster: "images/07-visit.jpg" }
+  },
+  contact: {
+    whatsapp: "60123456789",                       // 国际格式，只要数字（含国家码，不要 + 和 0 开头）
+    whatsappMessage: "你好 Fornello，我想订位：日期 / 时间 / 人数 —",
+    address: "Jalan Contoh 12, Kuala Lumpur",      // 显示在页面上，也用于 Google 地图导航
+    mapsUrl: "",                                   // 可选：填 Google 地图分享链接，会优先使用
+    hours: [
+      ["周二至周日", "11:30 – 22:00"],
+      ["周一", "店休"]
+    ]
+  },
+  signatureInterval: 3200                          // 第 5 屏三款披萨轮播间隔（毫秒）
+};
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16120F">
+<meta name="description" content="Fornello 柴火披萨 —— 柴火烤，现做现吃。72 小时慢发酵面团，每天早上新鲜进货。">
+<title>Fornello 柴火披萨</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2316120F'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' text-anchor='middle' fill='%23E04A2F'%3EF%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');</script>
+
+<style>
+  :root {
+    --tomato: #E04A2F;
+    --tomato-deep: #B5361F;
+    --cream: #F6EEDF;
+    --cream-dim: rgba(246, 238, 223, .78);
+    --charcoal: #16120F;
+    --charcoal-2: #221B16;
+
+    --serif: "Playfair Display", "Bodoni 72", Didot, "Noto Serif SC", "Source Han Serif SC",
+             "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+            "Noto Sans SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+
+    --gutter: 24px;
+    --dots-space: 52px;
+    --safe-b: env(safe-area-inset-bottom, 0px);
+    --safe-t: env(safe-area-inset-top, 0px);
+    --ease: cubic-bezier(.2, .7, .2, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--charcoal); }
+  body {
+    color: var(--cream);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    overflow: hidden;
+  }
+
+  /* ───────── 全屏分页容器 ───────── */
+  .scroller {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .scroller::-webkit-scrollbar { display: none; }
+  .scroller:focus { outline: none; }
+
+  .screen {
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    isolation: isolate;
+  }
+
+  /* ───────── 背景层：占位 / 封面 / 视频 / 遮罩 ───────── */
+  .bg { position: absolute; inset: 0; z-index: -1; }
+
+  .ph {
+    position: absolute; inset: 0;
+    background: var(--ph, var(--charcoal-2));
+    background-size: cover;
+    background-position: center;
+  }
+  .ph::after {             /* 缓慢呼吸的光，让占位画面不至于死板 */
+    content: "";
+    position: absolute; inset: 0;
+    background: var(--glow, none);
+    animation: breathe 5s ease-in-out infinite alternate;
+    mix-blend-mode: screen;
+  }
+  .ph.has-poster::after { display: none; }
+
+  .ph-label {
+    position: absolute;
+    left: 0; right: 0; top: 30%;
+    text-align: center;
+    padding: 0 var(--dots-space);
+    color: rgba(246, 238, 223, .34);
+    pointer-events: none;
+  }
+  .ph-label small {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: .24em; text-transform: uppercase;
+    border: 1px solid rgba(246, 238, 223, .2);
+    border-radius: 999px;
+    padding: 6px 12px 6px 10px;
+    margin-bottom: 14px;
+  }
+  .ph-label small::before {
+    content: ""; width: 0; height: 0;
+    border-left: 7px solid currentColor;
+    border-top: 4.5px solid transparent;
+    border-bottom: 4.5px solid transparent;
+  }
+  .ph-label span { display: block; font-family: var(--serif); font-size: clamp(18px, 4.6vw, 26px); }
+  .ph.has-poster .ph-label { display: none; }
+
+  .bg video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity .8s ease;
+  }
+  .bg video.ready { opacity: 1; }
+
+  .shade {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(22,18,15,.55) 0%, rgba(22,18,15,0) 18%),
+      linear-gradient(to top, rgba(22,18,15,.94) 0%, rgba(22,18,15,.72) 26%, rgba(22,18,15,.25) 52%, rgba(22,18,15,0) 70%);
+  }
+  .screen--visit .shade {
+    background:
+      linear-gradient(to bottom, rgba(22,18,15,.55) 0%, rgba(22,18,15,0) 18%),
+      linear-gradient(to top, rgba(22,18,15,.96) 0%, rgba(22,18,15,.85) 45%, rgba(22,18,15,.3) 75%, rgba(22,18,15,.1) 100%);
+  }
+
+  /* 各场景占位色调 */
+  .screen--fire        { --ph: radial-gradient(120% 70% at 50% 100%, #C2461E 0%, #6E220E 30%, #2A1610 62%, #120E0C 100%);
+                         --glow: radial-gradient(60% 40% at 50% 92%, rgba(255,140,60,.35), transparent 70%); }
+  .screen--dough       { --ph: radial-gradient(90% 60% at 35% 40%, #5E4E3C 0%, #2E251D 50%, #15110E 100%);
+                         --glow: radial-gradient(50% 35% at 35% 40%, rgba(246,220,180,.12), transparent 70%); }
+  .screen--ingredients { --ph: radial-gradient(60% 45% at 68% 38%, #8E2A1C 0%, transparent 70%),
+                               radial-gradient(55% 40% at 25% 55%, #2D4A27 0%, transparent 70%),
+                               linear-gradient(#1B1512, #120E0C);
+                         --glow: radial-gradient(40% 30% at 68% 38%, rgba(255,90,60,.18), transparent 70%); }
+  .screen--oven        { --ph: radial-gradient(110% 60% at 50% 0%, #B9481F 0%, #5A1E0E 35%, #1E1410 70%, #120E0C 100%);
+                         --glow: radial-gradient(60% 35% at 50% 8%, rgba(255,170,80,.3), transparent 70%); }
+  .screen--signature   { --ph: radial-gradient(80% 55% at 50% 40%, #6A1D14 0%, #2A1612 55%, #120E0C 100%);
+                         --glow: radial-gradient(45% 30% at 50% 40%, rgba(224,74,47,.22), transparent 70%); }
+  .screen--ambience    { --ph: radial-gradient(14% 9% at 22% 22%, rgba(255,190,110,.55), transparent 70%),
+                               radial-gradient(12% 8% at 74% 16%, rgba(255,180,100,.45), transparent 70%),
+                               radial-gradient(16% 10% at 58% 36%, rgba(255,200,120,.35), transparent 70%),
+                               radial-gradient(90% 60% at 50% 30%, #4A3020 0%, #1E1612 60%, #120E0C 100%);
+                         --glow: radial-gradient(50% 30% at 50% 25%, rgba(255,190,110,.14), transparent 70%); }
+  .screen--visit       { --ph: radial-gradient(90% 55% at 80% 10%, #5A2216 0%, #221815 55%, #120E0C 100%);
+                         --glow: radial-gradient(40% 30% at 80% 10%, rgba(224,74,47,.2), transparent 70%); }
+
+  @keyframes breathe { from { opacity: .55; } to { opacity: 1; } }
+
+  /* ───────── 文字内容 ───────── */
+  .content {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    padding: 0 var(--dots-space) calc(56px + var(--safe-b)) var(--gutter);
+  }
+
+  .eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 11px;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 18px;
+  }
+  .eyebrow b { color: var(--tomato); font-weight: 600; letter-spacing: .12em; }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 2px; background: var(--tomato); order: 1;
+  }
+  .eyebrow b { order: 0; }
+  .eyebrow i { order: 2; font-style: normal; }
+
+  h1, h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    text-shadow: 0 2px 24px rgba(0,0,0,.35);
+  }
+  h2 { font-size: clamp(40px, 11.5vw, 84px); }
+  .lede {
+    margin-top: 16px;
+    font-size: clamp(16px, 4.3vw, 21px);
+    line-height: 1.6;
+    color: var(--cream-dim);
+    max-width: 30em;
+    text-wrap: pretty;
+  }
+
+  /* 开场 */
+  .brand {
+    font-size: clamp(64px, 21vw, 168px);
+    font-style: italic;
+    font-weight: 500;
+    line-height: .95;
+    letter-spacing: -.02em;
+  }
+  .brand em { color: var(--tomato); font-style: italic; }
+  .tagline {
+    margin-top: 18px;
+    font-family: var(--serif);
+    font-size: clamp(20px, 5.8vw, 32px);
+    letter-spacing: .14em;
+    color: var(--cream);
+  }
+  .swipe-hint {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: calc(16px + var(--safe-b));
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    font-size: 11px; letter-spacing: .3em; color: rgba(246,238,223,.6);
+    pointer-events: none;
+  }
+  .swipe-hint svg { animation: nudge 1.8s var(--ease) infinite; }
+  .swipe-hint .desk { display: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .swipe-hint .touch { display: none; }
+    .swipe-hint .desk { display: inline; }
+  }
+  @keyframes nudge {
+    0%, 100% { transform: translateY(0); opacity: .5; }
+    50% { transform: translateY(-6px); opacity: 1; }
+  }
+  .screen--fire .content { padding-bottom: calc(96px + var(--safe-b)); }
+
+  /* 价格 */
+  .price {
+    display: inline-flex; align-items: baseline; gap: 6px;
+    margin-top: 18px;
+    padding: 8px 16px 8px 14px;
+    background: var(--tomato);
+    color: var(--cream);
+    border-radius: 999px;
+    font-family: var(--serif);
+    font-size: clamp(20px, 5.4vw, 26px);
+    font-weight: 600;
+    line-height: 1;
+    box-shadow: 0 8px 28px rgba(224,74,47,.35);
+  }
+  .price small { font-family: var(--sans); font-size: .55em; font-weight: 500; opacity: .9; }
+  .title-row { display: flex; flex-wrap: wrap; align-items: flex-end; column-gap: 18px; }
+
+  /* 招牌款轮播 */
+  .rotator { display: grid; }
+  .pizza {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .6s ease, transform .6s var(--ease);
+    pointer-events: none;
+  }
+  .pizza.on { opacity: 1; transform: none; pointer-events: auto; }
+  .pizza .it {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(15px, 4vw, 19px);
+    color: var(--tomato);
+    margin-top: 6px;
+  }
+  .ticks { display: flex; gap: 8px; margin-top: 26px; }
+  .ticks button {
+    flex: 0 0 auto;
+    width: 44px; height: 24px;
+    background: none; border: 0; cursor: pointer;
+    position: relative;
+  }
+  .ticks button::before, .ticks button::after {
+    content: ""; position: absolute; left: 0; top: 50%;
+    height: 3px; margin-top: -1.5px; border-radius: 2px;
+  }
+  .ticks button::before { right: 0; background: rgba(246,238,223,.25); }
+  .ticks button::after { width: 0; background: var(--cream); }
+  .ticks button.done::after { width: 100%; }
+  .ticks button.on::after { animation: fill var(--rot, 3200ms) linear forwards; }
+  .ticks.paused button.on::after { animation: none; width: 100%; }
+  @keyframes fill { from { width: 0; } to { width: 100%; } }
+
+  /* 好评 */
+  blockquote {
+    font-family: var(--serif);
+    font-size: clamp(26px, 7.4vw, 50px);
+    line-height: 1.32;
+    font-weight: 500;
+    text-wrap: pretty;
+    position: relative;
+  }
+  blockquote::before {
+    content: "“";
+    display: block;
+    font-size: 2.4em;
+    line-height: .6;
+    height: .42em;
+    color: var(--tomato);
+  }
+  .cite { margin-top: 20px; font-size: 14px; color: var(--cream-dim); letter-spacing: .06em; }
+  .stars { color: var(--tomato); letter-spacing: .2em; margin-right: 8px; }
+
+  /* 到店 */
+  .info {
+    margin-top: 22px;
+    display: grid; gap: 14px;
+    font-size: 15px; line-height: 1.5;
+  }
+  .info-row { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
+  .info-row svg { margin-top: 2px; color: var(--tomato); }
+  .hours { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; }
+  .hours dt { color: var(--cream-dim); }
+  .hours dd { font-variant-numeric: tabular-nums; }
+
+  .actions { display: grid; gap: 12px; margin-top: 26px; }
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 58px;
+    padding: 0 22px;
+    border-radius: 16px;
+    font-size: 17px; font-weight: 600; letter-spacing: .02em;
+    text-decoration: none;
+    transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn--primary { background: var(--tomato); color: var(--cream); box-shadow: 0 10px 30px rgba(224,74,47,.35); }
+  .btn--primary:hover { background: var(--tomato-deep); }
+  .btn--ghost { background: var(--cream); color: var(--charcoal); }
+  .btn--ghost:hover { background: #fff; }
+  .btn:focus-visible, .dots button:focus-visible, .ticks button:focus-visible {
+    outline: 2px solid var(--cream); outline-offset: 3px;
+  }
+  .screen--visit .content { padding-bottom: calc(32px + var(--safe-b)); }
+  .screen--visit h2 { font-size: clamp(36px, 10vw, 72px); }
+
+  /* ───────── 小圆点导航 ───────── */
+  .dots {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .dots button {
+    width: 30px; height: 26px;
+    display: grid; place-items: center;
+    background: none; border: 0; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .dots button span {
+    width: 7px; height: 7px;
+    border-radius: 999px;
+    background: rgba(246,238,223,.45);
+    box-shadow: 0 0 0 1px rgba(22,18,15,.25);
+    transition: height .35s var(--ease), background-color .3s ease;
+  }
+  .dots button:hover span { background: rgba(246,238,223,.8); }
+  .dots button[aria-current="true"] span { height: 22px; background: var(--tomato); }
+
+  .counter {
+    position: fixed;
+    top: calc(18px + var(--safe-t));
+    right: 18px;
+    z-index: 10;
+    font-size: 11px; letter-spacing: .2em;
+    color: rgba(246,238,223,.7);
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+  }
+  .counter b { color: var(--cream); font-weight: 600; }
+
+  /* ───────── 淡入动画 ───────── */
+  .js .reveal > * {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .9s var(--ease), transform .9s var(--ease);
+  }
+  .js .screen.in .reveal > * { opacity: 1; transform: none; }
+  .js .screen.in .reveal > :nth-child(1) { transition-delay: .15s; }
+  .js .screen.in .reveal > :nth-child(2) { transition-delay: .3s; }
+  .js .screen.in .reveal > :nth-child(3) { transition-delay: .45s; }
+  .js .screen.in .reveal > :nth-child(4) { transition-delay: .6s; }
+  .js .screen.in .reveal > :nth-child(5) { transition-delay: .75s; }
+
+  /* ───────── iPad / 电脑 ───────── */
+  @media (min-width: 600px) {
+    :root { --gutter: 56px; --dots-space: 80px; }
+    .actions { grid-template-columns: 1fr 1fr; max-width: 520px; }
+    .dots { right: 22px; }
+    .counter { right: 30px; top: calc(26px + var(--safe-t)); }
+  }
+  @media (min-width: 1024px) {
+    :root { --gutter: 8vw; }
+    .content { padding-bottom: calc(11vh + var(--safe-b)); }
+    .screen--visit .content { padding-bottom: 9vh; }
+    .shade {
+      background:
+        linear-gradient(to bottom, rgba(22,18,15,.45) 0%, rgba(22,18,15,0) 16%),
+        linear-gradient(to top, rgba(22,18,15,.85) 0%, rgba(22,18,15,.3) 40%, rgba(22,18,15,0) 65%),
+        linear-gradient(to right, rgba(22,18,15,.7) 0%, rgba(22,18,15,.2) 45%, rgba(22,18,15,0) 70%);
+    }
+    .info { font-size: 16px; }
+  }
+  /* 横向矮屏（手机横放 / 小笔电）收紧尺寸 */
+  @media (max-height: 560px) and (orientation: landscape) {
+    h2 { font-size: clamp(32px, 7vh + 2vw, 56px); }
+    .brand { font-size: clamp(54px, 16vh, 110px); }
+    .content { padding-bottom: calc(28px + var(--safe-b)); }
+    .screen--fire .content { padding-bottom: 64px; }
+    .info { margin-top: 12px; gap: 8px; }
+    .actions { margin-top: 14px; grid-template-columns: 1fr 1fr; }
+    .btn { min-height: 48px; }
+    .screen--visit .lede { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroller { scroll-behavior: auto; }
+    .ph::after, .swipe-hint svg { animation: none; }
+    .js .reveal > *, .pizza { transition: opacity .3s linear; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<main class="scroller" id="scroller" tabindex="-1">
+
+  <!-- 1 · 开场 -->
+  <section class="screen screen--fire" data-media="fire" data-title="开场" aria-label="Fornello 开场">
+    <div class="bg" aria-hidden="true">
+      <div class="ph"><div class="ph-label"><small>视频占位</small><span>柴火烤炉 · 火焰</span></div></div>
+      <div class="shade"></div>
+    </div>
+    <div class="content reveal">
+      <p class="eyebrow"><b>01</b><i>Pizza a legna</i></p>
+      <h1 class="brand">Fornello<em>.</em></h1>
+      <p class="tagline">柴火烤，现做现吃</p>
+    </div>
+    <div class="swipe-hint" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+      <span class="touch">向上滑动</span><span class="desk">向下滚动</span>
+    </div>
+  </section>
+
+  <!-- 2 · 面团 -->
+  <section class="screen screen--dough" data-media="dough" data-title="面团">
+    <div class="bg" aria-hidden="true">
+      <div class="ph"><div class="ph-label"><small>视频占位</small><span>师傅揉面 · 面团发酵</span></div></div>
+      <div class="shade"></div>
+    </div>
+    <div class="content reveal">
+      <p class="eyebrow"><b>02</b><i>L’impasto</i></p>
+      <h2>72 小时<br>慢发酵</h2>
+      <p class="lede">面团静置三天，饼皮才有轻盈的气孔与麦香。</p>
+    </div>
+  </section>
+
+  <!-- 3 · 食材 -->
+  <section class="screen screen--ingredients" data-media="ingredients" data-title="食材">
+    <div class="bg" aria-hidden="true">
+      <div class="ph"><div class="ph-label"><small>视频占位</small><span>番茄 · 罗勒 · 水牛芝士</span></div></div>
+      <div class="shade"></div>
+    </div>
+    <div class="content reveal">
+      <p class="eyebrow"><b>03</b><i>Gli ingredienti</i></p>
+      <h2>每天早上<br>进货</h2>
+      <p class="lede">番茄、罗勒、水牛芝士 —— 当天新鲜，当天用完。</p>
+    </div>
+  </section>
+
+  <!-- 4 · 出炉 -->
+  <section class="screen screen--oven" data-media="oven" data-title="玛格丽特">
+    <div class="bg" aria-hidden="true">
+      <div class="ph"><div class="ph-label"><small>视频占位</small><span>披萨出炉 · 芝士牵丝</span></div></div>
+      <div class="shade"></div>
+    </div>
+    <div class="content reveal">
+      <p class="eyebrow"><b>04</b><i>Dal forno</i></p>
+      <h2>玛格丽特</h2>
+      <p class="lede">450°C 柴火炉，90 秒出炉，芝士正好牵丝。</p>
+      <div><span class="price"><small>RM</small>28</span></div>
+    </div>
+  </section>
+
+  <!-- 5 · 招牌款 -->
+  <section class="screen screen--signature" data-media="signature" data-title="招牌款">
+    <div class="bg" aria-hidden="true">
+      <div class="ph"><div class="ph-label"><small>视频占位</small><span>三款招牌披萨 · 轮流特写</span></div></div>
+      <div class="shade"></div>
+    </div>
+    <div class="content reveal">
+      <p class="eyebrow"><b>05</b><i>Le specialità</i></p>
+      <div class="rotator" id="rotator" aria-live="polite">
+        <div class="pizza on">
+          <h2>帕尔玛火腿</h2>
+          <span class="it">Prosciutto e Rucola · 芝麻菜</span>
+          <span class="price"><small>RM</small>38</span>
+        </div>
+        <div class="pizza">
+          <h2>辣味萨拉米</h2>
+          <span class="it">Diavola · 意式辣肠</span>
+          <span class="price"><small>RM</small>34</span>
+        </div>
+        <div class="pizza">
+          <h2>四重芝士</h2>
+          <span class="it">Quattro Formaggi · 蜂蜜</span>
+          <span class="price"><small>RM</small>36</span>
+        </div>
+      </div>
+      <div class="ticks" id="ticks" role="group" aria-label="切换招牌款"></div>
+    </div>
+  </section>
+
+  <!-- 6 · 店内氛围 -->
+  <section class="screen screen--ambience" data-media="ambience" data-title="店内氛围">
+    <div class="bg" aria-hidden="true">
+      <div class="ph"><div class="ph-label"><small>视频占位</small><span>温暖灯光 · 客人用餐</span></div></div>
+      <div class="shade"></div>
+    </div>
+    <div class="content reveal">
+      <p class="eyebrow"><b>06</b><i>La sala</i></p>
+      <blockquote>饼边焦香有嚼劲，每次来都像回到那不勒斯。</blockquote>
+      <p class="cite"><span class="stars" aria-label="五星">★★★★★</span>Google 评价 · 陈小姐</p>
+    </div>
+  </section>
+
+  <!-- 7 · 到店 -->
+  <section class="screen screen--visit" data-media="visit" data-title="到店">
+    <div class="bg" aria-hidden="true">
+      <div class="ph"><div class="ph-label"><small>视频占位</small><span>店门口 · 招牌灯</span></div></div>
+      <div class="shade"></div>
+    </div>
+    <div class="content reveal">
+      <p class="eyebrow"><b>07</b><i>Vieni a trovarci</i></p>
+      <h2>今晚，来坐坐</h2>
+      <div class="info">
+        <div class="info-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <dl class="hours" id="hours"></dl>
+        </div>
+        <div class="info-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <address id="address" style="font-style:normal"></address>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn btn--primary" id="btn-wa" href="#" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></svg>
+          WhatsApp 订位
+        </a>
+        <a class="btn btn--ghost" id="btn-map" href="#" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
+          Google 地图导航
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="dots" id="dots" aria-label="页面导航"></nav>
+<div class="counter" aria-hidden="true"><b id="counter-cur">01</b> / <span id="counter-total">07</span></div>
+
+<script>
+(function () {
+  var C = window.FORNELLO || { media: {}, contact: {} };
+  var scroller = document.getElementById('scroller');
+  var screens = Array.prototype.slice.call(document.querySelectorAll('.screen'));
+  var dotsNav = document.getElementById('dots');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var current = -1;
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+  /* ── 背景：封面图 + 视频 ── */
+  screens.forEach(function (s) {
+    var m = (C.media && C.media[s.dataset.media]) || {};
+    var ph = s.querySelector('.ph');
+
+    if (m.poster) {
+      var img = new Image();
+      img.onload = function () {
+        ph.style.backgroundImage = 'url("' + m.poster + '")';
+        ph.classList.add('has-poster');
+      };
+      img.src = m.poster;
+    }
+
+    if (m.video) {
+      var v = document.createElement('video');
+      v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+      v.setAttribute('muted', '');
+      v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
+      v.setAttribute('disablepictureinpicture', '');
+      v.preload = 'none';
+      v.dataset.src = m.video;
+      v.addEventListener('playing', function () { v.classList.add('ready'); });
+      v.addEventListener('error', function () { v.remove(); s._video = null; });
+      ph.parentNode.insertBefore(v, ph.nextSibling);
+      s._video = v;
+    }
+  });
+
+  function load(i) {
+    var s = screens[i], v = s && s._video;
+    if (v && !v.getAttribute('src')) {
+      v.src = v.dataset.src;
+      v.preload = 'auto';
+      v.load();
+    }
+  }
+  function play(v) {
+    if (!v) return;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { /* 被浏览器拦截时保留封面 */ });
+  }
+
+  /* ── 小圆点 ── */
+  document.getElementById('counter-total').textContent = pad(screens.length);
+  var dots = screens.map(function (s, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', '第 ' + (i + 1) + ' 屏：' + s.dataset.title);
+    b.appendChild(document.createElement('span'));
+    b.addEventListener('click', function () { goTo(i); });
+    dotsNav.appendChild(b);
+    return b;
+  });
+
+  function goTo(i) {
+    i = Math.max(0, Math.min(screens.length - 1, i));
+    scroller.scrollTo({ top: screens[i].offsetTop, behavior: reduceMotion ? 'auto' : 'smooth' });
+  }
+
+  /* ── 切换当前屏 ── */
+  function activate(i) {
+    if (i === current || i < 0) return;
+    current = i;
+    screens.forEach(function (s, j) {
+      s.classList.toggle('in', j === i);
+      if (s._video && j !== i) s._video.pause();
+    });
+    load(i);
+    play(screens[i]._video);
+    load(i + 1);                                   // 预载下一屏
+    dots.forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+    document.getElementById('counter-cur').textContent = pad(i + 1);
+    if (screens[i].contains(rotator)) startRotator(); else stopRotator();
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) activate(screens.indexOf(e.target));
+      });
+    }, { root: scroller, threshold: 0.6 });
+    screens.forEach(function (s) { io.observe(s); });
+  } else {
+    scroller.addEventListener('scroll', function () {
+      activate(Math.round(scroller.scrollTop / scroller.clientHeight));
+    }, { passive: true });
+  }
+
+  /* ── 键盘（电脑） ── */
+  document.addEventListener('keydown', function (e) {
+    if (e.target.closest && e.target.closest('a, button') && (e.key === ' ' || e.key === 'Enter')) return;
+    var k = e.key;
+    if (k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); goTo(current + 1); }
+    else if (k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); goTo(current - 1); }
+    else if (k === 'Home') { e.preventDefault(); goTo(0); }
+    else if (k === 'End') { e.preventDefault(); goTo(screens.length - 1); }
+  });
+
+  /* ── 招牌款轮播 ── */
+  var rotator = document.getElementById('rotator');
+  var ticksEl = document.getElementById('ticks');
+  var pizzas = Array.prototype.slice.call(rotator.querySelectorAll('.pizza'));
+  var interval = C.signatureInterval || 3200;
+  var ri = 0, timer = null;
+  ticksEl.style.setProperty('--rot', interval + 'ms');
+  if (reduceMotion) ticksEl.classList.add('paused');
+
+  var ticks = pizzas.map(function (p, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', p.querySelector('h2').textContent);
+    b.addEventListener('click', function () { showPizza(i); if (timer) restartTimer(); });
+    ticksEl.appendChild(b);
+    return b;
+  });
+
+  function showPizza(n) {
+    ri = n;
+    pizzas.forEach(function (p, j) {
+      p.classList.toggle('on', j === n);
+      p.setAttribute('aria-hidden', j === n ? 'false' : 'true');
+    });
+    ticks.forEach(function (t, j) {
+      t.classList.remove('on');
+      t.classList.toggle('done', j < n);
+      t.setAttribute('aria-pressed', j === n ? 'true' : 'false');
+    });
+    void ticks[n].offsetWidth;                     // 重新触发进度条动画
+    ticks[n].classList.add('on');
+  }
+  function restartTimer() {
+    clearInterval(timer);
+    if (reduceMotion) return;
+    timer = setInterval(function () { showPizza((ri + 1) % pizzas.length); }, interval);
+  }
+  function startRotator() { showPizza(0); restartTimer(); }
+  function stopRotator() { clearInterval(timer); timer = null; }
+  showPizza(0);
+
+  /* ── 到店资料 ── */
+  var ct = C.contact || {};
+  var hoursEl = document.getElementById('hours');
+  (ct.hours || []).forEach(function (h) {
+    var dt = document.createElement('dt'); dt.textContent = h[0];
+    var dd = document.createElement('dd'); dd.textContent = h[1];
+    hoursEl.appendChild(dt); hoursEl.appendChild(dd);
+  });
+  document.getElementById('address').textContent = ct.address || '';
+  document.getElementById('btn-wa').href =
+    'https://wa.me/' + String(ct.whatsapp || '').replace(/\D/g, '') +
+    (ct.whatsappMessage ? '?text=' + encodeURIComponent(ct.whatsappMessage) : '');
+  document.getElementById('btn-map').href = ct.mapsUrl ||
+    'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(ct.address || 'Fornello');
+
+  /* ── 自动播放被拦截时，首次触碰再试一次；切到后台时暂停 ── */
+  ['touchstart', 'pointerdown', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, function retry() {
+      if (screens[current]) play(screens[current]._video);
+      window.removeEventListener(ev, retry);
+    }, { passive: true });
+  });
+  document.addEventListener('visibilitychange', function () {
+    var v = screens[current] && screens[current]._video;
+    if (!v) return;
+    if (document.hidden) { v.pause(); stopRotator(); }
+    else { play(v); if (screens[current].contains(rotator)) restartTimer(); }
+  });
+
+  activate(Math.round(scroller.scrollTop / (scroller.clientHeight || 1)));
+})();
+</script>
+</body>
+</html>
