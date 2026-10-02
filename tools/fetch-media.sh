@@ -2,18 +2,21 @@
 # Downloads the generated Fornello cover images and background videos
 # into images/ and videos/, then compresses them for mobile.
 # Needs: curl, ffmpeg. Run from the repository root: bash tools/fetch-media.sh
-set -euo pipefail
+set -uo pipefail
+failed=()
+get() { curl -fsSL --retry 4 --retry-all-errors --retry-delay 3 -A "Mozilla/5.0" -o "$1" "$2" || { echo "FAILED: $2"; failed+=("$2"); return 1; }; }
 B=https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X
 mkdir -p images videos .media-src
 
 # name  image file  video file
 while read -r name img vid; do
-  curl -fsSL -o ".media-src/$name.png" "$B/$img"
-  curl -fsSL -o ".media-src/$name.mp4" "$B/$vid"
+  if get ".media-src/$name.png" "$B/$img"; then
   # Poster: 1080px wide JPG
-  ffmpeg -loglevel error -y -i ".media-src/$name.png" -vf "scale=1080:-2" -q:v 4 "images/$name.jpg"
+  ffmpeg -nostdin -loglevel error -y -i ".media-src/$name.png" -vf "scale=1080:-2" -q:v 4 "images/$name.jpg"
+  fi
+  get ".media-src/$name.mp4" "$B/$vid" || continue
   # Video: 720x1280, H.264, no audio, web-optimized, kept under ~3 MB
-  ffmpeg -loglevel error -y -i ".media-src/$name.mp4" -an -vf "scale=720:-2" \
+  ffmpeg -nostdin -loglevel error -y -i ".media-src/$name.mp4" -an -vf "scale=720:-2" \
     -c:v libx264 -preset slow -crf 26 -maxrate 4M -bufsize 8M -pix_fmt yuv420p \
     -movflags +faststart "videos/$name.mp4"
   echo "done: $name  $(du -h "videos/$name.mp4" | cut -f1)"
@@ -27,3 +30,4 @@ done <<'LIST'
 07-visit       hf_20261002_152928_331a0848-5bbd-4d2e-afb0-f03c45cc53be.png hf_20261002_153321_5c15842e-ad53-4536-95b6-d83af55a6e17.mp4
 LIST
 rm -rf .media-src
+if [ ${#failed[@]} -gt 0 ]; then echo "${#failed[@]} download(s) failed:"; printf "  %s\n" "${failed[@]}"; fi
