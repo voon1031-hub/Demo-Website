@@ -1,0 +1,125 @@
+{
+  "note": "Optimized copies of the Higgsfield generations (see design/optimize-media.sh), hosted on the Higgsfield media CDN.",
+  "files": {
+    "coin_d": {
+      "id": "5593556c-c0d9-4d2f-bcb6-57a53181e033",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/5593556c-c0d9-4d2f-bcb6-57a53181e033.mp4",
+      "type": "video"
+    },
+    "coin_m": {
+      "id": "6119e161-5b22-4945-97a4-a434cf472a5e",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/6119e161-5b22-4945-97a4-a434cf472a5e.mp4",
+      "type": "video"
+    },
+    "purple_d": {
+      "id": "6b377baa-3c72-493b-9182-8628aff145a8",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/6b377baa-3c72-493b-9182-8628aff145a8.mp4",
+      "type": "video"
+    },
+    "purple_m": {
+      "id": "bfd448dc-65a6-477f-8c1d-acfed0ff08a0",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/bfd448dc-65a6-477f-8c1d-acfed0ff08a0.mp4",
+      "type": "video"
+    },
+    "orange_d": {
+      "id": "8b8d6ab2-816b-4a61-9140-a75402e50221",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/8b8d6ab2-816b-4a61-9140-a75402e50221.mp4",
+      "type": "video"
+    },
+    "orange_m": {
+      "id": "b5add5f2-1e11-4c14-b612-0b871e1d6101",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/b5add5f2-1e11-4c14-b612-0b871e1d6101.mp4",
+      "type": "video"
+    },
+    "green_d": {
+      "id": "63ddfe9f-ac81-4547-819f-6fb00003bb23",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/63ddfe9f-ac81-4547-819f-6fb00003bb23.mp4",
+      "type": "video"
+    },
+    "green_m": {
+      "id": "c37a5162-3a30-4c83-a5e6-9dcf42aaa42a",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/c37a5162-3a30-4c83-a5e6-9dcf42aaa42a.mp4",
+      "type": "video"
+    },
+    "k1": {
+      "id": "121a326a-20fb-44b0-8617-af0c8fb15ca5",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/121a326a-20fb-44b0-8617-af0c8fb15ca5.webp",
+      "type": "image"
+    },
+    "k2": {
+      "id": "3ebbcac0-8399-4f9e-b0f0-93d3aa00e8cd",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/3ebbcac0-8399-4f9e-b0f0-93d3aa00e8cd.webp",
+      "type": "image"
+    },
+    "tube": {
+      "id": "516f1e2a-fbad-4211-a6b3-f2a717e71f6d",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/516f1e2a-fbad-4211-a6b3-f2a717e71f6d.webp",
+      "type": "image"
+    },
+    "fruit_purple": {
+      "id": "d1fe8008-580f-49f0-a11b-11d47e1369bf",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/d1fe8008-580f-49f0-a11b-11d47e1369bf.webp",
+      "type": "image"
+    },
+    "fruit_orange": {
+      "id": "03042867-d085-4a78-b58c-b20dd9cdb5aa",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/03042867-d085-4a78-b58c-b20dd9cdb5aa.webp",
+      "type": "image"
+    },
+    "fruit_green": {
+      "id": "82c484e0-5be9-42af-adf6-3624696e0e83",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/82c484e0-5be9-42af-adf6-3624696e0e83.webp",
+      "type": "image"
+    },
+    "can_purple": {
+      "id": "18a178a9-4357-475c-8010-ee92001a17c8",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/18a178a9-4357-475c-8010-ee92001a17c8.webp",
+      "type": "image"
+    },
+    "can_orange": {
+      "id": "56c2fcb9-aa23-470a-b635-5b1f298aad6b",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/56c2fcb9-aa23-470a-b635-5b1f298aad6b.webp",
+      "type": "image"
+    },
+    "can_green": {
+      "id": "1b327ac1-22da-4752-a0dc-96d1d0a3917e",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/1b327ac1-22da-4752-a0dc-96d1d0a3917e.webp",
+      "type": "image"
+    },
+    "end_purple": {
+      "id": "5cfa69dc-4eb9-439b-addb-6ada40605cae",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/5cfa69dc-4eb9-439b-addb-6ada40605cae.webp",
+      "type": "image"
+    },
+    "end_orange": {
+      "id": "d435d7f0-c0e6-4078-9ce4-b5b257f2ed22",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/d435d7f0-c0e6-4078-9ce4-b5b257f2ed22.webp",
+      "type": "image"
+    },
+    "end_green": {
+      "id": "6d884f4b-8f7d-43b3-b3ec-ebde225a7378",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/6d884f4b-8f7d-43b3-b3ec-ebde225a7378.webp",
+      "type": "image"
+    },
+    "tray_purple": {
+      "id": "a48409a9-3873-473e-9a2d-928013e9ab63",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/a48409a9-3873-473e-9a2d-928013e9ab63.webp",
+      "type": "image"
+    },
+    "tray_orange": {
+      "id": "cdb8d043-5d63-41b6-b00d-995a85f99613",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/cdb8d043-5d63-41b6-b00d-995a85f99613.webp",
+      "type": "image"
+    },
+    "tray_green": {
+      "id": "51706950-4450-47cf-b291-ad613c7d8e71",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/51706950-4450-47cf-b291-ad613c7d8e71.webp",
+      "type": "image"
+    },
+    "og": {
+      "id": "9d55dd2d-8882-4667-9111-7e82f5a0b53c",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/9d55dd2d-8882-4667-9111-7e82f5a0b53c.jpg",
+      "type": "image"
+    }
+  }
+}
