@@ -1,0 +1,1206 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MY FIZZ · Sparkling Water, Made in Malaysia</title>
+<meta name="description" content="Insert coin, get fizzy. MY FIZZ sparkling water in three wild flavors: Wild Dragon Fruit Berry, Tropical Mango Passion and Lime Calamansi Burst. Product of Malaysia.">
+<meta name="theme-color" content="#050506">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MY FIZZ · Insert coin. Get fizzy.">
+<meta property="og:description" content="Three wild sparkling waters from Malaysia, dropped fresh from one very extra vending machine.">
+<meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/9d55dd2d-8882-4667-9111-7e82f5a0b53c.jpg">
+<link rel="preconnect" href="https://d2ol7oe51mr4n9.cloudfront.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;600;700;800&family=Unbounded:wght@800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;600;700;800&family=Unbounded:wght@800;900&display=swap"></noscript>
+<link rel="preload" as="image" fetchpriority="high" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/121a326a-20fb-44b0-8617-af0c8fb15ca5.webp">
+<style>
+/* Layout: one long sticky "stage" plays the vending-machine story (coin -> drop -> sip),
+   then the page settles into normal-flow sections: the flavor lineup, a Made in Malaysia band, the footer.
+   Everything is black-studio; the only color comes from the three flavors. */
+:root {
+  --bg: #050506;
+  --ink: #f5f5f7;
+  --ink-2: #d4d4dc;
+  --muted: #9a9aa6;
+  --line: rgba(255, 255, 255, .12);
+
+  --purple: #c93bff;
+  --purple-2: #ff3d9a;
+  --orange: #ff8a1f;
+  --orange-2: #ffd23f;
+  --green: #a8e632;
+  --green-2: #2ee6c5;
+
+  --accent: #f5f5f7;
+  --accent-2: #9fd8ff;
+
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --gutter: clamp(16px, 5vw, 72px);
+  --nav-h: 64px;
+  --can-h: min(84vh, 980px);
+  --fruit-w: min(86vmin, 860px);
+  --stage-x: 12vw; /* the drop scene is centered at 50% + stage-x / 2 */
+}
+[data-flavor="purple"] { --accent: var(--purple); --accent-2: var(--purple-2); }
+[data-flavor="orange"] { --accent: var(--orange); --accent-2: var(--orange-2); }
+[data-flavor="green"]  { --accent: var(--green);  --accent-2: var(--green-2); }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--bg); color: var(--ink); -webkit-text-size-adjust: 100%; }
+body { font-family: var(--body); font-size: 16px; line-height: 1.55; background: var(--bg); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+img, video, canvas { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { list-style: none; }
+::selection { background: var(--accent); color: #050506; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+.skip { position: fixed; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 700; text-decoration: none; }
+.skip:focus { top: 12px; }
+
+.eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed; inset: 0 0 auto; z-index: 50; height: calc(var(--nav-h) + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) var(--gutter) 0;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+  background: linear-gradient(180deg, rgba(5, 5, 6, .78), rgba(5, 5, 6, 0));
+}
+.logo { justify-self: start; display: inline-flex; align-items: center; gap: 9px; font-family: var(--display); font-weight: 900; font-size: 19px; letter-spacing: -.01em; text-decoration: none; }
+.logo__dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px var(--accent); }
+.logo b { font-weight: 900; color: var(--accent); }
+.led {
+  display: inline-flex; align-items: center; gap: 10px; min-width: 0;
+  padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(0, 0, 0, .6);
+  font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap;
+  color: var(--accent); text-shadow: 0 0 10px var(--accent);
+}
+.led__dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; animation: blink 1.1s steps(2, jump-none) infinite; }
+.nav__right { justify-self: end; display: flex; align-items: center; gap: 6px; }
+.nav__link { padding: 10px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; text-decoration: none; }
+.nav__link:hover { background: rgba(255, 255, 255, .07); }
+.sound {
+  display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(255, 255, 255, .04); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+}
+.sound:hover { border-color: rgba(255, 255, 255, .3); }
+.sound__icon { width: 16px; height: 16px; flex: none; }
+.sound__on { display: none; }
+.sound[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+.sound[aria-pressed="true"] .sound__on { display: inline; }
+.sound[aria-pressed="true"] .sound__off { display: none; }
+.progress { position: fixed; left: 0; right: 0; top: 0; z-index: 55; height: 2px; pointer-events: none; }
+.progress span { display: block; height: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--purple), var(--orange), var(--green)); }
+
+@keyframes blink { 50% { opacity: .25; } }
+
+/* ---------- story stage ---------- */
+.story { position: relative; background: #000; }
+.js .story { height: var(--story-h, 1240vh); }
+.stage { position: relative; height: 100vh; height: 100svh; overflow: hidden; background: #000; isolation: isolate; }
+.js .stage { position: sticky; top: 0; }
+.layer { position: absolute; inset: 0; }
+.vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.act1 { z-index: 1; transform-origin: 50% 50%; will-change: transform, opacity; }
+.act1 .vid-end { opacity: 0; }
+.act3 { z-index: 3; opacity: 0; will-change: opacity; }
+.act3 .vid-end { opacity: 0; }
+.dim { z-index: 4; background: #000; opacity: 0; pointer-events: none; }
+.scrim {
+  z-index: 5; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(5, 5, 6, .86) 0%, rgba(5, 5, 6, .42) 38%, rgba(5, 5, 6, 0) 62%),
+    linear-gradient(0deg, rgba(5, 5, 6, .72) 0%, rgba(5, 5, 6, 0) 38%);
+}
+.fx { position: absolute; inset: 0; z-index: 6; width: 100%; height: 100%; pointer-events: none; }
+
+/* hero */
+.hero { position: absolute; z-index: 7; left: var(--gutter); bottom: clamp(36px, 11vh, 130px); max-width: min(780px, 88vw); will-change: opacity, transform; }
+.hero h1 { margin: 18px 0 22px; font-family: var(--display); font-weight: 900; font-size: clamp(3rem, 8.2vw, 8.4rem); line-height: .9; letter-spacing: -.035em; }
+.hero h1 span { display: block; }
+.grad { background: linear-gradient(92deg, var(--purple) 0%, var(--purple-2) 26%, var(--orange) 55%, var(--green) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lede { max-width: 36ch; font-size: clamp(1rem, 1.35vw, 1.22rem); color: var(--ink-2); }
+.cue { margin-top: 30px; display: flex; align-items: center; gap: 16px; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.cue small { display: block; margin-top: 4px; font-size: 10px; font-weight: 500; letter-spacing: .16em; color: var(--muted); }
+.cue__slot { position: relative; flex: none; width: 36px; height: 48px; border: 1.5px solid rgba(255, 255, 255, .55); border-radius: 11px; overflow: hidden; }
+.cue__slot::after { content: ""; position: absolute; left: 50%; top: 58%; width: 18px; height: 3px; margin-left: -9px; border-radius: 2px; background: #fff; box-shadow: 0 0 10px #fff; }
+.cue__coin { position: absolute; left: 50%; top: -12px; width: 19px; height: 19px; margin-left: -9.5px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #c9ccd6 45%, #6f7280); animation: coin 2.1s cubic-bezier(.6, 0, .4, 1) infinite; }
+@keyframes coin {
+  0% { transform: translateY(0) scaleX(1); opacity: 0; }
+  14% { opacity: 1; }
+  58% { transform: translateY(26px) scaleX(.3); opacity: 1; }
+  72%, 100% { transform: translateY(30px) scaleX(.2); opacity: 0; }
+}
+
+/* scroll beats */
+.beat { position: absolute; z-index: 7; left: var(--gutter); bottom: clamp(44px, 13vh, 150px); max-width: min(760px, 88vw); opacity: 0; pointer-events: none; will-change: opacity, transform; }
+.beat__n { display: block; margin-bottom: 12px; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); text-shadow: 0 0 12px var(--accent); }
+.beat__t { display: block; font-family: var(--display); font-weight: 900; font-size: clamp(2.5rem, 7vw, 7rem); line-height: .92; letter-spacing: -.035em; }
+.beat__s { display: block; margin-top: 14px; max-width: 34ch; font-size: clamp(.98rem, 1.3vw, 1.15rem); color: var(--ink-2); }
+
+/* act 2: the drop */
+.drop { z-index: 2; opacity: 0; visibility: hidden; will-change: opacity; }
+.drop__tube { position: absolute; top: -10%; left: -12%; width: 124%; height: 120%; max-width: none; object-fit: cover; will-change: transform; }
+.drop::before { content: ""; position: absolute; inset: 0; z-index: 4; pointer-events: none; background: linear-gradient(90deg, rgba(5, 5, 6, .9) 0%, rgba(5, 5, 6, .55) 26%, rgba(5, 5, 6, 0) 40%); }
+/* The three outlined words stay alive as their own layers and just fade in and out, so a flavor flip never re-paints big text.
+   Each holds 8 identical lines and slides exactly one line, which loops seamlessly. */
+.drop__words { position: absolute; z-index: 1; inset: 0; overflow: hidden; pointer-events: none; }
+.drop__word { position: absolute; left: calc(50% + var(--stage-x) / 2); top: 0; display: flex; flex-direction: column; align-items: center; opacity: 0; transform: translateX(-50%); animation: rise 2.2s linear infinite; will-change: transform, opacity; transition: opacity .2s; }
+.drop__word[data-i="0"] { --wc: var(--purple); }
+.drop__word[data-i="1"] { --wc: var(--orange); }
+.drop__word[data-i="2"] { --wc: var(--green); }
+.drop__word.is-on { opacity: 1; }
+.drop__word span { font-family: var(--display); font-weight: 900; font-size: clamp(3.5rem, 12vw, 11rem); line-height: .9; letter-spacing: -.04em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.5px var(--wc); opacity: .2; }
+@keyframes rise { from { transform: translate(-50%, 0); } to { transform: translate(-50%, -12.5%); } }
+.drop__fruit { position: absolute; z-index: 2; left: var(--stage-x); right: 0; top: 50%; width: var(--fruit-w); height: var(--fruit-w); margin: calc(var(--fruit-w) / -2) auto 0; opacity: 0; transition: opacity .3s; will-change: transform, opacity; }
+.drop__fruit.is-on { opacity: 1; }
+.drop__fruit img { width: 100%; height: 100%; object-fit: contain; }
+.drop__can { position: absolute; z-index: 3; left: var(--stage-x); right: 0; top: 50%; width: calc(var(--can-h) * 9 / 16); height: var(--can-h); margin: calc(var(--can-h) / -2) auto 0; will-change: transform; }
+/* The glow is a cheap gradient behind the can instead of a blur filter on a huge image. */
+.drop__can::before { content: ""; position: absolute; inset: -6% -90%; pointer-events: none; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 34%, transparent), transparent 72%); }
+.drop__can img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
+.drop__can img.is-on { opacity: 1; }
+
+.panel { position: absolute; z-index: 5; left: var(--gutter); top: 50%; width: min(31vw, 440px); transform: translateY(-50%); display: grid; }
+.flv { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity .35s, transform .35s, visibility 0s .35s; }
+.flv.is-on { opacity: 1; visibility: visible; transform: none; transition: opacity .35s, transform .35s; }
+.flv__count { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+.flv__count b { color: var(--accent); }
+.flv__name { margin: 12px 0 8px; font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem, 2.9vw, 2.8rem); line-height: .98; letter-spacing: -.02em; }
+.flv__name em { font-style: normal; color: var(--accent); }
+.flv__theme { font-size: 14px; color: var(--muted); }
+.flv__list { margin-top: 22px; border-top: 1px solid var(--line); }
+.flv__list li { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); opacity: 0; }
+.flv__list b { font-size: 15px; font-weight: 700; }
+.flv__list span { flex: none; font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--muted); text-align: right; }
+
+.dropmeta { position: absolute; z-index: 5; right: var(--gutter); top: 50%; transform: translateY(-50%); text-align: right; }
+.dropmeta__num { font-family: var(--display); font-weight: 900; font-size: clamp(3.5rem, 8vw, 8rem); line-height: .85; color: transparent; -webkit-text-stroke: 1.5px var(--accent); }
+.dropmeta__of { margin-top: 14px; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+
+.stamp {
+  position: absolute; z-index: 6; left: var(--stage-x); right: 0; top: calc(var(--nav-h) + 14px); text-align: center; opacity: 0; pointer-events: none;
+  font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); text-shadow: 0 0 12px var(--accent);
+}
+.sticker {
+  position: absolute; z-index: 2; right: -6%; top: 15%; padding: 10px 16px; border-radius: 999px; opacity: 0;
+  background: #fff; color: #08080a; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap;
+  box-shadow: 0 0 0 3px var(--accent), 0 10px 34px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+/* flashes + finale */
+.flash { position: absolute; inset: 0; z-index: 9; pointer-events: none; opacity: 0; }
+.flash--white { background: radial-gradient(circle at 50% 50%, #fff 0%, rgba(255, 255, 255, .92) 32%, rgba(225, 240, 255, .55) 60%, rgba(255, 255, 255, 0) 100%); }
+.flash--accent { background: radial-gradient(circle at 50% 55%, var(--accent-2) 0%, var(--accent) 34%, rgba(0, 0, 0, 0) 78%); }
+
+.refresh { position: absolute; inset: 0; z-index: 8; display: grid; place-items: center; padding: var(--gutter); text-align: center; visibility: hidden; }
+.refresh__inner { display: flex; flex-direction: column; align-items: center; }
+.refresh__big {
+  font-family: var(--display); font-weight: 900; font-size: clamp(4.6rem, 17vw, 17rem); line-height: .84; letter-spacing: -.05em;
+  background: linear-gradient(180deg, #fff 25%, var(--accent-2) 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 42px color-mix(in srgb, var(--accent) 55%, transparent));
+  opacity: 0; will-change: opacity, transform;
+}
+.refresh__sub { margin-top: 18px; font-size: clamp(1.05rem, 1.6vw, 1.4rem); color: var(--ink-2); opacity: 0; }
+.refresh__drop { margin-top: 28px; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); opacity: 0; }
+.refresh__drop strong { color: var(--accent); }
+.refresh .btn { margin-top: 26px; opacity: 0; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px; border-radius: 999px;
+  background: var(--accent); color: #08080a; font-weight: 800; text-decoration: none;
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: transform .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* ---------- lineup ---------- */
+.lineup {
+  position: relative; padding: clamp(90px, 15vh, 170px) var(--gutter) clamp(70px, 12vh, 140px);
+  background:
+    radial-gradient(55% 45% at 12% 0%, rgba(201, 59, 255, .16), transparent 70%),
+    radial-gradient(50% 40% at 55% 6%, rgba(255, 138, 31, .10), transparent 70%),
+    radial-gradient(55% 45% at 92% 2%, rgba(168, 230, 50, .12), transparent 70%),
+    var(--bg);
+}
+.lineup__head { max-width: 920px; margin-bottom: clamp(40px, 8vh, 90px); }
+.lineup h2, .made h2 { margin: 16px 0 20px; font-family: var(--display); font-weight: 900; font-size: clamp(2.6rem, 6.6vw, 6.4rem); line-height: .92; letter-spacing: -.035em; }
+.lineup__lede { max-width: 54ch; font-size: clamp(1rem, 1.3vw, 1.15rem); color: var(--ink-2); }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+.card { --c: var(--ink); position: relative; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 28px; overflow: hidden; background: linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .015)); transition: border-color .3s; }
+.card[data-f="purple"] { --c: var(--purple); }
+.card[data-f="orange"] { --c: var(--orange); }
+.card[data-f="green"] { --c: var(--green); }
+.card:hover { border-color: color-mix(in srgb, var(--c) 55%, transparent); }
+.card__visual { position: relative; aspect-ratio: 1 / 1.05; overflow: hidden; background: radial-gradient(62% 55% at 50% 52%, color-mix(in srgb, var(--c) 38%, transparent), transparent 72%); }
+.card__fruit { position: absolute; inset: -4%; width: 108%; height: 108%; object-fit: contain; transition: transform 1.4s cubic-bezier(.2, .7, .2, 1); }
+.card__can { position: absolute; left: 50%; top: 50%; height: 92%; width: auto; max-width: none; transform: translate(-50%, -50%) rotate(-4deg); filter: drop-shadow(0 28px 36px rgba(0, 0, 0, .55)); transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.card:hover .card__fruit { transform: rotate(14deg) scale(1.04); }
+.card:hover .card__can { transform: translate(-50%, -53%) rotate(3deg) scale(1.03); }
+.card__body { padding: 24px 26px 30px; }
+.card__tag { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--c); }
+.card h3 { margin: 10px 0 12px; font-family: var(--display); font-weight: 800; font-size: clamp(1.45rem, 2.1vw, 1.95rem); line-height: 1.02; letter-spacing: -.02em; }
+.card p { color: #c9c9d3; }
+.card__list { margin: 22px 0 18px; border-top: 1px solid var(--line); }
+.card__list li { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; font-weight: 600; }
+.card__list span { flex: none; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--muted); text-align: right; }
+.card__meta { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.badge { position: absolute; z-index: 2; top: 18px; left: 18px; display: none; padding: 7px 12px; border-radius: 999px; background: var(--c); color: #08080a; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+[data-winner="purple"] .card[data-f="purple"] .badge,
+[data-winner="orange"] .card[data-f="orange"] .badge,
+[data-winner="green"] .card[data-f="green"] .badge { display: inline-block; }
+[data-winner="purple"] .card[data-f="purple"],
+[data-winner="orange"] .card[data-f="orange"],
+[data-winner="green"] .card[data-f="green"] { border-color: color-mix(in srgb, var(--c) 60%, transparent); box-shadow: 0 0 60px color-mix(in srgb, var(--c) 18%, transparent); }
+
+/* ---------- made in malaysia ---------- */
+.made { position: relative; overflow: hidden; padding: clamp(70px, 11vh, 130px) 0 clamp(80px, 13vh, 150px); border-top: 1px solid var(--line); }
+.marquee { overflow: hidden; }
+.marquee__track { display: flex; width: max-content; animation: marq 32s linear infinite; }
+.marquee__track span { padding-right: .55em; font-family: var(--display); font-weight: 900; font-size: clamp(2.4rem, 6.5vw, 5.8rem); letter-spacing: -.03em; white-space: nowrap; }
+.marquee__track .o { color: transparent; -webkit-text-stroke: 1.2px rgba(255, 255, 255, .45); }
+@keyframes marq { to { transform: translateX(-50%); } }
+.made__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); align-items: center; padding: clamp(56px, 9vh, 110px) var(--gutter) 0; }
+.made p { max-width: 46ch; color: var(--ink-2); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.chips li { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.made__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 28px; border: 1px solid var(--line); }
+
+/* ---------- footer ---------- */
+.foot { padding: clamp(56px, 10vh, 110px) var(--gutter) calc(34px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); overflow: hidden; }
+.foot__word { font-family: var(--display); font-weight: 900; font-size: clamp(4rem, 18.5vw, 19rem); line-height: .8; letter-spacing: -.05em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .35); }
+.foot__row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 30px; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- small screens ---------- */
+@media (max-width: 980px) {
+  .cards { grid-template-columns: 1fr; max-width: 560px; }
+  .made__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  :root { --nav-h: 58px; --can-h: min(56svh, calc(100svh - 330px)); --fruit-w: min(118vw, 74svh); --stage-x: 0px; }
+  .nav { grid-template-columns: auto 1fr auto; }
+  .led { justify-self: center; padding: 6px 10px; font-size: 10px; letter-spacing: .14em; gap: 7px; }
+  .nav__link, .sound__label { display: none; }
+  .sound { padding: 9px 11px; }
+  .logo { font-size: 16px; }
+  .scrim { background: linear-gradient(0deg, rgba(5, 5, 6, .92) 0%, rgba(5, 5, 6, .55) 34%, rgba(5, 5, 6, 0) 62%); }
+  .hero { bottom: calc(28px + env(safe-area-inset-bottom)); }
+  .hero h1 { font-size: clamp(2.7rem, 13vw, 4.6rem); margin: 14px 0 16px; }
+  .cue { margin-top: 22px; }
+  .beat { bottom: calc(32px + env(safe-area-inset-bottom)); }
+  .beat__t { font-size: clamp(2.3rem, 12vw, 4rem); }
+  .drop::before { background: linear-gradient(0deg, rgba(5, 5, 6, .95) 0%, rgba(5, 5, 6, .82) 30%, rgba(5, 5, 6, 0) 52%); }
+  .drop__can { top: calc(var(--nav-h) + 10px); margin-top: 0; }
+  .drop__fruit { top: calc(var(--nav-h) + 10px + var(--can-h) / 2); }
+  .panel { top: auto; bottom: 0; left: 0; right: 0; width: auto; transform: none; padding: 0 16px calc(16px + env(safe-area-inset-bottom)); }
+  .flv__name { font-size: 1.45rem; margin: 6px 0 4px; }
+  .flv__theme { font-size: 12px; }
+  .flv__list { margin-top: 10px; }
+  .flv__list li { padding: 6px 0; }
+  .flv__list b { font-size: 13px; }
+  .flv__list span { font-size: 10px; }
+  .dropmeta { display: none; }
+  .stamp { top: calc(var(--nav-h) + 6px); }
+  .card__body { padding: 22px 20px 26px; }
+}
+@media (max-height: 640px) and (max-width: 760px) {
+  .flv__list span { display: none; }
+}
+
+/* Switched on automatically when a device cannot hold ~40fps: only decoration goes. */
+.lite .fx, .lite .drop__words, .lite .drop__can::before { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .drop__word, .marquee__track, .cue__coin, .led__dot { animation: none; }
+  .card__fruit, .card__can, .btn { transition: none; }
+}
+.no-js .hero .cue { display: none; }
+</style>
+<script>document.documentElement.classList.replace("no-js", "js");</script>
+</head>
+<body>
+<a class="skip" href="#lineup">Skip to the flavors</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="nav">
+  <a class="logo" href="#top" aria-label="MY FIZZ home"><span class="logo__dot" aria-hidden="true"></span>MY <b>FIZZ</b></a>
+  <div class="led" aria-hidden="true"><span class="led__dot"></span><span class="led__text">Insert coin</span></div>
+  <div class="nav__right">
+    <a class="nav__link" href="#lineup">Flavors</a>
+    <button class="sound" type="button" aria-pressed="false" aria-label="Sound effects">
+      <svg class="sound__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="currentColor"/><path class="sound__off" d="M16 9.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path class="sound__on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg><span class="sound__label">Sound off</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="story" id="story" aria-label="Insert a coin and watch your MY FIZZ drop">
+    <div class="stage">
+      <div class="layer act1">
+        <video class="vid v-coin" muted playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1"
+          poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/121a326a-20fb-44b0-8617-af0c8fb15ca5.webp"></video>
+        <img class="vid vid-end" alt="" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/3ebbcac0-8399-4f9e-b0f0-93d3aa00e8cd.webp">
+      </div>
+
+      <div class="layer drop" aria-hidden="true">
+        <img class="drop__tube" alt="" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/516f1e2a-fbad-4211-a6b3-f2a717e71f6d.webp">
+        <div class="drop__words">
+          <div class="drop__word" data-i="0"><span>DRAGON FRUIT</span><span>DRAGON FRUIT</span><span>DRAGON FRUIT</span><span>DRAGON FRUIT</span><span>DRAGON FRUIT</span><span>DRAGON FRUIT</span><span>DRAGON FRUIT</span><span>DRAGON FRUIT</span></div>
+          <div class="drop__word" data-i="1"><span>MANGO PASSION</span><span>MANGO PASSION</span><span>MANGO PASSION</span><span>MANGO PASSION</span><span>MANGO PASSION</span><span>MANGO PASSION</span><span>MANGO PASSION</span><span>MANGO PASSION</span></div>
+          <div class="drop__word" data-i="2"><span>CALAMANSI</span><span>CALAMANSI</span><span>CALAMANSI</span><span>CALAMANSI</span><span>CALAMANSI</span><span>CALAMANSI</span><span>CALAMANSI</span><span>CALAMANSI</span></div>
+        </div>
+        <div class="drop__fruit" data-i="0"><img alt="" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/d1fe8008-580f-49f0-a11b-11d47e1369bf.webp"></div>
+        <div class="drop__fruit" data-i="1"><img alt="" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/03042867-d085-4a78-b58c-b20dd9cdb5aa.webp"></div>
+        <div class="drop__fruit" data-i="2"><img alt="" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/82c484e0-5be9-42af-adf6-3624696e0e83.webp"></div>
+        <div class="drop__can">
+          <img alt="" data-i="0" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/18a178a9-4357-475c-8010-ee92001a17c8.webp">
+          <img alt="" data-i="1" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/56c2fcb9-aa23-470a-b635-5b1f298aad6b.webp">
+          <img alt="" data-i="2" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/1b327ac1-22da-4752-a0dc-96d1d0a3917e.webp">
+          <span class="sticker">Your drop ✦</span>
+        </div>
+
+        <div class="panel">
+          <div class="flv" data-i="0">
+            <p class="flv__count"><b class="flv__n">01</b> / 03 · Neon purple × electric magenta</p>
+            <p class="flv__name">Wild Dragon Fruit <em>Berry</em></p>
+            <p class="flv__theme">Wild, juicy and a little bit extra.</p>
+            <ul class="flv__list">
+              <li><b>Carbonated Water</b><span>the sparkle</span></li>
+              <li><b>Red Dragon Fruit Juice Extract</b><span>the main character</span></li>
+              <li><b>Mixed Berry Essence</b><span>blueberry + raspberry</span></li>
+              <li><b>Natural Flavors</b><span>full fruity hit</span></li>
+              <li><b>Citric Acid</b><span>sweet-tart balance</span></li>
+              <li><b>Stevia Leaf Extract</b><span>sugar-free sweetener</span></li>
+            </ul>
+          </div>
+          <div class="flv" data-i="1">
+            <p class="flv__count"><b class="flv__n">02</b> / 03 · Cool waves × tropical sunset</p>
+            <p class="flv__name">Tropical Mango <em>Passion</em></p>
+            <p class="flv__theme">Golden hour in a can.</p>
+            <ul class="flv__list">
+              <li><b>Carbonated Water</b><span>the sparkle</span></li>
+              <li><b>Mango Puree Extract</b><span>the golden one</span></li>
+              <li><b>Passion Fruit Juice Concentrate</b><span>tangy + tropical</span></li>
+              <li><b>Citric Acid &amp; Ascorbic Acid</b><span>tang + vitamin C</span></li>
+              <li><b>Natural Tropical Flavors</b><span>island energy</span></li>
+              <li><b>Erythritol</b><span>zero-calorie sweetener</span></li>
+            </ul>
+          </div>
+          <div class="flv" data-i="2">
+            <p class="flv__count"><b class="flv__n">03</b> / 03 · Electric green × calamansi pop</p>
+            <p class="flv__name">Lime Calamansi <em>Burst</em></p>
+            <p class="flv__theme">Sour, zesty and proudly Malaysian.</p>
+            <ul class="flv__list">
+              <li><b>Carbonated Water</b><span>the sparkle</span></li>
+              <li><b>Malaysian Calamansi Juice</b><span>our local hero</span></li>
+              <li><b>Lime Juice Concentrate</b><span>extra zing</span></li>
+              <li><b>Natural Mint Extract</b><span>the cool-down</span></li>
+              <li><b>Citric Acid</b><span>keeps it bright</span></li>
+              <li><b>Stevia Leaf Extract</b><span>sugar-free sweetener</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dropmeta"><p class="dropmeta__num">01</p><p class="dropmeta__of">of 03 · 330ml</p></div>
+        <p class="stamp">Which one drops?</p>
+      </div>
+
+      <div class="layer act3">
+        <video class="vid v-drink" muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+        <img class="vid vid-end" alt="">
+      </div>
+      <div class="layer dim"></div>
+      <div class="layer scrim"></div>
+      <canvas class="fx" aria-hidden="true"></canvas>
+
+      <div class="hero">
+        <p class="eyebrow">MY FIZZ · Sparkling water · Made in Malaysia</p>
+        <h1><span>Insert coin.</span><span class="grad">Get fizzy.</span></h1>
+        <p class="lede">Three wild flavors wait inside one very extra machine. Scroll to drop yours.</p>
+        <div class="cue" aria-hidden="true">
+          <span class="cue__slot"><i class="cue__coin"></i></span>
+          <span>Scroll to insert coin<small class="cue__load">Machine warming up</small></span>
+        </div>
+      </div>
+
+      <p class="beat" data-seg="coin" data-a=".1" data-b=".32"><span class="beat__n">01 · Coin in</span><span class="beat__t">Clink.</span><span class="beat__s">One coin. Three wild flavors waiting inside.</span></p>
+      <p class="beat" data-seg="coin" data-a=".36" data-b=".57"><span class="beat__n">02 · Press</span><span class="beat__t">Tap for fizz.</span><span class="beat__s">No menu, no overthinking. The machine picks for you.</span></p>
+      <p class="beat" data-seg="coin" data-a=".61" data-b=".97"><span class="beat__n">03 · Power up</span><span class="beat__t">It's alive.</span><span class="beat__s">Glass, light and a whole lot of bubbles.</span></p>
+      <p class="beat" data-seg="drink" data-a=".05" data-b=".28"><span class="beat__n">04 · Grab</span><span class="beat__t">Ice cold.</span></p>
+      <p class="beat" data-seg="drink" data-a=".32" data-b=".54"><span class="beat__n">05 · Crack</span><span class="beat__t">Pssst.</span></p>
+      <p class="beat" data-seg="drink" data-a=".58" data-b=".78"><span class="beat__n">06 · Sip</span><span class="beat__t">First sip.</span></p>
+      <p class="beat" data-seg="drink" data-a=".82" data-b="1"><span class="beat__n">07 · Burst</span><span class="beat__t">Feel the burst.</span></p>
+
+      <div class="refresh">
+        <div class="refresh__inner">
+          <p class="refresh__big">Ahhh.</p>
+          <p class="refresh__sub">Crisp, sweet and fizzing all the way down.</p>
+          <p class="refresh__drop">Today's drop: <strong data-winner-name>MY FIZZ</strong></p>
+          <a class="btn" href="#lineup">Meet all three <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="flash flash--white"></div>
+      <div class="flash flash--accent"></div>
+    </div>
+  </section>
+
+  <section class="lineup" id="lineup" aria-labelledby="lineup-title">
+    <div class="lineup__head">
+      <p class="eyebrow">The lineup</p>
+      <h2 id="lineup-title">Pick your fizz.</h2>
+      <p class="lineup__lede">Three sparkling waters, 330ml each, made in Malaysia with real fruit and loud colors. The machine already picked one for you. Here's the whole crew.</p>
+    </div>
+    <div class="cards">
+      <article class="card" data-f="purple">
+        <span class="badge">Your drop</span>
+        <div class="card__visual">
+          <img class="card__fruit" alt="" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/d1fe8008-580f-49f0-a11b-11d47e1369bf.webp">
+          <img class="card__can" alt="MY FIZZ Wild Dragon Fruit Berry sparkling water can" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/18a178a9-4357-475c-8010-ee92001a17c8.webp">
+        </div>
+        <div class="card__body">
+          <p class="card__tag">01 · Neon purple × electric magenta</p>
+          <h3>Wild Dragon Fruit Berry</h3>
+          <p>Red dragon fruit meets a rush of blueberry and raspberry, lifted with bright bubbles and sweetened with stevia leaf. Loud color, clean finish.</p>
+          <ul class="card__list">
+            <li>Carbonated Water <span>the sparkle</span></li>
+            <li>Red Dragon Fruit Juice Extract <span>the main character</span></li>
+            <li>Mixed Berry Essence <span>blueberry + raspberry</span></li>
+            <li>Natural Flavors <span>full fruity hit</span></li>
+            <li>Citric Acid <span>sweet-tart balance</span></li>
+            <li>Stevia Leaf Extract <span>sugar-free sweetener</span></li>
+          </ul>
+          <p class="card__meta">330ml · Sparkling water · Product of Malaysia</p>
+        </div>
+      </article>
+      <article class="card" data-f="orange">
+        <span class="badge">Your drop</span>
+        <div class="card__visual">
+          <img class="card__fruit" alt="" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/03042867-d085-4a78-b58c-b20dd9cdb5aa.webp">
+          <img class="card__can" alt="MY FIZZ Tropical Mango Passion sparkling water can" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/56c2fcb9-aa23-470a-b635-5b1f298aad6b.webp">
+        </div>
+        <div class="card__body">
+          <p class="card__tag">02 · Cool waves × tropical sunset</p>
+          <h3>Tropical Mango Passion</h3>
+          <p>Ripe mango and tangy passion fruit ride a wave of fine bubbles, with a vitamin C kick and erythritol for sweetness. Golden hour, any hour.</p>
+          <ul class="card__list">
+            <li>Carbonated Water <span>the sparkle</span></li>
+            <li>Mango Puree Extract <span>the golden one</span></li>
+            <li>Passion Fruit Juice Concentrate <span>tangy + tropical</span></li>
+            <li>Citric Acid &amp; Ascorbic Acid <span>tang + vitamin C</span></li>
+            <li>Natural Tropical Flavors <span>island energy</span></li>
+            <li>Erythritol <span>zero-calorie sweetener</span></li>
+          </ul>
+          <p class="card__meta">330ml · Sparkling water · Product of Malaysia</p>
+        </div>
+      </article>
+      <article class="card" data-f="green">
+        <span class="badge">Your drop</span>
+        <div class="card__visual">
+          <img class="card__fruit" alt="" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/82c484e0-5be9-42af-adf6-3624696e0e83.webp">
+          <img class="card__can" alt="MY FIZZ Lime Calamansi Burst sparkling water can" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/1b327ac1-22da-4752-a0dc-96d1d0a3917e.webp">
+        </div>
+        <div class="card__body">
+          <p class="card__tag">03 · Electric green × calamansi pop</p>
+          <h3>Lime Calamansi Burst</h3>
+          <p>Malaysian calamansi and lime, cooled down with natural mint. Sharp, sparkling and seriously refreshing, with stevia leaf for sweetness.</p>
+          <ul class="card__list">
+            <li>Carbonated Water <span>the sparkle</span></li>
+            <li>Malaysian Calamansi Juice <span>our local hero</span></li>
+            <li>Lime Juice Concentrate <span>extra zing</span></li>
+            <li>Natural Mint Extract <span>the cool-down</span></li>
+            <li>Citric Acid <span>keeps it bright</span></li>
+            <li>Stevia Leaf Extract <span>sugar-free sweetener</span></li>
+          </ul>
+          <p class="card__meta">330ml · Sparkling water · Product of Malaysia</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="made" aria-labelledby="made-title">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Dragon fruit</span><span class="o">Berries</span><span>Mango</span><span class="o">Passion fruit</span><span>Calamansi</span><span class="o">Lime</span><span>Mint</span><span class="o">Bubbles</span>
+        <span>Dragon fruit</span><span class="o">Berries</span><span>Mango</span><span class="o">Passion fruit</span><span>Calamansi</span><span class="o">Lime</span><span>Mint</span><span class="o">Bubbles</span>
+      </div>
+    </div>
+    <div class="made__grid">
+      <div>
+        <p class="eyebrow">Product of Malaysia</p>
+        <h2 id="made-title">Made in Malaysia.<br>Built to fizz.</h2>
+        <p>Dragon fruit, mango, passion fruit, calamansi and lime: big tropical flavors, fine bubbles and a vending machine with main-character energy. That's MY FIZZ.</p>
+        <ul class="chips"><li>330ml cans</li><li>Sparkling water</li><li>3 wild flavors</li></ul>
+      </div>
+      <img class="made__img" alt="The MY FIZZ transparent capsule vending machine, lit up in purple, orange and green" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/3ebbcac0-8399-4f9e-b0f0-93d3aa00e8cd.webp">
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot__word" aria-hidden="true">MY FIZZ</p>
+  <div class="foot__row"><span>Sparkling water · 330ml · Product of Malaysia</span><span>© 2026 MY FIZZ</span></div>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  const doc = document.documentElement;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const clamp = (v, a = 0, b = 1) => (v < a ? a : v > b ? b : v);
+  const mix = (a, b, t) => a + (b - a) * t;
+  const span = (u, a, b) => clamp((u - a) / (b - a));
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  const easeIn = t => t * t * t;
+  // 0 -> 1 -> 0 across [a, b], fading over f at each end
+  const win = (u, a, b, f = 0.04) => clamp(Math.min((u - a) / f, (b - u) / f));
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const MOBILE = matchMedia("(max-width: 760px)").matches;
+  const FPS = 24;
+  // ?perf=lite or ?perf=full pins the effects level (handy for comparing devices).
+  const PERF = new URLSearchParams(location.search).get("perf");
+
+  // Style writes are cached, so a frame only touches the properties that really changed.
+  const memo = new WeakMap();
+  const put = (el, k, v) => {
+    let m = memo.get(el);
+    if (!m) memo.set(el, m = {});
+    if (m[k] !== v) { m[k] = v; el.style[k] = v; }
+  };
+  const q = v => +v.toFixed(3);
+
+  // Compressed copies of the generated media (design/optimize-media.sh, design/media.json).
+  // Every clip has a keyframe every 6-8 frames, so a scroll-seek decodes a handful of frames instead of hundreds.
+  // Desktop gets 1280x720, phones get a 540x960 portrait crop.
+  const U = "https://d2ol7oe51mr4n9.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/";
+  const clip = c => U + (MOBILE ? c.m : c.d) + ".mp4";
+  const COIN = clip({ d: "5593556c-c0d9-4d2f-bcb6-57a53181e033", m: "6119e161-5b22-4945-97a4-a434cf472a5e" });
+  const FLAVORS = [
+    { id: "purple", short: "Dragon", name: "Wild Dragon Fruit Berry", rgb: "201,59,255",
+      video: clip({ d: "6b377baa-3c72-493b-9182-8628aff145a8", m: "bfd448dc-65a6-477f-8c1d-acfed0ff08a0" }), poster: U + "a48409a9-3873-473e-9a2d-928013e9ab63.webp", end: U + "5cfa69dc-4eb9-439b-addb-6ada40605cae.webp" },
+    { id: "orange", short: "Mango", name: "Tropical Mango Passion", rgb: "255,138,31",
+      video: clip({ d: "8b8d6ab2-816b-4a61-9140-a75402e50221", m: "b5add5f2-1e11-4c14-b612-0b871e1d6101" }), poster: U + "cdb8d043-5d63-41b6-b00d-995a85f99613.webp", end: U + "d435d7f0-c0e6-4078-9ce4-b5b257f2ed22.webp" },
+    { id: "green", short: "Calamansi", name: "Lime Calamansi Burst", rgb: "168,230,50",
+      video: clip({ d: "63ddfe9f-ac81-4547-819f-6fb00003bb23", m: "c37a5162-3a30-4c83-a5e6-9dcf42aaa42a" }), poster: U + "51706950-4450-47cf-b291-ad613c7d8e71.webp", end: U + "6d884f4b-8f7d-43b3-b3ec-ebde225a7378.webp" },
+  ];
+
+  // The machine shuffles the three flavors; whichever comes last is the one that drops.
+  const order = [0, 1, 2];
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  const winner = order[2];
+  const W = FLAVORS[winner];
+  doc.dataset.winner = W.id;
+  $$("[data-winner-name]").forEach(el => { el.textContent = W.name; });
+  // Number the panels in the order they fall.
+  order.forEach((fi, k) => { $(`.flv[data-i="${fi}"] .flv__n`).textContent = "0" + (k + 1); });
+
+  // ---------- timeline: each segment's length is in vh of scrolling ----------
+  const SEGMENTS = [
+    ["hero", 35], ["coin", 230], ["zoom", 45], ["enter", 45],
+    ["f0", 115], ["f1", 115], ["f2", 150], ["fall", 40],
+    ["drink", 250], ["refresh", 80], ["hold", 35],
+  ];
+  const TOTAL = SEGMENTS.reduce((s, [, v]) => s + v, 0);
+  const T = {};
+  { let acc = 0; for (const [k, v] of SEGMENTS) { T[k] = [acc / TOTAL, (acc + v) / TOTAL]; acc += v; } }
+  const L = (P, k) => span(P, T[k][0], T[k][1]);
+  const at = (k, u) => mix(T[k][0], T[k][1], u);
+
+  const story = $("#story");
+  const stage = $(".stage");
+  story.style.setProperty("--story-h", CSS.supports("height", "100svh") ? `calc(${TOTAL}vh + 100svh)` : `${TOTAL + 100}vh`);
+
+  const act1 = $(".act1"), vCoin = $(".v-coin"), coinEnd = $(".act1 .vid-end");
+  const act3 = $(".act3"), vDrink = $(".v-drink"), drinkEnd = $(".act3 .vid-end");
+  const drop = $(".drop"), tube = $(".drop__tube"), canWrap = $(".drop__can");
+  const canImgs = $$(".drop__can img"), fruits = $$(".drop__fruit"), words = $$(".drop__word"), panels = $$(".flv");
+  const dropNum = $(".dropmeta__num"), stampRoll = $(".stamp"), sticker = $(".sticker");
+  const hero = $(".hero"), scrim = $(".scrim"), dim = $(".dim");
+  const flashW = $(".flash--white"), flashA = $(".flash--accent");
+  const refresh = $(".refresh"), rBig = $(".refresh__big"), rSub = $(".refresh__sub"), rDrop = $(".refresh__drop"), rBtn = $(".refresh .btn");
+  const ledText = $(".led__text"), bar = $(".progress span"), loadNote = $(".cue__load");
+  const beats = $$(".beat").map(el => ({ el, seg: el.dataset.seg, a: +el.dataset.a, b: +el.dataset.b }));
+
+  // ---------- media loading ----------
+  // The coin clip is all the first screen needs, so it goes first and alone. The stills and the winning flavor's
+  // clip only start once it is in, so nothing competes with it for bandwidth.
+  const whenLoaded = (video, ms = 25000) => new Promise(res => {
+    if (video.readyState >= 2) return res();
+    const done = () => {
+      clearTimeout(timer);
+      video.removeEventListener("loadeddata", done);
+      video.removeEventListener("error", done);
+      res();
+    };
+    const timer = setTimeout(done, ms);
+    video.addEventListener("loadeddata", done);
+    video.addEventListener("error", done);
+  });
+
+  // The whole clip is fetched into memory so scroll-seeking never waits on the network; if the CDN refuses a
+  // cross-origin fetch, the element streams it from the URL instead.
+  async function loadVideo(video, url, onProgress) {
+    let src = url;
+    try {
+      const res = await fetch(url, { mode: "cors", priority: "high" });
+      if (!res.ok || !res.body) throw new Error("fetch failed");
+      const total = +res.headers.get("content-length") || 0;
+      const reader = res.body.getReader();
+      const chunks = [];
+      let got = 0;
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        got += value.length;
+        if (onProgress && total) onProgress(got / total);
+      }
+      src = URL.createObjectURL(new Blob(chunks, { type: "video/mp4" }));
+    } catch (err) { /* fall back to streaming */ }
+    video.preload = "auto";
+    video.src = src;
+    video.load();
+    await whenLoaded(video);
+  }
+
+  // Seeks are snapped to frame boundaries (aiming at the middle of a frame) and only one is in flight at a time.
+  function makeScrubber(video) {
+    const s = { ready: false, dur: 10, target: 0, last: -1, busy: false, since: 0, primed: false };
+    const push = () => {
+      if (!s.ready) return;
+      if (s.busy && performance.now() - s.since < 400) return;
+      const f = Math.round(clamp(s.target, 0, Math.max(0, s.dur - 0.05)) * FPS);
+      const t = (f + 0.5) / FPS;
+      if (f === s.last || (Math.abs(video.currentTime - t) < 0.5 / FPS && !video.seeking)) { s.last = f; s.busy = false; return; }
+      s.busy = true;
+      s.since = performance.now();
+      s.last = f;
+      try { video.currentTime = t; } catch (e) { s.busy = false; }
+    };
+    video.addEventListener("loadedmetadata", () => {
+      s.dur = isFinite(video.duration) && video.duration > 0 ? video.duration : 10;
+      s.ready = true;
+      push();
+    });
+    video.addEventListener("loadeddata", () => {
+      // iOS paints seeked frames reliably only after the element has played once.
+      if (s.primed) return;
+      s.primed = true;
+      const p = video.play();
+      if (p && p.then) p.then(() => { video.pause(); s.last = -1; push(); }).catch(() => {});
+    });
+    video.addEventListener("seeked", () => { s.busy = false; push(); });
+    s.set = u => { s.target = u * s.dur; push(); };
+    return s;
+  }
+  const scrubCoin = makeScrubber(vCoin);
+  const scrubDrink = makeScrubber(vDrink);
+
+  const loadImages = () => Promise.all($$("img[data-src]").map(img => {
+    if (!img.getAttribute("src")) img.src = img.dataset.src;
+    return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+  }));
+
+  const coinReady = loadVideo(vCoin, COIN, p => { loadNote.textContent = `Machine warming up · ${Math.round(p * 100)}%`; });
+  coinReady.then(() => { loadNote.textContent = "Machine ready"; });
+  (async () => {
+    await coinReady;
+    vDrink.poster = W.poster;
+    drinkEnd.dataset.src = W.end;
+    await loadImages();
+    await loadVideo(vDrink, W.video);
+  })();
+
+  // ---------- sound: everything is synthesized, no audio files ----------
+  const Sound = (() => {
+    let ctx = null, out = null, noise = null, on = false;
+    const init = () => {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return false;
+      ctx = new AC();
+      const comp = ctx.createDynamicsCompressor();
+      comp.threshold.value = -14;
+      comp.ratio.value = 4;
+      out = ctx.createGain();
+      out.gain.value = 0.85;
+      out.connect(comp).connect(ctx.destination);
+      const len = ctx.sampleRate * 2;
+      noise = ctx.createBuffer(1, len, ctx.sampleRate);
+      const d = noise.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+      return true;
+    };
+    const env = (g, t, a, peak, d) => {
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(peak, t + a);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + a + d);
+    };
+    const tone = (f, t, o = {}) => {
+      const { type = "sine", peak = 0.2, a = 0.004, d = 0.4, f2 = 0, glide = 0.1 } = o;
+      const osc = ctx.createOscillator(), g = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(f, t);
+      if (f2) osc.frequency.exponentialRampToValueAtTime(f2, t + glide);
+      env(g, t, a, peak, d);
+      osc.connect(g).connect(out);
+      osc.start(t);
+      osc.stop(t + a + d + 0.05);
+    };
+    const hiss = (t, o = {}) => {
+      const { dur = 0.3, peak = 0.2, a = 0.005, type = "highpass", f = 3000, f2 = 0, q = 0.7 } = o;
+      const src = ctx.createBufferSource(), fl = ctx.createBiquadFilter(), g = ctx.createGain();
+      src.buffer = noise;
+      src.loop = true;
+      fl.type = type;
+      fl.frequency.setValueAtTime(f, t);
+      if (f2) fl.frequency.exponentialRampToValueAtTime(f2, t + a + dur);
+      fl.Q.value = q;
+      env(g, t, a, peak, dur);
+      src.connect(fl).connect(g).connect(out);
+      src.start(t, Math.random() * 1.5);
+      src.stop(t + a + dur + 0.05);
+    };
+    const sfx = {
+      coin(t) {
+        hiss(t, { dur: 0.025, peak: 0.25, f: 5000 });
+        [[2093, 0.15, 0.9], [2794, 0.1, 0.7], [3951, 0.07, 0.55], [5274, 0.04, 0.4]].forEach(([f, p, d]) => tone(f, t + 0.002, { peak: p, d }));
+        tone(2350, t + 0.13, { peak: 0.06, d: 0.35 });
+        [0.26, 0.31, 0.35].forEach((o, i) => hiss(t + o, { dur: 0.02, peak: 0.08 - i * 0.02, type: "bandpass", f: 2400, q: 2 }));
+      },
+      button(t) {
+        hiss(t, { dur: 0.018, peak: 0.18, type: "bandpass", f: 3200, q: 1.5 });
+        tone(520, t + 0.01, { peak: 0.14, d: 0.16, f2: 880, glide: 0.07 });
+      },
+      power(t) {
+        tone(70, t, { type: "sawtooth", peak: 0.07, a: 0.08, d: 0.9, f2: 300, glide: 0.85 });
+        tone(140, t, { peak: 0.09, a: 0.05, d: 0.9, f2: 560, glide: 0.85 });
+        tone(1760, t + 0.5, { type: "triangle", peak: 0.03, a: 0.02, d: 0.6, f2: 2640, glide: 0.3 });
+      },
+      whoosh(t) { hiss(t, { dur: 0.45, peak: 0.22, a: 0.12, type: "bandpass", f: 500, f2: 2600, q: 0.9 }); },
+      tick(t) {
+        hiss(t, { dur: 0.012, peak: 0.12, type: "bandpass", f: 4200, q: 3 });
+        tone(1300, t, { type: "square", peak: 0.02, d: 0.03 });
+      },
+      flip(t) {
+        sfx.whoosh(t);
+        for (let i = 0; i < 14; i++) hiss(t + 0.05 + Math.random() * 0.35, { dur: 0.008, peak: 0.03 + Math.random() * 0.06, f: 5000 + Math.random() * 3000 });
+      },
+      ding(t) { [1568, 2093, 2637].forEach((f, i) => tone(f, t + i * 0.07, { type: "triangle", peak: 0.07, d: 0.5 })); },
+      thunk(t) {
+        tone(150, t, { peak: 0.55, d: 0.28, f2: 48, glide: 0.18 });
+        hiss(t, { dur: 0.07, peak: 0.3, type: "bandpass", f: 1100, q: 2.2 });
+        tone(640, t + 0.005, { peak: 0.05, d: 0.3 });
+        tone(1380, t + 0.005, { peak: 0.03, d: 0.25 });
+        hiss(t + 0.1, { dur: 0.03, peak: 0.08, type: "bandpass", f: 1800, q: 3 });
+      },
+      grab(t) {
+        hiss(t, { dur: 0.04, peak: 0.12, type: "bandpass", f: 2600, q: 2 });
+        tone(980, t, { peak: 0.03, d: 0.18 });
+      },
+      pssst(t) {
+        hiss(t, { dur: 0.012, peak: 0.25, type: "bandpass", f: 2400, q: 2 });
+        hiss(t + 0.015, { dur: 0.75, peak: 0.32, a: 0.008, f: 6500, f2: 2600 });
+      },
+      fizz(t) {
+        for (let i = 0; i < 70; i++) {
+          const o = Math.pow(Math.random(), 1.6) * 1.6;
+          hiss(t + o, { dur: 0.006 + Math.random() * 0.006, peak: (0.02 + Math.random() * 0.07) * (1 - o / 1.8), f: 4000 + Math.random() * 5000 });
+        }
+      },
+      splash(t) {
+        hiss(t, { dur: 0.6, peak: 0.28, a: 0.01, type: "lowpass", f: 2400, f2: 500 });
+        for (let i = 0; i < 10; i++) {
+          const o = 0.05 + Math.random() * 0.45, f = 400 + Math.random() * 800;
+          tone(f, t + o, { peak: 0.05, d: 0.08, f2: f * 1.8, glide: 0.06 });
+        }
+      },
+      sparkle(t) {
+        [1568, 2093, 2637, 3136, 4186].forEach((f, i) => {
+          tone(f, t + i * 0.06, { type: "triangle", peak: 0.06, d: 0.7 });
+          tone(f * 2, t + i * 0.06 + 0.01, { peak: 0.015, d: 0.4 });
+        });
+      },
+    };
+    return {
+      get on() { return on; },
+      toggle() {
+        if (!ctx && !init()) return false;
+        on = !on;
+        if (on && ctx.state !== "running") ctx.resume();
+        return on;
+      },
+      play(name) {
+        if (!on || !ctx || ctx.state !== "running" || !sfx[name]) return;
+        try { sfx[name](ctx.currentTime + 0.01); } catch (e) { /* a dropped sound effect is not worth breaking the page */ }
+      },
+    };
+  })();
+
+  const soundBtn = $(".sound"), soundLabel = $(".sound__label");
+  soundBtn.addEventListener("click", () => {
+    const on = Sound.toggle();
+    soundBtn.setAttribute("aria-pressed", String(on));
+    soundLabel.textContent = on ? "Sound on" : "Sound off";
+    if (on) Sound.play("button");
+  });
+
+  // ---------- particles: bubbles, falling streaks, bursts ----------
+  const fx = (() => {
+    const cv = $(".fx"), ctx = cv.getContext("2d");
+    let w = 0, h = 0, cx = 0, mode = "coin", boost = 0, rgb = "255,255,255";
+    const bubbles = [], streaks = [], sparks = [], sprites = {};
+    // One pre-drawn gradient streak per color instead of building a gradient for every streak every frame.
+    const streakSprite = c => sprites[c] || (sprites[c] = (() => {
+      const sc = document.createElement("canvas");
+      sc.width = 2;
+      sc.height = 128;
+      const g = sc.getContext("2d"), grad = g.createLinearGradient(0, 0, 0, 128);
+      grad.addColorStop(0, `rgba(${c},0)`);
+      grad.addColorStop(0.55, `rgba(${c},1)`);
+      grad.addColorStop(1, "rgba(255,255,255,0)");
+      g.fillStyle = grad;
+      g.fillRect(0, 0, 2, 128);
+      return sc;
+    })());
+    const newBubble = any => ({ x: Math.random() * w, y: any ? Math.random() * h : h + 20, r: 1 + Math.random() * Math.random() * 7, v: 24 + Math.random() * 70, sway: Math.random() * 6.28, a: 0.12 + Math.random() * 0.4 });
+    const newStreak = any => {
+      const spread = Math.min(w * 0.42, 340);
+      return { x: cx + (Math.random() - 0.5) * spread * 2, y: any ? Math.random() * h : h + Math.random() * 200, len: 60 + Math.random() * 190, v: 650 + Math.random() * 950, a: 0.08 + Math.random() * 0.26 };
+    };
+    const resize = () => {
+      const dpr = Math.min(1.5, window.devicePixelRatio || 1);
+      const oldW = w;
+      w = cv.clientWidth;
+      h = cv.clientHeight;
+      cx = w / 2 + (w > 760 ? w * 0.06 : 0);
+      cv.width = Math.round(w * dpr);
+      cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      // Mobile toolbars resize the viewport height while scrolling; only reseed on a real width change.
+      if (w === oldW && bubbles.length) return;
+      const small = w < 760;
+      bubbles.length = 0;
+      streaks.length = 0;
+      for (let i = 0; i < (small ? 22 : 40); i++) bubbles.push(newBubble(true));
+      for (let i = 0; i < (small ? 8 : 14); i++) streaks.push(newStreak(true));
+    };
+    let last = performance.now();
+    const tick = (now, on) => {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (!on || reduced) return;
+      ctx.clearRect(0, 0, w, h);
+      if (mode === "drop") {
+        const spr = streakSprite(rgb);
+        for (const s of streaks) {
+          s.y -= s.v * dt * (1 + boost);
+          if (s.y + s.len < 0) Object.assign(s, newStreak(false));
+          ctx.globalAlpha = s.a;
+          ctx.drawImage(spr, s.x, s.y, 1.4, s.len);
+        }
+        ctx.globalAlpha = 1;
+      }
+      const k = (mode === "drop" ? 2.6 : mode === "refresh" ? 1.7 : 1) * (1 + boost);
+      ctx.lineWidth = 1;
+      for (const b of bubbles) {
+        b.y -= b.v * dt * k;
+        b.sway += dt * 1.6;
+        if (b.y < -20) Object.assign(b, newBubble(false));
+        const x = b.x + Math.sin(b.sway) * 6;
+        ctx.beginPath();
+        ctx.arc(x, b.y, b.r, 0, 6.283);
+        ctx.strokeStyle = `rgba(255,255,255,${b.a})`;
+        ctx.stroke();
+        if (b.r > 3) {
+          ctx.beginPath();
+          ctx.arc(x - b.r * 0.35, b.y - b.r * 0.35, b.r * 0.28, 0, 6.283);
+          ctx.fillStyle = `rgba(255,255,255,${b.a * 0.9})`;
+          ctx.fill();
+        }
+      }
+      ctx.lineWidth = 1.4;
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const s = sparks[i];
+        const drag = 1 - 1.8 * dt;
+        s.vx *= drag;
+        s.vy = s.vy * drag - 70 * dt;
+        s.x += s.vx * dt;
+        s.y += s.vy * dt;
+        s.life -= s.decay * dt;
+        if (s.life <= 0) { sparks.splice(i, 1); continue; }
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, 6.283);
+        ctx.strokeStyle = `rgba(${s.white ? "255,255,255" : rgb},${s.life})`;
+        ctx.stroke();
+      }
+    };
+    const burst = n => {
+      if (reduced) return;
+      for (let i = 0; i < n; i++) {
+        const ang = Math.random() * 6.283, sp = 120 + Math.random() * 640;
+        sparks.push({ x: cx, y: h * 0.52, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 140, r: 1.5 + Math.random() * 5.5, life: 1, decay: 0.45 + Math.random() * 0.8, white: Math.random() < 0.45 });
+      }
+    };
+    resize();
+    return {
+      resize, tick, burst,
+      set(m, b, color) { mode = m; boost = b; rgb = color; put(cv, "opacity", m === "drop" || m === "refresh" ? 1 : 0.55); },
+    };
+  })();
+
+  // ---------- layout cache: geometry is read when it changes, never per frame ----------
+  let storyTop = 0, storyH = 1, storyTotal = 1, stageW = 1, vhPx = 1, wide = true;
+  const measureLayout = () => {
+    const sh = stage.clientHeight;
+    stageW = stage.clientWidth;
+    vhPx = sh / 100;
+    wide = stageW > 760;
+    storyTop = story.getBoundingClientRect().top + scrollY;
+    storyH = story.offsetHeight;
+    storyTotal = Math.max(1, storyH - sh);
+  };
+  measureLayout();
+
+  // ---------- story state ----------
+  let shown = -1;
+  const setFlavor = i => {
+    if (i === shown) return;
+    shown = i;
+    if (i < 0) { delete doc.dataset.flavor; return; }
+    doc.dataset.flavor = FLAVORS[i].id;
+    canImgs.forEach(im => im.classList.toggle("is-on", +im.dataset.i === i));
+    fruits.forEach(el => el.classList.toggle("is-on", +el.dataset.i === i));
+    words.forEach(el => el.classList.toggle("is-on", +el.dataset.i === i));
+  };
+  let panelOn = -2;
+  const setPanel = i => {
+    if (i === panelOn) return;
+    panelOn = i;
+    panels.forEach(el => el.classList.toggle("is-on", +el.dataset.i === i));
+  };
+  let numShown = 0;
+  const setNum = n => { if (n !== numShown) { numShown = n; dropNum.textContent = "0" + n; } };
+  const panelBox = $(".panel");
+  const panelItems = new Map(panels.map(el => [+el.dataset.i, $$(".flv__list li", el)]));
+  const revealItems = (i, r) => {
+    const items = panelItems.get(i);
+    const n = items.length;
+    items.forEach((li, k) => {
+      const a = clamp(r * (n + 1) - k);
+      put(li, "opacity", q(a));
+      put(li, "transform", `translateX(${((1 - a) * -18).toFixed(1)}px)`);
+    });
+  };
+  // Slot-machine flicker before the final drop: swaps happen when the can is edge-on,
+  // the cycle starts from the flavor already on screen and always lands on the winner.
+  const FLICKS = 8; // must be ≡ 2 (mod 3) so the last step is the winner
+  const FLICK_CYCLE = [order[1], order[0], winner];
+  const flickPos = u => easeOut(clamp(u / 0.34)) * FLICKS;
+  const flickAt = u => Math.min(FLICKS, Math.floor(flickPos(u) + 0.5));
+  const flickFlavor = j => FLICK_CYCLE[j % 3];
+
+  const LED = [
+    [at("coin", 0.17), "Insert coin"],
+    [at("coin", 0.42), "Credit · 01"],
+    [at("enter", 0), "Selecting…"],
+    [at("f2", 0), "Dropping ▼"],
+    [at("f2", 0.34), "Rolling…"],
+    [at("drink", 0), `Drop · ${W.short}`],
+    [2, "Enjoy ✦"],
+  ];
+  let ledLast = "";
+
+  function render(P, now) {
+    const uCoin = L(P, "coin"), uZoom = L(P, "zoom"), uEnter = L(P, "enter");
+    const u1 = L(P, "f1"), u2 = L(P, "f2"), uFall = L(P, "fall");
+    const uDrink = L(P, "drink"), uRef = L(P, "refresh");
+    const t = now / 1000;
+
+    // Act 1: coin -> button -> machine wakes up, then dive into the glowing tube.
+    if (P < T.enter[1]) scrubCoin.set(uCoin);
+    put(act1, "transform", `scale(${(1 + easeIn(uZoom) * 1.8).toFixed(3)})`);
+    put(act1, "opacity", q(1 - span(uEnter, 0.25, 0.4)));
+    put(coinEnd, "opacity", q(span(uCoin, 0.9, 1)));
+    const heroO = 1 - span(P, at("hero", 0.7), at("coin", 0.08));
+    put(hero, "opacity", q(heroO));
+    put(hero, "transform", `translateY(${((1 - heroO) * -40).toFixed(1)}px)`);
+    put(hero, "visibility", heroO < 0.01 ? "hidden" : "visible");
+    put(flashW, "opacity", q(P < T.enter[0] ? easeIn(span(uZoom, 0.5, 1)) : 1 - span(uEnter, 0, 0.45)));
+
+    // Act 2: the can tumbles down the tube, flipping through flavors.
+    let dropO = 0;
+    if (P >= T.enter[0]) dropO = P < T.drink[0] ? span(uEnter, 0, 0.25) : 1 - span(uDrink, 0, 0.06);
+    put(drop, "opacity", q(dropO));
+    put(drop, "visibility", dropO < 0.005 ? "hidden" : "visible");
+    if (dropO > 0) {
+      let fi = order[0], sx = 1, y = 0, r = 0, s = 1, panel = -1, num = 1;
+      if (P < T.f0[0]) {
+        const k = easeOut(span(uEnter, 0.12, 0.9));
+        y = mix(-118 * vhPx, 0, k);
+        r = mix(-28, 0, k);
+        if (uEnter > 0.55) panel = order[0];
+      } else if (P < T.f1[0]) {
+        panel = order[0];
+      } else if (P < T.f2[0]) {
+        const k = span(u1, 0, 0.12);
+        fi = k < 0.5 ? order[0] : order[1];
+        panel = fi;
+        num = k < 0.5 ? 1 : 2;
+        if (!reduced) { sx = Math.abs(Math.cos(k * Math.PI)); s = 1 + Math.sin(k * Math.PI) * 0.08; }
+      } else if (P < T.fall[0]) {
+        num = 3;
+        if (u2 < 0.34) {
+          fi = reduced ? order[1] : flickFlavor(flickAt(u2));
+          if (!reduced) sx = Math.abs(Math.cos(flickPos(u2) * Math.PI));
+        } else {
+          fi = winner;
+          panel = winner;
+        }
+      } else {
+        fi = winner;
+        num = 3;
+        if (uFall < 0.5) panel = winner;
+        const k = easeIn(uFall);
+        y = k * 128 * vhPx;
+        r = k * 32;
+      }
+      setFlavor(fi);
+      setPanel(panel);
+      setNum(num);
+      if (panel === order[0]) revealItems(order[0], span(P, at("enter", 0.6), at("f0", 0.55)));
+      else if (panel === order[1]) revealItems(order[1], span(P, at("f1", 0.1), at("f1", 0.6)));
+      else if (panel === winner) revealItems(winner, span(P, at("f2", 0.36), at("f2", 0.8)));
+      put(panelBox, "opacity", q(P >= T.fall[0] ? 1 - span(uFall, 0, 0.5) : 1));
+
+      const bob = reduced ? 0 : Math.sin(t * 1.7) * 7 + Math.sin(P * 140) * 5;
+      const wob = reduced ? 0 : Math.sin(t * 1.1) * 2.5 + Math.sin(P * 90) * 4;
+      put(canWrap, "transform", `translate3d(0, ${(y + bob).toFixed(1)}px, 0) rotate(${(r + wob).toFixed(2)}deg) scale(${(s * Math.max(0.04, sx)).toFixed(3)}, ${s.toFixed(3)})`);
+      const fr = reduced ? 0 : t * 7 + P * 260;
+      put(fruits[fi], "transform", `rotate(${fr.toFixed(1)}deg) scale(${(1 + (s - 1) * 1.6).toFixed(3)})`);
+      put(tube, "transform", `translate3d(${wide ? (stageW * 0.06).toFixed(1) : 0}px, ${(mix(4, -4, span(P, T.enter[0], T.drink[0])) * vhPx).toFixed(1)}px, 0) scale(${mix(1.25, 1.04, easeOut(uEnter)).toFixed(3)})`);
+      put(stampRoll, "opacity", q(P >= T.f2[0] && P < T.fall[0] ? win(u2, 0, 0.34, 0.05) : 0));
+      const pop = P >= T.f2[0] ? span(u2, 0.34, 0.42) : 0;
+      put(sticker, "opacity", q(pop));
+      put(sticker, "transform", `rotate(${mix(-20, 10, easeOut(pop)).toFixed(1)}deg) scale(${mix(0.4, 1, easeOut(pop)).toFixed(3)})`);
+    }
+
+    // Act 3: the winning can — grab, crack, sip, burst.
+    if (P >= T.fall[0]) scrubDrink.set(uDrink);
+    put(act3, "opacity", q(P >= T.drink[0] ? span(uDrink, 0, 0.05) : 0));
+    put(drinkEnd, "opacity", q(span(uDrink, 0.9, 1)));
+    let fa = 0;
+    if (P >= T.fall[0] && P < T.drink[0]) fa = easeIn(span(uFall, 0.65, 1)) * 0.9;
+    else if (P >= T.drink[0] && P < T.refresh[0]) fa = (1 - span(uDrink, 0, 0.12)) * 0.9;
+    else if (P >= T.refresh[0]) fa = uRef < 0.04 ? span(uRef, 0, 0.04) : 1 - span(uRef, 0.04, 0.32);
+    put(flashA, "opacity", q(fa));
+    if (P >= T.drink[0] && shown !== winner) setFlavor(winner);
+    if (P < T.enter[0] && shown !== -1) setFlavor(-1);
+
+    // The refresh moment.
+    put(dim, "opacity", q(span(uRef, 0.04, 0.35) * 0.66));
+    const rO = span(uRef, 0.08, 0.3);
+    put(rBig, "opacity", q(rO));
+    put(rBig, "transform", `scale(${mix(0.86, 1, easeOut(rO)).toFixed(3)})`);
+    put(rSub, "opacity", q(span(uRef, 0.24, 0.42)));
+    put(rDrop, "opacity", q(span(uRef, 0.36, 0.54)));
+    put(rBtn, "opacity", q(span(uRef, 0.44, 0.62)));
+    put(refresh, "visibility", rO > 0.01 ? "visible" : "hidden");
+
+    // Captions + legibility scrim.
+    for (const b of beats) {
+      const u = L(P, b.seg);
+      const o = P >= T[b.seg][0] - 0.0001 && P <= T[b.seg][1] + 0.0001 ? win(u, b.a, b.b, 0.05) : 0;
+      put(b.el, "opacity", q(o));
+      put(b.el, "transform", `translateY(${((1 - o) * (u < (b.a + b.b) / 2 ? 26 : -26)).toFixed(1)}px)`);
+    }
+    put(scrim, "opacity", q(P < T.enter[0] ? 1 - span(uZoom, 0, 0.4) : P >= T.drink[0] ? span(uDrink, 0, 0.1) * (1 - span(uRef, 0, 0.3)) : 0));
+
+    // Vending-machine LED + progress.
+    let led = LED[LED.length - 1][1];
+    for (const [p, txt] of LED) if (P < p) { led = txt; break; }
+    if (led !== ledLast) { ledText.textContent = led; ledLast = led; }
+    put(bar, "transform", `scaleX(${P.toFixed(4)})`);
+
+    return P >= T.refresh[0] ? "refresh" : P >= T.drink[0] ? "drink" : P >= T.enter[0] ? "drop" : "coin";
+  }
+
+  // ---------- one-shot cues (sound + bursts) fire only when scrolling forward ----------
+  const CUES = [
+    [at("coin", 0.17), "coin"], [at("coin", 0.42), "button"], [at("coin", 0.52), "power"],
+    [at("zoom", 0.6), "whoosh"], [at("enter", 0.2), "whoosh", 40],
+    [at("f1", 0.06), "flip", 50], [at("f2", 0.34), "ding", 120],
+    [at("fall", 0.96), "thunk"],
+    [at("drink", 0.2), "grab"], [at("drink", 0.43), "pssst"], [at("drink", 0.47), "fizz"],
+    [at("drink", 0.82), "splash", 60], [at("refresh", 0.03), "sparkle", 220],
+  ];
+  function fireCues(a, b, settled) {
+    if (b <= a || !settled) return;
+    for (const [p, name, n] of CUES) {
+      if (a < p && p <= b) { Sound.play(name); if (n) fx.burst(n); }
+    }
+    if (b > T.f2[0] && a < at("f2", 0.34)) {
+      const ja = a > T.f2[0] ? flickAt(L(a, "f2")) : 0, jb = flickAt(L(b, "f2"));
+      if (jb > ja) Sound.play("tick");
+    }
+  }
+
+  // ---------- performance governor: if a device can't hold ~40fps, only decoration is dropped ----------
+  let lite = PERF === "lite", ema = 16.7, slow = 0, warm = 0, lastT = 0;
+  if (lite) doc.classList.add("lite");
+  const govern = (now, busy) => {
+    const dt = now - lastT;
+    lastT = now;
+    if (lite || PERF === "full" || !busy || dt <= 0 || dt > 250) return;
+    warm += dt;
+    ema += (dt - ema) * 0.1;
+    if (warm < 2500) return; // start-up jank while media decodes doesn't count
+    slow = ema > 26 ? slow + dt : 0;
+    if (slow > 1200) { lite = true; doc.classList.add("lite"); }
+  };
+
+  // ---------- main loop ----------
+  let target = 0, P = 0, prev = 0, lastP = -1, lastMode = "coin";
+  const relayout = () => { measureLayout(); lastP = -1; };
+  addEventListener("scroll", () => {}, { passive: true });
+  addEventListener("resize", () => { relayout(); fx.resize(); }, { passive: true });
+  addEventListener("load", relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  target = clamp((scrollY - storyTop) / storyTotal);
+  P = prev = target;
+
+  function frame(now) {
+    const y = scrollY;
+    target = clamp((y - storyTop) / storyTotal);
+    P += (target - P) * (reduced ? 1 : 0.16);
+    if (Math.abs(target - P) < 1e-5) P = target;
+    const visible = y < storyTop + storyH && y + innerHeight > storyTop;
+    const active = visible && (P !== lastP || lastMode === "drop");
+    if (active) {
+      lastMode = render(P, now);
+      lastP = P;
+    }
+    const settled = Math.abs(target - P) < 0.03;
+    fx.set(lastMode, clamp(Math.abs(P - prev) * 500, 0, 3), FLAVORS[shown < 0 ? winner : shown].rgb);
+    fireCues(prev, P, settled);
+    prev = P;
+    govern(now, active);
+    fx.tick(now, visible && !lite);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
