@@ -53,7 +53,7 @@ export function Air() {
   useGsap(root, () => {
     const mm = gsap.matchMedia();
     mm.add(MOTION_OK, () => {
-      gsap.set('[data-air-video]', { opacity: 0 });
+      gsap.set(['[data-air-video]', '[data-air-descent]'], { opacity: 0 });
       gsap.set('[data-air-copy] > *', { opacity: 0, x: -40 });
 
       // Timeline positions (fractions of the pinned scroll).
@@ -80,6 +80,8 @@ export function Air() {
           onUpdate: () => globe.current?.setProgress(zoom.current.p),
         })
         .to('[data-air-label]', { opacity: 0, duration: 0.08 }, 0.04)
+        // Swap: the clip's first frame is already showing what the canvas shows.
+        .set('[data-air-descent]', { opacity: 1 }, GLOBE_END - 0.005)
         .to('[data-air-globe]', { opacity: 0, duration: 0.02 }, GLOBE_END)
         .to('[data-air-video]', { opacity: 1, ease: 'sine.inOut', duration: 0.06 }, DESCENT[1] - 0.02)
         .to('[data-air-copy] > *', { opacity: 1, x: 0, stagger: 0.03, duration: 0.1 }, 0.84)
@@ -101,7 +103,7 @@ export function Air() {
 
         {/* Descent clip: its first frame is the globe's hand-off frame, so it is
             shown ungraded to match the canvas pixel for pixel. */}
-        <div className="absolute inset-0 bg-navy-deep motion-reduce:hidden">
+        <div data-air-descent className="absolute inset-0 bg-navy-deep motion-reduce:hidden">
           <img src={media.airDescent.poster} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
           <video ref={descent} className="absolute inset-0 h-full w-full object-cover" poster={media.airDescent.poster} muted playsInline preload="none" aria-hidden="true" tabIndex={-1} />
         </div>
