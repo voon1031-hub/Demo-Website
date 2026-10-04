@@ -325,16 +325,26 @@
   }
 
   // ---------- live: play the opening, then step through the cars ----------
-  let idx = -1, busy = false, introDone = false;
+  // one gesture = one car; a gesture made mid-cut is queued, trackpad momentum is not
+  let idx = -1, busy = false, queued = 0, introDone = false, lastWheel = 0;
   const go = dir => {
     if (!introDone) { intro.timeScale(6); return; }
+    if (busy) { queued = dir; return; }
     const next = idx + dir;
-    if (busy || next < 0 || next > 4) return;
+    if (next < 0 || next > 4) return;
     busy = true; idx = next;
-    story.tweenTo('s' + idx, { onComplete: () => setTimeout(() => { busy = false; }, 350) });
+    const label = 's' + idx;
+    story.tweenTo(label, {
+      duration: Math.min(1.7, Math.abs(story.labels[label] - story.time())), ease: 'none',
+      onComplete: () => { busy = false; if (queued) { const d = queued; queued = 0; go(d); } }
+    });
   };
   intro.eventCallback('onComplete', () => { introDone = true; });
-  addEventListener('wheel', e => { if (Math.abs(e.deltaY) > 8) go(e.deltaY > 0 ? 1 : -1); }, { passive: true });
+  addEventListener('wheel', e => {
+    const now = performance.now(), fresh = now - lastWheel > 220;
+    lastWheel = now;
+    if (fresh && Math.abs(e.deltaY) > 4) go(e.deltaY > 0 ? 1 : -1);
+  }, { passive: true });
   let ty = null;
   addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
   addEventListener('touchend', e => { if (ty === null) return; const d = ty - e.changedTouches[0].clientY; if (Math.abs(d) > 40) go(d > 0 ? 1 : -1); ty = null; }, { passive: true });
