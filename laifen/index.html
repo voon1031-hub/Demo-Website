@@ -10,11 +10,9 @@
   colors            : one entry per color.
                         body     → tints the 3D model
                         pod      → colour of the Nourishing Pod rings
-                        backdrop → page background while that color is picked
-                        photo    → real product photo shown in the buy panel
-  gifts             : free gifts shown when the box opens and in the buy panel.
-  channels          : buy buttons, in this order. Paste each store link into
-                      "url". An empty url shows the button as "link coming soon".
+                        backdrop → dark stage tint while that color is picked
+                        photo    → real product photo ("View real photo")
+  gifts             : free gifts shown when the box opens.
   All words on the page (English and Chinese) are in LAIFEN_TEXT right below.
   ══════════════════════════════════════════════════════════════════
 -->
@@ -24,21 +22,16 @@ window.LAIFEN = {
   price: "$249.00",
   compareAt: "$269.00",
   colors: [
-    { id: "rose",     name: { en: "Rose Gold",     zh: "玫瑰金" },   body: "#D3C2BB", pod: "#CFB08B", backdrop: "#EEE6E2", photo: "images/swift4-rose.webp" },
-    { id: "grey",     name: { en: "Titanium Grey", zh: "钛灰" },     body: "#958C8A", pod: "#CFB08B", backdrop: "#E4E2E1", photo: "images/swift4-grey.webp" },
-    { id: "lavender", name: { en: "Lavender",      zh: "薰衣草紫" }, body: "#CDBFE2", pod: "#C4B4DF", backdrop: "#ECE7F3", photo: "images/swift4-lavender.webp" },
-    { id: "silver",   name: { en: "Silver",        zh: "银色" },     body: "#CACDD2", pod: "#CFB08B", backdrop: "#E7E9EC", photo: "images/swift4-silver.webp" }
+    { id: "rose",     name: { en: "Rose Gold",     zh: "玫瑰金" },   body: "#D3C2BB", pod: "#CFB08B", backdrop: "#221B1B", photo: "images/swift4-rose.webp" },
+    { id: "grey",     name: { en: "Titanium Grey", zh: "钛灰" },     body: "#958C8A", pod: "#CFB08B", backdrop: "#1C1B1C", photo: "images/swift4-grey.webp" },
+    { id: "lavender", name: { en: "Lavender",      zh: "薰衣草紫" }, body: "#CDBFE2", pod: "#C4B4DF", backdrop: "#1E1A25", photo: "images/swift4-lavender.webp" },
+    { id: "silver",   name: { en: "Silver",        zh: "银色" },     body: "#CACDD2", pod: "#CFB08B", backdrop: "#1A1C20", photo: "images/swift4-silver.webp" }
   ],
   boxPhoto: "images/swift4-box.webp",
   gifts: [
     { id: "smooth",  name: { en: "Smooth Nozzle",     zh: "顺滑风嘴" }, qty: 1 },
     { id: "nourish", name: { en: "Nourishing Nozzle", zh: "滋养风嘴" }, qty: 1 },
     { id: "pod",     name: { en: "Nourishing Pod",    zh: "滋养胶囊" }, qty: 3 }
-  ],
-  channels: [
-    { id: "official", name: { en: "Laifen Official Store", zh: "Laifen 官网" }, url: "" },
-    { id: "shopee",   name: { en: "Shopee",                zh: "Shopee" },      url: "" },
-    { id: "lazada",   name: { en: "Lazada",                zh: "Lazada" },      url: "" }
   ]
 };
 
@@ -46,8 +39,7 @@ window.LAIFEN_TEXT = {
   en: {
     "doc.title": "Laifen {product} hair dryer",
     "nav.label": "Chapters",
-    "nav.unbox": "Unbox", "nav.use": "Use", "nav.inside": "Inside", "nav.buy": "Buy",
-    "buyNow": "Buy now",
+    "nav.unbox": "Unbox", "nav.use": "Use", "nav.inside": "Inside", "nav.colors": "Colors",
     "lang.switch": "中文", "lang.label": "切换到中文",
     "loading": "Loading 3D view",
     "s0.sub": "High-speed hair dryer",
@@ -62,8 +54,8 @@ window.LAIFEN_TEXT = {
     "dragHint": "Drag sideways to turn it",
     "s4.title": "Switch it on",
     "s4.body": "Air leaves the nozzle at up to 23 m/s. Try the settings.",
-    "s4.heat": "Heat", "s4.cool": "Cool", "s4.hot": "Hot",
-    "s4.speed": "Speed", "s4.low": "Low", "s4.high": "High",
+    "s4.heat": "Heat", "s4.h0": "Cool", "s4.h1": "Warm", "s4.h2": "Hot",
+    "s4.speed": "Speed", "s4.s0": "Low", "s4.s1": "Medium", "s4.s2": "High",
     "s5.title": "Take it apart",
     "s5.body": "Here’s what’s inside Swift 4. Tap a part to read about it.",
     "s5.note": "Illustration of the internal layout.",
@@ -85,12 +77,11 @@ window.LAIFEN_TEXT = {
     "s9.count": "checks while you’ve been reading",
     "s10.title": "Aluminium alloy body",
     "s10.body": "The body is made of aluminium alloy, with a brushed metal finish on the back cover and buttons.",
-    "buy.color": "Color",
-    "buy.gifts": "Free gifts",
-    "buy.where": "Buy from",
-    "buy.soon": "Link coming soon",
-    "buy.photos": "Product photos",
-    "buy.note": "Prices and gifts may vary by store.",
+    "pick.title": "Four colors",
+    "pick.color": "Color",
+    "pick.prev": "Previous color", "pick.next": "Next color",
+    "pick.hint": "Swipe, drag or tap a dryer to switch",
+    "pick.photo": "View real photo",
     "price.from": "From {price}",
     "price.save": "Save {amount}",
     "alt.photo": "Swift 4 in {color} with the free gifts",
@@ -100,8 +91,7 @@ window.LAIFEN_TEXT = {
   zh: {
     "doc.title": "Laifen {product} 高速吹风机",
     "nav.label": "章节",
-    "nav.unbox": "开箱", "nav.use": "使用", "nav.inside": "内部", "nav.buy": "购买",
-    "buyNow": "立即购买",
+    "nav.unbox": "开箱", "nav.use": "使用", "nav.inside": "内部", "nav.colors": "颜色",
     "lang.switch": "EN", "lang.label": "Switch to English",
     "loading": "正在加载 3D 画面",
     "s0.sub": "高速吹风机",
@@ -116,8 +106,8 @@ window.LAIFEN_TEXT = {
     "dragHint": "左右拖动可以转动它",
     "s4.title": "打开它",
     "s4.body": "出风口风速最高 23 m/s。试试切换设置。",
-    "s4.heat": "温度", "s4.cool": "冷风", "s4.hot": "热风",
-    "s4.speed": "风速", "s4.low": "低速", "s4.high": "高速",
+    "s4.heat": "温度", "s4.h0": "冷风", "s4.h1": "温风", "s4.h2": "热风",
+    "s4.speed": "风速", "s4.s0": "低速", "s4.s1": "中速", "s4.s2": "高速",
     "s5.title": "拆开看看",
     "s5.body": "这是 Swift 4 的内部结构。点一下部件查看介绍。",
     "s5.note": "内部结构示意图。",
@@ -139,12 +129,11 @@ window.LAIFEN_TEXT = {
     "s9.count": "次：你阅读这段文字时的检测次数",
     "s10.title": "铝合金机身",
     "s10.body": "机身采用铝合金材质，后盖和按键带有金属拉丝质感。",
-    "buy.color": "颜色",
-    "buy.gifts": "赠品",
-    "buy.where": "购买渠道",
-    "buy.soon": "链接即将上线",
-    "buy.photos": "实物图",
-    "buy.note": "价格与赠品以各平台为准。",
+    "pick.title": "四种颜色",
+    "pick.color": "颜色",
+    "pick.prev": "上一个颜色", "pick.next": "下一个颜色",
+    "pick.hint": "左右滑动、拖动或点一下吹风机来切换",
+    "pick.photo": "查看实物图",
     "price.from": "{price} 起",
     "price.save": "立省 {amount}",
     "alt.photo": "{color} Swift 4 与赠品",
@@ -165,15 +154,15 @@ window.LAIFEN_TEXT = {
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..600&display=swap" rel="stylesheet">
 
 <style>
-  @property --bg { syntax: "<color>"; inherits: true; initial-value: #EEE6E2; }
+  @property --bg { syntax: "<color>"; inherits: true; initial-value: #221B1B; }
 
   :root {
-    --bg: #EEE6E2;                                          /* set from the selected color */
-    --bg-hi: color-mix(in srgb, var(--bg) 30%, #fff);
-    --bg-lo: color-mix(in srgb, var(--bg) 86%, #3b3030);
-    --ink: #2A2729;
-    --muted: #6B6667;
-    --line: rgba(42, 39, 41, .14);
+    --bg: #221B1B;                                          /* set from the selected color */
+    --bg-hi: color-mix(in srgb, var(--bg) 84%, #fff);        /* where the spotlight falls */
+    --bg-lo: color-mix(in srgb, var(--bg) 45%, #000);
+    --ink: #EFEAE8;
+    --muted: #A39B9C;
+    --line: rgba(239, 234, 232, .16);
     --gift: #CF332D;                                        /* the red gift tag from the product photos */
 
     --font: "Lexend", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC",
@@ -184,7 +173,7 @@ window.LAIFEN_TEXT = {
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-snap-type: y proximity; scroll-behavior: smooth; background: var(--bg); }
+  html { scroll-snap-type: y proximity; scroll-behavior: smooth; background: var(--bg-lo); color-scheme: dark; }
   body {
     color: var(--ink);
     font-family: var(--font);
@@ -201,17 +190,19 @@ window.LAIFEN_TEXT = {
   /* ── Stage: studio backdrop + WebGL canvas (fixed behind the story) ── */
   .backdrop {
     position: fixed; inset: 0; z-index: 0;
-    background: radial-gradient(90% 75% at 56% 44%, var(--bg-hi) 0%, var(--bg) 60%, var(--bg-lo) 135%);
+    background:
+      radial-gradient(38% 60% at 58% 18%, color-mix(in srgb, var(--bg-hi) 70%, transparent) 0%, transparent 70%),
+      radial-gradient(80% 70% at 56% 48%, var(--bg) 0%, var(--bg-lo) 100%);
   }
   #stage { position: fixed; inset: 0; z-index: 1; }
   #gl { display: block; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; outline: none; }
   #gl:active { cursor: grabbing; }
   .fallback { display: none; }
   .no3d #gl { display: none; }
-  .no3d #stage { mix-blend-mode: multiply; }      /* white photo background melts into the backdrop */
   .no3d .fallback {
     display: block; position: absolute; top: 50%; right: 7vw;
-    width: min(44vw, 540px); transform: translateY(-50%);
+    width: min(40vw, 480px); transform: translateY(-50%);
+    border-radius: 24px;
   }
 
   #labels { position: fixed; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
@@ -315,16 +306,16 @@ window.LAIFEN_TEXT = {
 
   .controls { margin-top: 26px; display: grid; gap: 12px; }
   .seg { display: flex; align-items: center; gap: 8px; }
-  .seg > span { min-width: 64px; font-size: 14px; color: var(--muted); }
+  .seg > span { min-width: 58px; font-size: 14px; color: var(--muted); }
   .seg button {
-    min-height: 42px; padding: 0 18px;
+    min-height: 42px; padding: 0 16px;
     border: 1px solid var(--line); border-radius: 999px;
     background: color-mix(in srgb, var(--bg-hi) 55%, transparent);
     font-size: 15px; cursor: pointer;
     transition: background .2s, color .2s, border-color .2s;
   }
   .seg button:hover { border-color: var(--ink); }
-  .seg button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg-hi); }
+  .seg button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 
   .counter { margin-top: 24px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 10px; font-size: 14px; color: var(--muted); }
   .counter b { font-size: 26px; font-weight: 400; color: var(--ink); font-variant-numeric: tabular-nums; }
@@ -362,60 +353,40 @@ window.LAIFEN_TEXT = {
   .glabel .qty { color: var(--muted); }
   .glabel .tag { margin-left: 2px; }
 
-  /* ── Buy panel ── */
-  .panel {
-    width: min(440px, 100%); padding: 28px 30px;
-    border-radius: 28px;
-    background: color-mix(in srgb, var(--bg-hi) 84%, transparent);
-    -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
-    box-shadow: 0 40px 90px -50px rgba(40, 28, 28, .45);
-  }
-  .panel h2 { font-weight: 300; font-size: clamp(40px, 3.6vw, 52px); letter-spacing: -.045em; }
+  /* ── Color stage ── */
+  .step.colors { align-items: flex-end; justify-content: center; padding-bottom: 48px; text-align: center; }
+  .picker { width: min(520px, 100%); }
   .label { font-size: 14px; color: var(--muted); }
-  .label b { color: var(--ink); font-weight: 500; }
-  .panel .colors { margin-top: 14px; }
-  .swatches { display: flex; gap: 14px; margin-top: 10px; }
+  .pick-row { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 6px; }
+  .pick-row h2 { min-width: 9ch; font-weight: 300; font-size: clamp(36px, 3.6vw, 52px); letter-spacing: -.03em; }
+  .arrow {
+    flex: none; width: 46px; height: 46px; border-radius: 50%;
+    border: 1px solid var(--line); background: transparent; cursor: pointer;
+    display: grid; place-items: center; transition: border-color .2s, background .2s;
+  }
+  .arrow:hover { border-color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+  .arrow svg { width: 18px; height: 18px; }
+  .swatches { display: flex; justify-content: center; gap: 14px; margin-top: 16px; }
   .swatch {
-    width: 40px; height: 40px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+    width: 30px; height: 30px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
     background:
       radial-gradient(circle at 34% 28%, rgba(255, 255, 255, .75) 0, rgba(255, 255, 255, 0) 46%),
       linear-gradient(150deg, color-mix(in srgb, var(--c) 72%, #fff), var(--c) 55%, color-mix(in srgb, var(--c) 72%, #000));
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12);
     transition: box-shadow .2s;
   }
-  .swatch[aria-checked="true"] { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12), 0 0 0 3px var(--bg-hi), 0 0 0 5px var(--ink); }
-  .price { margin-top: 18px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; }
-  .price .now { font-size: 30px; font-weight: 500; letter-spacing: -.01em; }
+  .swatch[aria-checked="true"] { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--ink); }
+  .price { margin-top: 18px; display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: 6px 12px; }
+  .price .now { font-size: 22px; font-weight: 500; }
   .price s { color: var(--muted); }
-  .save { padding: 3px 10px; border-radius: 999px; background: var(--ink); color: var(--bg-hi); font-size: 12px; font-weight: 500; }
-  .panel .gift-list { margin-top: 6px; }
-  .panel .gift-list li { padding: 8px 0; }
-  .panel .block { margin-top: 18px; }
-  .channels { display: grid; gap: 8px; margin-top: 10px; }
-  .channel {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    min-height: 48px; padding: 0 20px;
-    border: 1px solid var(--ink); border-radius: 999px;
-    font-weight: 500; text-decoration: none;
-    transition: transform .15s var(--ease), background .2s;
-  }
-  .channel:hover { background: color-mix(in srgb, var(--ink) 6%, transparent); }
-  .channel:active { transform: scale(.98); }
-  .channel.primary { background: var(--ink); color: var(--bg-hi); }
-  .channel.primary:hover { background: #000; }
-  .channel svg { width: 16px; height: 16px; flex: none; }
-  .channel small { font-size: 12px; font-weight: 400; opacity: .7; }
-  .channel[aria-disabled="true"] { cursor: default; }
-  .thumbs { display: flex; gap: 10px; margin-top: 10px; }
-  .thumb { width: 68px; height: 68px; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: #fff; cursor: zoom-in; }
-  .thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .panel .note { margin-top: 14px; }
+  .save { padding: 3px 10px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 12px; font-weight: 500; }
+  .pick-foot { margin-top: 14px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); }
+  .linkish { padding: 0; border: 0; background: none; font-size: 13px; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 
   dialog {
     margin: auto; padding: 0; border: 0; border-radius: 24px; overflow: hidden;
-    width: min(92vw, 640px); background: #fff;
+    width: min(92vw, 640px); background: #fff; color: #2a2729;
   }
-  dialog::backdrop { background: rgba(30, 24, 24, .5); }
+  dialog::backdrop { background: rgba(0, 0, 0, .7); }
   dialog img { width: 100%; height: auto; }
   dialog .close {
     position: absolute; top: 12px; right: 12px; width: 40px; height: 40px;
@@ -425,10 +396,10 @@ window.LAIFEN_TEXT = {
 
   #loader {
     position: fixed; inset: 0; z-index: 40; display: grid; place-items: center;
-    background: var(--bg); transition: opacity .7s var(--ease), visibility .7s;
+    background: var(--bg-lo); transition: opacity .7s var(--ease), visibility .7s;
   }
   #loader.done { opacity: 0; visibility: hidden; }
-  #loader .logo { display: block; text-align: center; font-size: 30px; }
+  #loader .logo { display: block; text-align: center; font-size: 30px; color: var(--ink); }
   #loader .bar { width: 120px; height: 2px; margin: 18px auto 10px; border-radius: 2px; background: var(--line); overflow: hidden; }
   #loader .bar::after { content: ""; display: block; width: 40%; height: 100%; background: var(--ink); animation: load 1.2s var(--ease) infinite; }
   #loader p { font-size: 13px; color: var(--muted); text-align: center; }
@@ -440,7 +411,6 @@ window.LAIFEN_TEXT = {
     .logo { font-size: 21px; }
     .chapters a { padding: 8px 8px 11px; font-size: 13px; }
     .chapters i { left: 8px; right: 8px; }
-    .top .btn { display: none; }
     .lang { height: 34px; min-width: 44px; padding: 0 10px; font-size: 13px; }
 
     .step, .step[data-side="right"] {
@@ -456,7 +426,7 @@ window.LAIFEN_TEXT = {
     }
     .hero { align-items: flex-start; padding-top: 86px; }
     .hero .copy::before { top: -86px; bottom: -70px; background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 96%, transparent) 62%, color-mix(in srgb, var(--bg) 0%, transparent)); }
-    .panel::before { display: none; }
+
     .hero h1 { font-size: clamp(64px, 19vw, 96px); }
     .hero .sub { margin-top: 12px; }
     .hero-price { margin-top: 14px; }
@@ -469,8 +439,9 @@ window.LAIFEN_TEXT = {
     .gift-list li { padding: 9px 0; }
     .controls { margin-top: 16px; }
     .drag-hint { margin-top: 12px; }
-    .step.buy, .step.buy[data-side="right"] { padding-top: 50vh; align-items: flex-start; }
-    .panel { padding: 24px 20px; }
+    .step.colors { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+    .pick-row { gap: 10px; }
+    .pick-row h2 { font-size: 32px; }
     .no3d .fallback { top: 76px; right: 50%; width: min(70vw, 340px); transform: translateX(50%); }
     .glabel { display: none; }
   }
@@ -503,11 +474,10 @@ window.LAIFEN_TEXT = {
     <a href="#unbox" data-chapter="unbox"><span data-t="nav.unbox">Unbox</span><i></i></a>
     <a href="#use" data-chapter="use"><span data-t="nav.use">Use</span><i></i></a>
     <a href="#inside" data-chapter="inside"><span data-t="nav.inside">Inside</span><i></i></a>
-    <a href="#buy" data-chapter="buy"><span data-t="nav.buy">Buy</span><i></i></a>
+    <a href="#colors" data-chapter="colors"><span data-t="nav.colors">Colors</span><i></i></a>
   </nav>
   <div class="tools">
     <button class="lang" type="button" data-t="lang.switch" data-t-label="lang.label">中文</button>
-    <a class="btn" href="#buy" data-t="buyNow">Buy now</a>
   </div>
 </header>
 
@@ -555,13 +525,15 @@ window.LAIFEN_TEXT = {
       <div class="controls">
         <div class="seg" role="group" aria-labelledby="heat-label">
           <span id="heat-label" data-t="s4.heat"></span>
-          <button type="button" data-heat="0" data-t="s4.cool"></button>
-          <button type="button" data-heat="1" data-t="s4.hot"></button>
+          <button type="button" data-heat="0" data-t="s4.h0"></button>
+          <button type="button" data-heat="1" data-t="s4.h1"></button>
+          <button type="button" data-heat="2" data-t="s4.h2"></button>
         </div>
         <div class="seg" role="group" aria-labelledby="speed-label">
           <span id="speed-label" data-t="s4.speed"></span>
-          <button type="button" data-speed="0" data-t="s4.low"></button>
-          <button type="button" data-speed="1" data-t="s4.high"></button>
+          <button type="button" data-speed="0" data-t="s4.s0"></button>
+          <button type="button" data-speed="1" data-t="s4.s1"></button>
+          <button type="button" data-speed="2" data-t="s4.s2"></button>
         </div>
       </div>
     </div>
@@ -616,30 +588,17 @@ window.LAIFEN_TEXT = {
     </div>
   </section>
 
-  <section class="step buy" id="buy" data-state="buy" data-chapter="buy" data-side="right">
-    <div class="copy panel">
-      <h2 class="js-product">Swift 4</h2>
-      <div class="colors">
-        <p class="label"><span data-t="buy.color"></span>: <b class="js-color-name"></b></p>
-        <div class="swatches js-swatches" role="radiogroup" data-t-label="buy.color"></div>
+  <section class="step colors" id="colors" data-state="colors" data-chapter="colors">
+    <div class="copy picker">
+      <p class="label" data-t="pick.title"></p>
+      <div class="pick-row">
+        <button type="button" class="arrow js-prev" data-t-label="pick.prev"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3 5 9l6 6"/></svg></button>
+        <h2 class="js-color-name" aria-live="polite"></h2>
+        <button type="button" class="arrow js-next" data-t-label="pick.next"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 3 6 6-6 6"/></svg></button>
       </div>
+      <div class="swatches js-swatches" role="radiogroup" data-t-label="pick.color"></div>
       <p class="price"><span class="now js-price"></span><s class="js-compare"></s><span class="save js-save" hidden></span></p>
-      <div class="block">
-        <p class="label" data-t="buy.gifts"></p>
-        <ul class="gift-list js-gifts"></ul>
-      </div>
-      <div class="block">
-        <p class="label" data-t="buy.where"></p>
-        <div class="channels js-channels"></div>
-      </div>
-      <div class="block">
-        <p class="label" data-t="buy.photos"></p>
-        <div class="thumbs">
-          <button type="button" class="thumb js-thumb-color"><img alt=""></button>
-          <button type="button" class="thumb js-thumb-box"><img alt=""></button>
-        </div>
-      </div>
-      <p class="note" data-t="buy.note"></p>
+      <p class="pick-foot"><span data-t="pick.hint"></span><button type="button" class="linkish js-photo" data-t="pick.photo"></button></p>
     </div>
   </section>
 </main>
@@ -671,7 +630,7 @@ window.LAIFEN_TEXT = {
   }
 
   var APP = window.APP = {
-    pos: 0, color: 0, heat: 1, speed: 1, lang: "en",
+    pos: 0, color: 0, heat: 2, speed: 2, lang: "en",
     reduced: window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches,
     steps: $$(".step"), ids: [], on: { color: [], lang: [] }
   };
@@ -690,8 +649,6 @@ window.LAIFEN_TEXT = {
   APP.lang = saved === "zh" || saved === "en" ? saved : (/^zh/i.test(navigator.language || "") ? "zh" : "en");
   var savedColor = store("laifen-color");
   C.colors.forEach(function (c, i) { if (c.id === savedColor) APP.color = i; });
-
-  var EXT = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"/></svg>';
 
   // ── Swatches ──
   var sw = $(".js-swatches");
@@ -714,10 +671,6 @@ window.LAIFEN_TEXT = {
     var c = C.colors[APP.color];
     $$(".js-color-name").forEach(function (el) { el.textContent = L(c.name); });
     $$(".swatch").forEach(function (b, j) { b.setAttribute("aria-label", L(C.colors[j].name)); });
-    var im = $(".js-thumb-color img");
-    im.src = c.photo; im.alt = t("alt.photo", { color: L(c.name) });
-    var bx = $(".js-thumb-box img");
-    bx.src = C.boxPhoto; bx.alt = t("alt.box");
   }
 
   function setColor(i) {
@@ -731,6 +684,9 @@ window.LAIFEN_TEXT = {
     store("laifen-color", c.id);
     APP.on.color.forEach(function (fn) { fn(i); });
   }
+  APP.setColor = function (i) { setColor(((i % C.colors.length) + C.colors.length) % C.colors.length); };
+  $(".js-prev").addEventListener("click", function () { APP.setColor(APP.color - 1); });
+  $(".js-next").addEventListener("click", function () { APP.setColor(APP.color + 1); });
 
   // ── Words ──
   function money(s) { return parseFloat(String(s).replace(/[^0-9.]/g, "")) || 0; }
@@ -757,28 +713,6 @@ window.LAIFEN_TEXT = {
         li.children[2].textContent = t("freeGift");
         ul.appendChild(li);
       });
-    });
-
-    var box = $(".js-channels");
-    box.textContent = "";
-    C.channels.forEach(function (c, i) {
-      var a = document.createElement("a");
-      a.className = "channel" + (i === 0 ? " primary" : "");
-      var name = document.createElement("span");
-      name.textContent = L(c.name);
-      a.appendChild(name);
-      if (c.url) {
-        a.href = c.url; a.target = "_blank"; a.rel = "noopener";
-        a.insertAdjacentHTML("beforeend", EXT);
-      } else {
-        a.href = "#buy";
-        a.setAttribute("aria-disabled", "true");
-        var s = document.createElement("small");
-        s.textContent = t("buy.soon");
-        a.appendChild(s);
-        a.addEventListener("click", function (e) { e.preventDefault(); });
-      }
-      box.appendChild(a);
     });
 
     colorTexts();
@@ -851,12 +785,10 @@ window.LAIFEN_TEXT = {
 
   // ── Photo lightbox ──
   var dlg = $("#lightbox"), dimg = $("#lightbox img");
-  $$(".thumb").forEach(function (b) {
-    b.addEventListener("click", function () {
-      var im = b.querySelector("img");
-      dimg.src = im.src; dimg.alt = im.alt;
-      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
-    });
+  $(".js-photo").addEventListener("click", function () {
+    var c = C.colors[APP.color];
+    dimg.src = c.photo; dimg.alt = t("alt.photo", { color: L(c.name) });
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
   });
   $("#lightbox .close").addEventListener("click", function () { dlg.close ? dlg.close() : dlg.removeAttribute("open"); });
   dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
@@ -911,14 +843,14 @@ async function main() {
   const scene = new THREE.Scene();
   const pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), .04).texture;
-  scene.environmentIntensity = 1;
+  scene.environmentIntensity = .8;
   pmrem.dispose();
 
   const camera = new THREE.PerspectiveCamera(28, 1, .1, 200);
-  const key = new THREE.DirectionalLight(0xffffff, 1.3);
+  const key = new THREE.DirectionalLight(0xfff6f0, 1.9);
   key.position.set(-5, 9, 7);
-  const rim = new THREE.DirectionalLight(0xffffff, .55);
-  rim.position.set(6, 3, -5);
+  const rim = new THREE.DirectionalLight(0xffffff, 1.4);
+  rim.position.set(5, 4, -6);
   scene.add(key, rim, new THREE.HemisphereLight(0xffffff, 0xd6cfcc, .4));
 
   // ── Canvas textures ──────────────────────────────────────────────
@@ -1168,6 +1100,59 @@ async function main() {
     [[0, -5.2, 0], [0, -5.9, -.05], [.06, -6.8, -.35], [.25, -7.9, -1.0], [.6, -9.4, -2.0]].map(([x, y, z]) => new V3(x, y, z + HZ))
   ), 80, .068, 10), cableMat);
 
+  // ══ Color stage: one copy of the dryer per color, on a turntable ring ══
+  const toneOf = new Map(tinted);
+  const stageItems = C.colors.map(c => {
+    const body0 = new THREE.Color(c.body), pod0 = new THREE.Color(c.pod || c.body);
+    const g = new THREE.Group(), b = new THREE.Group();
+    b.position.y = BODY_Y;
+    g.add(b);
+    const cache = new Map(), mats = [];
+    const cm = m => {
+      if (!cache.has(m)) {
+        const k = m.clone(), tone = toneOf.get(m);
+        if (tone) k.color.copy(tone.src === "pod" ? pod0 : body0).multiplyScalar(tone.k || 1);
+        k.userData.base = k.color.clone();
+        cache.set(m, k); mats.push(k);
+      }
+      return cache.get(m);
+    };
+    for (const id in parts) {
+      const pc = parts[id].clone(true);
+      pc.traverse(o => {
+        if (!o.isMesh) return;
+        if (o.geometry === cable.geometry) { o.visible = false; return; }
+        o.material = Array.isArray(o.material) ? o.material.map(cm) : cm(o.material);
+      });
+      b.add(pc);
+    }
+    g.userData.root = true;
+    return { g, mats };
+  });
+  const carousel = new THREE.Group();
+  carousel.visible = false;
+  scene.add(carousel);
+  stageItems.forEach(it => carousel.add(it.g));
+  const RING = 3.3;
+  // spotlight: a soft cone of light and a pool on the floor under the front dryer
+  const coneTex = tex(8, 256, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, "rgba(255,244,232,.9)"); gr.addColorStop(.55, "rgba(255,244,232,.25)"); gr.addColorStop(1, "rgba(255,244,232,0)");
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+  });
+  const poolTex = tex(256, 256, (g, w) => {
+    const gr = g.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2);
+    gr.addColorStop(0, "rgba(255,244,232,.85)"); gr.addColorStop(.45, "rgba(255,244,232,.3)"); gr.addColorStop(1, "rgba(255,244,232,0)");
+    g.fillStyle = gr; g.fillRect(0, 0, w, w);
+  });
+  const FLOOR = -2.66;
+  const coneMat = new THREE.MeshBasicMaterial({ map: coneTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, opacity: 0 });
+  const cone = add(carousel, new THREE.CylinderGeometry(.25, 2.0, 9, 48, 1, true), coneMat, 0, FLOOR + 4.5, 0);
+  const poolMat = new THREE.MeshBasicMaterial({ map: poolTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0 });
+  add(carousel, new THREE.PlaneGeometry(4.6, 4.6).rotateX(-Math.PI / 2), poolMat, 0, FLOOR, 0);
+  cone.renderOrder = poolMat.renderOrder = 2;
+  let selF = APP.color, stageDrag = 0;
+
   // ══ Airflow, ions ═══════════════════════════════════════════════
   const airVS = "varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }";
   const airFS = `
@@ -1251,7 +1236,7 @@ async function main() {
   const box = new THREE.Group();
   box.rotation.y = BOX_YAW;
   scene.add(box);
-  const paper = new THREE.MeshStandardMaterial({ color: "#F5F4F2", roughness: .9 });
+  const paper = new THREE.MeshStandardMaterial({ color: "#E8E5E2", roughness: .9 });
   const paperIn = new THREE.MeshStandardMaterial({ color: "#EEEBE8", roughness: .95 });
   const floorMat = new THREE.MeshStandardMaterial({ color: "#E6E2DE", roughness: .95, side: THREE.DoubleSide });
   function slab(w, h, d, x, y, z, mat, parent = box) { return add(parent, new THREE.BoxGeometry(w, h, d), mat, x, y, z); }
@@ -1494,7 +1479,7 @@ async function main() {
     lid: 0, gifts: 0, glabels: 0, sink: 0, lift: 0, cable: 0,
     px: 0, py: 3.3, pz: .6, pyaw: 25,
     explode: 0, hs: 0, air: 0, path: 0, ions: 0, heat: 0, spin: .2,
-    fMotor: 0, fIon: 0, fHeat: 0, dim: 0, sweep: 0, turn: 0
+    fMotor: 0, fIon: 0, fHeat: 0, dim: 0, sweep: 0, turn: 0, stage: 0
   };
   const UP = { lid: 1, sink: 1, lift: 1, cable: 1, onD: 1, pitch: 5, dy: 0, my: .2 };
   const DEF = {
@@ -1509,7 +1494,7 @@ async function main() {
     ions:   { ...UP, pyaw: 35, explode: 1, ions: 1, fIon: 1, dim: 1, spin: .5, ay: 2.5, az: -1.1, R: 2.7, pitch: 6, yaw: -10, dx: .17 },
     heat:   { ...UP, pyaw: 35, explode: 1, heat: 1, fHeat: 1, dim: 1, spin: .5, ay: 2.2, az: -.15, R: 1.9, pitch: 14, yaw: -35, dx: .17 },
     shell:  { ...UP, pyaw: 16, sweep: 1, ay: 1.1, R: 2.5, pitch: 8, dx: -.17 },
-    buy:    { ...UP, pyaw: 25, turn: 1, R: 3.1, dx: -.2, my: .23 }
+    colors: { ...UP, pyaw: 25, stage: 1, turn: 1, oz: -1.0, oy: .1, R: 5.0, mk: .78, pitch: 9, dx: 0, dy: .12, my: .17 }
   };
   // optional timing windows (fraction of the scroll between two steps)
   const WIN = {
@@ -1519,7 +1504,8 @@ async function main() {
     "lift>on": { air: [.3, 1] },
     "on>inside": { air: [0, .3], explode: [.2, 1], hs: [.75, 1] },
     "inside>motor": { hs: [0, .3] },
-    "heat>shell": { explode: [0, .8] }
+    "heat>shell": { explode: [0, .8] },
+    "shell>colors": { stage: [.25, 1] }
   };
   const SEQ = APP.ids.map(id => ({ ...BASE, ...(DEF[id] || {}) }));
   function params(x) {
@@ -1536,13 +1522,44 @@ async function main() {
   }
 
   // ══ Interaction: drag sideways to turn ══════════════════════════
-  let dragging = false, dragX = 0, userYaw = 0, turnYaw = 0;
-  canvas.addEventListener("pointerdown", e => { dragging = true; dragX = e.clientX; canvas.setPointerCapture(e.pointerId); });
-  canvas.addEventListener("pointermove", e => { if (!dragging) return; userYaw += (e.clientX - dragX) * .008; dragX = e.clientX; });
-  const endDrag = () => { dragging = false; };
+  let dragging = false, dragX = 0, downX = 0, downY = 0, userYaw = 0, turnYaw = 0, onStage = false;
+  const ray = new THREE.Raycaster(), ndc = new V2();
+  canvas.addEventListener("pointerdown", e => {
+    dragging = true; dragX = downX = e.clientX; downY = e.clientY;
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", e => {
+    if (!dragging) return;
+    const dx = e.clientX - dragX;
+    dragX = e.clientX;
+    if (onStage) stageDrag += dx / Math.max(160, W * .22);
+    else userYaw += dx * .008;
+  });
+  const endDrag = e => {
+    if (!dragging) return;
+    dragging = false;
+    if (!onStage) return;
+    const n = C.colors.length;
+    if (e && e.type === "pointerup" && Math.hypot(e.clientX - downX, e.clientY - downY) < 6) {
+      // tap: pick the dryer under the finger
+      const r = canvas.getBoundingClientRect();
+      ndc.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1);
+      ray.setFromCamera(ndc, camera);
+      const hit = ray.intersectObjects(stageItems.map(it => it.g), true)[0];
+      if (hit) {
+        let o = hit.object; while (o && !o.userData.root) o = o.parent;
+        const i = stageItems.findIndex(it => it.g === o);
+        if (i >= 0) APP.setColor(i);
+      }
+      stageDrag = 0;
+      return;
+    }
+    selF -= stageDrag; stageDrag = 0;
+    APP.setColor(Math.round(selF));
+  };
   canvas.addEventListener("pointerup", endDrag);
   canvas.addEventListener("pointercancel", endDrag);
-  canvas.addEventListener("lostpointercapture", endDrag);
+  canvas.addEventListener("lostpointercapture", () => { dragging = false; });
 
   // ══ Frame loop ══════════════════════════════════════════════════
   let W = 0, H = 0;
@@ -1559,7 +1576,7 @@ async function main() {
   const DRY_IN_Q = new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2, Math.PI / 2, 0, "YXZ"));
   const inP = new V3(), inQ = new THREE.Quaternion(), upQ = new THREE.Quaternion(), upE = new THREE.Euler();
   const tgt = new V3(), tmp = new V3(), Y_AXIS = new V3(0, 1, 0);
-  const COOL = new THREE.Color("#5a9be0"), HOT = new THREE.Color("#ee7a3c"), PATH = new THREE.Color("#4f86cf"), airCol = new THREE.Color();
+  const COOL = new THREE.Color("#5a9be0"), WARM = new THREE.Color("#f2c46e"), HOT = new THREE.Color("#ff6a2c"), PATH = new THREE.Color("#4f86cf"), airCol = new THREE.Color();
   let pos = APP.pos, last = performance.now(), time = 0, airClock = 0, knobPos = APP.speed, heatMix = APP.heat, first = true;
 
   function setOpacity(mat, o) {
@@ -1646,13 +1663,44 @@ async function main() {
     // focus: dim everything except the part being explained
     for (const id in partMats) {
       const w = id === "motor" ? p.fMotor : id === "ionGen" ? p.fIon : (id === "heater" || id === "sensor") ? p.fHeat : 0;
-      const o = 1 - p.dim * (1 - w) * .94;
+      const o = (1 - p.dim * (1 - w)) * (1 - p.stage);
       for (const m of partMats[id]) setOpacity(m, o);
+      if (parts[id]) parts[id].visible = o > .01;
       if (id === "bottom") setOpacity(cableMat, o * p.cable);
     }
     cable.visible = p.cable > .01;
+    dryer.visible = p.stage < .995;
+
+    // color stage: ring of four dryers, the one at the front in the spotlight
+    onStage = p.stage > .5;
+    carousel.visible = p.stage > .005;
+    if (carousel.visible) {
+      const n = stageItems.length;
+      if (!dragging) {
+        let d = (APP.color - selF) % n;
+        if (d > n / 2) d -= n; if (d < -n / 2) d += n;
+        selF += d * (1 - Math.exp(-dt * 6));
+      }
+      const show = selF - stageDrag;
+      carousel.position.set(p.px, p.py, p.pz);
+      stageItems.forEach((it, i) => {
+        const a = (i - show) * Math.PI * 2 / n;
+        const front = (Math.cos(a) + 1) / 2, f4 = Math.pow(front, 4);
+        it.g.position.set(Math.sin(a) * RING, 0, (Math.cos(a) - 1) * RING);
+        it.g.rotation.y = 25 * DEG - a * .5 + turnYaw * f4;
+        it.g.scale.setScalar(.82 + .18 * front);
+        const k = .16 + .84 * f4;
+        for (const m of it.mats) {
+          if (m.userData.base) m.color.copy(m.userData.base).multiplyScalar(.35 + .65 * k);
+          m.envMapIntensity = k;
+          setOpacity(m, p.stage);
+        }
+      });
+      coneMat.opacity = .16 * p.stage;
+      poolMat.opacity = .5 * p.stage;
+    }
     knobPos += (APP.speed - knobPos) * (1 - Math.exp(-dt * 8));
-    knob.position.y = -1.58 + knobPos * .28;
+    knob.position.y = -1.58 + knobPos * .14;
     rotor.rotation.y += dt * (2 + 16 * p.spin) * (APP.reduced ? .3 : 1);
     coilMat.emissiveIntensity = p.heat * (.75 + .25 * Math.sin(time * 4));
     sensorMat.emissiveIntensity = p.heat * ((time * 3) % 1 < .3 ? 3 : .35);
@@ -1661,8 +1709,8 @@ async function main() {
 
     // air
     heatMix += (APP.heat - heatMix) * (1 - Math.exp(-dt * 5));
-    airCol.copy(COOL).lerp(HOT, heatMix);
-    airClock += dt * (.45 + APP.speed * .6) * (APP.reduced ? .4 : 1);
+    if (heatMix < 1) airCol.copy(COOL).lerp(WARM, heatMix); else airCol.copy(WARM).lerp(HOT, heatMix - 1);
+    airClock += dt * (.4 + APP.speed * .42) * (APP.reduced ? .4 : 1);
     airOut.visible = p.air > .002;
     for (const m of airMats) {
       m.uniforms.uTime.value = airClock;
