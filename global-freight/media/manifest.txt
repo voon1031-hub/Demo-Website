@@ -16,3 +16,6 @@ image design/style-frames/4-stylized-3d.jpg https://d8j0ntlcm91z4.cloudfront.net
 video public/media/ocean-vessel.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044618_4c67bee3-9e9d-47ec-9964-ab663758f1db.mp4
 video public/media/about-crane.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044701_9f4f0734-e6de-4aff-b29c-b72a67fdcb0c.mp4
 video public/media/land-road.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044702_cc296f42-283b-44e9-b733-aaeadb5547b8.mp4
+video public/media/ocean-terminal.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044836_c03aa28d-176b-4340-9b89-21778726abc7.mp4
+video public/media/ocean-stacks.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044836_7c93a3e7-b7de-4105-9ebf-e4d4a887c0fd.mp4
+video public/media/ocean-quay.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044843_c4dc5dea-3dc3-4fee-aec2-8a6cb8248357.mp4
