@@ -9,3 +9,6 @@ khmg317        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvai
 khmg317-angle  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175300_6484097d-39ab-45ab-9d55-31e43cc69818.png
 khmg319        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175300_c4dca4e4-90c3-4981-b1f1-3c60181f6185.png
 khmg319-angle  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175301_cca18520-c993-4182-9893-7106cb70baf1.png
+khmg315         https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175812_b20a9a06-7571-4e30-8972-177bb46b52db.mp4
+khmg309         https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175812_d8dc1b03-7f43-4aa2-863a-8db2b7aa073b.mp4
+khmg319         https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175812_2a992aeb-48a5-47bd-96b4-c765e8af651d.mp4
