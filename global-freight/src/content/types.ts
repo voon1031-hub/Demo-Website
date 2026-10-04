@@ -25,10 +25,14 @@ export type Content = {
     lede: string;
     primaryCta: string;
     secondaryCta: string;
-    legendTitle: string;
-    legend: { mode: 'air' | 'ocean' | 'land'; route: string; transit: string }[];
     scrollHint: string;
-    mapLabel: string;
+  };
+  air: {
+    heading: string;
+    intro: string;
+    facts: { term: string; detail: string }[];
+    globeLabel: string;
+    routeLabel: string;
   };
   ocean: {
     heading: string;

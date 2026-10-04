@@ -33,6 +33,15 @@ export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 const clip = (name: string) => ({ video: asset(`media/${name}.mp4`), poster: asset(`media/${name}.jpg`) });
 
 export const media = {
+  // Hero: what the container doors open onto
+  heroPort: {
+    id: 'hero.port',
+    ...clip('hero-port'),
+    alt: 'Night view down a lane of stacked containers to a lit quay, truck lights streaking toward the cranes',
+    size: '1280×720 video, landscape, symmetrical',
+    brief: 'Centered view down a container-yard lane to the quay and cranes at night.',
+  },
+
   // Ocean
   oceanVessel: {
     id: 'ocean.vessel',
@@ -63,7 +72,7 @@ export const media = {
     brief: 'Ship alongside a quay at night, trucks moving on the apron.',
   },
 
-  // Footage for sections built next (shown in their placeholders for now)
+  // Air (shown after the globe zoom)
   aboutCrane: {
     id: 'about.crane',
     ...clip('about-crane'),

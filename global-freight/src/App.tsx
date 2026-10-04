@@ -7,6 +7,7 @@ import { Nav } from './components/Nav';
 import { PendingSection } from './components/PendingSection';
 import { Hero } from './sections/Hero';
 import { Ocean } from './sections/Ocean';
+import { Air } from './sections/Air';
 
 export default function App() {
   const t = useContent();
@@ -25,7 +26,7 @@ export default function App() {
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
         <PendingSection id="about" label={label('about')} slot="aboutCrane" />
-        <PendingSection id="air" label={label('air')} slot="airFreighter" />
+        <Air />
         <Ocean />
         <PendingSection id="land" label={label('land')} slot="landRoad" />
         <PendingSection id="network" label={label('network')} />

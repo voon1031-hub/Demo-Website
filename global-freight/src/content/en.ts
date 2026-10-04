@@ -22,15 +22,20 @@ export const en: Content = {
   hero: {
     lede: 'Air, ocean and land freight, booked and tracked as one shipment from pickup to delivery.',
     primaryCta: 'Get a quote',
-    secondaryCta: 'See the network',
-    legendTitle: 'Routes on this map',
-    legend: [
-      { mode: 'air', route: 'Hong Kong to Frankfurt', transit: '1–2 days' },
-      { mode: 'ocean', route: 'Shanghai to Rotterdam', transit: '30–35 days' },
-      { mode: 'land', route: 'Chongqing to Duisburg by rail', transit: '14–18 days' },
+    secondaryCta: 'See how it moves',
+    scrollHint: 'Scroll to open',
+  },
+  air: {
+    heading: 'By air',
+    intro:
+      'Space on scheduled freighters and passenger bellies between the main hubs, for cargo that cannot wait for a ship.',
+    facts: [
+      { term: 'Airport to airport', detail: '1–2 days' },
+      { term: 'Options', detail: 'Consolidated, direct and charter' },
+      { term: 'Special cargo', detail: 'Temperature-controlled and dangerous goods' },
     ],
-    scrollHint: 'Scroll to follow a shipment',
-    mapLabel: 'World map showing air, ocean and rail routes between Asia and Europe',
+    globeLabel: 'Globe zooming in from orbit to a cargo flight between Hong Kong and Frankfurt',
+    routeLabel: 'Hong Kong to Frankfurt',
   },
   ocean: {
     heading: 'By sea',
