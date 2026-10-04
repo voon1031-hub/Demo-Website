@@ -1,0 +1,26 @@
+# Helper: downloads the generated scene media on a GitHub runner
+# (the cloud dev environment can't reach the media host), compresses it,
+# and commits assets/scenes/ back to this branch.
+name: Fetch scene media
+on:
+  push:
+    branches: [claude/toy-car-brand-website-n83bf9]
+    paths: ['tools/scenes.txt']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Download and compress media
+        run: bash tools/fetch-scenes.sh
+      - name: Commit media
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/scenes
+          git commit -m "Add generated scene stills and background clips" || exit 0
+          git push
