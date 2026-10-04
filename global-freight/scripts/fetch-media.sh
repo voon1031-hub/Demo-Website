@@ -9,8 +9,8 @@
 #   image  JPG, at most 1920 px wide (style frames, posters)
 #   video  seamless-loop H.264 MP4, long edge 1280 px, no audio,
 #          plus a poster JPG next to it (<name>.jpg)
-#   scrub  H.264 MP4 for scroll-controlled playback: no loop, a keyframe
-#          every 4 frames so seeking stays smooth, plus a poster JPG.
+#   scrub  H.264 MP4 for scroll-controlled playback: no loop, long edge
+#          1024 px, a keyframe every 6 frames so seeking stays smooth, plus a poster JPG.
 #          Several comma-separated URLs are joined end to end first.
 # Entries whose output already exists are skipped, so the script is safe to re-run.
 # Needs: curl, ffmpeg, ffprobe. Run from global-freight/: bash scripts/fetch-media.sh
@@ -38,8 +38,8 @@ loop_video() { # <src> <dest.mp4>
 
 scrub_video() { # <src> <dest.mp4>
   ffmpeg -nostdin -loglevel error -y -i "$1" -an \
-    -vf "scale='if(gte(iw,ih),1280,-2)':'if(gte(iw,ih),-2,1280)',format=yuv420p" \
-    -c:v libx264 -preset slow -crf 26 -g 4 -keyint_min 4 -sc_threshold 0 \
+    -vf "scale='if(gte(iw,ih),1024,-2)':'if(gte(iw,ih),-2,1024)',format=yuv420p" \
+    -c:v libx264 -preset slow -crf 28 -g 6 -keyint_min 6 -sc_threshold 0 \
     -movflags +faststart "$2" &&
     ffmpeg -nostdin -loglevel error -y -i "$2" -frames:v 1 -q:v 4 "${2%.mp4}.jpg"
 }

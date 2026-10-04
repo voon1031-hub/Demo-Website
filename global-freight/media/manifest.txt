@@ -22,3 +22,6 @@ video public/media/air-freighter.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3
 video public/media/hero-port.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_084530_f9a96347-8b47-48ff-a84d-b966325e5ed9.mp4
 scrub public/media/air-descent.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_090923_6ea927a2-e9f6-4346-8f5c-5e28f39ec6eb.mp4
 scrub public/media/land-orbit-360.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_090937_14a761b9-09d1-452c-9bc3-b05da09e8b86.mp4,https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_090937_4834088a-820c-43b4-ab7c-de343624936e.mp4
+# Descent candidates (compare, keep one)
+scrub design/descent-try/cinema.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_092353_18e70bb4-d6a9-49e0-a819-70a8f8434406.mp4
+scrub design/descent-try/kling.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_092354_e573c7b8-bf1f-4d0a-b131-8d544c12ece1.mp4
