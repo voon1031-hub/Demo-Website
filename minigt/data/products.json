@@ -1,0 +1,349 @@
+[
+  {
+    "id": "KHMG315",
+    "name": "Nissan Skyline GT-R (R34) Tamiya x Kaido House “The Hornet” V2",
+    "shortName": "Skyline GT-R R34 “The Hornet”",
+    "brand": "Nissan",
+    "line": "Kaido House",
+    "category": "supercar",
+    "scale": "1:64",
+    "isNew": true,
+    "status": "preorder",
+    "preorderMonth": "2026-09",
+    "raceNumber": "7",
+    "colors": [
+      "#7D1420",
+      "#C79A3F",
+      "#F39A1E"
+    ],
+    "description": "Version two of The Hornet: a Tamiya x Kaido House graphics concept on the R34 GT-R, finished in color carbon with an opening hood over a detailed RB26DETT engine.",
+    "features": [
+      "Opening hood with detailed RB26DETT engine",
+      "Color carbon finish",
+      "Tamiya x Kaido House graphics concept",
+      "Two-piece wheels with aluminum barrels"
+    ],
+    "cover": "open",
+    "hero": "side",
+    "images": [
+      {
+        "view": "open",
+        "src": "assets/products/KHMG315/open.webp",
+        "w": 1148,
+        "h": 603,
+        "small": "assets/products/KHMG315/open-800.webp",
+        "sw": 800,
+        "sh": 420,
+        "alt": "opening hood detail"
+      },
+      {
+        "view": "side",
+        "src": "assets/products/KHMG315/side.webp",
+        "w": 1419,
+        "h": 427,
+        "small": "assets/products/KHMG315/side-800.webp",
+        "sw": 800,
+        "sh": 241,
+        "alt": "side view"
+      },
+      {
+        "view": "rear",
+        "src": "assets/products/KHMG315/rear.webp",
+        "w": 1269,
+        "h": 570,
+        "small": "assets/products/KHMG315/rear-800.webp",
+        "sw": 800,
+        "sh": 359,
+        "alt": "rear three-quarter view"
+      }
+    ],
+    "sheet": {
+      "src": "assets/products/KHMG315/sheet.webp",
+      "w": 1095,
+      "h": 1400
+    },
+    "license": "Nissan Motor Co., Ltd. trademarks, designs, copyrights and/or other intellectual property rights are used under license.",
+    "note": "Preproduction sample shown."
+  },
+  {
+    "id": "KHMG313",
+    "name": "Nissan Skyline GT-R (R33) Stock Car V1",
+    "shortName": "Skyline GT-R R33 Stock Car",
+    "brand": "Nissan",
+    "line": "Kaido House",
+    "category": "supercar",
+    "scale": "1:64",
+    "isNew": true,
+    "status": "preorder",
+    "preorderMonth": "2026-09",
+    "raceNumber": "23",
+    "colors": [
+      "#E1251B",
+      "#F7C400",
+      "#F4F4F2"
+    ],
+    "description": "The R33 GT-R goes stock-car racing in Kaido Works red, white and yellow: number 23, blossom graphics, and an opening hood with a detailed engine.",
+    "features": [
+      "Opening hood with detailed engine",
+      "Two-piece wheels with aluminum barrels",
+      "Kaido Works stock-car livery"
+    ],
+    "cover": "front",
+    "hero": "side",
+    "images": [
+      {
+        "view": "front",
+        "src": "assets/products/KHMG313/front.webp",
+        "w": 1263,
+        "h": 588,
+        "small": "assets/products/KHMG313/front-800.webp",
+        "sw": 800,
+        "sh": 372,
+        "alt": "front three-quarter view"
+      },
+      {
+        "view": "side",
+        "src": "assets/products/KHMG313/side.webp",
+        "w": 1454,
+        "h": 441,
+        "small": "assets/products/KHMG313/side-800.webp",
+        "sw": 800,
+        "sh": 243,
+        "alt": "side view"
+      },
+      {
+        "view": "top",
+        "src": "assets/products/KHMG313/top.webp",
+        "w": 1432,
+        "h": 666,
+        "small": "assets/products/KHMG313/top-800.webp",
+        "sw": 800,
+        "sh": 372,
+        "alt": "top view"
+      }
+    ],
+    "sheet": {
+      "src": "assets/products/KHMG313/sheet.webp",
+      "w": 1095,
+      "h": 1400
+    },
+    "license": "Nissan Motor Co., Ltd. trademarks, designs, copyrights and/or other intellectual property rights are used under license.",
+    "note": "Preproduction sample shown."
+  },
+  {
+    "id": "KHMG309",
+    "name": "Kaido Star-Tastic V1",
+    "shortName": "Kaido Star-Tastic",
+    "brand": "Kaido House",
+    "line": "Kaido House",
+    "category": "supercar",
+    "scale": "1:64",
+    "isNew": true,
+    "status": "preorder",
+    "preorderMonth": "2026-08",
+    "raceNumber": "★",
+    "colors": [
+      "#C8A046",
+      "#E3231B",
+      "#141414"
+    ],
+    "description": "A 100% Kaido House original design, built like an old-school kaido racer: towering takeyari exhaust pipes, a deep front spoiler, gold-and-red star livery and an opening hood with a detailed engine.",
+    "features": [
+      "100% Kaido House original design",
+      "Opening hood with detailed engine",
+      "Takeyari exhaust pipes",
+      "Gold, red and black star livery"
+    ],
+    "cover": "front",
+    "hero": "side",
+    "images": [
+      {
+        "view": "front",
+        "src": "assets/products/KHMG309/front.webp",
+        "w": 826,
+        "h": 322,
+        "small": "assets/products/KHMG309/front-800.webp",
+        "sw": 800,
+        "sh": 312,
+        "alt": "front three-quarter view"
+      },
+      {
+        "view": "open",
+        "src": "assets/products/KHMG309/open.webp",
+        "w": 861,
+        "h": 430,
+        "small": "assets/products/KHMG309/open-800.webp",
+        "sw": 800,
+        "sh": 400,
+        "alt": "opening hood detail"
+      },
+      {
+        "view": "side",
+        "src": "assets/products/KHMG309/side.webp",
+        "w": 1250,
+        "h": 302,
+        "small": "assets/products/KHMG309/side-800.webp",
+        "sw": 800,
+        "sh": 193,
+        "alt": "side view"
+      },
+      {
+        "view": "rear",
+        "src": "assets/products/KHMG309/rear.webp",
+        "w": 980,
+        "h": 356,
+        "small": "assets/products/KHMG309/rear-800.webp",
+        "sw": 800,
+        "sh": 291,
+        "alt": "rear three-quarter view"
+      },
+      {
+        "view": "top",
+        "src": "assets/products/KHMG309/top.webp",
+        "w": 979,
+        "h": 347,
+        "small": "assets/products/KHMG309/top-800.webp",
+        "sw": 800,
+        "sh": 284,
+        "alt": "top view"
+      }
+    ],
+    "sheet": {
+      "src": "assets/products/KHMG309/sheet.webp",
+      "w": 1400,
+      "h": 933
+    },
+    "license": null,
+    "note": "Preproduction sample shown."
+  },
+  {
+    "id": "KHMG317",
+    "name": "Nissan Fairlady Z Kaido GT Gulf V1",
+    "shortName": "Fairlady Z Kaido GT Gulf",
+    "brand": "Nissan",
+    "line": "Kaido House",
+    "category": "supercar",
+    "scale": "1:64",
+    "isNew": true,
+    "status": "preorder",
+    "preorderMonth": "2026-09",
+    "raceNumber": "71",
+    "colors": [
+      "#A9CBE3",
+      "#EF7D22",
+      "#141414"
+    ],
+    "description": "The classic Fairlady Z in licensed Gulf racing livery, wearing number 71, with overfenders, an opening hood with a detailed engine and two-piece wheels.",
+    "features": [
+      "Licensed Gulf racing livery",
+      "Opening hood with detailed engine",
+      "Two-piece wheels with aluminum barrels"
+    ],
+    "cover": "front",
+    "hero": "side",
+    "images": [
+      {
+        "view": "front",
+        "src": "assets/products/KHMG317/front.webp",
+        "w": 1184,
+        "h": 633,
+        "small": "assets/products/KHMG317/front-800.webp",
+        "sw": 800,
+        "sh": 428,
+        "alt": "front three-quarter view"
+      },
+      {
+        "view": "side",
+        "src": "assets/products/KHMG317/side.webp",
+        "w": 1461,
+        "h": 367,
+        "small": "assets/products/KHMG317/side-800.webp",
+        "sw": 800,
+        "sh": 201,
+        "alt": "side view"
+      },
+      {
+        "view": "open",
+        "src": "assets/products/KHMG317/open.webp",
+        "w": 1227,
+        "h": 664,
+        "small": "assets/products/KHMG317/open-800.webp",
+        "sw": 800,
+        "sh": 433,
+        "alt": "opening hood detail"
+      }
+    ],
+    "sheet": {
+      "src": "assets/products/KHMG317/sheet.webp",
+      "w": 1095,
+      "h": 1400
+    },
+    "license": "Nissan Motor Co., Ltd. trademarks, designs, copyrights and/or other intellectual property rights are used under license.",
+    "note": "Preproduction sample shown."
+  },
+  {
+    "id": "KHMG319",
+    "name": "Chevrolet Camaro Kaido Racing Team V1",
+    "shortName": "Camaro Kaido Racing Team",
+    "brand": "Chevrolet",
+    "line": "Kaido House",
+    "category": "supercar",
+    "scale": "1:64",
+    "isNew": true,
+    "status": "preorder",
+    "preorderMonth": "2026-09",
+    "raceNumber": "00",
+    "colors": [
+      "#F7C21A",
+      "#A3121B",
+      "#F0731E"
+    ],
+    "description": "A first-generation Camaro rebuilt for the Kaido Racing Team: yellow-and-red livery, number 00, a tall rear wing and an opening hatch that reveals a detailed engine.",
+    "features": [
+      "Opening hatch with detailed engine",
+      "Two-piece wheels with aluminum barrels",
+      "Kaido Racing Team livery"
+    ],
+    "cover": "front",
+    "hero": "side",
+    "images": [
+      {
+        "view": "front",
+        "src": "assets/products/KHMG319/front.webp",
+        "w": 1269,
+        "h": 620,
+        "small": "assets/products/KHMG319/front-800.webp",
+        "sw": 800,
+        "sh": 391,
+        "alt": "front three-quarter view"
+      },
+      {
+        "view": "side",
+        "src": "assets/products/KHMG319/side.webp",
+        "w": 1432,
+        "h": 395,
+        "small": "assets/products/KHMG319/side-800.webp",
+        "sw": 800,
+        "sh": 221,
+        "alt": "side view"
+      },
+      {
+        "view": "open",
+        "src": "assets/products/KHMG319/open.webp",
+        "w": 1309,
+        "h": 752,
+        "small": "assets/products/KHMG319/open-800.webp",
+        "sw": 800,
+        "sh": 460,
+        "alt": "opening hatch detail"
+      }
+    ],
+    "sheet": {
+      "src": "assets/products/KHMG319/sheet.webp",
+      "w": 1095,
+      "h": 1400
+    },
+    "license": null,
+    "note": "Preproduction sample shown."
+  }
+]

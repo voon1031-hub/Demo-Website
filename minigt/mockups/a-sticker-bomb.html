@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style A · Sticker Bomb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0B0B0B;
+    --red: #E10600;
+    --lime: #C6FF00;
+    --pink: #FF2E88;
+    --cyan: #00E5FF;
+    --paper: #F5F5F5;
+    --display: "Anton", Impact, sans-serif;
+    --hand: "Permanent Marker", cursive;
+    --body: "Space Grotesk", system-ui, sans-serif;
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--ink); color: var(--paper); font-family: var(--body); }
+  body { overflow-x: hidden; }
+  img { display: block; max-width: none; }
+  section { position: relative; overflow: hidden; isolation: isolate; }
+  section::after { /* film grain */
+    content: ""; position: absolute; inset: 0; z-index: 50; pointer-events: none;
+    background-image: var(--grain); opacity: .16; mix-blend-mode: overlay;
+  }
+  .halftone { position: absolute; pointer-events: none; z-index: 0;
+    background: radial-gradient(circle, var(--dot, var(--red)) 2px, transparent 2.6px) 0 0 / 11px 11px; }
+
+  /* ---------- components ---------- */
+  .sticker {
+    position: absolute; z-index: 20; display: grid; place-items: center; text-align: center;
+    font-family: var(--display); text-transform: uppercase; line-height: .86;
+    color: var(--fg, var(--ink)); background: var(--bg, var(--lime));
+    border: 6px solid var(--paper); border-radius: 16px;
+    box-shadow: 0 14px 22px -6px rgba(0,0,0,.6);
+    transform: rotate(var(--r, -6deg));
+  }
+  .sticker::before { /* peeled corner */
+    content: ""; position: absolute; right: -6px; bottom: -6px; width: 26px; height: 26px;
+    background: linear-gradient(135deg, transparent 50%, #d9d9d9 50%, #fff 75%);
+    border-bottom-right-radius: 14px;
+  }
+  .sticker.round { border-radius: 50%; }
+  .sticker.round::before { display: none; }
+  .tape {
+    position: absolute; z-index: 25; width: 130px; height: 36px;
+    background: rgba(236, 228, 205, .82);
+    clip-path: polygon(2% 8%, 8% 0, 16% 6%, 26% 0, 100% 2%, 97% 50%, 100% 96%, 90% 100%, 80% 94%, 0 100%, 3% 50%);
+    transform: rotate(var(--r, -8deg));
+  }
+  .hazard { position: absolute; z-index: 15; height: 44px;
+    background: repeating-linear-gradient(-45deg, #FFD400 0 22px, var(--ink) 22px 44px);
+    border-block: 4px solid var(--ink); box-shadow: 0 10px 20px rgba(0,0,0,.5); }
+  .marquee { position: absolute; z-index: 30; left: -5%; width: 110%; white-space: nowrap;
+    font-family: var(--display); text-transform: uppercase; padding: .28em 0; }
+  .marquee span { display: inline-block; padding-right: .6em; }
+  .scrawl { position: absolute; z-index: 22; pointer-events: none; overflow: visible; }
+
+  /* ---------- nav ---------- */
+  .nav { position: absolute; z-index: 40; inset: 26px 40px auto 40px; display: flex; justify-content: space-between; align-items: center; }
+  .lockup { position: relative; display: flex; align-items: center; gap: 10px; background: var(--paper); color: var(--ink);
+    border-radius: 10px; padding: 8px 12px 8px 14px; transform: rotate(-2deg); box-shadow: 0 8px 16px rgba(0,0,0,.5);
+    font-family: var(--display); font-size: 22px; letter-spacing: .01em; text-transform: uppercase; }
+  .lockup b { background: var(--red); color: var(--paper); padding: 2px 8px 1px; font-weight: 400; font-style: italic; border-radius: 4px; }
+  .nav ul { display: flex; gap: 34px; list-style: none; font-weight: 500; font-size: 16px; }
+  .nav a { color: var(--paper); text-decoration: none; }
+  .nav .menu { display: none; }
+
+  /* ---------- hero ---------- */
+  .hero { height: 100vh; min-height: 760px; }
+  .hero .halftone { right: -120px; bottom: -80px; width: 720px; height: 620px;
+    -webkit-mask: radial-gradient(closest-side, #000 20%, transparent); mask: radial-gradient(closest-side, #000 20%, transparent); }
+  .hero .halftone.cy { --dot: var(--cyan); left: -160px; top: 80px; right: auto; bottom: auto; width: 520px; height: 520px; opacity: .55; }
+  .big164 { position: absolute; z-index: 2; left: 2.5vw; top: 9vh; font-family: var(--display); font-size: min(34vw, 60vh);
+    line-height: .8; letter-spacing: -.01em; color: var(--paper); transform: rotate(-3deg); }
+  .hero-car { position: absolute; z-index: 10; left: 15vw; top: 44vh; width: 76vw;
+    filter: drop-shadow(0 36px 26px rgba(0,0,0,.75)); }
+  .road-shadow { position: absolute; z-index: 9; left: 19vw; top: calc(44vh + 21.6vw); width: 68vw; height: 46px;
+    background: radial-gradient(closest-side, rgba(0,0,0,.85), transparent); }
+  .minigt { position: absolute; z-index: 8; right: 3vw; top: 11vh; font-family: var(--display); font-size: min(17vw, 29vh); line-height: .8;
+    color: var(--red); transform: rotate(-2deg); text-transform: uppercase; text-align: right; }
+  .hero .tagline { position: absolute; z-index: 21; right: 4vw; bottom: 15vh; width: 320px; padding: 18px 20px; font-size: 17px; line-height: 1.45;
+    background: var(--paper); color: #333; transform: rotate(2.5deg); box-shadow: 0 16px 24px -8px rgba(0,0,0,.7); }
+  .hero .tagline strong { color: var(--ink); }
+  .hero .tagline .tape { --r: -6deg; left: 95px; top: -18px; width: 120px; height: 32px; }
+  .s-pre { --bg: var(--lime); --r: 13deg; left: 56vw; top: 6vh; width: 190px; height: 190px; font-size: 46px; }
+  .s-pre small { display: block; font-size: 21px; margin-top: 6px; }
+  .s-sep { --bg: var(--pink); --fg: var(--paper); --r: -9deg; right: 5vw; top: 40vh; padding: 12px 18px; font-size: 40px; }
+  .s-code { --bg: var(--paper); --r: 4deg; left: 14vw; top: 72vh; padding: 8px 14px; font-size: 22px; }
+  .s-quote { --bg: var(--paper); --r: -7deg; left: 43vw; top: 41vh; padding: 10px 16px; font-family: var(--hand); font-size: 22px; text-transform: none; line-height: 1.1; }
+  .hero .hazard { left: -40px; width: 30vw; bottom: 23vh; transform: rotate(-5deg); z-index: 7; }
+  .m1 { bottom: 3vh; background: var(--red); color: var(--paper); font-size: 34px; transform: rotate(-2deg); }
+  .m2 { bottom: 4.5vh; background: var(--lime); color: var(--ink); font-size: 26px; transform: rotate(1.6deg); z-index: 29; }
+
+  /* ---------- chapter ---------- */
+  .chapter { min-height: 100vh; padding: 120px 40px 80px; display: grid; grid-template-columns: minmax(340px, 470px) 1fr; align-items: center; }
+  .chapter .halftone { --dot: #7D1420; right: -60px; top: -60px; width: 900px; height: 700px; opacity: .9;
+    -webkit-mask: radial-gradient(closest-side, #000 15%, transparent); mask: radial-gradient(closest-side, #000 15%, transparent); }
+  .num { position: absolute; z-index: 1; right: 14vw; top: 4vh; font-family: var(--display); font-size: 92vh; line-height: .85;
+    color: transparent; -webkit-text-stroke: 3px rgba(245,245,245,.9); transform: rotate(7deg); }
+  .copy { position: relative; z-index: 21; }
+  .codetape { display: inline-block; background: rgba(236,228,205,.92); color: var(--ink); font-family: var(--hand); font-size: 22px;
+    padding: 6px 16px; transform: rotate(-3deg); margin-bottom: 22px;
+    clip-path: polygon(2% 8%, 8% 0, 100% 3%, 97% 50%, 100% 96%, 0 100%, 3% 50%); }
+  .copy h2 { font-family: var(--display); font-size: 84px; line-height: .9; text-transform: uppercase; font-weight: 400; }
+  .copy h2 em { font-style: normal; color: var(--lime); }
+  .copy p { margin-top: 22px; font-size: 18px; line-height: 1.55; color: rgba(245,245,245,.82); max-width: 42ch; }
+  .copy .brand { margin-top: 14px; font-size: 15px; color: rgba(245,245,245,.6); }
+  .preorder-tag { position: relative; display: inline-block; margin-top: 30px; --bg: var(--lime); }
+  .preorder-tag .sticker { position: relative; padding: 12px 18px; font-size: 30px; --r: -4deg; }
+  .chapter-car { position: absolute; z-index: 10; right: -2vw; top: 18vh; width: 64vw; filter: drop-shadow(0 40px 30px rgba(0,0,0,.8)); }
+  .callout { position: absolute; z-index: 24; --bg: var(--paper); font-family: var(--hand); text-transform: none; font-size: 19px; line-height: 1.1; padding: 9px 13px; }
+  .c1 { left: 47vw; top: 14vh; --r: -5deg; }
+  .c2 { right: 6vw; top: 74vh; --r: 4deg; }
+  .c3 { left: 44vw; top: 76vh; --r: -3deg; }
+  .polaroid { position: absolute; z-index: 23; right: 4vw; top: 9vh; width: 170px; background: var(--paper); padding: 10px 10px 34px;
+    transform: rotate(9deg); box-shadow: 0 16px 26px rgba(0,0,0,.55); }
+  .polaroid img { width: 100%; }
+  .polaroid span { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font-family: var(--hand); color: var(--ink); font-size: 15px; }
+  .polaroid .tape { --r: -4deg; width: 90px; height: 28px; left: 40px; top: -14px; }
+
+  /* ---------- lineup ---------- */
+  .lineup { padding: 110px 40px 130px; }
+  .lineup .halftone { --dot: #1d1d1d; inset: 0; }
+  .lineup h2 { position: relative; z-index: 2; font-family: var(--display); font-weight: 400; font-size: 190px; line-height: .8; text-transform: uppercase; }
+  .lineup .scrawl-note { position: absolute; z-index: 3; left: 760px; top: 150px; font-family: var(--hand); font-size: 40px; color: var(--lime); transform: rotate(-8deg); }
+  .grid { position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: center; gap: 56px 44px; margin-top: 70px; }
+  .card { position: relative; width: 400px; transform: rotate(var(--r)); }
+  .card .face { position: relative; background: var(--paper); border-radius: 22px; padding: 12px; box-shadow: 0 22px 30px -10px rgba(0,0,0,.8); }
+  .card .panel { position: relative; height: 230px; border-radius: 14px; overflow: hidden; background: var(--c1); }
+  .card .panel::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle, var(--c2) 2px, transparent 2.6px) 0 0 / 10px 10px;
+    -webkit-mask: linear-gradient(200deg, #000 10%, transparent 70%); mask: linear-gradient(200deg, #000 10%, transparent 70%); opacity: .9; }
+  .card .rn { position: absolute; right: 10px; bottom: -22px; font-family: var(--display); font-size: 190px; line-height: 1; color: rgba(0,0,0,.22); }
+  .card .car { position: absolute; z-index: 3; left: 50%; top: -38px; width: 400px; transform: translateX(-50%); filter: drop-shadow(0 18px 14px rgba(0,0,0,.5)); }
+  .card .label { position: relative; color: var(--ink); padding: 16px 6px 6px; }
+  .card .code { font-weight: 700; font-size: 14px; letter-spacing: .02em; }
+  .card h3 { font-family: var(--display); font-weight: 400; font-size: 31px; line-height: .95; text-transform: uppercase; margin-top: 6px; }
+  .card .mini { position: absolute; right: 2px; top: -26px; --bg: var(--lime); --r: 8deg; padding: 7px 10px; font-size: 17px; border-width: 4px; }
+  .card .mini::before { display: none; }
+  .card .tape { left: -38px; top: 40px; width: 110px; height: 32px; }
+  .foot-marquee { position: relative; margin-top: 90px; transform: rotate(-1.5deg); }
+  .foot-marquee .marquee { position: relative; left: -5%; background: var(--pink); color: var(--paper); font-size: 30px; }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 700px) {
+    br.d { display: none; }
+    .nav { inset: 18px 16px auto 16px; }
+    .nav ul { display: none; }
+    .nav .menu { display: block; font-family: var(--display); font-size: 20px; background: var(--lime); color: var(--ink); padding: 6px 12px; border-radius: 8px; transform: rotate(3deg); }
+    .lockup { font-size: 17px; }
+    .hero { min-height: 0; height: 844px; }
+    .big164 { left: 4vw; top: 92px; font-size: 44vw; }
+    .hero-car { left: -6vw; top: 300px; width: 128vw; }
+    .road-shadow { left: 0; top: 440px; width: 110vw; }
+    .minigt { font-size: 27vw; right: auto; left: 4vw; top: 470px; text-align: left; }
+    .hero .tagline { left: 16px; right: 16px; width: auto; top: 640px; bottom: auto; font-size: 15px; padding: 14px 16px; transform: rotate(-1.5deg); }
+    .s-pre { width: 128px; height: 128px; font-size: 30px; right: 14px; top: 232px; border-width: 5px; }
+    .s-pre small { font-size: 14px; }
+    .s-sep { font-size: 26px; right: 20px; top: 128px; left: auto; padding: 8px 12px; border-width: 5px; }
+    .s-code { font-size: 15px; left: 18px; top: 268px; }
+    .s-quote, .hero .hazard { display: none; }
+    .m1 { font-size: 26px; bottom: 30px; }
+    .m2 { font-size: 20px; bottom: 44px; }
+    .hero .halftone { width: 420px; height: 420px; }
+
+    .chapter { display: block; padding: 80px 16px 70px; }
+    .num { font-size: 92vw; right: -6vw; top: 30px; -webkit-text-stroke-width: 2px; opacity: .45; }
+    .chapter-car { position: relative; right: auto; top: auto; width: 116vw; margin: 40px 0 0 -10vw; }
+    .callout, .polaroid { display: none; }
+    .copy { margin-top: 26px; }
+    .copy h2 { font-size: 54px; }
+    .copy p { font-size: 16px; }
+    .lineup h2 { font-size: 96px; }
+    .lineup .scrawl-note { left: 210px; top: 90px; font-size: 26px; }
+    .card { width: 100%; }
+    .card .car { width: 320px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero" id="hero">
+  <div class="halftone"></div>
+  <div class="halftone cy"></div>
+  <nav class="nav">
+    <div class="lockup">Kaido★House <b>MINI GT</b></div>
+    <ul><li><a href="#">Lineup</a></li><li><a href="#">Pre-order</a></li><li><a href="#">Official site</a></li></ul>
+    <span class="menu">Menu</span>
+  </nav>
+  <div class="big164">1:64</div>
+  <div class="hazard"></div>
+  <div class="minigt">Mini <br class="d">GT</div>
+  <div class="road-shadow"></div>
+  <img class="hero-car" src="../assets/products/KHMG315/side.webp" alt="Nissan Skyline GT-R R34 The Hornet, side view">
+  <div class="sticker round s-pre">Pre-order<small>now open</small></div>
+  <div class="sticker s-sep">Sep 2026</div>
+  <div class="sticker s-code">KHMG315</div>
+  <div class="sticker s-quote">Anytime baby!!</div>
+  <p class="tagline"><span class="tape"></span><strong>Five new Kaido House builds in 1:64.</strong> August and September 2026 pre-orders are open now.</p>
+  <div class="marquee m2"><span>Kaido House ✕ MINI GT</span><span>✕</span><span>full diecast</span><span>✕</span><span>rubber tires</span><span>✕</span><span>Kaido House ✕ MINI GT</span><span>✕</span><span>full diecast</span><span>✕</span><span>rubber tires</span></div>
+  <div class="marquee m1"><span>Pre-order now ★ 5 new builds ★ 1:64 ★ Aug / Sep 2026 ★ Pre-order now ★ 5 new builds ★ 1:64 ★ Aug / Sep 2026 ★</span></div>
+</section>
+
+<section class="chapter" id="chapter">
+  <div class="halftone"></div>
+  <div class="num">7</div>
+  <div class="copy">
+    <span class="codetape">KHMG315</span>
+    <h2>Skyline GT-R R34 <em>“The Hornet”</em> V2</h2>
+    <p>Version two of The Hornet: a Tamiya x Kaido House graphics concept on the R34 GT-R, finished in color carbon with an opening hood over a detailed RB26DETT engine.</p>
+    <p class="brand">Nissan · Kaido House · 1:64 diecast</p>
+    <div class="preorder-tag"><span class="sticker">Pre-order · Sep 2026</span></div>
+  </div>
+  <img class="chapter-car" src="../assets/products/KHMG315/open.webp" alt="R34 with the hood open">
+  <div class="sticker callout c1">opening hood + RB26DETT engine</div>
+  <div class="sticker callout c2">two-piece wheels, alloy barrels</div>
+  <div class="sticker callout c3">color carbon finish</div>
+  <div class="polaroid"><div class="tape"></div><img src="../assets/products/KHMG315/sheet.webp" alt=""><span>official sheet</span></div>
+</section>
+
+<section class="lineup" id="lineup">
+  <div class="halftone"></div>
+  <h2>The drop</h2>
+  <div class="scrawl-note">5 builds!</div>
+  <div class="grid">
+    <article class="card" style="--r:-2deg;--c1:#7D1420;--c2:#F39A1E"><div class="tape"></div><div class="face"><div class="panel"><div class="rn">7</div></div><img class="car" src="../assets/products/KHMG315/open-800.webp" alt=""><div class="label"><div class="code">KHMG315 · Nissan</div><h3>Skyline GT-R R34 “The Hornet”</h3><span class="sticker mini">Pre-order Sep</span></div></div></article>
+    <article class="card" style="--r:1.5deg;--c1:#E1251B;--c2:#F7C400"><div class="tape" style="--r:6deg"></div><div class="face"><div class="panel"><div class="rn">23</div></div><img class="car" src="../assets/products/KHMG313/front-800.webp" alt=""><div class="label"><div class="code">KHMG313 · Nissan</div><h3>Skyline GT-R R33 Stock Car</h3><span class="sticker mini">Pre-order Sep</span></div></div></article>
+    <article class="card" style="--r:-1deg;--c1:#141414;--c2:#C8A046"><div class="tape" style="--r:-3deg"></div><div class="face"><div class="panel"><div class="rn" style="color:rgba(200,160,70,.35)">★</div></div><img class="car" src="../assets/products/KHMG309/front-800.webp" alt=""><div class="label"><div class="code">KHMG309 · Kaido House</div><h3>Kaido Star-Tastic</h3><span class="sticker mini" style="--bg:var(--pink);--fg:var(--paper)">Pre-order Aug</span></div></div></article>
+    <article class="card" style="--r:2deg;--c1:#A9CBE3;--c2:#EF7D22"><div class="tape" style="--r:9deg"></div><div class="face"><div class="panel"><div class="rn">71</div></div><img class="car" src="../assets/products/KHMG317/front-800.webp" alt=""><div class="label"><div class="code">KHMG317 · Nissan</div><h3>Fairlady Z Kaido GT Gulf</h3><span class="sticker mini">Pre-order Sep</span></div></div></article>
+    <article class="card" style="--r:-1.5deg;--c1:#F7C21A;--c2:#A3121B"><div class="tape" style="--r:-7deg"></div><div class="face"><div class="panel"><div class="rn">00</div></div><img class="car" src="../assets/products/KHMG319/front-800.webp" alt=""><div class="label"><div class="code">KHMG319 · Chevrolet</div><h3>Camaro Kaido Racing Team</h3><span class="sticker mini">Pre-order Sep</span></div></div></article>
+  </div>
+  <div class="foot-marquee"><div class="marquee"><span>See the full collection at minigt.tsm-models.com ★ See the full collection at minigt.tsm-models.com ★</span></div></div>
+</section>
+
+</body>
+</html>

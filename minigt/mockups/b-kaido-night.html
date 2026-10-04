@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style B · Kaido Night</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0B0B0B;
+    --asphalt: #15171B;
+    --red: #E10600;
+    --orange: #FF6A13;
+    --yellow: #FFC20E;
+    --gold: #D9A93F;
+    --paper: #F5F5F5;
+    --foil: linear-gradient(135deg, #F6DB8C 0%, #C8962E 38%, #F8E3A2 55%, #B07E22 78%, #E9C66A 100%);
+    --display: "Anton", Impact, sans-serif;
+    --kanji: "Dela Gothic One", "Anton", sans-serif;
+    --body: "Space Grotesk", system-ui, sans-serif;
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--night); color: var(--paper); font-family: var(--body); }
+  body { overflow-x: hidden; }
+  img { display: block; max-width: none; }
+  section { position: relative; overflow: hidden; isolation: isolate; }
+  section::after { content: ""; position: absolute; inset: 0; z-index: 50; pointer-events: none; background-image: var(--grain); opacity: .14; mix-blend-mode: overlay; }
+
+  /* ---------- components ---------- */
+  .stripes { display: grid; gap: var(--gap, 6px); }
+  .stripes i { display: block; height: var(--h, 14px); }
+  .stripes i:nth-child(1) { background: var(--s1, var(--red)); }
+  .stripes i:nth-child(2) { background: var(--s2, var(--orange)); }
+  .stripes i:nth-child(3) { background: var(--s3, var(--yellow)); }
+  .roundel { display: grid; place-items: center; border-radius: 50%; background: var(--paper); color: var(--night); font-family: var(--display); line-height: 1; }
+  .foil-sticker { position: absolute; z-index: 20; display: grid; place-items: center; text-align: center; border-radius: 50%;
+    background: var(--foil); color: var(--night); border: 6px solid var(--paper); box-shadow: 0 16px 26px -8px rgba(0,0,0,.7);
+    transform: rotate(var(--r, -10deg)); }
+  .foil-sticker b { font-family: var(--kanji); font-weight: 400; line-height: 1; }
+  .foil-sticker span { font-family: var(--display); text-transform: uppercase; line-height: 1; }
+  .tag { display: inline-flex; align-items: center; gap: 10px; background: var(--foil); color: var(--night); padding: 7px 12px 7px 10px; border-radius: 4px;
+    font-family: var(--display); text-transform: uppercase; font-size: 17px; letter-spacing: .02em; }
+  .tag b { font-family: var(--kanji); font-weight: 400; font-size: 15px; background: var(--night); color: var(--gold); padding: 3px 6px 4px; border-radius: 3px; }
+
+  /* ---------- nav ---------- */
+  .nav { position: absolute; z-index: 40; inset: 26px 40px auto 40px; display: flex; justify-content: space-between; align-items: center; }
+  .lockup { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-size: 24px; text-transform: uppercase; letter-spacing: .01em; }
+  .lockup b { background: var(--red); padding: 3px 9px 2px; font-weight: 400; font-style: italic; }
+  .lockup em { font-style: normal; color: var(--gold); }
+  .nav ul { display: flex; gap: 34px; list-style: none; font-weight: 500; font-size: 16px; }
+  .nav a { color: var(--paper); text-decoration: none; }
+  .nav .menu { display: none; }
+
+  /* ---------- hero ---------- */
+  .hero { height: 100vh; min-height: 760px; background: radial-gradient(120% 70% at 50% 108%, rgba(225,6,0,.28), transparent 60%), var(--night); }
+  .kaido-v { position: absolute; z-index: 1; left: 1.5vw; top: 11vh; writing-mode: vertical-rl; font-family: var(--kanji); font-size: 37vh; line-height: 1;
+    color: transparent; -webkit-text-stroke: 2px rgba(217,169,63,.5); }
+  .big164 { position: absolute; z-index: 2; left: 11vw; top: 10vh; font-family: var(--display); font-size: min(33vw, 60vh); line-height: .8; letter-spacing: -.01em;
+    background: linear-gradient(180deg, var(--red) 0 30%, transparent 30% 35%, var(--orange) 35% 63%, transparent 63% 68%, var(--yellow) 68% 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .minigt { position: absolute; z-index: 3; right: 3vw; top: 13vh; text-align: right; font-family: var(--display); font-size: min(14vw, 25vh); line-height: .82; text-transform: uppercase; color: var(--paper); }
+  .trail { position: absolute; z-index: 8; left: 62vw; right: 0; top: calc(52vh + 5.6vw); --h: 13px; --gap: 7px;
+    clip-path: polygon(3% 0, 100% 0, 100% 100%, 0 100%); }
+  .speedlines { position: absolute; z-index: 7; left: 58vw; right: 0; top: calc(52vh + 2vw); height: 12vw;
+    background: repeating-linear-gradient(180deg, rgba(245,245,245,.18) 0 1px, transparent 1px 15px);
+    -webkit-mask: linear-gradient(90deg, transparent, #000 30%); mask: linear-gradient(90deg, transparent, #000 30%); }
+  .hero-car { position: absolute; z-index: 10; left: 7vw; top: 52vh; width: 64vw; filter: drop-shadow(0 30px 24px rgba(0,0,0,.8)); }
+  .glow { position: absolute; z-index: 9; left: 9vw; top: calc(52vh + 15vw); width: 60vw; height: 70px; background: radial-gradient(closest-side, rgba(255,106,19,.35), transparent); }
+  .s-yoyaku { right: 15vw; top: 47vh; width: 176px; height: 176px; }
+  .s-yoyaku b { font-size: 60px; }
+  .s-yoyaku span { font-size: 19px; margin-top: -26px; }
+  .hero .tagline { position: absolute; z-index: 21; left: 11vw; bottom: 9vh; width: 420px; font-size: 18px; line-height: 1.5; color: rgba(245,245,245,.78); }
+  .hero .tagline strong { color: var(--paper); font-weight: 700; }
+  .hero .code { position: absolute; z-index: 21; right: 4vw; bottom: 10vh; text-align: right; font-size: 14px; color: rgba(245,245,245,.6); line-height: 1.5; }
+  .hero .code b { display: block; font-family: var(--display); font-weight: 400; font-size: 30px; color: var(--paper); text-transform: uppercase; }
+  .marquee { position: absolute; z-index: 30; left: 0; right: 0; bottom: 0; white-space: nowrap; background: var(--red); font-family: var(--display); text-transform: uppercase; font-size: 22px; padding: 7px 0 6px; }
+  .marquee::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; background: linear-gradient(180deg, var(--yellow) 0 4px, transparent 4px 5px, var(--orange) 5px 9px, transparent 9px 10px, var(--red) 10px); }
+  .marquee span { padding-right: 18px; }
+  .marquee .k { font-family: var(--kanji); font-size: 19px; color: var(--yellow); }
+
+  /* ---------- chapter: Gulf Z ---------- */
+  .chapter { min-height: 100vh; background: #A9CBE3; color: #141414; padding: 120px 40px 90px; }
+  .chapter .band { position: absolute; z-index: 0; top: 0; bottom: 0; left: 60vw; width: 21vw; background: #EF7D22; }
+  .chapter .dots { position: absolute; z-index: 0; left: -40px; bottom: -60px; width: 640px; height: 520px; background: radial-gradient(circle, #1E3A5F 2px, transparent 2.6px) 0 0 / 11px 11px;
+    -webkit-mask: radial-gradient(closest-side, #000 10%, transparent); mask: radial-gradient(closest-side, #000 10%, transparent); opacity: .5; }
+  .chapter .roundel { position: absolute; z-index: 1; left: 48vw; top: 9vh; width: 78vh; height: 78vh; font-size: 52vh; box-shadow: 0 0 0 10px rgba(255,255,255,.35); }
+  .chapter-car { position: absolute; z-index: 10; right: -1vw; top: 30vh; width: 54vw; filter: drop-shadow(0 34px 26px rgba(20,40,70,.45)); }
+  .chapter .copy { position: relative; z-index: 12; max-width: 470px; margin-top: 4vh; }
+  .chapter .kcode { display: inline-flex; gap: 10px; align-items: center; font-weight: 700; font-size: 15px; }
+  .chapter .kcode b { font-family: var(--kanji); font-weight: 400; background: #141414; color: #A9CBE3; padding: 4px 8px 5px; font-size: 16px; }
+  .chapter h2 { margin-top: 18px; font-family: var(--display); font-weight: 400; font-size: 88px; line-height: .9; text-transform: uppercase; }
+  .chapter p { margin-top: 22px; font-size: 18px; line-height: 1.55; max-width: 42ch; color: rgba(20,20,20,.82); }
+  .chapter ul { margin-top: 22px; list-style: none; display: grid; gap: 10px; font-weight: 500; }
+  .chapter li { display: flex; gap: 12px; align-items: center; }
+  .chapter li::before { content: ""; width: 14px; height: 14px; background: #EF7D22; flex: none; }
+  .chapter .tag { margin-top: 30px; font-size: 20px; }
+
+  /* ---------- lineup ---------- */
+  .lineup { padding: 120px 0 120px 40px; background: linear-gradient(180deg, var(--night), #0E1014); }
+  .lineup header { display: flex; align-items: flex-end; gap: 26px; }
+  .lineup h2 { font-family: var(--display); font-weight: 400; font-size: 150px; line-height: .82; text-transform: uppercase; }
+  .lineup .count { font-size: 17px; color: rgba(245,245,245,.65); padding-bottom: 14px; max-width: 280px; line-height: 1.45; }
+  .rail { display: flex; gap: 28px; margin-top: 64px; }
+  .card { position: relative; flex: none; width: 340px; height: 480px; background: var(--asphalt); border-radius: 6px; overflow: hidden; }
+  .card .stripes { --h: 12px; --gap: 4px; --s1: var(--c1); --s2: var(--c2); --s3: var(--c3); }
+  .card .roundel { position: absolute; right: 18px; top: 22px; width: 82px; height: 82px; font-size: 42px; box-shadow: 0 6px 14px rgba(0,0,0,.5); }
+  .card .floor { position: absolute; left: 10%; right: 10%; top: 240px; height: 60px; background: radial-gradient(closest-side, var(--c1), transparent); opacity: .45; }
+  .card .car { position: absolute; left: 50%; top: 120px; width: 330px; transform: translateX(-50%); filter: drop-shadow(0 18px 16px rgba(0,0,0,.6)); }
+  .card .meta { position: absolute; left: 22px; right: 22px; bottom: 22px; }
+  .card .code { font-size: 13px; font-weight: 500; color: rgba(245,245,245,.55); }
+  .card h3 { margin-top: 6px; font-family: var(--display); font-weight: 400; font-size: 32px; line-height: .95; text-transform: uppercase; }
+  .card .tag { margin-top: 16px; }
+  .progress { margin: 44px 40px 0 0; height: 4px; background: rgba(245,245,245,.12); }
+  .progress i { display: block; width: 32%; height: 100%; background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow)); }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 700px) {
+    .nav { inset: 18px 16px auto 16px; }
+    .nav ul { display: none; }
+    .nav .menu { display: block; font-family: var(--display); font-size: 18px; text-transform: uppercase; border: 2px solid var(--paper); padding: 4px 10px; }
+    .lockup { font-size: 18px; gap: 8px; }
+    .hero { height: 844px; min-height: 0; }
+    .kaido-v { left: auto; right: 2vw; top: 90px; font-size: 92px; -webkit-text-stroke-width: 1.5px; }
+    .big164 { left: 4vw; top: 92px; font-size: 44vw; }
+    .minigt { left: 4vw; right: auto; top: 270px; text-align: left; font-size: 24vw; }
+    .hero-car { left: -4vw; top: 420px; width: 118vw; }
+    .glow { left: 0; top: 540px; width: 100vw; }
+    .trail { left: 60vw; top: 482px; --h: 9px; --gap: 5px; }
+    .speedlines { left: 40vw; top: 440px; height: 110px; }
+    .s-yoyaku { width: 116px; height: 116px; right: 16px; top: 300px; border-width: 5px; }
+    .s-yoyaku b { font-size: 40px; }
+    .s-yoyaku span { font-size: 13px; margin-top: -18px; }
+    .hero .tagline { left: 16px; width: auto; right: 16px; bottom: 112px; font-size: 16px; }
+    .hero .code { display: none; }
+    .marquee { font-size: 18px; }
+
+    .chapter { padding: 80px 16px 70px; }
+    .chapter .band { left: 52vw; width: 30vw; }
+    .chapter .roundel { left: 30vw; top: 70px; width: 300px; height: 300px; font-size: 200px; }
+    .chapter-car { position: relative; right: auto; top: auto; width: 112vw; margin: 150px 0 0 -8vw; }
+    .chapter .copy { margin-top: 10px; }
+    .chapter h2 { font-size: 54px; }
+    .chapter p { font-size: 16px; }
+    .lineup { padding: 80px 0 90px 16px; }
+    .lineup header { display: block; }
+    .lineup h2 { font-size: 84px; }
+    .lineup .count { margin-top: 14px; }
+    .rail { margin-top: 40px; gap: 16px; }
+    .card { width: 290px; height: 440px; }
+    .card .car { width: 290px; }
+    .progress { margin-right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero" id="hero">
+  <nav class="nav">
+    <div class="lockup"><span>Kaido<em>★</em>House</span><span>✕</span><b>MINI GT</b></div>
+    <ul><li><a href="#">Lineup</a></li><li><a href="#">Pre-order</a></li><li><a href="#">Official site</a></li></ul>
+    <span class="menu">Menu</span>
+  </nav>
+  <div class="kaido-v" lang="ja">街道</div>
+  <div class="big164">1:64</div>
+  <div class="minigt">Mini<br>GT</div>
+  <div class="speedlines"></div>
+  <div class="stripes trail"><i></i><i></i><i></i></div>
+  <div class="glow"></div>
+  <img class="hero-car" src="../assets/products/KHMG319/side.webp" alt="Chevrolet Camaro Kaido Racing Team, side view">
+  <div class="foil-sticker s-yoyaku"><b lang="ja">予約</b><span>Pre-order</span></div>
+  <p class="tagline"><strong>Five new Kaido House builds in 1:64.</strong> August and September 2026 pre-orders are open now.</p>
+  <div class="code"><b>KHMG319</b>Camaro Kaido Racing Team V1</div>
+  <div class="marquee"><span class="k" lang="ja">予約受付中</span><span>Pre-order now</span><span>★</span><span>Kaido House ✕ MINI GT</span><span>★</span><span>1:64 full diecast</span><span>★</span><span class="k" lang="ja">街道</span><span>Aug / Sep 2026</span><span>★</span><span class="k" lang="ja">予約受付中</span><span>Pre-order now</span><span>★</span><span>Kaido House ✕ MINI GT</span></div>
+</section>
+
+<section class="chapter" id="chapter">
+  <div class="band"></div>
+  <div class="dots"></div>
+  <div class="roundel">71</div>
+  <img class="chapter-car" src="../assets/products/KHMG317/front.webp" alt="Fairlady Z Kaido GT Gulf, front three-quarter view">
+  <div class="copy">
+    <span class="kcode"><b lang="ja">新作</b>KHMG317 · Nissan</span>
+    <h2>Fairlady Z Kaido GT Gulf V1</h2>
+    <p>The classic Fairlady Z in licensed Gulf racing livery, wearing number 71, with overfenders, an opening hood with a detailed engine and two-piece wheels.</p>
+    <ul><li>Licensed Gulf racing livery</li><li>Opening hood with detailed engine</li><li>Two-piece wheels with aluminum barrels</li></ul>
+    <span class="tag"><b lang="ja">予約</b>Pre-order September 2026</span>
+  </div>
+</section>
+
+<section class="lineup" id="lineup">
+  <header><h2>Pre-order<br>lineup</h2><p class="count">Five cars, two pre-order windows: August and September 2026.</p></header>
+  <div class="rail">
+    <article class="card" style="--c1:#7D1420;--c2:#F39A1E;--c3:#FFC20E"><div class="stripes"><i></i><i></i><i></i></div><div class="roundel">7</div><div class="floor"></div><img class="car" src="../assets/products/KHMG315/open-800.webp" alt=""><div class="meta"><div class="code">KHMG315 · Nissan</div><h3>Skyline GT-R R34 “The Hornet” V2</h3><span class="tag"><b lang="ja">予約</b>Sep 2026</span></div></article>
+    <article class="card" style="--c1:#E1251B;--c2:#F7C400;--c3:#F4F4F2"><div class="stripes"><i></i><i></i><i></i></div><div class="roundel">23</div><div class="floor"></div><img class="car" src="../assets/products/KHMG313/front-800.webp" alt=""><div class="meta"><div class="code">KHMG313 · Nissan</div><h3>Skyline GT-R R33 Stock Car V1</h3><span class="tag"><b lang="ja">予約</b>Sep 2026</span></div></article>
+    <article class="card" style="--c1:#C8A046;--c2:#E3231B;--c3:#2A2A2A"><div class="stripes"><i></i><i></i><i></i></div><div class="roundel">★</div><div class="floor"></div><img class="car" src="../assets/products/KHMG309/front-800.webp" alt=""><div class="meta"><div class="code">KHMG309 · Kaido House</div><h3>Kaido Star-Tastic V1</h3><span class="tag"><b lang="ja">予約</b>Aug 2026</span></div></article>
+    <article class="card" style="--c1:#A9CBE3;--c2:#EF7D22;--c3:#A9CBE3"><div class="stripes"><i></i><i></i><i></i></div><div class="roundel">71</div><div class="floor"></div><img class="car" src="../assets/products/KHMG317/front-800.webp" alt=""><div class="meta"><div class="code">KHMG317 · Nissan</div><h3>Fairlady Z Kaido GT Gulf V1</h3><span class="tag"><b lang="ja">予約</b>Sep 2026</span></div></article>
+    <article class="card" style="--c1:#F7C21A;--c2:#A3121B;--c3:#F0731E"><div class="stripes"><i></i><i></i><i></i></div><div class="roundel">00</div><div class="floor"></div><img class="car" src="../assets/products/KHMG319/front-800.webp" alt=""><div class="meta"><div class="code">KHMG319 · Chevrolet</div><h3>Camaro Kaido Racing Team V1</h3><span class="tag"><b lang="ja">予約</b>Sep 2026</span></div></article>
+  </div>
+  <div class="progress"><i></i></div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style C · Fresh on the Pegs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --board: #E2E4E0;
+    --hole: #868B84;
+    --ink: #121212;
+    --red: #E10600;
+    --pink: #FF2E88;
+    --lime: #C6FF00;
+    --white: #FFFFFF;
+    --display: "Anton", Impact, sans-serif;
+    --hand: "Permanent Marker", cursive;
+    --body: "Space Grotesk", system-ui, sans-serif;
+    --burst: polygon(50.0% 0.0%, 57.1% 9.6%, 67.1% 3.0%, 70.5% 14.5%, 82.1% 11.7%, 81.4% 23.6%, 93.3% 25.0%, 88.5% 36.0%, 99.2% 41.3%, 91.0% 50.0%, 99.2% 58.7%, 88.5% 64.0%, 93.3% 75.0%, 81.4% 76.4%, 82.1% 88.3%, 70.5% 85.5%, 67.1% 97.0%, 57.1% 90.4%, 50.0% 100.0%, 42.9% 90.4%, 32.9% 97.0%, 29.5% 85.5%, 17.9% 88.3%, 18.6% 76.4%, 6.7% 75.0%, 11.5% 64.0%, 0.8% 58.7%, 9.0% 50.0%, 0.8% 41.3%, 11.5% 36.0%, 6.7% 25.0%, 18.6% 23.6%, 17.9% 11.7%, 29.5% 14.5%, 32.9% 3.0%, 42.9% 9.6%);
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--board); color: var(--ink); font-family: var(--body); }
+  body { overflow-x: hidden; }
+  img { display: block; max-width: none; }
+  section { position: relative; overflow: hidden; isolation: isolate; }
+  .pegboard { background:
+      radial-gradient(circle, var(--hole) 0 3.4px, #CDD0CA 3.9px 5px, transparent 5.4px) 0 0 / 36px 36px,
+      radial-gradient(120% 90% at 50% 0%, #EEF0EC, var(--board) 60%, #D3D6D1); }
+  section::after { content: ""; position: absolute; inset: 0; z-index: 50; pointer-events: none; background-image: var(--grain); opacity: .1; mix-blend-mode: multiply; }
+
+  /* ---------- blister card component ---------- */
+  .blister { position: relative; width: var(--w, 300px); font-size: calc(var(--w, 300px) / 25); transform: rotate(var(--r, 0deg)); transform-origin: 50% 1.4em; }
+  .blister .peg { position: absolute; z-index: 4; left: 50%; top: .7em; width: 1.3em; height: 1.3em; margin-left: -.65em; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff, #a4a7a2 55%, #575a56); box-shadow: 0 .3em .4em rgba(0,0,0,.45); }
+  .blister .card { position: relative; background: var(--white); border-radius: .9em; padding: 3em .8em .8em; overflow: hidden;
+    box-shadow: 0 2.2em 2.6em -1.2em rgba(0,0,0,.5), 0 .1em 0 rgba(0,0,0,.05); }
+  .blister .hang { position: absolute; left: 50%; top: .55em; width: 5.2em; height: 1.6em; margin-left: -2.6em; border-radius: 1em; background: #d9dbd6; box-shadow: inset 0 .2em .35em rgba(0,0,0,.45); }
+  .blister .head { display: flex; align-items: center; justify-content: space-between; background: var(--ink); color: var(--white); border-radius: .5em .5em 0 0; padding: .55em .8em; }
+  .blister .kh { font-family: var(--display); font-size: 1.55em; text-transform: uppercase; letter-spacing: .01em; }
+  .blister .kh em { font-style: normal; color: var(--c1); }
+  .blister .mg { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 1.15em; background: var(--red); padding: .12em .45em .05em; transform: rotate(-4deg); }
+  .blister .art { position: relative; height: 15.5em; overflow: hidden;
+    background: repeating-linear-gradient(118deg, var(--c1) 0 2.4em, var(--c2) 2.4em 3.6em, var(--c3) 3.6em 4.2em); }
+  .blister .rn { position: absolute; right: -.05em; bottom: -.22em; font-family: var(--display); font-size: 12.5em; line-height: 1; color: rgba(255,255,255,.28); }
+  .blister .bubble { position: absolute; inset: 1.2em 1em; border-radius: 2.4em; display: grid; place-items: center;
+    background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.12));
+    border: .14em solid rgba(255,255,255,.85);
+    box-shadow: inset 0 0 0 .3em rgba(255,255,255,.2), inset 0 -1.2em 2em rgba(0,0,0,.18), 0 .9em 1.4em rgba(0,0,0,.28); }
+  .blister .car { width: 96%; filter: drop-shadow(0 .7em .6em rgba(0,0,0,.45)); }
+  .blister .gloss { position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(112deg, rgba(255,255,255,.7) 0 6%, rgba(255,255,255,.08) 14%, transparent 40%, rgba(255,255,255,.35) 58%, rgba(255,255,255,0) 64%); }
+  .blister .info { display: flex; align-items: flex-end; justify-content: space-between; gap: .8em; padding: .9em .2em .2em; }
+  .blister .code { font-weight: 700; font-size: .85em; letter-spacing: .02em; }
+  .blister h3 { font-family: var(--display); font-weight: 400; font-size: 1.55em; line-height: .95; text-transform: uppercase; margin-top: .25em; }
+  .blister .scale { flex: none; display: grid; place-items: center; width: 3.1em; height: 3.1em; border-radius: 50%; background: var(--red); color: var(--white); font-family: var(--display); font-size: 1em; }
+  .blister .barcode { height: 1.8em; margin: .7em .2em 0 auto; width: 9em;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 .14em, transparent .14em .3em, var(--ink) .3em .38em, transparent .38em .62em, var(--ink) .62em .9em, transparent .9em 1.05em); }
+
+  .burst { position: absolute; z-index: 30; filter: drop-shadow(0 12px 14px rgba(0,0,0,.28)); transform: rotate(var(--r, -12deg)); }
+  .burst > div { width: var(--s, 200px); height: var(--s, 200px); clip-path: var(--burst); background: var(--bg, var(--pink)); color: var(--fg, var(--white));
+    display: grid; place-content: center; text-align: center; }
+  .burst .hand { font-family: var(--hand); font-size: calc(var(--s, 200px) * .14); line-height: 1; }
+  .burst .big { font-family: var(--display); font-size: calc(var(--s, 200px) * .2); text-transform: uppercase; line-height: 1; }
+
+  /* ---------- store header ---------- */
+  .aisle { position: absolute; z-index: 40; left: 0; right: 0; top: 0; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px;
+    background: var(--red); color: var(--white); box-shadow: 0 6px 0 var(--ink); }
+  .aisle .lockup { display: flex; align-items: center; gap: 14px; font-family: var(--display); font-size: 25px; text-transform: uppercase; }
+  .aisle .lockup b { font-weight: 400; font-style: italic; background: var(--white); color: var(--red); padding: 2px 9px 1px; }
+  .aisle ul { display: flex; gap: 34px; list-style: none; font-weight: 500; }
+  .aisle a { color: var(--white); text-decoration: none; }
+  .aisle .menu { display: none; font-family: var(--display); text-transform: uppercase; font-size: 18px; }
+
+  /* ---------- hero ---------- */
+  .hero { height: 100vh; min-height: 760px; }
+  .big164 { position: absolute; z-index: 1; left: 2.5vw; top: 13vh; font-family: var(--display); font-size: min(30vw, 55vh); line-height: .8; color: var(--ink); letter-spacing: -.01em; }
+  .minigt { position: absolute; z-index: 1; left: 3vw; top: calc(13vh + min(24vw, 44vh)); font-family: var(--display); font-size: min(11.5vw, 21vh); line-height: .85; text-transform: uppercase; color: var(--red); }
+  .hero .blister { position: absolute; z-index: 10; --w: 500px; right: 10vw; top: 10vh; }
+  .hero .blister.behind { z-index: 9; --w: 420px; right: -9vw; top: 25vh; filter: brightness(.93) saturate(.9); }
+  .hero .b1 { --r: -12deg; --s: 210px; right: 41vw; top: 10vh; }
+  .hero .tagline { position: absolute; z-index: 5; left: 3vw; bottom: 13vh; width: 430px; font-size: 18px; line-height: 1.5; color: #2c2c2c; }
+  .talker { background: var(--white); border-top: 6px solid var(--red); padding: 14px 18px 16px; box-shadow: 0 14px 20px -12px rgba(0,0,0,.35); }
+  .hero .tagline strong { color: var(--ink); }
+  .rail { position: absolute; z-index: 30; left: 0; right: 0; bottom: 0; height: 58px; background: linear-gradient(180deg, #f4f4f2, #c9ccc6); border-top: 3px solid #9fa39d; box-shadow: 0 -8px 18px rgba(0,0,0,.12);
+    display: flex; align-items: center; gap: 22px; white-space: nowrap; padding-left: 24px; font-family: var(--display); text-transform: uppercase; font-size: 21px; overflow: hidden; }
+  .rail span { display: inline-flex; align-items: center; gap: 10px; }
+  .rail .price { background: var(--red); color: var(--white); padding: 3px 9px 2px; }
+  .rail .tagx { background: var(--lime); padding: 3px 9px 2px; }
+
+  /* ---------- chapter: card back ---------- */
+  .chapter { min-height: 100vh; padding: 110px 40px 100px; }
+  .back { position: relative; z-index: 2; margin: 0 auto; max-width: 1260px; min-height: 680px; background: var(--white); border-radius: 22px; transform: rotate(-1.2deg);
+    box-shadow: 0 40px 50px -24px rgba(0,0,0,.45); display: grid; grid-template-columns: 1.15fr 1fr; overflow: hidden; }
+  .back .shot { position: relative; background: #F7C400; overflow: hidden; }
+  .back .shot .rn { position: absolute; left: -2%; top: -6%; font-family: var(--display); font-size: 560px; line-height: 1; color: #E1251B; text-shadow: 10px 8px 0 var(--ink); }
+  .back .shot img { position: absolute; left: 6%; top: 24%; width: 92%; transform: rotate(-8deg); filter: drop-shadow(0 26px 20px rgba(0,0,0,.35)); }
+  .back .panel { padding: 56px 56px 40px 48px; display: flex; flex-direction: column; }
+  .back .code { font-weight: 700; font-size: 15px; }
+  .back h2 { margin-top: 10px; font-family: var(--display); font-weight: 400; font-size: 72px; line-height: .9; text-transform: uppercase; }
+  .back p { margin-top: 18px; font-size: 17px; line-height: 1.55; color: #3a3a3a; max-width: 44ch; }
+  .back ul { list-style: none; margin-top: 20px; display: grid; gap: 9px; font-weight: 500; }
+  .back li { display: flex; gap: 10px; align-items: center; }
+  .back li::before { content: "✓"; display: grid; place-items: center; width: 22px; height: 22px; border: 2px solid var(--ink); font-size: 14px; font-weight: 700; }
+  .collect { margin-top: auto; padding-top: 26px; border-top: 2px dashed #c9c9c9; }
+  .collect h3 { font-family: var(--display); font-weight: 400; font-size: 26px; text-transform: uppercase; }
+  .collect .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 12px; }
+  .collect figure { text-align: center; font-size: 11px; font-weight: 700; }
+  .collect figure img { width: 100%; height: 52px; object-fit: contain; margin-bottom: 4px; }
+  .collect figure.on { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 6px; }
+  .back .fine { margin-top: 18px; display: flex; justify-content: space-between; align-items: flex-end; font-size: 12px; color: #777; }
+  .back .fine .barcode { width: 150px; height: 44px; background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 6px, transparent 6px 10px, var(--ink) 10px 14px, transparent 14px 16px); }
+  .chapter .b2 { --r: -10deg; --s: 190px; --bg: var(--lime); --fg: var(--ink); left: 3vw; top: 60px; }
+
+  /* ---------- lineup ---------- */
+  .lineup { padding: 120px 40px 150px; }
+  .lineup h2 { font-family: var(--display); font-weight: 400; font-size: 150px; line-height: .82; text-transform: uppercase; }
+  .lineup .sub { margin-top: 18px; font-size: 18px; max-width: 520px; line-height: 1.5; color: #333; }
+  .shelf { display: flex; justify-content: space-between; gap: 22px; margin-top: 70px; }
+  .shelf .blister { --w: 252px; }
+  .shelf .mini { position: absolute; z-index: 6; --s: 86px; right: -16px; top: 54px; }
+  .shelf .mini .big { font-size: 19px; }
+  .shelf .mini .hand { font-size: 13px; }
+  .shelf-rail { margin-top: 46px; height: 22px; background: linear-gradient(180deg, #f4f4f2, #b9bdb7); border-top: 3px solid #9fa39d; box-shadow: 0 10px 18px rgba(0,0,0,.15); }
+  .official { margin-top: 70px; display: flex; align-items: center; gap: 24px; font-size: 18px; }
+  .official a { font-family: var(--display); font-size: 40px; text-transform: uppercase; color: var(--white); background: var(--ink); padding: 10px 20px 8px; text-decoration: none; }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 700px) {
+    .aisle { height: 54px; padding: 0 16px; }
+    .aisle .lockup { font-size: 18px; gap: 8px; }
+    .aisle ul { display: none; }
+    .aisle .menu { display: block; }
+    .hero { height: 844px; min-height: 0; }
+    .big164 { left: 4vw; top: 78px; font-size: 40vw; }
+    .minigt { left: 4vw; top: 218px; font-size: 16vw; }
+    .hero .blister { --w: 300px; right: auto; left: 50%; margin-left: -150px; top: 300px; }
+    .hero .blister.behind { display: none; }
+    .hero .b1 { --s: 128px; right: 12px; top: 118px; }
+    .hero .tagline { left: 16px; right: 16px; width: auto; bottom: 74px; font-size: 15px; }
+    .rail { height: 50px; font-size: 17px; }
+    .chapter { padding: 70px 16px 80px; }
+    .back { display: block; transform: rotate(-.8deg); }
+    .back .shot { height: 340px; }
+    .back .shot .rn { font-size: 330px; }
+    .back .panel { padding: 30px 22px 26px; }
+    .back h2 { font-size: 48px; }
+    .chapter .b2 { --s: 120px; left: auto; right: 10px; top: 30px; }
+    .lineup { padding: 80px 16px 100px; }
+    .lineup h2 { font-size: 80px; }
+    .shelf { flex-wrap: wrap; justify-content: center; gap: 34px 14px; }
+    .shelf .blister { --w: 164px; }
+    .official a { font-size: 24px; }
+    .official { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero pegboard" id="hero">
+  <header class="aisle">
+    <div class="lockup"><b>MINI GT</b><span>✕ Kaido★House</span></div>
+    <ul><li><a href="#">Lineup</a></li><li><a href="#">Pre-order</a></li><li><a href="#">Official site</a></li></ul>
+    <span class="menu">Menu</span>
+  </header>
+  <div class="big164">1:64</div>
+  <div class="minigt">Mini GT</div>
+  <article class="blister behind" style="--r:-7deg;--c1:#F7C21A;--c2:#A3121B;--c3:#F0731E">
+    <div class="peg"></div>
+    <div class="card"><span class="hang"></span>
+      <div class="head"><span class="kh">Kaido<em>★</em>House</span><b class="mg">MINI GT</b></div>
+      <div class="art"><div class="rn">00</div><div class="bubble"><img class="car" src="../assets/products/KHMG319/front-800.webp" alt=""><i class="gloss"></i></div></div>
+      <div class="info"><div><span class="code">KHMG319</span><h3>Camaro Kaido Racing V1</h3></div><span class="scale">1:64</span></div>
+      <div class="barcode"></div>
+    </div>
+  </article>
+  <article class="blister" style="--r:4deg;--c1:#C8A046;--c2:#E3231B;--c3:#141414">
+    <div class="peg"></div>
+    <div class="card"><span class="hang"></span>
+      <div class="head"><span class="kh">Kaido<em>★</em>House</span><b class="mg">MINI GT</b></div>
+      <div class="art"><div class="rn">★</div><div class="bubble"><img class="car" src="../assets/products/KHMG309/front.webp" alt="Kaido Star-Tastic"><i class="gloss"></i></div></div>
+      <div class="info"><div><span class="code">KHMG309</span><h3>Kaido Star-Tastic V1</h3></div><span class="scale">1:64</span></div>
+      <div class="barcode"></div>
+    </div>
+  </article>
+  <div class="burst b1"><div><span class="hand">Pre-order!</span><span class="big">Aug 2026</span></div></div>
+  <p class="tagline talker"><strong>Five new Kaido House builds, fresh on the pegs.</strong> August and September 2026 pre-orders are open now.</p>
+  <div class="rail"><span class="price">New</span><span>KHMG309 Kaido Star-Tastic</span><span class="tagx">Pre-order</span><span>KHMG313 Skyline R33 Stock Car</span><span class="price">New</span><span>KHMG315 R34 The Hornet</span><span class="tagx">Pre-order</span><span>KHMG317 Fairlady Z Gulf</span><span class="price">New</span><span>KHMG319 Camaro Kaido Racing</span></div>
+</section>
+
+<section class="chapter pegboard" id="chapter">
+  <div class="back">
+    <div class="shot"><div class="rn">23</div><img src="../assets/products/KHMG313/top.webp" alt="Skyline GT-R R33 Stock Car seen from above"></div>
+    <div class="panel">
+      <span class="code">KHMG313 · Nissan</span>
+      <h2>Skyline GT-R R33 Stock Car V1</h2>
+      <p>The R33 GT-R goes stock-car racing in Kaido Works red, white and yellow: number 23, blossom graphics, and an opening hood with a detailed engine.</p>
+      <ul><li>Opening hood with detailed engine</li><li>Two-piece wheels with aluminum barrels</li><li>Kaido Works stock-car livery</li></ul>
+      <div class="collect"><h3>Collect all five</h3>
+        <div class="row">
+          <figure><img src="../assets/products/KHMG309/front-800.webp" alt="">KHMG309</figure>
+          <figure class="on"><img src="../assets/products/KHMG313/front-800.webp" alt="">KHMG313</figure>
+          <figure><img src="../assets/products/KHMG315/open-800.webp" alt="">KHMG315</figure>
+          <figure><img src="../assets/products/KHMG317/front-800.webp" alt="">KHMG317</figure>
+          <figure><img src="../assets/products/KHMG319/front-800.webp" alt="">KHMG319</figure>
+        </div>
+      </div>
+      <div class="fine"><span>Preproduction sample shown.<br>1:64 scale diecast model.</span><span class="barcode"></span></div>
+    </div>
+  </div>
+  <div class="burst b2"><div><span class="hand">Pre-order</span><span class="big">Sep 2026</span></div></div>
+</section>
+
+<section class="lineup pegboard" id="lineup">
+  <h2>Fresh on<br>the pegs</h2>
+  <p class="sub talker">Five Kaido House builds in 1:64. Pre-order windows: August 2026 for the Star-Tastic, September 2026 for the rest.</p>
+  <div class="shelf">
+    <article class="blister" style="--r:-3deg;--c1:#F39A1E;--c2:#7D1420;--c3:#FFC20E"><div class="peg"></div><div class="card"><span class="hang"></span><div class="head"><span class="kh">Kaido<em>★</em>House</span><b class="mg">MINI GT</b></div><div class="art"><div class="rn">7</div><div class="bubble"><img class="car" src="../assets/products/KHMG315/open-800.webp" alt=""><i class="gloss"></i></div></div><div class="info"><div><span class="code">KHMG315</span><h3>R34 “The Hornet” V2</h3></div><span class="scale">1:64</span></div></div><div class="burst mini"><div><span class="hand">Pre-order</span><span class="big">Sep</span></div></div></article>
+    <article class="blister" style="--r:2deg;--c1:#F7C400;--c2:#E1251B;--c3:#F4F4F2"><div class="peg"></div><div class="card"><span class="hang"></span><div class="head"><span class="kh">Kaido<em>★</em>House</span><b class="mg">MINI GT</b></div><div class="art"><div class="rn">23</div><div class="bubble"><img class="car" src="../assets/products/KHMG313/front-800.webp" alt=""><i class="gloss"></i></div></div><div class="info"><div><span class="code">KHMG313</span><h3>R33 Stock Car V1</h3></div><span class="scale">1:64</span></div></div><div class="burst mini"><div><span class="hand">Pre-order</span><span class="big">Sep</span></div></div></article>
+    <article class="blister" style="--r:-1deg;--c1:#C8A046;--c2:#E3231B;--c3:#141414"><div class="peg"></div><div class="card"><span class="hang"></span><div class="head"><span class="kh">Kaido<em>★</em>House</span><b class="mg">MINI GT</b></div><div class="art"><div class="rn">★</div><div class="bubble"><img class="car" src="../assets/products/KHMG309/front-800.webp" alt=""><i class="gloss"></i></div></div><div class="info"><div><span class="code">KHMG309</span><h3>Star-Tastic V1</h3></div><span class="scale">1:64</span></div></div><div class="burst mini" style="--bg:var(--lime);--fg:var(--ink)"><div><span class="hand">Pre-order</span><span class="big">Aug</span></div></div></article>
+    <article class="blister" style="--r:3deg;--c1:#A9CBE3;--c2:#EF7D22;--c3:#A9CBE3"><div class="peg"></div><div class="card"><span class="hang"></span><div class="head"><span class="kh">Kaido<em>★</em>House</span><b class="mg">MINI GT</b></div><div class="art"><div class="rn">71</div><div class="bubble"><img class="car" src="../assets/products/KHMG317/front-800.webp" alt=""><i class="gloss"></i></div></div><div class="info"><div><span class="code">KHMG317</span><h3>Fairlady Z Gulf V1</h3></div><span class="scale">1:64</span></div></div><div class="burst mini"><div><span class="hand">Pre-order</span><span class="big">Sep</span></div></div></article>
+    <article class="blister" style="--r:-2deg;--c1:#F7C21A;--c2:#A3121B;--c3:#F0731E"><div class="peg"></div><div class="card"><span class="hang"></span><div class="head"><span class="kh">Kaido<em>★</em>House</span><b class="mg">MINI GT</b></div><div class="art"><div class="rn">00</div><div class="bubble"><img class="car" src="../assets/products/KHMG319/front-800.webp" alt=""><i class="gloss"></i></div></div><div class="info"><div><span class="code">KHMG319</span><h3>Camaro Kaido Racing V1</h3></div><span class="scale">1:64</span></div></div><div class="burst mini"><div><span class="hand">Pre-order</span><span class="big">Sep</span></div></div></article>
+  </div>
+  <div class="shelf-rail"></div>
+  <div class="official"><span class="talker">The full MINI GT catalogue lives on the official site.</span><a href="https://minigt.tsm-models.com/">minigt.tsm-models.com</a></div>
+</section>
+
+</body>
+</html>
