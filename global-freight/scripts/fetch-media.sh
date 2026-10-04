@@ -10,7 +10,8 @@
 #   video  seamless-loop H.264 MP4, long edge 1280 px, no audio,
 #          plus a poster JPG next to it (<name>.jpg)
 #   scrub  H.264 MP4 for scroll-controlled playback: no loop, a keyframe
-#          every 4 frames so seeking stays smooth, plus a poster JPG
+#          every 4 frames so seeking stays smooth, plus a poster JPG.
+#          Several comma-separated URLs are joined end to end first.
 # Entries whose output already exists are skipped, so the script is safe to re-run.
 # Needs: curl, ffmpeg, ffprobe. Run from global-freight/: bash scripts/fetch-media.sh
 set -uo pipefail
@@ -54,7 +55,16 @@ while read -r kind dest url; do
       get "$tmp/src" "$url" &&
         ffmpeg -nostdin -loglevel error -y -i "$tmp/src" -vf "scale='min(1920,iw)':-2" -q:v 3 "$dest" || ok=0 ;;
     video) get "$tmp/src.mp4" "$url" && loop_video "$tmp/src.mp4" "$dest" || ok=0 ;;
-    scrub) get "$tmp/src.mp4" "$url" && scrub_video "$tmp/src.mp4" "$dest" || ok=0 ;;
+    scrub)
+      parts=()
+      IFS=',' read -ra urls <<<"$url"
+      for i in "${!urls[@]}"; do get "$tmp/part$i.mp4" "${urls[$i]}" && parts+=("$tmp/part$i.mp4") || ok=0; done
+      if ((ok)) && ((${#parts[@]} > 1)); then
+        inputs=(); filter=""
+        for i in "${!parts[@]}"; do inputs+=(-i "${parts[$i]}"); filter+="[$i:v]"; done
+        ffmpeg -nostdin -loglevel error -y "${inputs[@]}" -filter_complex "${filter}concat=n=${#parts[@]}:v=1:a=0[v]" -map "[v]" -c:v libx264 -crf 16 "$tmp/src.mp4" || ok=0
+      elif ((ok)); then mv "${parts[0]}" "$tmp/src.mp4"; fi
+      ((ok)) && scrub_video "$tmp/src.mp4" "$dest" || ok=0 ;;
     *) echo "unknown kind: $kind"; ok=0 ;;
   esac
   if ((ok)); then echo "done: $dest ($(du -h "$dest" | cut -f1))"; else failed+=("$dest"); rm -f "$dest"; fi

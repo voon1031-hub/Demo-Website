@@ -72,7 +72,15 @@ export const media = {
     brief: 'Ship alongside a quay at night, trucks moving on the apron.',
   },
 
-  // Air (shown after the globe zoom)
+  // Air: scroll-controlled descent from the globe's hand-off frame to the plane
+  airDescent: {
+    id: 'air.descent',
+    ...clip('air-descent'),
+    alt: 'Camera descending from a map of Earth through clouds to a cargo jet at night',
+    size: '1280×720 video, scroll-controlled; first frame must match design/handoff/air-handoff.png',
+    brief: 'From the globe close-up down through clouds to the plane in side profile.',
+  },
+  // Air: plane loop after the descent
   aboutCrane: {
     id: 'about.crane',
     ...clip('about-crane'),
@@ -90,9 +98,9 @@ export const media = {
   // Land: scroll-controlled, not looped
   landOrbit: {
     id: 'land.orbit',
-    ...clip('land-orbit'),
-    alt: 'Drone circling a container truck as it crosses a lit sea bridge at night',
-    size: '1280×720 video, 6–10 s, one continuous camera move',
+    ...clip('land-orbit-360'),
+    alt: 'Drone circling all the way around a container truck as it crosses a lit sea bridge at night',
+    size: '1280×720 video, one full orbit that ends where it starts',
     brief: 'Drone orbit around a truck on a bridge or mountain road; scrolling turns the camera.',
   },
 } satisfies Record<string, MediaSlot>;

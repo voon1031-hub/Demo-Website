@@ -1,51 +1,21 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useContent } from '../content';
 import { media } from '../config/media';
-import { gsap, MOTION_OK, prefersReducedMotion } from '../lib/gsap';
+import { gsap, MOTION_OK } from '../lib/gsap';
+import { useScrubVideo } from '../hooks/useScrubVideo';
 import { useGsap } from '../hooks/useGsap';
 
 /**
- * Land: a drone circles a truck crossing a sea bridge. The clip doesn't
- * play on its own; scroll position sets the frame, so scrolling turns the camera.
+ * Land: a drone circles all the way around a truck crossing a sea bridge.
+ * The clip doesn't play on its own; scroll position sets the frame, so
+ * scrolling turns the camera through a full 360°.
  */
 export function Land() {
   const c = useContent().land;
   const slot = media.landOrbit;
   const root = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
-  const target = useRef(0);
-
-  // Attach the clip when the section is near, then ease currentTime towards the scroll target.
-  useEffect(() => {
-    const v = video.current;
-    if (!v || prefersReducedMotion() || !root.current) return;
-    let raf = 0;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !v.src) {
-          v.src = slot.video;
-          v.load();
-          // iOS only paints seeked frames after the video has played once.
-          v.addEventListener('loadeddata', () => v.play().then(() => v.pause()).catch(() => {}), { once: true });
-        }
-      },
-      { rootMargin: '100% 0px' },
-    );
-    io.observe(root.current);
-    const tick = () => {
-      if (v.readyState >= 1 && v.duration) {
-        const goal = target.current * (v.duration - 0.05);
-        const next = v.currentTime + (goal - v.currentTime) * 0.18;
-        if (Math.abs(goal - v.currentTime) > 0.01) v.currentTime = next;
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => {
-      io.disconnect();
-      cancelAnimationFrame(raf);
-    };
-  }, [slot.video]);
+  const target = useScrubVideo(video, slot.video, root);
 
   useGsap(root, () => {
     const mm = gsap.matchMedia();
@@ -56,7 +26,7 @@ export function Land() {
           scrollTrigger: {
             trigger: root.current,
             start: 'top top',
-            end: '+=220%',
+            end: '+=320%',
             scrub: true,
             pin: true,
             onUpdate: (self) => (target.current = self.progress),

@@ -3,11 +3,17 @@ import { useContent } from '../content';
 import { gsap, MOTION_OK, prefersReducedMotion } from '../lib/gsap';
 import { useGsap } from '../hooks/useGsap';
 import { MediaFrame } from '../components/MediaFrame';
+import { media } from '../config/media';
+import { useScrubVideo } from '../hooks/useScrubVideo';
 import type { Globe } from '../lib/globe';
 
 /**
- * Air: the camera falls from orbit onto a cargo flight (three.js globe),
- * then cuts to the plane footage and the air freight copy.
+ * Air, one continuous fall from orbit to the plane:
+ *   1. three.js globe zooms to its hand-off frame
+ *   2. the canvas gives way to the descent clip, whose first frame is that
+ *      same image, so nothing visibly changes
+ *   3. scrolling plays the clip down through the clouds to the plane
+ *   4. the looping plane footage takes over, then the copy comes in
  */
 export function Air() {
   const t = useContent();
@@ -16,6 +22,8 @@ export function Air() {
   const canvas = useRef<HTMLCanvasElement>(null);
   const globe = useRef<Globe | null>(null);
   const zoom = useRef({ p: 0 });
+  const descent = useRef<HTMLVideoElement>(null);
+  const descentAt = useScrubVideo(descent, media.airDescent.video!, root);
 
   // Load three.js only when the section is getting close.
   useEffect(() => {
@@ -45,26 +53,37 @@ export function Air() {
   useGsap(root, () => {
     const mm = gsap.matchMedia();
     mm.add(MOTION_OK, () => {
-      gsap.set('[data-air-video]', { opacity: 0, scale: 1.18 });
+      gsap.set('[data-air-video]', { opacity: 0 });
       gsap.set('[data-air-copy] > *', { opacity: 0, x: -40 });
+
+      // Timeline positions (fractions of the pinned scroll).
+      const GLOBE_END = 0.3;
+      const DESCENT = [0.32, 0.76];
 
       gsap
         .timeline({
-          scrollTrigger: { trigger: root.current, start: 'top top', end: '+=260%', scrub: 0.7, pin: true },
+          scrollTrigger: {
+            trigger: root.current,
+            start: 'top top',
+            end: '+=340%',
+            scrub: 0.7,
+            pin: true,
+            onUpdate: (self) => {
+              descentAt.current = Math.min(1, Math.max(0, (self.progress - DESCENT[0]) / (DESCENT[1] - DESCENT[0])));
+            },
+          },
         })
         .to(zoom.current, {
           p: 1,
           ease: 'none',
-          duration: 0.62,
+          duration: GLOBE_END,
           onUpdate: () => globe.current?.setProgress(zoom.current.p),
         })
-        .to('[data-air-label]', { opacity: 0, duration: 0.12 }, 0.08)
-        // While the camera is inside the clouds, the footage fades in behind
-        // them and the globe dissolves, so the plane emerges as the clouds clear.
-        .to('[data-air-video]', { opacity: 1, scale: 1, ease: 'sine.inOut', duration: 0.3 }, 0.44)
-        .to('[data-air-globe]', { opacity: 0, ease: 'sine.inOut', duration: 0.14 }, 0.5)
-        .to('[data-air-copy] > *', { opacity: 1, x: 0, stagger: 0.04, duration: 0.14 }, 0.76)
-        .to({}, { duration: 0.1 });
+        .to('[data-air-label]', { opacity: 0, duration: 0.08 }, 0.04)
+        .to('[data-air-globe]', { opacity: 0, duration: 0.02 }, GLOBE_END)
+        .to('[data-air-video]', { opacity: 1, ease: 'sine.inOut', duration: 0.06 }, DESCENT[1] - 0.02)
+        .to('[data-air-copy] > *', { opacity: 1, x: 0, stagger: 0.03, duration: 0.1 }, 0.84)
+        .to({}, { duration: 0.06 });
     });
   });
 
@@ -80,9 +99,16 @@ export function Air() {
           {c.routeLabel}
         </p>
 
+        {/* Descent clip: its first frame is the globe's hand-off frame, so it is
+            shown ungraded to match the canvas pixel for pixel. */}
+        <div className="absolute inset-0 bg-navy-deep motion-reduce:hidden">
+          <img src={media.airDescent.poster} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+          <video ref={descent} className="absolute inset-0 h-full w-full object-cover" poster={media.airDescent.poster} muted playsInline preload="none" aria-hidden="true" tabIndex={-1} />
+        </div>
+
         <div
           data-air-video
-          className="absolute inset-0 will-change-transform motion-reduce:relative motion-reduce:aspect-video motion-reduce:max-h-[70svh] motion-reduce:w-full"
+          className="absolute inset-0 motion-reduce:relative motion-reduce:aspect-video motion-reduce:max-h-[70svh] motion-reduce:w-full motion-reduce:!opacity-100"
         >
           <MediaFrame slot="airFreighter" className="!absolute inset-0" />
           <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/40 to-transparent" />
