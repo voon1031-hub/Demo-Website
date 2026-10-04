@@ -8,12 +8,12 @@ export const brand = {
   shortName: '[Co.]',
   slogan: '[Slogan]',
   /**
-   * Logo. `mark` is the symbol (file in public/media/); the company name is
+   * Logo. `mark` is the symbol (path inside public/, e.g. 'media/logo-mark.svg'); the company name is
    * set next to it in the site font, so it updates with `name` above.
    * Set `showName: false` if you swap in a full logo that already contains the name.
    */
   logo: {
-    mark: '/media/logo-mark.svg',
+    mark: 'media/logo-mark.svg',
     showName: true,
   },
   contact: {
