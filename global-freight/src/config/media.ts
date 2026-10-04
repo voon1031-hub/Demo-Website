@@ -79,11 +79,11 @@ export const media = {
     brief: 'Side-on tracking shot of a freighter aircraft above the clouds.',
   },
   landRoad: {
-    id: 'land.road',
-    ...clip('land-road'),
-    alt: 'Driver’s view down a highway at night, tail lights stretched into light trails',
+    id: 'land.truck',
+    ...clip('land-truck'),
+    alt: 'Chase view behind a container truck on a highway at night, lights stretched into orange trails',
     size: '1280×720 video, landscape',
-    brief: 'Driver’s-eye view down a straight highway, trucks ahead.',
+    brief: 'Third-person chase shot following a container truck down a highway.',
   },
 } satisfies Record<string, MediaSlot>;
 
