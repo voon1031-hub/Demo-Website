@@ -11,3 +11,8 @@ image design/style-frames/1-blue-hour.jpg https://d8j0ntlcm91z4.cloudfront.net/u
 image design/style-frames/2-overcast-documentary.jpg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043247_3ea61b46-3e96-4cae-87f7-34fc8f933435.png
 image design/style-frames/3-night-light-trails.jpg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043247_c5bd38e7-a003-455c-9869-8cc09bfdddf0.png
 image design/style-frames/4-stylized-3d.jpg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043247_78800764-7baa-486c-98e7-56a6512f5d56.png
+
+# Section footage, night light-trails style (keyframe: GPT Image 2.5, motion: Cinema Studio Video)
+video public/media/ocean-vessel.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044618_4c67bee3-9e9d-47ec-9964-ab663758f1db.mp4
+video public/media/about-crane.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044701_9f4f0734-e6de-4aff-b29c-b72a67fdcb0c.mp4
+video public/media/land-road.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_044702_cc296f42-283b-44e9-b733-aaeadb5547b8.mp4

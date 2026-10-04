@@ -38,5 +38,6 @@ export type Content = {
     handoff: { heading: string; body: string };
     ports: string[];
   };
+  contact: { heading: string; email: string; whatsapp: string };
   pending: { title: string; note: string };
 };

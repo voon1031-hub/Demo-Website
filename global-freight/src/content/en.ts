@@ -57,6 +57,11 @@ export const en: Content = {
     },
     ports: ['Shanghai', 'Singapore', 'Colombo', 'Suez', 'Rotterdam'],
   },
+  contact: {
+    heading: 'Contact',
+    email: 'Email',
+    whatsapp: 'WhatsApp',
+  },
   pending: {
     title: 'Built in the next round',
     note: 'This section follows once the Hero and Ocean style are approved.',

@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { fillStats, useContent } from '../content';
 import { gsap, MOTION_OK } from '../lib/gsap';
 import { useGsap } from '../hooks/useGsap';
-import { MediaImage } from '../components/MediaImage';
+import { MediaFrame } from '../components/MediaFrame';
 import { ShipGlyph } from '../components/VehicleIcons';
 
 /** Where the ship sits on screen while the coast scrolls past (fraction of viewport width). */
@@ -114,7 +114,7 @@ export function Ocean() {
             </div>
             <div className="relative min-h-0 flex-1 overflow-hidden rounded-[28px] md:h-[72%] motion-reduce:min-h-[55svh]">
               <div data-ocean-parallax className="absolute -inset-x-[9%] inset-y-0">
-                <MediaImage slot="oceanVessel" sizes="(min-width: 768px) 56vw, 100vw" className="h-full w-full" />
+                <MediaFrame slot="oceanVessel" className="h-full w-full" />
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@ export function Ocean() {
           <div className="flex w-screen shrink-0 flex-col gap-6 px-4 pb-[22svh] pt-24 sm:px-8 md:w-[72vw] md:flex-row md:items-center md:gap-12 md:pb-[18svh] motion-reduce:w-full motion-reduce:pb-16">
             <div className="relative min-h-0 flex-1 overflow-hidden rounded-[28px] md:h-[82%] md:max-w-[34vw] md:flex-none md:basis-[34vw] motion-reduce:min-h-[70svh]">
               <div data-ocean-parallax className="absolute -inset-x-[12%] inset-y-0">
-                <MediaImage slot="oceanTerminal" sizes="(min-width: 768px) 40vw, 100vw" className="h-full w-full" />
+                <MediaFrame slot="oceanTerminal" className="h-full w-full" />
               </div>
             </div>
             <div data-ocean-copy className="md:max-w-[36ch] md:self-end md:pb-[6svh]">
@@ -141,11 +141,11 @@ export function Ocean() {
             <div className="relative order-1 min-h-0 flex-1 md:order-2 md:h-[80%] motion-reduce:min-h-[60svh]">
               <div className="absolute inset-0 overflow-hidden rounded-[28px] md:right-[18%] md:bottom-[22%]">
                 <div data-ocean-parallax className="absolute -inset-x-[10%] inset-y-0">
-                  <MediaImage slot="oceanStacks" sizes="(min-width: 768px) 52vw, 100vw" className="h-full w-full" />
+                  <MediaFrame slot="oceanStacks" className="h-full w-full" />
                 </div>
               </div>
               <div className="absolute bottom-0 right-0 hidden h-[46%] w-[46%] overflow-hidden rounded-[20px] shadow-[0_30px_60px_-20px_rgb(0_0_0/0.6)] ring-1 ring-navy md:block">
-                <MediaImage slot="oceanQuay" sizes="26vw" className="h-full w-full" />
+                <MediaFrame slot="oceanQuay" className="h-full w-full" />
               </div>
             </div>
           </div>

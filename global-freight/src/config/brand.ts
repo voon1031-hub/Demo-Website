@@ -8,19 +8,23 @@ export const brand = {
   shortName: '[Co.]',
   slogan: '[Slogan]',
   /**
-   * Logo: leave `src` empty to show the placeholder mark + name.
-   * Set it to e.g. '/media/logo.svg' (file in public/media/) to use your logo.
+   * Logo. `mark` is the symbol (file in public/media/); the company name is
+   * set next to it in the site font, so it updates with `name` above.
+   * Set `showName: false` if you swap in a full logo that already contains the name.
    */
   logo: {
-    src: '',
-    alt: '[Company Name] logo',
-    width: 140,
-    height: 32,
+    mark: '/media/logo-mark.svg',
+    showName: true,
   },
   contact: {
-    email: 'hello@example.com',
-    phone: '+00 000 000 0000',
-    address: '[Street address], [City], [Country]',
+    email: 'voon1031@gmail.com',
+    /**
+     * `display` is what the page shows; `intl` is the full number in digits
+     * with country code and no '+', used for the wa.me chat link.
+     */
+    whatsapp: { display: '+65 9048 7168', intl: '6590487168' },
+    /** Leave empty to hide the address line. */
+    address: '',
   },
   /** Headline numbers. Values are placeholders until you have audited figures. */
   stats: {
