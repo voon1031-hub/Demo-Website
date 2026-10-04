@@ -21,3 +21,4 @@ video public/media/ocean-quay.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59
 video public/media/air-freighter.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_045006_55b47d74-33af-44ef-a7ee-3313220f7444.mp4
 video public/media/hero-port.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_084530_f9a96347-8b47-48ff-a84d-b966325e5ed9.mp4
 scrub public/media/air-descent.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_090923_6ea927a2-e9f6-4346-8f5c-5e28f39ec6eb.mp4
+scrub public/media/land-orbit-360.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_090937_14a761b9-09d1-452c-9bc3-b05da09e8b86.mp4,https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_090937_4834088a-820c-43b4-ab7c-de343624936e.mp4
