@@ -1,0 +1,7 @@
+# Higgsfield media to fetch: <kind> <output path, relative to global-freight/> <url>
+# See scripts/fetch-media.sh. Add a line and push to fetch a new file.
+
+# Logo candidates (Recraft V4.1 vector)
+file design/logo-options/a-route-arc.svg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043233_29e90c01-c416-4cd6-8213-c6b45aae133b.svg
+file design/logo-options/b-container-doors.svg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043234_17367d89-9637-4e82-939d-dd61390a9104.svg
+file design/logo-options/c-stack-channel.svg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043233_8a9d7bfb-3685-4fd1-81f2-538ea1af9a12.svg
