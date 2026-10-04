@@ -13,6 +13,9 @@
   social      : your account links. Empty "" ones fall back to the
                 #kaidohouse hashtag / search page on that platform.
 
+  hero        : the opening cover (video + poster). If its files are
+                missing, the first car's scene is used instead.
+
   Per car, in assets/scenes/:
     video  : background clip (5 s, MP4/H.264, 16:9, ideally under 3 MB)
     poster : still from the same shot, shown until the video plays
@@ -22,6 +25,11 @@
 -->
 <script>
 window.KAIDO = {
+  hero: {                                   // opening cover, separate from the car scenes
+    video: "assets/scenes/cover.mp4",
+    poster: "assets/scenes/cover.jpg",
+    alt: "Kaido House × Mini GT 1:64 cars in a miniature night scene"
+  },
   preorderUrl: "https://minigt.tsm-models.com/index.php?action=product-list&b_id=73",
   social: {
     instagram: "",
@@ -437,7 +445,7 @@ window.KAIDO = {
 
 <main>
   <section class="hero" id="top" aria-labelledby="hero-title">
-    <div class="stage" data-car="0" data-hero></div>
+    <div class="stage" data-hero></div>
     <div class="letterbox top" aria-hidden="true"></div>
     <div class="letterbox bottom" aria-hidden="true"></div>
     <div class="hero-copy">
@@ -581,9 +589,27 @@ window.KAIDO = {
     });
   });
 
-  document.querySelectorAll('.stage[data-car]').forEach(stage => {
-    fillStage(stage, cars[+stage.dataset.car], stage.hasAttribute('data-hero'));
-  });
+  document.querySelectorAll('.stage[data-car]').forEach(stage => fillStage(stage, cars[+stage.dataset.car], false));
+
+  /* hero cover: its own media, falling back to the first car's scene */
+  const heroStage = document.querySelector('.stage[data-hero]');
+  const hero = cfg.hero || {};
+  if (hero.poster) {
+    const img = new Image();
+    img.alt = hero.alt || ''; img.decoding = 'async';
+    img.onerror = () => { heroStage.innerHTML = ''; fillStage(heroStage, cars[0], true); };
+    img.src = hero.poster;
+    heroStage.appendChild(img);
+    if (hero.video && !reduceMotion) {
+      const v = document.createElement('video');
+      v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+      v.dataset.src = hero.video;
+      v.addEventListener('playing', () => v.classList.add('playing'));
+      v.addEventListener('error', () => v.remove());
+      heroStage.appendChild(v);
+    }
+  } else fillStage(heroStage, cars[0], true);
 
   /* play videos only while they are on screen */
   const vio = new IntersectionObserver(entries => {

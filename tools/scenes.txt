@@ -14,3 +14,7 @@ khmg309         https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJva
 khmg319         https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175812_2a992aeb-48a5-47bd-96b4-c765e8af651d.mp4
 khmg313        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175952_ef82dc58-1b73-4530-ae46-8c3cf52bc230.mp4
 khmg317        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175952_a35e5034-2604-4b93-a03d-0797e7aab7ff.mp4
+cover-1        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_182721_45f89afa-77bc-4a63-9933-95ace9d8248d.png
+cover-2        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_182721_fd5fec8a-1285-4242-8f0d-ed80546aec47.png
+cover-3        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_182721_0db8a166-cf67-4658-8982-25f9d9fc780d.png
+cover-4        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_182721_f5b6c949-2ec5-4182-ab65-283ee410e6db.png
