@@ -1,0 +1,165 @@
+@import '@fontsource-variable/archivo/wdth.css';
+@import 'tailwindcss';
+
+/*
+ * Design tokens. Palette is drawn from freight itself:
+ * night sea, hull steel, chart lines, fog, and international safety orange.
+ */
+@theme {
+  --color-navy: #0b1d33;
+  --color-navy-deep: #07142a;
+  --color-steel: #1c2836;
+  --color-steel-light: #263649;
+  --color-chart: #7e93a8;
+  --color-fog: #e9eef3;
+  --color-signal: #ff5f1f;
+  --color-signal-hover: #ff7a42;
+
+  --font-sans: 'Archivo Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Type scale: ratio ~1.333 (perfect fourth), fluid at the display end. */
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.6875rem;
+  --text-2xl: clamp(2rem, 3.6vw, 3rem);
+  --text-3xl: clamp(2.5rem, 6vw, 5rem);
+  --text-display: clamp(3.25rem, 11vw, 10.5rem);
+
+  --ease-cargo: cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-navy);
+    color: var(--color-fog);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+  ::selection {
+    background: var(--color-signal);
+    color: var(--color-navy);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* Lenis requirements */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+}
+
+@layer components {
+  /* Expanded, heavy cut: reads like stencilled container lettering. */
+  .type-display {
+    font-stretch: 125%;
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+  .type-heading {
+    font-stretch: 112%;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  /* Condensed small type for map labels and data, instead of a monospace. */
+  .type-data {
+    font-stretch: 75%;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    min-height: 48px;
+    padding: 0 1.5rem;
+    font-weight: 600;
+    font-stretch: 110%;
+    border-radius: 999px;
+    transition:
+      background-color 200ms var(--ease-cargo),
+      color 200ms var(--ease-cargo),
+      box-shadow 200ms var(--ease-cargo);
+  }
+  .btn-primary {
+    background: var(--color-signal);
+    color: var(--color-navy);
+  }
+  .btn-primary:hover {
+    background: var(--color-signal-hover);
+    box-shadow: 0 0 0 6px rgb(255 95 31 / 0.18);
+  }
+  .btn-ghost {
+    color: var(--color-fog);
+    box-shadow: inset 0 0 0 1px rgb(233 238 243 / 0.35);
+  }
+  .btn-ghost:hover {
+    box-shadow: inset 0 0 0 1px var(--color-fog);
+    background: rgb(233 238 243 / 0.06);
+  }
+
+  /*
+   * Shared photo grade: every image, placeholder or final, gets the same
+   * cool shadows, slightly muted colour and a fine grain, so mixed sources
+   * still read as one film.
+   */
+  .media-frame {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 30% 20%, var(--color-steel-light), transparent 70%),
+      linear-gradient(160deg, var(--color-steel), var(--color-navy-deep));
+  }
+  .media-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.78) contrast(1.06) brightness(0.92);
+  }
+  .media-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgb(11 29 51 / 0) 40%, rgb(7 20 42 / 0.55)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.6 0 0 0 0 0.7 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    mix-blend-mode: soft-light;
+  }
+  /* Cool tint applied as a colour layer between image and grain. */
+  .media-frame .media-tint {
+    position: absolute;
+    inset: 0;
+    background: #12345a;
+    mix-blend-mode: color;
+    opacity: 0.22;
+    pointer-events: none;
+  }
+}
+
+@keyframes scrollcue {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
