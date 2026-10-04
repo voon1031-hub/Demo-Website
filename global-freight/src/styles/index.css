@@ -31,19 +31,29 @@
   --ease-cargo: cubic-bezier(0.22, 0.8, 0.24, 1);
 }
 
+/*
+ * Page base, deliberately outside @layer: hosts that wrap the page in their
+ * own skeleton (e.g. the claude.ai preview) ship unlayered body styles, and
+ * unlayered rules beat anything inside a layer. Without this, headings
+ * inherit the host's dark text colour and body copy its system font.
+ */
+html {
+  color-scheme: dark;
+  background: var(--color-navy-deep);
+  color: var(--color-fog);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html body {
+  margin: 0;
+  background: var(--color-navy-deep);
+  color: var(--color-fog);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
 @layer base {
-  html {
-    color-scheme: dark;
-    background: var(--color-navy);
-    color: var(--color-fog);
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  body {
-    font-family: var(--font-sans);
-    font-size: var(--text-base);
-    line-height: 1.6;
-  }
   ::selection {
     background: var(--color-signal);
     color: var(--color-navy);
