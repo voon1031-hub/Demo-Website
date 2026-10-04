@@ -19,6 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Latest branch head, not the triggering commit: runs are serialized,
+          # so this sees media committed by the previous run and skips it.
+          ref: ${{ github.ref }}
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Download and prepare media
