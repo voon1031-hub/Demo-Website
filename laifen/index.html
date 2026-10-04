@@ -151,7 +151,8 @@ window.LAIFEN_TEXT = {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200..800&display=swap" rel="stylesheet">
+<!-- loads in the background: if Google Fonts is slow or blocked, the page still shows at once -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200..800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
 <style>
   @property --bg { syntax: "<color>"; inherits: true; initial-value: #221B1B; }
