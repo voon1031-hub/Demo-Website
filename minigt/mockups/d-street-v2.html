@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opening · Tokyo street v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,300;0,400;0,500;0,600;1,800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bone: #EDE6DA;
+    --dim: rgba(237, 230, 218, .62);
+    --subtitle: #F3D36B;
+    --gold: #D6B46A;
+    --red: #E10600;
+    --title: "Bodoni Moda", Didot, serif;
+    --ui: "Archivo", system-ui, sans-serif;
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    --numfill: linear-gradient(180deg, #F6EEDF 0%, #CDBFA7 52%, rgba(205,191,167,.15) 82%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #000; color: var(--bone); font-family: var(--ui); overflow: hidden; }
+  img { display: block; max-width: none; }
+  a { color: inherit; text-decoration: none; }
+  .defs { position: absolute; width: 0; height: 0; }
+
+  .hero { position: relative; height: 100vh; display: grid; grid-template-rows: 1fr calc(100vw / 2.39) 1fr; background: #000; overflow: hidden; isolation: isolate; }
+  .hero::after { content: ""; position: absolute; inset: -40px; z-index: 60; pointer-events: none; background-image: var(--grain); background-position: var(--gx, 0) var(--gy, 0); opacity: .2; mix-blend-mode: overlay; }
+
+  /* brand ident, like a studio logo before the film */
+  .ident { position: absolute; inset: 0; z-index: 45; display: grid; place-content: center; justify-items: center; gap: 2.2vw; pointer-events: none; }
+  .ident .beam { position: absolute; left: 50%; top: 50%; width: 52vw; height: 1px; margin-left: -26vw; background: linear-gradient(90deg, transparent, rgba(255,238,215,.9), transparent); box-shadow: 0 0 18px 2px rgba(255,220,180,.35); }
+  .lockup { position: relative; display: flex; align-items: center; gap: 1.8vw; overflow: hidden; padding: .4vw 1vw; }
+  .lockup .kh { font-family: "Anton", Impact, sans-serif; font-size: 5.6vw; line-height: 1; letter-spacing: .02em; color: #F5F2EC; }
+  .lockup .kh i { font-style: normal; font-size: .62em; vertical-align: .32em; margin: 0 .06em; }
+  .lockup .x { font-weight: 300; font-size: 2.2vw; color: var(--dim); }
+  .lockup .mg { background: var(--red); color: #fff; font-style: italic; font-weight: 800; font-size: 2.9vw; line-height: 1; padding: .2em .5em .16em; }
+  .lockup .shine { position: absolute; top: -20%; bottom: -20%; left: 0; width: 18%; transform: skewX(-18deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); mix-blend-mode: overlay; }
+  .ident .pres { font-size: clamp(10px, .9vw, 17px); letter-spacing: .62em; padding-left: .62em; text-transform: uppercase; color: var(--dim); }
+
+  /* letterbox bars */
+  .bar { position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 0 3vw; }
+  .bar.top { align-items: flex-end; padding-bottom: 1.6vw; }
+  .bar.bottom { align-items: flex-start; padding-top: 1.6vw; }
+  .presents { font-size: clamp(10px, .82vw, 16px); letter-spacing: .42em; text-transform: uppercase; color: var(--dim); }
+  .bar nav { display: flex; gap: 2.4vw; font-size: clamp(12px, .98vw, 18px); letter-spacing: .04em; color: var(--dim); }
+  .subs { position: relative; flex: 1; height: 3.2em; font-size: clamp(15px, 1.4vw, 27px); }
+  .sub { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-weight: 500; color: var(--subtitle); text-shadow: 0 2px 0 #000, 0 0 12px rgba(0,0,0,.9); }
+  .meta { position: absolute; right: 3vw; top: 1.9vw; display: flex; align-items: center; gap: 1.4vw; font-size: clamp(10px, .8vw, 15px); letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
+  .ticks { display: flex; gap: 6px; }
+  .tick { width: 1.6vw; min-width: 16px; height: 2px; background: var(--bone); opacity: .28; }
+  .hint::before { content: ""; display: inline-block; width: 0; height: 0; margin-right: .9em; border-left: .62em solid var(--bone); border-block: .4em solid transparent; }
+
+  /* the frame and its camera */
+  .frame { position: relative; overflow: hidden; background: #000; }
+  .stage { position: absolute; inset: 0; }
+  .world { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+  .world .st { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .world .ext { top: 100%; bottom: auto; transform: scaleY(-1); filter: brightness(.5);
+    -webkit-mask: linear-gradient(to top, #000 0%, transparent 75%); mask: linear-gradient(to top, #000 0%, transparent 75%); }
+  .grade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(4,6,14,.55) 0%, rgba(4,6,14,.12) 45%, rgba(4,6,14,.35) 100%); }
+  .iris { position: absolute; inset: 0; z-index: 29; pointer-events: none;
+    background: radial-gradient(circle at 50% 56%, transparent var(--r, 0%), rgba(0,0,0,.94) calc(var(--r, 0%) + 16%), #000 calc(var(--r, 0%) + 34%)); }
+  .big { position: absolute; left: 0; right: 0; top: -3%; text-align: center; white-space: nowrap; font-family: var(--title); font-style: italic; font-weight: 500; font-size: 27vw; line-height: 1; font-variation-settings: "opsz" 96; letter-spacing: -.02em; }
+  .big > * { position: absolute; left: 0; right: 0; top: 0; }
+  .big span span, .big .num { display: inline-block; background: var(--numfill); -webkit-background-clip: text; background-clip: text; color: transparent; padding: 0 .02em; }
+  .big svg { display: block; width: .82em; height: .82em; margin: .06em auto 0; }
+
+  /* each car: a side view plus, for the later cars, a top or three-quarter view it turns from */
+  .car-wrap { position: absolute; transform-origin: 60% 100%; }
+  .view { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+  .view .car { position: relative; z-index: 2; width: 100%; filter: brightness(.9) contrast(1.04); }
+  .view .shadow { position: absolute; z-index: 1; left: 5%; right: 5%; bottom: -2%; height: 12%; background: radial-gradient(closest-side, rgba(0,0,0,.8), transparent); }
+  .view .reflect { position: absolute; z-index: 0; left: 0; top: 100%; width: 100%; margin-top: -2.6%; transform: scaleY(-1); opacity: .36; filter: blur(2.5px) brightness(.7);
+    -webkit-mask: linear-gradient(to top, #000 0%, transparent 55%); mask: linear-gradient(to top, #000 0%, transparent 55%); }
+  .view .light, .view .sweep { position: absolute; z-index: 3; left: 0; top: 0; width: 100%; aspect-ratio: var(--ar); pointer-events: none;
+    -webkit-mask: var(--src) center / 100% 100% no-repeat; mask: var(--src) center / 100% 100% no-repeat; }
+  .view .light { mix-blend-mode: soft-light; background: linear-gradient(180deg, rgba(255,186,120,.7) 0%, rgba(255,186,120,0) 30%, rgba(0,0,0,0) 55%, rgba(0,8,30,.75) 100%); }
+  .view .sweep { mix-blend-mode: screen;
+    background: linear-gradient(104deg, transparent 44%, rgba(255,240,220,.08) 47.5%, rgba(255,242,224,.6) 50%, rgba(255,240,220,.08) 52.5%, transparent 56%) 100% 0 / 300% 100% no-repeat; }
+  .view.alt { height: auto; }
+  .flare { position: absolute; z-index: 4; width: 110%; height: 2px; transform-origin: 50% 50%; margin-left: -55%;
+    background: linear-gradient(90deg, transparent, rgba(150,200,255,.35) 25%, rgba(170,210,255,.9) 47%, #fff 50%, rgba(170,210,255,.9) 53%, rgba(150,200,255,.35) 75%, transparent);
+    box-shadow: 0 0 14px 2px rgba(90,150,255,.45); mix-blend-mode: screen; }
+  .flare::after { content: ""; position: absolute; left: 50%; top: 50%; width: 7%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(255,250,235,.95), rgba(255,200,120,.35) 45%, transparent); }
+
+  .credit { position: absolute; z-index: 9; left: 0; right: 0; bottom: 6%; text-align: center; font-size: clamp(10px, .9vw, 17px); letter-spacing: .5em; text-transform: uppercase; color: var(--dim); }
+  .credit b { font-weight: 600; color: var(--bone); }
+  .card { position: absolute; z-index: 9; left: 3vw; top: 8%; max-width: 30vw; text-shadow: 0 2px 18px rgba(0,0,0,.6); }
+  .card .c-code { display: block; font-size: clamp(10px, .8vw, 15px); letter-spacing: .4em; color: var(--gold); }
+  .card h2 { margin-top: .35em; font-family: var(--title); font-style: italic; font-weight: 500; font-size: clamp(30px, 3.6vw, 70px); line-height: 1; }
+  .card .c-name { margin-top: .9em; font-size: clamp(12px, .95vw, 18px); line-height: 1.5; color: var(--dim); }
+  .card .c-pre { margin-top: 1.1em; font-size: clamp(10px, .8vw, 15px); letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
+  .card .c-pre b { color: var(--gold); font-weight: 500; }
+  .vignette { position: absolute; inset: 0; z-index: 8; background: radial-gradient(120% 120% at 50% 45%, transparent 55%, rgba(0,0,0,.7)); pointer-events: none; }
+
+  @media (max-aspect-ratio: 3/4) {
+    .hero { grid-template-rows: 12vh 1fr 21vh; }
+    .bar { padding: 0 5vw; }
+    .bar nav { display: none; }
+    .bar.top { padding-bottom: 3vw; }
+    .presents { font-size: 2.6vw; letter-spacing: .34em; }
+    .bar.bottom { flex-direction: column; align-items: stretch; padding-top: 4.5vw; gap: 5vw; }
+    .subs { font-size: 3.9vw; height: 3.4em; }
+    .meta { position: static; justify-content: center; font-size: 2.4vw; }
+    .tick { width: 7vw; }
+    .big { font-size: 40vw; top: 3%; }
+    .credit { font-size: 2.5vw; letter-spacing: .36em; bottom: 5%; }
+    .card { left: 5vw; top: auto; bottom: 4%; max-width: 90vw; }
+    .card h2 { font-size: 9.5vw; }
+    .card .c-code, .card .c-pre { font-size: 2.5vw; }
+    .card .c-name { font-size: 3.2vw; }
+    .ident .beam { width: 86vw; margin-left: -43vw; }
+    .lockup { flex-direction: column; gap: 3vw; }
+    .lockup .kh { font-size: 13vw; }
+    .lockup .x { font-size: 5vw; }
+    .lockup .mg { font-size: 7vw; }
+    .ident .pres { font-size: 2.8vw; }
+  }
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true">
+  <defs>
+    <linearGradient id="numgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6EEDF"/><stop offset=".52" stop-color="#CDBFA7"/><stop offset=".82" stop-color="#CDBFA7" stop-opacity=".15"/></linearGradient>
+  </defs>
+  <!-- per car: mb = whip blur on the whole car, ms / ma = turn blur on the side / alternate view -->
+  <filter id="mb0" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="mb1" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="mb2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="mb3" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="mb4" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="ms1" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="ms2" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="ms3" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="ms4" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="ma1" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="ma2" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="ma3" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+  <filter id="ma4" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="0 0"/></filter>
+</svg>
+
+<section class="hero" id="hero">
+  <div class="bar top">
+    <span class="presents">Kaido House presents</span>
+    <nav><a href="#">Lineup</a><a href="#">Pre-order</a><a href="#">Official site</a></nav>
+  </div>
+
+  <div class="frame">
+    <div class="stage">
+      <div class="world bg">
+        <img class="st st-sharp" src="../assets/street/street.webp" alt="A Tokyo backstreet at night after rain">
+        <img class="st st-soft" src="../assets/street/street-soft.webp" alt="">
+        <img class="st st-whip" src="../assets/street/street-whip.webp" alt="">
+        <img class="st st-soft ext" src="../assets/street/street-soft.webp" alt="">
+        <img class="st st-whip ext" src="../assets/street/street-whip.webp" alt="">
+      </div>
+      <div class="grade"></div>
+      <div class="big" aria-hidden="true">
+        <span class="t164"><span>1</span><span>:</span><span>6</span><span>4</span></span>
+        <span class="num n0">7</span>
+        <span class="num n1">23</span>
+        <span class="num n2"><svg viewBox="0 0 100 100"><path fill="url(#numgrad)" d="M50 4l12.9 30.6 33.1 2.8-25.2 21.7 7.6 32.4L50 74.3 21.6 91.5l7.6-32.4L4 37.4l33.1-2.8z"/></svg></span>
+        <span class="num n3">71</span>
+        <span class="num n4">00</span>
+      </div>
+      <div class="world fg">
+        <div class="car-wrap" data-i="0" data-w="1419" data-h="427" style="filter:url(#mb0)">
+          <div class="view side" style="--src:url(../assets/products/KHMG315/side.webp);--ar:1419/427">
+            <div class="shadow"></div><img class="car" src="../assets/products/KHMG315/side.webp" alt="Nissan Skyline GT-R R34 The Hornet"><div class="light"></div><div class="sweep"></div>
+            <img class="reflect" src="../assets/products/KHMG315/side.webp" alt=""><div class="flare" style="left:3.6%;top:47%"></div>
+          </div>
+        </div>
+        <div class="car-wrap" data-i="1" data-w="1454" data-h="441" data-turn="tilt" data-aw="1432" data-ah="666" style="filter:url(#mb1)">
+          <div class="view alt" style="--src:url(../assets/products/KHMG313/top.webp);--ar:1432/666;filter:url(#ma1)"><img class="car" src="../assets/products/KHMG313/top.webp" alt="Nissan Skyline GT-R R33 Stock Car seen from above"><div class="light"></div></div>
+          <div class="view side" style="--src:url(../assets/products/KHMG313/side.webp);--ar:1454/441;filter:url(#ms1)">
+            <div class="shadow"></div><img class="car" src="../assets/products/KHMG313/side.webp" alt="Nissan Skyline GT-R R33 Stock Car"><div class="light"></div><div class="sweep"></div>
+            <img class="reflect" src="../assets/products/KHMG313/side.webp" alt=""><div class="flare" style="left:3%;top:50%"></div>
+          </div>
+        </div>
+        <div class="car-wrap" data-i="2" data-w="1250" data-h="302" data-turn="tilt" data-aw="979" data-ah="347" style="filter:url(#mb2)">
+          <div class="view alt" style="--src:url(../assets/products/KHMG309/top.webp);--ar:979/347;filter:url(#ma2)"><img class="car" src="../assets/products/KHMG309/top.webp" alt="Kaido Star-Tastic seen from above"><div class="light"></div></div>
+          <div class="view side" style="--src:url(../assets/products/KHMG309/side.webp);--ar:1250/302;filter:url(#ms2)">
+            <div class="shadow"></div><img class="car" src="../assets/products/KHMG309/side.webp" alt="Kaido Star-Tastic"><div class="light"></div><div class="sweep"></div>
+            <img class="reflect" src="../assets/products/KHMG309/side.webp" alt=""><div class="flare" style="left:7%;top:52%"></div>
+          </div>
+        </div>
+        <div class="car-wrap" data-i="3" data-w="1461" data-h="367" data-turn="turn" data-aw="1184" data-ah="633" style="filter:url(#mb3)">
+          <div class="view alt" style="--src:url(../assets/products/KHMG317/front.webp);--ar:1184/633;filter:url(#ma3)"><div class="shadow"></div><img class="car" src="../assets/products/KHMG317/front.webp" alt="Nissan Fairlady Z Kaido GT Gulf, three-quarter view"><div class="light"></div><img class="reflect" src="../assets/products/KHMG317/front.webp" alt=""></div>
+          <div class="view side" style="--src:url(../assets/products/KHMG317/side.webp);--ar:1461/367;filter:url(#ms3)">
+            <div class="shadow"></div><img class="car" src="../assets/products/KHMG317/side.webp" alt="Nissan Fairlady Z Kaido GT Gulf"><div class="light"></div><div class="sweep"></div>
+            <img class="reflect" src="../assets/products/KHMG317/side.webp" alt=""><div class="flare" style="left:2.5%;top:42%"></div>
+          </div>
+        </div>
+        <div class="car-wrap" data-i="4" data-w="1432" data-h="395" data-turn="turn" data-aw="1269" data-ah="620" style="filter:url(#mb4)">
+          <div class="view alt" style="--src:url(../assets/products/KHMG319/front.webp);--ar:1269/620;filter:url(#ma4)"><div class="shadow"></div><img class="car" src="../assets/products/KHMG319/front.webp" alt="Chevrolet Camaro Kaido Racing Team, three-quarter view"><div class="light"></div><img class="reflect" src="../assets/products/KHMG319/front.webp" alt=""></div>
+          <div class="view side" style="--src:url(../assets/products/KHMG319/side.webp);--ar:1432/395;filter:url(#ms4)">
+            <div class="shadow"></div><img class="car" src="../assets/products/KHMG319/side.webp" alt="Chevrolet Camaro Kaido Racing Team"><div class="light"></div><div class="sweep"></div>
+            <img class="reflect" src="../assets/products/KHMG319/side.webp" alt=""><div class="flare" style="left:2.5%;top:46%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="credit">A <b>MINI GT</b> production</div>
+      <div class="card c0"><span class="c-code">KHMG315</span><h2>The Hornet</h2><p class="c-name">Nissan Skyline GT-R (R34) Tamiya x Kaido House “The Hornet” V2</p><p class="c-pre">In pre-order <b>September 2026</b></p></div>
+      <div class="card c1"><span class="c-code">KHMG313</span><h2>Stock Car 23</h2><p class="c-name">Nissan Skyline GT-R (R33) Stock Car V1</p><p class="c-pre">In pre-order <b>September 2026</b></p></div>
+      <div class="card c2"><span class="c-code">KHMG309</span><h2>Star-Tastic</h2><p class="c-name">Kaido Star-Tastic V1, a 100% Kaido House original</p><p class="c-pre">In pre-order <b>August 2026</b></p></div>
+      <div class="card c3"><span class="c-code">KHMG317</span><h2>Gulf 71</h2><p class="c-name">Nissan Fairlady Z Kaido GT Gulf V1</p><p class="c-pre">In pre-order <b>September 2026</b></p></div>
+      <div class="card c4"><span class="c-code">KHMG319</span><h2>Double Zero</h2><p class="c-name">Chevrolet Camaro Kaido Racing Team V1</p><p class="c-pre">In pre-order <b>September 2026</b></p></div>
+    </div>
+    <div class="vignette"></div>
+    <div class="iris"></div>
+  </div>
+
+  <div class="bar bottom">
+    <div class="subs">
+      <p class="sub s-in">Five new Kaido House builds. Pre-orders open in August and September 2026.</p>
+      <p class="sub s0">Version two of The Hornet: Tamiya x Kaido House graphics in color carbon.</p>
+      <p class="sub s1">The R33 GT-R goes stock-car racing in Kaido Works red, white and yellow.</p>
+      <p class="sub s2">A 100% Kaido House original, with takeyari pipes and a gold star livery.</p>
+      <p class="sub s3">The classic Fairlady Z in licensed Gulf racing livery, number 71.</p>
+      <p class="sub s4">A first-generation Camaro, rebuilt for the Kaido Racing Team.</p>
+    </div>
+    <div class="meta"><span class="ticks"><i class="tick"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i></span><span class="hint">Scroll</span></div>
+  </div>
+
+  <div class="ident" aria-hidden="true">
+    <i class="beam"></i>
+    <div class="lockup"><span class="kh">KAIDO<i>★</i>HOUSE</span><span class="x">×</span><span class="mg">MINI GT</span><i class="shine"></i></div>
+    <div class="pres">presents</div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script>
+(() => {
+  const q = s => document.querySelector(s);
+  const qa = s => [...document.querySelectorAll(s)];
+  const hero = q('#hero'), frame = q('.frame');
+  const worlds = qa('.world');
+  const cars = qa('.car-wrap');
+  const A = 3840 / 1648;              // street photo aspect ratio
+  const CAR = .24;                    // car length as a share of the photo width: a real car in the near lane
+  const ROAD = .94;                   // wheel line, as a share of the photo height
+  const SPOTS = [.223, .434, .605, .745, .84];   // izakaya, ramen, sakaba, vending machines, shutter
+  let G;
+
+  function layout() {
+    const W = frame.clientWidth, H = frame.clientHeight;
+    const portrait = matchMedia('(max-aspect-ratio: 3/4)').matches;
+    const pw0 = Math.max(W, H * A), ph0 = pw0 / A;                       // wide shot: photo covers the frame
+    const S = (portrait ? Math.min(W, H * .95) : .64 * W) / (CAR * pw0); // zoom factor to the close-up
+    const pw1 = pw0 * S, ph1 = ph0 * S, carW = CAR * pw1;
+    const T = { x: W * .5, y: H * (portrait ? .5 : .63) };
+    const cx = x => Math.min(0, Math.max(W - pw1, x)), cy = y => Math.min(0, Math.max(H - ph1 * 1.6, y));
+    worlds.forEach(w => { w.style.width = pw1 + 'px'; w.style.height = ph1 + 'px'; });
+    const pos = cars.map((c, i) => {
+      const ch = carW * c.dataset.h / c.dataset.w;
+      Object.assign(c.style, { width: carW + 'px', height: ch + 'px', left: (SPOTS[i] * pw1 - carW / 2) + 'px', top: (ROAD * ph1 - ch) + 'px' });
+      const alt = c.querySelector('.alt');
+      if (alt) {   // top views share the car's length and centre; three-quarter views stand on the same wheel line
+        const tilt = c.dataset.turn === 'tilt', aw = carW * (tilt ? .8 : .86), ah = aw * c.dataset.ah / c.dataset.aw;
+        Object.assign(alt.style, { width: aw + 'px', height: ah + 'px', left: (carW - aw) / 2 + 'px', top: (tilt ? (ch - ah) / 2 : ch - ah) + 'px' });
+      }
+      return { x: cx(T.x - SPOTS[i] * pw1), y: cy(T.y - (ROAD * ph1 - ch / 2)) };
+    });
+    // wide shot camera: scale s, photo point (fx, fy) under the frame point (sx, sy)
+    const cam = (s, fx, fy, sx, sy) => ({ x: sx - s * fx * pw1, y: sy - s * fy * ph1, scale: s });
+    const fx0 = portrait ? SPOTS[0] : .5;
+    G = { W, H, S, carW, pos,
+      open: cam(1.06 / S, fx0, .5, W / 2, H / 2),     // lens opening starts slightly tighter...
+      wide: cam(1 / S, fx0, .5, W / 2, H / 2) };       // ...and eases back to the full street
+    if (portrait) { const clampX = v => Math.min(0, Math.max(W - pw0 * 1.06, v)); G.open.x = clampX(G.open.x); G.wide.x = Math.min(0, Math.max(W - pw0, G.wide.x)); }
+  }
+  layout();
+
+  // ---------- starting state ----------
+  gsap.set(['.bar.top > *', '.sub', '.meta', '.credit', '.card > *', '.num', '.ident .pres'], { autoAlpha: 0 });
+  gsap.set('.ident .beam', { scaleX: 0, autoAlpha: 0 });
+  gsap.set('.lockup', { clipPath: 'inset(0 50% 0 50%)', autoAlpha: 0 });
+  gsap.set('.lockup .shine', { xPercent: -150 });
+  gsap.set('.stage', { autoAlpha: 0 });
+  gsap.set('.iris', { '--r': '0%' });
+  gsap.set(worlds, { x: () => G.open.x, y: () => G.open.y, scale: () => G.open.scale });
+  gsap.set(['.st-whip', '.grade'], { opacity: 0 });
+  gsap.set('.st-soft', { opacity: 1 });                       // the lens opens out of focus
+  gsap.set(cars, { autoAlpha: 0 });
+  gsap.set(cars[0], { autoAlpha: 1 });
+  qa('.car-wrap .alt').forEach(a => gsap.set(a, { autoAlpha: 1 }));
+  cars.slice(1).forEach(c => gsap.set(c.querySelector('.side'), { autoAlpha: 0 }));
+  gsap.set(cars[0].querySelector('.car'), { filter: 'brightness(.62) contrast(1.1) saturate(.9) blur(6px)' });
+  gsap.set('.t164 span', { autoAlpha: 0, yPercent: 18, filter: 'blur(14px)' });
+  gsap.set('.flare', { opacity: 0, scaleX: .15 });
+  const blur = (id, v) => `#${id} feGaussianBlur`;
+
+  // ---------- the opening ----------
+  const intro = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } });
+  intro
+    // 1. brand ident on black
+    .to('.ident .beam', { scaleX: 1, autoAlpha: 1, duration: .7, ease: 'power3.out' }, .2)
+    .to('.lockup', { clipPath: 'inset(0 0% 0 0%)', autoAlpha: 1, duration: 1.1, ease: 'power3.inOut' }, .5)
+    .to('.ident .beam', { autoAlpha: 0, duration: .6 }, 1.2)
+    .to('.lockup .shine', { xPercent: 900, duration: 1.2, ease: 'power2.inOut' }, 1.1)
+    .to('.lockup .shine', { autoAlpha: 0, duration: .3 }, 2.0)
+    .fromTo('.ident .pres', { autoAlpha: 0, letterSpacing: '.9em' }, { autoAlpha: 1, letterSpacing: '.62em', duration: 1 }, 1.5)
+    .to('.ident', { autoAlpha: 0, duration: .55, ease: 'power1.in' }, 2.9)
+    // 2. the lens opens out of black: iris, focus pull, a slight ease back
+    .to('.stage', { autoAlpha: 1, duration: 1.4, ease: 'power1.out' }, 3.3)
+    .to('.iris', { '--r': '120%', duration: 2.6, ease: 'power2.inOut' }, 3.3)
+    .to('.st-soft', { opacity: 0, duration: 2.1, ease: 'power2.inOut' }, 3.6)
+    .to(cars[0].querySelector('.car'), { filter: 'brightness(.62) contrast(1.1) saturate(.9) blur(0px)', duration: 2.1, ease: 'power2.inOut' }, 3.6)
+    .to(worlds, { x: () => G.wide.x, y: () => G.wide.y, scale: () => G.wide.scale, duration: 3, ease: 'sine.out' }, 3.3)
+    // 3. a slow push-in from the street to the car; the street drops out of focus
+    .to(worlds, { x: () => G.pos[0].x, y: () => G.pos[0].y, scale: 1, duration: 4.6, ease: 'power2.inOut' }, 6.1)
+    .to(cars[0].querySelector('.car'), { filter: 'brightness(.9) contrast(1.04) saturate(1) blur(0px)', duration: 3, ease: 'power1.inOut' }, 7.2)
+    .to('.st-soft', { opacity: 1, duration: 2, ease: 'power1.inOut' }, 8.4)
+    .to('.grade', { opacity: 1, duration: 2, ease: 'power1.inOut' }, 8.4)
+    .set('.st-sharp', { autoAlpha: 0 }, 10.6)
+    // 4. headlight, light sweep, title
+    .to(cars[0].querySelector('.flare'), { opacity: 1, scaleX: 1, duration: .7, ease: 'power3.out' }, 10.3)
+    .to(cars[0].querySelector('.flare'), { opacity: .7, duration: 1.2, ease: 'sine.inOut' }, 11)
+    .to(cars[0].querySelector('.sweep'), { backgroundPosition: '0% 0', duration: 1.6, ease: 'power2.inOut' }, 10.6)
+    .to('.t164 span', { autoAlpha: 1, yPercent: 0, filter: 'blur(0px)', duration: 1.3, ease: 'power3.out', stagger: .12 }, 10.9)
+    .fromTo('.credit', { autoAlpha: 0, letterSpacing: '.9em' }, { autoAlpha: 1, letterSpacing: '.5em', duration: 1.2 }, 12.1)
+    .to('.bar.top > *', { autoAlpha: 1, duration: .9, stagger: .1 }, 12.7)
+    .fromTo('.s-in', { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: .9 }, 13)
+    .to('.meta', { autoAlpha: 1, duration: .8 }, 13.5)
+    .to({}, { duration: .5 }, 14.1);
+
+  // ---------- the story: one scroll = one car ----------
+  const ticks = qa('.tick');
+  const show = (tl, i, at) => tl
+    .fromTo('.n' + i, { autoAlpha: 0, yPercent: 12, filter: 'blur(12px)' }, { autoAlpha: 1, yPercent: 0, filter: 'blur(0px)', duration: 1, ease: 'power3.out', immediateRender: false }, at)
+    .fromTo(`.c${i} > *`, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .08, ease: 'power2.out', immediateRender: false }, at + .1)
+    .fromTo('.s' + i, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: .7, ease: 'power2.out', immediateRender: false }, at + .2)
+    .to(ticks[i], { opacity: 1, duration: .4 }, at);
+  const hide = (tl, i, at) => tl
+    .to(['.n' + i, `.c${i} > *`, '.s' + i], { autoAlpha: 0, duration: .35, ease: 'power1.in' }, at)
+    .to(ticks[i], { opacity: .28, duration: .4 }, at);
+
+  const story = gsap.timeline({ paused: true });
+  story.to('.t164 span', { autoAlpha: 0, yPercent: -8, filter: 'blur(10px)', duration: .6, stagger: .05, ease: 'power2.in' }, 0)
+    .to(['.credit', '.s-in'], { autoAlpha: 0, duration: .45 }, 0)
+    .set(worlds, { transformOrigin: () => `${G.W / 2 - G.pos[0].x}px ${G.H * .63 - G.pos[0].y}px` }, 0)
+    .to(worlds, { scale: 1.035, duration: 1.6, ease: 'power2.inOut' }, 0);
+  show(story, 0, .45);
+  story.addLabel('s0');
+
+  for (let i = 1; i < 5; i++) {
+    const t0 = story.duration(), prev = cars[i - 1], car = cars[i];
+    const alt = car.querySelector('.alt'), side = car.querySelector('.side'), tilt = car.dataset.turn === 'tilt';
+    const turnAt = t0 + 1.75;
+    hide(story, i - 1, t0);
+    story
+      // whip pan along the street to the next shop
+      .to(worlds, { x: () => G.pos[i].x, y: () => G.pos[i].y, scale: 1, duration: 1.15, ease: 'power3.inOut' }, t0 + .15)
+      .to('.st-whip', { opacity: 1, duration: .4, ease: 'power2.in' }, t0 + .2)
+      .to('.st-whip', { opacity: 0, duration: .55, ease: 'power2.out' }, t0 + .75)
+      .to(blur(`mb${i - 1}`), { attr: { stdDeviation: '120 0' }, duration: .45, ease: 'power2.in' }, t0 + .15)
+      .set(car, { autoAlpha: 1 }, t0 + .55)
+      .set(prev, { autoAlpha: 0 }, t0 + .7)
+      .set(blur(`mb${i - 1}`), { attr: { stdDeviation: '0 0' } }, t0 + .72)
+      .fromTo(blur(`mb${i}`), { attr: { stdDeviation: '120 0' } }, { attr: { stdDeviation: '0 0' }, duration: .75, ease: 'power3.out', immediateRender: false }, t0 + .55)
+      // hold on the top / three-quarter view, then turn into the side profile
+      .fromTo(alt, { scale: 1 }, { scale: 1.03, duration: 1.2, ease: 'sine.inOut', immediateRender: false }, t0 + .55)
+      .to(alt, tilt ? { rotationX: 76, y: () => -G.carW * .06, transformPerspective: () => G.carW * 1.6, transformOrigin: '50% 50%', duration: 1, ease: 'power2.inOut' }
+                    : { rotationY: -38, x: () => -G.carW * .05, transformPerspective: () => G.carW * 1.8, transformOrigin: '50% 100%', duration: 1, ease: 'power2.inOut' }, turnAt)
+      .to(alt, { autoAlpha: 0, duration: .4, ease: 'power1.in' }, turnAt + .4)
+      .fromTo(side, tilt ? { rotationX: -70, y: () => G.carW * .03, transformPerspective: () => G.carW * 1.6, transformOrigin: '50% 100%', autoAlpha: 0 }
+                         : { rotationY: 34, x: () => G.carW * .05, transformPerspective: () => G.carW * 1.8, transformOrigin: '50% 100%', autoAlpha: 0 },
+                    { rotationX: 0, rotationY: 0, x: 0, y: 0, autoAlpha: 1, duration: 1, ease: 'power2.inOut', immediateRender: false }, turnAt)
+      .fromTo(blur(`ma${i}`), { attr: { stdDeviation: '0 0' } }, { attr: { stdDeviation: tilt ? '0 10' : '14 0' }, duration: .5, ease: 'power2.in', immediateRender: false }, turnAt)
+      .fromTo(blur(`ms${i}`), { attr: { stdDeviation: tilt ? '0 10' : '14 0' } }, { attr: { stdDeviation: '0 0' }, duration: .55, ease: 'power2.out', immediateRender: false }, turnAt + .45)
+      // headlight and light sweep once it settles
+      .fromTo(side.querySelector('.flare'), { opacity: 0, scaleX: .15 }, { opacity: .75, scaleX: 1, duration: .6, ease: 'power3.out', immediateRender: false }, turnAt + .9)
+      .fromTo(side.querySelector('.sweep'), { backgroundPosition: '100% 0' }, { backgroundPosition: '0% 0', duration: 1.2, ease: 'power2.inOut', immediateRender: false }, turnAt + .95);
+    show(story, i, turnAt + .6);
+    story.addLabel('s' + i);
+  }
+
+  // ---------- film grain at 24 fps ----------
+  const grain = t => {
+    const f = Math.floor(t * 24);
+    const r = n => { const x = Math.sin(f * 12.9898 + n * 78.233) * 43758.5453; return x - Math.floor(x); };
+    hero.style.setProperty('--gx', Math.round(r(1) * 220) + 'px');
+    hero.style.setProperty('--gy', Math.round(r(2) * 220) + 'px');
+  };
+
+  const params = new URLSearchParams(location.search);
+  if (params.has('render')) {
+    // demo cut for video capture: the opening, then each car in turn
+    const plan = []; let clock = intro.duration() + .6, from = 0;
+    ['s0', 's1', 's2', 's3', 's4'].forEach(l => { const to = story.labels[l]; plan.push({ start: clock, from, to }); clock += (to - from) + 1.2; from = to; });
+    window.__duration = clock + .3;
+    window.__seek = t => {
+      if (t <= intro.duration()) intro.seek(t, false);
+      else {
+        intro.seek(intro.duration(), false);
+        let s = 0;
+        for (const p of plan) if (t >= p.start) s = Math.min(p.to, p.from + (t - p.start));
+        story.seek(s, false);
+      }
+      grain(t);
+    };
+    return;
+  }
+
+  // ---------- live: one gesture = one car; a gesture mid-cut is queued, trackpad momentum is not ----------
+  let idx = -1, busy = false, queued = 0, introDone = false, lastWheel = 0;
+  const go = dir => {
+    if (!introDone) { intro.timeScale(6); return; }
+    if (busy) { queued = dir; return; }
+    const next = idx + dir;
+    if (next < 0 || next > 4) return;
+    busy = true; idx = next;
+    const label = 's' + idx;
+    story.tweenTo(label, {
+      duration: Math.min(2.4, Math.abs(story.labels[label] - story.time())), ease: 'none',
+      onComplete: () => { busy = false; if (queued) { const d = queued; queued = 0; go(d); } }
+    });
+  };
+  intro.eventCallback('onComplete', () => { introDone = true; });
+  addEventListener('wheel', e => {
+    const now = performance.now(), fresh = now - lastWheel > 220;
+    lastWheel = now;
+    if (fresh && Math.abs(e.deltaY) > 4) go(e.deltaY > 0 ? 1 : -1);
+  }, { passive: true });
+  let ty = null;
+  addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
+  addEventListener('touchend', e => { if (ty === null) return; const d = ty - e.changedTouches[0].clientY; if (Math.abs(d) > 40) go(d > 0 ? 1 : -1); ty = null; }, { passive: true });
+  addEventListener('keydown', e => {
+    if (['ArrowDown', 'PageDown', ' '].includes(e.key)) go(1);
+    if (['ArrowUp', 'PageUp'].includes(e.key)) go(-1);
+  });
+  let rt;
+  addEventListener('resize', () => {   // e.g. a phone rotated: recompute the camera, keep the current shot
+    clearTimeout(rt);
+    rt = setTimeout(() => {
+      layout();
+      const a = intro.time(), b = story.time();
+      intro.invalidate().seek(0, true).seek(a, true);
+      if (introDone) story.invalidate().seek(0, true).seek(b, true);
+    }, 150);
+  });
+  gsap.ticker.add(() => grain(intro.time() + story.time()));
+
+  const start = () => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { intro.progress(1); introDone = true; return; }
+    intro.play();
+  };
+  Promise.all([document.fonts.ready, ...qa('img').map(i => i.decode().catch(() => {}))]).then(start);
+})();
+</script>
+</body>
+</html>

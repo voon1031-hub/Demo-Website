@@ -2,7 +2,7 @@
 
 A promotional website for five Kaido House × MINI GT 1:64 diecast models, open for pre-order in August and September 2026. Plain HTML, CSS and JavaScript: no framework, no build step.
 
-Status: style D (Premiere) picked. `mockups/d-street.html` prototypes the homepage opening (a Tokyo street, the camera pushes in to the first car) and the car-by-car scroll; the full site gets built on it.
+Status: style D (Premiere) picked. `mockups/d-street-v2.html` is the current homepage prototype: a Kaido House × MINI GT title card, the shot opening out of black onto a Tokyo street with the first car parked there, a slow push-in to it, then one car per scroll, each turning from a top or three-quarter view into profile. The full site gets built on it.
 
 This folder lives inside the Demo-Website repo and is self-contained: every path in it is relative, so it doesn't touch the Fornello site at the repo root.
 
