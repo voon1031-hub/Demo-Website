@@ -128,13 +128,19 @@ window.KAIDO = {
 <meta name="description" content="Kaido House × Mini GT, 2026: five street builds at 1:64 scale, with opening hoods, detailed engines and two-piece wheels.">
 <title>Kaido House × Mini GT – The street, at 1:64</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231C1F24'/%3E%3Cpath d='M32 10l6.2 13.6 14.8 1.7-11 10 3.1 14.7L32 42.5 18.9 50l3.1-14.7-11-10 14.8-1.7z' fill='%23C8102E'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Big+Shoulders+Display:wght@700;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&text=%E8%A1%97%E9%81%93&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add('js');</script>
 
 <style>
+  /* fonts are self-hosted (latin subset) so they load where Google Fonts is blocked */
+  @font-face { font-family: 'Barlow'; font-style: italic; font-weight: 400; font-display: swap; src: url(assets/fonts/barlow-400-italic.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/barlow-400.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/barlow-500.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/barlow-600.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Big Shoulders Display'; font-style: normal; font-weight: 700 900; font-display: swap; src: url(assets/fonts/big-shoulders-display.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Noto Sans JP'; font-style: normal; font-weight: 900; font-display: swap; src: url(assets/fonts/noto-sans-jp-900.woff2) format('woff2'); unicode-range: U+8857, U+9053; }
+
   :root {
     --asphalt: #1C1F24;       /* wet road at night */
     --asphalt-2: #262A31;
@@ -166,6 +172,7 @@ window.KAIDO = {
   a { color: inherit; }
   button { font: inherit; color: inherit; }
   :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  .nb { white-space: nowrap; }
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* ── Header ─────────────────────────────────────────────── */
@@ -275,7 +282,7 @@ window.KAIDO = {
   }
   .intro .kanji {
     font: 900 clamp(5rem, 15vw, 12rem)/.9 "Noto Sans JP", var(--display);
-    writing-mode: vertical-rl;
+    width: 1em; word-break: break-all;  /* one character per line */
     color: var(--red);
     margin: 0;
   }
@@ -406,7 +413,7 @@ window.KAIDO = {
     .hero { min-height: 92svh; }
     .hero .stage img, .hero .stage video { object-position: 66% 50%; }
     .intro { grid-template-columns: 1fr; }
-    .intro .kanji { writing-mode: horizontal-tb; font-size: 5rem; }
+    .intro .kanji { width: auto; font-size: 5rem; }
     .scene { min-height: 0; display: block; }
     .scene .stage { position: relative; inset: auto; aspect-ratio: 16/10; }
     .scene::after { display: none; }
@@ -506,6 +513,7 @@ window.KAIDO = {
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const preorderHref = car => car.preorderUrl || cfg.preorderUrl || '';
   const isExternal = href => /^https?:/i.test(href);
+  const nobreak = s => esc(s).replace(/(\S*-\S*)/g, '<span class="nb">$1</span>');
   const shotsCache = new Map();
 
   /* ── Stages: scene poster + video, with studio-photo fallback ── */
@@ -546,7 +554,7 @@ window.KAIDO = {
       '<div class="scene-inner">' +
         '<div>' +
           '<p class="code">' + esc(car.code) + '</p>' +
-          '<h2 id="' + car.code + '-title">' + esc(car.make) + '<span class="livery">' + esc(car.livery) + '</span></h2>' +
+          '<h2 id="' + car.code + '-title">' + nobreak(car.make) + '<span class="livery">' + esc(car.livery) + '</span></h2>' +
           '<p class="where">' + esc(car.scene) + '</p>' +
           '<ul class="features">' + car.features.map(f => '<li>' + esc(f) + '</li>').join('') + '</ul>' +
           '<p class="batch">' + esc(car.batch) + ' <span>preorder batch</span></p>' +
