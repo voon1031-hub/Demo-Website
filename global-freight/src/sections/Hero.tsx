@@ -76,6 +76,8 @@ export function Hero() {
       <div data-hero-scene className="absolute inset-0 will-change-transform">
         <MediaFrame slot="heroPort" className="!absolute inset-0" />
         <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_45%,transparent_30%,rgb(7_20_42/0.85)_100%)]" />
+        {/* Keeps the headline and lede readable over bright quay lights */}
+        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(55%_38%_at_50%_55%,rgb(7_20_42/0.72),transparent)]" />
       </div>
 
       <div aria-hidden="true" className="absolute inset-0 [perspective:1600px] motion-reduce:hidden">
