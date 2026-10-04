@@ -121,7 +121,7 @@ export function Air() {
 
         <div className="relative mx-auto flex h-full max-w-7xl items-end px-4 pb-14 pt-24 sm:px-8 sm:pb-20 motion-reduce:h-auto">
           <div data-air-copy className="text-legible max-w-xl">
-            <h2 id="air-title" className="type-display text-3xl">
+            <h2 id="air-title" className="type-display text-3xl text-signal-text">
               {c.heading}
             </h2>
             <p className="mt-4 max-w-[42ch] text-fog md:mt-6 md:text-lg">{c.intro}</p>

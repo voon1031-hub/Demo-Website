@@ -91,7 +91,7 @@ export function Hero() {
 
       <div className="text-legible relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-8">
         <img data-hero-mark src={asset(brand.logo.mark)} alt="" width={64} height={64} className="mb-6 h-14 w-14 sm:h-16 sm:w-16" />
-        <h1 id="hero-title" className="type-display text-display">
+        <h1 id="hero-title" className="type-display text-display text-signal-text">
           <span className="sr-only">{brand.name}: </span>
           <span className="block overflow-hidden pb-[0.06em]">
             <span data-hero-line className="block">

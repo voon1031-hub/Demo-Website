@@ -99,7 +99,7 @@ export function Ocean() {
           {/* Panel 1: heading, facts, the vessel from above */}
           <div className="flex w-screen shrink-0 flex-col gap-6 px-4 pb-[22svh] pt-24 sm:px-8 md:w-[94vw] md:flex-row md:items-center md:gap-12 md:pb-[18svh] md:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] motion-reduce:w-full motion-reduce:pb-16">
             <div className="md:w-[38%] md:shrink-0">
-              <h2 id="ocean-title" className="type-display text-3xl">
+              <h2 id="ocean-title" className="type-display text-3xl text-signal-text">
                 {c.heading}
               </h2>
               <p className="mt-4 max-w-[42ch] text-fog md:mt-6 md:text-lg">{c.intro}</p>
@@ -127,7 +127,7 @@ export function Ocean() {
               </div>
             </div>
             <div data-ocean-copy className="md:max-w-[36ch] md:self-end md:pb-[6svh]">
-              <h3 className="type-heading text-2xl">{c.panels[0].heading}</h3>
+              <h3 className="type-heading text-2xl text-signal-text">{c.panels[0].heading}</h3>
               <p className="mt-4 text-fog md:text-lg">{c.panels[0].body}</p>
             </div>
           </div>
@@ -135,7 +135,7 @@ export function Ocean() {
           {/* Panel 3: stacks + quay, overlapping */}
           <div className="flex w-screen shrink-0 flex-col gap-6 px-4 pb-[22svh] pt-24 sm:px-8 md:w-[86vw] md:flex-row md:items-center md:gap-14 md:pb-[18svh] motion-reduce:w-full motion-reduce:pb-16">
             <div data-ocean-copy className="order-2 md:order-1 md:max-w-[34ch] md:self-start md:pt-[8svh]">
-              <h3 className="type-heading text-2xl">{c.panels[1].heading}</h3>
+              <h3 className="type-heading text-2xl text-signal-text">{c.panels[1].heading}</h3>
               <p className="mt-4 text-fog md:text-lg">{c.panels[1].body}</p>
             </div>
             <div className="relative order-1 min-h-0 flex-1 md:order-2 md:h-[80%] motion-reduce:min-h-[60svh]">
@@ -153,7 +153,7 @@ export function Ocean() {
           {/* Panel 4: hand-off to land */}
           <div className="flex w-screen shrink-0 flex-col justify-center px-4 pb-[22svh] pt-24 sm:px-8 md:w-[62vw] md:pb-[18svh] md:pr-[10vw] motion-reduce:w-full motion-reduce:pb-24">
             <div data-ocean-copy>
-              <h3 className="type-display text-2xl md:max-w-[14ch] md:text-[clamp(2.25rem,4.4vw,4rem)]">{c.handoff.heading}</h3>
+              <h3 className="type-display text-2xl text-signal-text md:max-w-[14ch] md:text-[clamp(2.25rem,4.4vw,4rem)]">{c.handoff.heading}</h3>
               <p className="mt-5 max-w-[40ch] text-fog md:text-lg">{c.handoff.body}</p>
             </div>
           </div>

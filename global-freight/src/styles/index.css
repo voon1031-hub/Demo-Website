@@ -16,6 +16,9 @@
   --color-fog: #e9eef3;
   --color-signal: #ff5f1f;
   --color-signal-hover: #ff7a42;
+  /* Headings: lighter than the button orange so buttons stay distinct;
+     8.2:1 on navy-deep, 6.6:1 on steel. */
+  --color-signal-text: #ff8f5a;
 
   --font-sans: 'Archivo Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
 

@@ -24,7 +24,7 @@ export function PendingSection({
       <div className="relative mx-auto flex min-h-[40vh] max-w-6xl flex-col items-start justify-end gap-3 overflow-hidden rounded-2xl border border-dashed border-chart/30 p-8 sm:min-h-[60vh] sm:p-12">
         {slot && <MediaFrame slot={slot} className="!absolute inset-0 opacity-80" />}
         <div className="relative">
-          <h2 id={`${id}-title`} className="type-heading text-2xl text-fog">
+          <h2 id={`${id}-title`} className="type-heading text-2xl text-signal-text">
             {label}
           </h2>
           <p className="mt-2 text-fog">
