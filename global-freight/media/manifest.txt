@@ -5,3 +5,9 @@
 file design/logo-options/a-route-arc.svg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043233_29e90c01-c416-4cd6-8213-c6b45aae133b.svg
 file design/logo-options/b-container-doors.svg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043234_17367d89-9637-4e82-939d-dd61390a9104.svg
 file design/logo-options/c-stack-channel.svg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043233_8a9d7bfb-3685-4fd1-81f2-538ea1af9a12.svg
+
+# Video style frames: same shot in four looks (GPT Image 2.5)
+image design/style-frames/1-blue-hour.jpg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043300_759bf3f2-de80-4eae-b93c-c27939fd5589.png
+image design/style-frames/2-overcast-documentary.jpg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043247_3ea61b46-3e96-4cae-87f7-34fc8f933435.png
+image design/style-frames/3-night-light-trails.jpg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043247_c5bd38e7-a003-455c-9869-8cc09bfdddf0.png
+image design/style-frames/4-stylized-3d.jpg https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_043247_78800764-7baa-486c-98e7-56a6512f5d56.png
