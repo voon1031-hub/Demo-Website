@@ -10,7 +10,10 @@ photos of the preproduction samples.
 - `index.html` – the whole site. All links, car details and media paths live in
   the config block at the top of the file.
 - `assets/products/` – studio photos, cropped from the official preorder sheets.
-- `assets/scenes/` – generated scene stills (`<code>.jpg`, `<code>-angle.jpg`)
+- `assets/audio/theme.mp3` – optional background track. Add the file, set `music`
+  in the config block, and a sound button appears in the header (browsers never
+  autoplay sound).
+- `assets/scenes/` – the opening cover (`cover.jpg`, `cover.mp4`), generated scene stills (`<code>.jpg`, `<code>-angle.jpg`)
   and background clips (`<code>.mp4`). Missing files fall back to the studio photo.
 
 Open `index.html` in a browser, or serve the folder with any static server.

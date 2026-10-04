@@ -13,6 +13,12 @@
   social      : your account links. Empty "" ones fall back to the
                 #kaidohouse hashtag / search page on that platform.
 
+  music       : looping background track (MP3). Browsers never autoplay
+                sound, so visitors turn it on with the sound button.
+                Leave "" or omit the file to hide the button.
+  hero        : the opening cover (video + poster). If its files are
+                missing, the first car's scene is used instead.
+
   Per car, in assets/scenes/:
     video  : background clip (5 s, MP4/H.264, 16:9, ideally under 3 MB)
     poster : still from the same shot, shown until the video plays
@@ -22,6 +28,12 @@
 -->
 <script>
 window.KAIDO = {
+  hero: {                                   // opening cover, separate from the car scenes
+    video: "assets/scenes/cover.mp4",
+    poster: "assets/scenes/cover.jpg",
+    alt: "Kaido House × Mini GT 1:64 cars in a miniature night scene"
+  },
+  music: "",                              // e.g. "assets/audio/theme.mp3"; the sound button appears once this is set
   preorderUrl: "https://minigt.tsm-models.com/index.php?action=product-list&b_id=73",
   social: {
     instagram: "",
@@ -197,6 +209,11 @@ window.KAIDO = {
   .masthead nav a:hover { color: var(--yellow); }
   .masthead nav .btn { padding: .5rem 1rem; }
   @media (max-width: 560px) { .masthead nav .hide-sm { display: none; } }
+  .sound[hidden] { display: none; }
+  .sound .wave { display: none; }
+  .sound[aria-pressed="true"] .wave { display: inline; }
+  .sound[aria-pressed="true"] .mute { display: none; }
+  .sound[aria-pressed="true"] { border-color: var(--yellow); color: var(--yellow); }
 
   /* the livery stripe doubles as the scroll progress bar */
   .progress {
@@ -222,30 +239,33 @@ window.KAIDO = {
   /* ── Hero ───────────────────────────────────────────────── */
   .hero {
     position: relative; min-height: 100svh;
-    display: grid; align-items: end;
+    display: grid; align-items: start;   /* the cover's cars sit in the lower half */
     overflow: hidden; isolation: isolate;
   }
   .hero .stage { position: absolute; inset: 0; z-index: -1; }
   .hero::after {
     content: ""; position: absolute; inset: 0; z-index: -1;
     background:
-      linear-gradient(to top, rgba(28,31,36,.92) 0%, rgba(28,31,36,.35) 45%, rgba(28,31,36,0) 70%),
-      linear-gradient(to right, rgba(28,31,36,.55), rgba(28,31,36,0) 60%);
+      linear-gradient(to bottom, rgba(28,31,36,.8) 0%, rgba(28,31,36,.25) 30%, rgba(28,31,36,0) 42%),
+      linear-gradient(to top, rgba(28,31,36,.92) 0%, rgba(28,31,36,.5) 22%, rgba(28,31,36,0) 40%);
   }
+  /* headline above the car row, intro and buttons on the asphalt below it */
   .hero-copy {
-    padding: calc(var(--header-h) + 3rem) var(--gutter) clamp(3rem, 9vh, 6rem);
-    max-width: 62rem;
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+    padding: calc(var(--header-h) + clamp(1rem, 4vh, 3rem)) var(--gutter) clamp(2rem, 7vh, 4.5rem);
   }
   .collab { margin: 0 0 1rem; font-weight: 600; font-size: 1.05rem; color: var(--headlight); }
   .collab b { color: var(--yellow); font-weight: 600; }
   .hero h1 {
     margin: 0;
-    font: 900 clamp(4rem, 13vw, 11.5rem)/.82 var(--display);
+    font: 900 clamp(3.6rem, min(7.4vw, 13vh), 8rem)/.86 var(--display);
     letter-spacing: -.01em;
     text-transform: uppercase;
   }
   .hero h1 .scale { display: inline-block; color: transparent; -webkit-text-stroke: 2px var(--headlight); }
-  .hero .lede { max-width: 34rem; margin: 1.5rem 0 2rem; font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: #D9DCE0; }
+  .hero .lede { max-width: 34rem; margin: 0 0 1.5rem; font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: #D9DCE0; }
+  .m-br { display: none; }
   .ctas { display: flex; flex-wrap: wrap; gap: .75rem; }
 
   /* cinema letterbox that opens once on load */
@@ -257,8 +277,7 @@ window.KAIDO = {
   .js .hero-copy > * { opacity: 0; transform: translateY(18px); animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
   .js .hero-copy > :nth-child(1) { animation-delay: 1.5s; }
   .js .hero-copy > :nth-child(2) { animation-delay: 1.62s; }
-  .js .hero-copy > :nth-child(3) { animation-delay: 1.78s; }
-  .js .hero-copy > :nth-child(4) { animation-delay: 1.9s; }
+
   @keyframes rise { to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) {
     .js .letterbox { animation: none; display: none; }
@@ -410,8 +429,10 @@ window.KAIDO = {
 
   /* ── Small screens: scene media becomes a 16:9 film frame ── */
   @media (max-width: 760px) {
-    .hero { min-height: 92svh; }
-    .hero .stage img, .hero .stage video { object-position: 66% 50%; }
+    .hero, .hero-copy { min-height: 92svh; }
+    .hero h1 { font-size: clamp(3.4rem, 17vw, 5rem); }
+    .m-br { display: inline; }
+    .hero .stage img, .hero .stage video { object-position: 50% 50%; }
     .intro { grid-template-columns: 1fr; }
     .intro .kanji { width: auto; font-size: 5rem; }
     .scene { min-height: 0; display: block; }
@@ -430,6 +451,9 @@ window.KAIDO = {
   <nav aria-label="Main">
     <a class="hide-sm" href="#lineup">Lineup</a>
     <a class="hide-sm" href="#follow">Follow</a>
+    <button class="icon-btn sound" id="sound" type="button" aria-pressed="false" aria-label="Play music" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="wave" d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/><path class="mute" d="M16 9l6 6M22 9l-6 6"/></svg>
+    </button>
     <a class="btn primary" href="#preorder">Preorder</a>
   </nav>
   <div class="progress" id="progress" aria-hidden="true"></div>
@@ -437,16 +461,20 @@ window.KAIDO = {
 
 <main>
   <section class="hero" id="top" aria-labelledby="hero-title">
-    <div class="stage" data-car="0" data-hero></div>
+    <div class="stage" data-hero></div>
     <div class="letterbox top" aria-hidden="true"></div>
     <div class="letterbox bottom" aria-hidden="true"></div>
     <div class="hero-copy">
-      <p class="collab">Kaido House <b>×</b> Mini GT, 2026</p>
-      <h1 id="hero-title">The street,<br>at <span class="scale">1:64</span></h1>
+      <div>
+        <p class="collab">Kaido House <b>×</b> Mini GT, 2026</p>
+        <h1 id="hero-title">The street,<br class="m-br"> at <span class="scale">1:64</span></h1>
+      </div>
+      <div>
       <p class="lede">Five full-size street builds, shrunk to fit in your palm. Die-cast, with opening hoods and engines detailed down to the bay.</p>
       <div class="ctas">
         <a class="btn primary" href="#preorder">Preorder</a>
         <a class="btn" href="#KHMG315">Watch the lineup</a>
+      </div>
       </div>
     </div>
   </section>
@@ -581,9 +609,27 @@ window.KAIDO = {
     });
   });
 
-  document.querySelectorAll('.stage[data-car]').forEach(stage => {
-    fillStage(stage, cars[+stage.dataset.car], stage.hasAttribute('data-hero'));
-  });
+  document.querySelectorAll('.stage[data-car]').forEach(stage => fillStage(stage, cars[+stage.dataset.car], false));
+
+  /* hero cover: its own media, falling back to the first car's scene */
+  const heroStage = document.querySelector('.stage[data-hero]');
+  const hero = cfg.hero || {};
+  if (hero.poster) {
+    const img = new Image();
+    img.alt = hero.alt || ''; img.decoding = 'async';
+    img.onerror = () => { heroStage.innerHTML = ''; fillStage(heroStage, cars[0], true); };
+    img.src = hero.poster;
+    heroStage.appendChild(img);
+    if (hero.video && !reduceMotion) {
+      const v = document.createElement('video');
+      v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+      v.dataset.src = hero.video;
+      v.addEventListener('playing', () => v.classList.add('playing'));
+      v.addEventListener('error', () => v.remove());
+      heroStage.appendChild(v);
+    }
+  } else fillStage(heroStage, cars[0], true);
 
   /* play videos only while they are on screen */
   const vio = new IntersectionObserver(entries => {
@@ -686,6 +732,25 @@ window.KAIDO = {
   document.getElementById('social').innerHTML = Object.keys(names).map(k =>
     '<li><a class="btn" href="' + esc(cfg.social[k] || fallbacks[k]) + '" target="_blank" rel="noopener">' + icons[k] + names[k] + '</a></li>'
   ).join('');
+
+  /* ── Background music: only offered once the file is known to load ── */
+  if (cfg.music) {
+    const btn = document.getElementById('sound');
+    const audio = new Audio();
+    audio.loop = true; audio.preload = 'metadata'; audio.volume = 0.6;
+    audio.addEventListener('loadedmetadata', () => { btn.hidden = false; }, { once: true });
+    audio.src = cfg.music;
+    btn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Pause music');
+        }).catch(() => {});
+      } else {
+        audio.pause();
+        btn.setAttribute('aria-pressed', 'false'); btn.setAttribute('aria-label', 'Play music');
+      }
+    });
+  }
 
   /* ── Scene index + progress stripe + header ── */
   const index = document.getElementById('scene-index');
