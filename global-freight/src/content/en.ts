@@ -77,8 +77,68 @@ export const en: Content = {
     email: 'Email',
     whatsapp: 'WhatsApp',
   },
-  pending: {
-    title: 'Built in the next round',
-    note: 'This section follows once the Hero and Ocean style are approved.',
+  about: {
+    heading: 'Freight at the scale of trade',
+    intro:
+      '{name} moves cargo for manufacturers, retailers and distributors, with our own teams at the main hubs and trusted partners everywhere else.',
+    stats: [
+      { key: 'countries', label: 'Countries served' },
+      { key: 'annualTonnes', label: 'Tonnes moved a year' },
+      { key: 'onTimeRate', label: 'Delivered on the promised day' },
+    ],
   },
+  network: {
+    heading: 'One network, every lane',
+    intro: 'Our own offices at {hubs} hubs, connected so a shipment changes mode without changing hands.',
+    regions: [
+      { name: 'Asia Pacific', hubs: ['Shanghai', 'Hong Kong', 'Singapore', 'Tokyo', 'Sydney'] },
+      { name: 'Middle East', hubs: ['Dubai', 'Jeddah'] },
+      { name: 'Europe', hubs: ['Rotterdam', 'Frankfurt', 'Duisburg', 'Warsaw'] },
+      { name: 'Americas', hubs: ['New York', 'Chicago', 'Los Angeles', 'Santos'] },
+    ],
+    hubsLabel: 'hubs',
+    mapLabel: 'World map with the company’s hubs and the lanes between them',
+  },
+  process: {
+    heading: 'How a shipment moves',
+    intro: 'Five steps, one booking, and one place to see where your cargo is.',
+    steps: [
+      { title: 'Book', body: 'Get a price and book in minutes. One booking covers every leg.' },
+      { title: 'Pickup', body: 'We collect from your door or warehouse at the time you choose.' },
+      { title: 'Transit', body: 'Air, ocean or land, tracked in one view with an alert when anything changes.' },
+      { title: 'Customs', body: 'Papers are filed before arrival, so cargo clears without waiting at the border.' },
+      { title: 'Delivery', body: 'Delivered to the door, with proof of delivery in your account.' },
+    ],
+  },
+  why: {
+    heading: 'Why shippers stay with us',
+    items: [
+      { title: 'On time, measured', body: 'Shipments delivered on the day we promised, across every mode last year.', figure: '{onTimeRate}%' },
+      { title: 'One contact for every leg', body: 'Your account manager handles air, ocean and land, and answers on WhatsApp.' },
+      { title: 'Space in peak season', body: 'Allocations with the major carriers keep your cargo moving when space runs out.' },
+      { title: 'Quotes that match the invoice', body: 'Every leg and fee is in the price up front.' },
+    ],
+  },
+  form: {
+    heading: 'Get a quote',
+    intro: 'Tell us what you are shipping. We reply within one business day, usually sooner.',
+    responseTime: 'Mon–Sat, 9:00–18:00 (GMT+8)',
+    fields: {
+      name: 'Your name',
+      company: 'Company',
+      email: 'Email',
+      from: 'From (city or port)',
+      to: 'To (city or port)',
+      mode: 'Mode',
+      modes: ['Not sure yet', 'Air', 'Ocean', 'Land'],
+      details: 'What are you shipping?',
+      detailsHint: 'Goods, weight or volume, and when it needs to arrive',
+    },
+    sendWhatsApp: 'Send on WhatsApp',
+    sendEmail: 'Send by email',
+    sendNote: 'Opens WhatsApp or your email app with your details filled in, ready to send.',
+    errors: { required: 'Fill in this field.', email: 'Enter an email address like name@company.com.' },
+    messageIntro: 'Quote request',
+  },
+  footer: { rights: 'All rights reserved.', backToTop: 'Back to top' },
 };

@@ -25,13 +25,16 @@ export function Air() {
   const descent = useRef<HTMLVideoElement>(null);
   const descentAt = useScrubVideo(descent, media.airDescent.video!, root);
 
-  // Build the globe while the page is idle, well before the visitor scrolls
-  // here, so loading three.js and compiling shaders never lands mid-scroll.
+  // Build the globe as soon as the visitor starts interacting (it's still two
+  // screens ahead), in an idle moment. That keeps three.js setup, the texture
+  // upload and shader compiles out of both the page load and the transition.
   useEffect(() => {
     if (prefersReducedMotion()) return;
     let disposed = false;
-    const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 600));
-    const handle = window.setTimeout(() => {
+    const events = ['wheel', 'touchstart', 'pointerdown', 'keydown', 'scroll'] as const;
+    const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 50));
+    const build = () => {
+      events.forEach((e) => window.removeEventListener(e, build));
       idle(() => {
         import('../lib/globe').then(({ createGlobe }) => {
           if (disposed || !canvas.current) return;
@@ -39,10 +42,11 @@ export function Air() {
           globe.current.setProgress(zoom.current.p);
         });
       });
-    }, 800);
+    };
+    events.forEach((e) => window.addEventListener(e, build, { passive: true, once: true }));
     return () => {
       disposed = true;
-      window.clearTimeout(handle);
+      events.forEach((e) => window.removeEventListener(e, build));
       globe.current?.dispose();
       globe.current = null;
     };

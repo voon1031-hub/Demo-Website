@@ -48,5 +48,47 @@ export type Content = {
     ports: string[];
   };
   contact: { heading: string; email: string; whatsapp: string };
-  pending: { title: string; note: string };
+  about: {
+    heading: string;
+    intro: string;
+    stats: { key: 'countries' | 'annualTonnes' | 'onTimeRate'; label: string }[];
+  };
+  network: {
+    heading: string;
+    intro: string;
+    regions: { name: string; hubs: string[] }[];
+    hubsLabel: string;
+    mapLabel: string;
+  };
+  process: {
+    heading: string;
+    intro: string;
+    steps: { title: string; body: string }[];
+  };
+  why: {
+    heading: string;
+    items: { title: string; body: string; figure?: string }[];
+  };
+  form: {
+    heading: string;
+    intro: string;
+    responseTime: string;
+    fields: {
+      name: string;
+      company: string;
+      email: string;
+      from: string;
+      to: string;
+      mode: string;
+      modes: string[];
+      details: string;
+      detailsHint: string;
+    };
+    sendWhatsApp: string;
+    sendEmail: string;
+    sendNote: string;
+    errors: { required: string; email: string };
+    messageIntro: string;
+  };
+  footer: { rights: string; backToTop: string };
 };

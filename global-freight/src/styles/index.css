@@ -105,6 +105,17 @@ html body {
     font-variant-numeric: tabular-nums;
   }
 
+  .why-card {
+    transition:
+      transform 300ms var(--ease-cargo),
+      border-color 300ms var(--ease-cargo),
+      background-color 300ms var(--ease-cargo);
+  }
+  .why-card:hover {
+    transform: translateY(-3px);
+    border-color: rgb(255 143 90 / 0.5);
+  }
+
   .btn {
     display: inline-flex;
     align-items: center;

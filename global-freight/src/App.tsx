@@ -1,77 +1,66 @@
-import { useEffect, useState } from 'react';
-import { useContent } from './content';
-import { brand } from './config/brand';
-import { ScrollTrigger } from './lib/gsap';
+import { useEffect, useRef, useState } from 'react';
 import { startLenis, stopLenis } from './lib/lenis';
 import { Nav } from './components/Nav';
-import { PendingSection } from './components/PendingSection';
+import { Footer } from './components/Footer';
 import { Hero } from './sections/Hero';
 import { Ocean } from './sections/Ocean';
 import { Air } from './sections/Air';
 import { Land } from './sections/Land';
+import { About } from './sections/About';
+import { Network } from './sections/Network';
+import { Process } from './sections/Process';
+import { WhyUs } from './sections/WhyUs';
+import { Contact } from './sections/Contact';
+
+/** Page order below the hero: the scroll scenes, then the lighter closing sections. */
+const SCENES = [About, Air, Ocean, Land];
+const CLOSING = [Network, Process, WhyUs, Contact];
 
 export default function App() {
-  const t = useContent();
-  const label = (id: string) => t.nav.links.find((l) => l.id === id)?.label ?? id;
-
-  // Hero first; the sections below (four pinned scroll scenes) are set up
-  // once the browser is idle, so the first paint isn't blocked by measuring them.
-  const [rest, setRest] = useState(false);
-  useEffect(() => {
-    const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 120));
-    idle(() => setRest(true));
-  }, []);
+  // Hero first. The scroll scenes then mount one per idle moment, so each
+  // one's setup is its own short task instead of one long block. The closing
+  // sections mount when the visitor gets within a screen and a half of them,
+  // keeping their setup out of the first seconds after load.
+  const [mountedScenes, setMountedScenes] = useState(0);
+  const scenes = mountedScenes >= SCENES.length;
+  const [closing, setClosing] = useState(false);
+  const sentinel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!rest) return;
+    if (scenes) return;
+    const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 80));
+    const id = idle(() => setMountedScenes((n) => n + 1));
+    return () => (window.cancelIdleCallback ?? window.clearTimeout)(id);
+  }, [mountedScenes, scenes]);
+
+  useEffect(() => {
+    if (!scenes || !sentinel.current) return;
+    const io = new IntersectionObserver(([e]) => e.isIntersecting && setClosing(true), { rootMargin: '150% 0px' });
+    io.observe(sentinel.current);
+    return () => io.disconnect();
+  }, [scenes]);
+
+  useEffect(() => {
+    if (!scenes) return;
     startLenis();
-    // Web fonts change text metrics; re-measure once, only if they weren't ready yet.
-    if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(() => ScrollTrigger.refresh());
+    // No re-measure when web fonts land: the early scenes are fixed screen
+    // height, so font metrics can't move their triggers, and the text-heavy
+    // closing sections mount later, after the font has loaded.
     return () => stopLenis();
-  }, [rest]);
+  }, [scenes]);
 
   return (
     <>
-      <Nav ready={rest} />
+      <Nav ready={closing} />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
-        {rest && (
-          <>
-          <PendingSection id="about" label={label('about')} slot="aboutCrane" />
-          <Air />
-          <Ocean />
-          <Land />
-          <PendingSection id="network" label={label('network')} />
-          <PendingSection id="process" label={label('process')} />
-          <PendingSection id="why" label={label('why')} />
-          <PendingSection id="contact" label={t.contact.heading}>
-            <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div>
-                <dt className="text-sm text-chart-light">{t.contact.email}</dt>
-                <dd>
-                  <a className="type-heading text-lg underline decoration-signal underline-offset-4 hover:text-signal" href={`mailto:${brand.contact.email}`}>
-                    {brand.contact.email}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-sm text-chart-light">{t.contact.whatsapp}</dt>
-                <dd>
-                  <a
-                    className="type-heading text-lg underline decoration-signal underline-offset-4 hover:text-signal"
-                    href={`https://wa.me/${brand.contact.whatsapp.intl}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {brand.contact.whatsapp.display}
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </PendingSection>
-          </>
-        )}
+        {SCENES.slice(0, mountedScenes).map((Section, i) => (
+          <Section key={i} />
+        ))}
+        {scenes && !closing && <div ref={sentinel} aria-hidden="true" className="h-svh" />}
+        {closing && CLOSING.map((Section, i) => <Section key={i} />)}
       </main>
+      {closing && <Footer />}
     </>
   );
 }

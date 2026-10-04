@@ -32,6 +32,7 @@ export const brand = {
     annualTonnes: 4_200_000,
     onTimeRate: 98.6,
     oceanPorts: 40,
+    hubs: 48,
   },
   /** Default UI language. Add a matching file in src/content/ to add another. */
   locale: 'en' as const,

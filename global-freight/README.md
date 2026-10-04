@@ -3,8 +3,9 @@
 Single-page, scroll-driven brand site for a global air, ocean and land freight company.
 Vite + React + TypeScript + Tailwind CSS v4, GSAP ScrollTrigger and Lenis.
 
-**Status:** round 1. Built so far: Nav, Hero, Ocean, logo, contact details.
-The other sections are placeholders; About, Air and Land already play their footage.
+**Status:** all sections built: Hero (container doors), About, Air (globe →
+descent → plane), Ocean, Land (drone sweep), Network, How it works, Why us,
+Contact (quote form) and footer.
 
 ## Run locally
 
@@ -26,7 +27,8 @@ npm run preview    # serve the production build at http://localhost:4173
 | Every video/image slot (files, alt text, recommended size, shot brief) | `src/config/media.ts` |
 | All other copy (English) | `src/content/en.ts` |
 | Colours, fonts, type scale, shared photo grade | `src/styles/index.css` |
-| Hero map routes and hub cities | `src/sections/heroRoutes.ts` |
+| Network hubs and lanes | `src/sections/Network.tsx` (`HUBS`, `LANES`) |
+| Air globe routes and hubs | `src/lib/globe.ts` |
 
 ### Replace the logo
 
@@ -60,11 +62,26 @@ seamless loops with posters (`scripts/fetch-media.sh`), and commits the result.
 2. Register it in `src/content/index.ts` (`const locales = { en, zh }`).
 3. Set `locale` in `src/config/brand.ts`, or wire a language switcher to `useContent(locale)`.
 
-### Change the hero map
+### The quote form
 
-`src/assets/world-land.ts` is generated. To regenerate it (e.g. at a different
-resolution), run `npm run build:world`. Routes and hubs are defined by longitude and
-latitude in `src/sections/heroRoutes.ts`.
+There is no backend. The two send buttons are real links: one opens WhatsApp, the
+other the visitor's email app, with the request already written out, addressed to
+the WhatsApp number and email in `src/config/brand.ts`. To send submissions to a
+server or a form service instead, replace the links in `src/sections/Contact.tsx`.
+
+### Maps
+
+`src/assets/world-land.ts` (land outline used by the Network map and the globe) is
+generated: `npm run build:world`. The globe loads a pre-rendered texture,
+`public/media/globe-land.webp`; after changing the outline or map colours, run
+`node scripts/render-globe-texture.cjs` (needs Playwright).
+
+### Air hand-off frame
+
+The globe zooms to a fixed frame and swaps to `media/air-descent.mp4`, whose first
+frame is `design/handoff/air-handoff.png`. If you change the globe's camera path or
+`HANDOFF` in `src/lib/globe.ts`, re-render that frame and regenerate the clip with it
+as the start image, or the swap will show.
 
 ## Motion and accessibility
 

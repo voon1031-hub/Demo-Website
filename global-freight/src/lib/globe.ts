@@ -140,8 +140,12 @@ export function createGlobe(canvas: HTMLCanvasElement, textureUrl?: string): Glo
   const earth = new Group();
   scene.add(earth);
 
-  // `schedule` is a function declaration below, so it is safe to reference here.
-  const texture = landTexture(textureUrl, () => schedule());
+  // Once the image arrives, upload it to the GPU straight away, so the first
+  // visible frame doesn't stall on it. (`schedule` is hoisted below.)
+  const texture = landTexture(textureUrl, () => {
+    renderer.initTexture(texture);
+    schedule();
+  });
   earth.add(new Mesh(new SphereGeometry(1, 128, 96), new MeshBasicMaterial({ map: texture })));
   scene.add(atmosphere());
 
