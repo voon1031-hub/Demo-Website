@@ -4,779 +4,710 @@
 <meta charset="utf-8">
 <!--
   ══════════════════════════════════════════════════════════════════
-  ★ MEDIA & SHOP DETAILS — this is the only part you need to edit ★
+  ★ LINKS, MEDIA & CARS — this is the only part you need to edit ★
 
-  video  : background clip (5–8 s, MP4/H.264, portrait 1080×1920 or smaller;
-           aim for under 3 MB per file so it loads fast on mobile data).
-           It always plays muted, so the audio track doesn't matter.
-  poster : cover image (JPG/WebP), shown until the video starts playing,
-           or when a phone blocks autoplay (e.g. iPhone Low Power Mode).
+  preorderUrl : where every "Preorder" button goes (shop, form, WhatsApp
+                link…). Leave "" and the buttons scroll to the preorder
+                list, which then says links are coming soon.
+                Each car can also have its own preorderUrl, which wins.
+  social      : your account links. Empty "" ones fall back to the
+                #kaidohouse hashtag / search page on that platform.
 
-  If a path is empty "" or the file is missing, a dark placeholder with the
-  scene name is shown instead, so the screen is never black.
-  Just drop your files into videos/ and images/ using the names below.
-  No code changes needed.
+  Per car, in assets/scenes/:
+    video  : background clip (5 s, MP4/H.264, 16:9, ideally under 3 MB)
+    poster : still from the same shot, shown until the video plays
+    angle  : extra scene shot from a different angle
+  If a scene file is missing, the studio product photo is shown instead.
   ══════════════════════════════════════════════════════════════════
 -->
 <script>
-window.FORNELLO = {
-  media: {
-    fire:        { video: "videos/01-fire.mp4",        poster: "images/01-fire.jpg" },
-    dough:       { video: "videos/02-dough.mp4",       poster: "images/02-dough.jpg" },
-    ingredients: { video: "videos/03-ingredients.mp4", poster: "images/03-ingredients.jpg" },
-    oven:        { video: "videos/04-oven.mp4",        poster: "images/04-oven.jpg" },
-    signature:   { video: "videos/05-signature.mp4",   poster: "images/05-signature.jpg" },
-    ambience:    { video: "videos/06-ambience.mp4",    poster: "images/06-ambience.jpg" },
-    visit:       { video: "videos/07-visit.mp4",       poster: "images/07-visit.jpg" }
+window.KAIDO = {
+  preorderUrl: "",
+  social: {
+    instagram: "",
+    tiktok: "",
+    youtube: ""
   },
-  contact: {
-    whatsapp: "60123456789",                       // digits only, with country code (no "+", no leading 0)
-    whatsappMessage: "Hi Fornello! I'd like to book a table. Date / time / number of guests:",
-    address: "12 Jalan Contoh, Kuala Lumpur",      // shown on the page and used for Google Maps directions
-    mapsUrl: "",                                   // optional: paste a Google Maps share link to use instead
-    hours: [
-      ["Tue – Sun", "11:30am – 10pm"],
-      ["Mon", "Closed"]
-    ]
-  },
-  signatureInterval: 3200                          // screen 5: time each signature pizza is shown (ms)
+  cars: [
+    {
+      code: "KHMG315",
+      make: "Nissan Skyline GT-R (R34)",
+      livery: "Tamiya × Kaido House “The Hornet” V2",
+      short: "The Hornet",
+      batch: "September 2026",
+      scene: "Back street, after the rain",
+      features: [
+        "Opening hood with a detailed RB26DETT engine",
+        "Color carbon finish",
+        "Tamiya × Kaido House graphics concept",
+        "Two-piece wheels with aluminum barrels"
+      ],
+      video: "assets/scenes/khmg315.mp4",
+      poster: "assets/scenes/khmg315.jpg",
+      angle: "assets/scenes/khmg315-angle.jpg",
+      studio: ["assets/products/khmg315-front.jpg", "assets/products/khmg315-side.jpg", "assets/products/khmg315-rear.jpg"],
+      preorderUrl: ""
+    },
+    {
+      code: "KHMG313",
+      make: "Nissan Skyline GT-R (R33)",
+      livery: "Stock Car V1",
+      short: "R33 Stock Car",
+      batch: "September 2026",
+      scene: "Mountain pass in cherry blossom season",
+      features: [
+        "Opening hood with a detailed engine",
+        "Kaido Works livery with sakura graphics",
+        "Two-piece wheels with aluminum barrels"
+      ],
+      video: "assets/scenes/khmg313.mp4",
+      poster: "assets/scenes/khmg313.jpg",
+      angle: "assets/scenes/khmg313-angle.jpg",
+      studio: ["assets/products/khmg313-front.jpg", "assets/products/khmg313-side.jpg", "assets/products/khmg313-top.jpg"],
+      preorderUrl: ""
+    },
+    {
+      code: "KHMG309",
+      make: "Kaido Star-Tastic",
+      livery: "V1",
+      short: "Star-Tastic",
+      batch: "August 2026",
+      scene: "Highway parking area, 2 a.m.",
+      features: [
+        "100% original Kaido House design",
+        "Opening hood with a detailed engine",
+        "Takeyari exhaust pipes and a deep chin spoiler"
+      ],
+      video: "assets/scenes/khmg309.mp4",
+      poster: "assets/scenes/khmg309.jpg",
+      angle: "assets/scenes/khmg309-angle.jpg",
+      studio: ["assets/products/khmg309-front.jpg", "assets/products/khmg309-side.jpg", "assets/products/khmg309-top.jpg", "assets/products/khmg309-rear.jpg"],
+      preorderUrl: ""
+    },
+    {
+      code: "KHMG317",
+      make: "Nissan Fairlady Z",
+      livery: "Kaido GT Gulf V1",
+      short: "Fairlady Z Gulf",
+      batch: "September 2026",
+      scene: "Pit lane, late afternoon",
+      features: [
+        "Licensed Gulf racing livery",
+        "Opening hood with a detailed engine",
+        "Two-piece wheels with aluminum barrels"
+      ],
+      video: "assets/scenes/khmg317.mp4",
+      poster: "assets/scenes/khmg317.jpg",
+      angle: "assets/scenes/khmg317-angle.jpg",
+      studio: ["assets/products/khmg317-front.jpg", "assets/products/khmg317-side.jpg", "assets/products/khmg317-rear.jpg"],
+      preorderUrl: ""
+    },
+    {
+      code: "KHMG319",
+      make: "Chevrolet Camaro",
+      livery: "Kaido Racing Team V1",
+      short: "Camaro",
+      batch: "September 2026",
+      scene: "Desert highway at sundown",
+      features: [
+        "Opening hatch with a detailed engine",
+        "Two-piece wheels with aluminum barrels"
+      ],
+      video: "assets/scenes/khmg319.mp4",
+      poster: "assets/scenes/khmg319.jpg",
+      angle: "assets/scenes/khmg319-angle.jpg",
+      studio: ["assets/products/khmg319-front.jpg", "assets/products/khmg319-side.jpg", "assets/products/khmg319-rear.jpg"],
+      preorderUrl: ""
+    }
+  ]
 };
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4EBD9">
-<meta name="description" content="Fornello: wood-fired pizza, made to order. 72-hour slow-rise dough and ingredients delivered fresh every morning.">
-<title>Fornello – Wood-fired pizza</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231E1A18'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' text-anchor='middle' fill='%23C23B22'%3EF%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1C1F24">
+<meta name="description" content="Kaido House × Mini GT, 2026: five street builds at 1:64 scale, with opening hoods, detailed engines and two-piece wheels.">
+<title>Kaido House × Mini GT – The street, at 1:64</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231C1F24'/%3E%3Cpath d='M32 10l6.2 13.6 14.8 1.7-11 10 3.1 14.7L32 42.5 18.9 50l3.1-14.7-11-10 14.8-1.7z' fill='%23C8102E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Big+Shoulders+Display:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&text=%E8%A1%97%E9%81%93&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
 
 <style>
   :root {
-    --tomato: #C23B22;        /* Pomodoro */
-    --tomato-deep: #A3301B;
-    --cream: #F4EBD9;         /* Mozzarella */
-    --ash: #7A6F66;           /* Cenere, darkened to stay readable on cream */
-    --ink-dim: rgba(30, 26, 24, .76);
-    --paper: 244,235,217;     /* cream as r,g,b for the gradient wash */
-    --charcoal: #1E1A18;      /* Carbone */
-    --charcoal-2: #2A2421;
-
-    --serif: Baskerville, "Baskerville Old Face", "Libre Baskerville", "Hoefler Text",
-             Georgia, "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
-    --gutter: 24px;
-    --dots-space: 52px;
-    --safe-b: env(safe-area-inset-bottom, 0px);
-    --safe-t: env(safe-area-inset-top, 0px);
-    --ease: cubic-bezier(.2, .7, .2, 1);
+    --asphalt: #1C1F24;       /* wet road at night */
+    --asphalt-2: #262A31;
+    --kerb: #8A9099;          /* secondary text on asphalt */
+    --headlight: #F3F4F1;
+    --studio: #E6E8EB;        /* product photo background */
+    --studio-ink: #22252B;
+    --red: #C8102E;           /* Kaido red */
+    --orange: #F26B1D;        /* livery stripe */
+    --yellow: #F5B400;        /* livery stripe */
+    --stripe: linear-gradient(var(--red) 0 33.4%, var(--orange) 33.4% 66.7%, var(--yellow) 66.7%);
+    --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+    --gutter: clamp(16px, 4vw, 56px);
+    --header-h: 64px;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; background: var(--cream); }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
-    color: var(--charcoal);
-    font-family: var(--sans);
+    margin: 0;
+    background: var(--asphalt);
+    color: var(--headlight);
+    font: 400 1.0625rem/1.55 var(--body);
     -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    overflow: hidden;
   }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  /* ───────── Full-screen snap container ───────── */
-  .scroller {
-    position: fixed;
-    inset: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+  /* ── Header ─────────────────────────────────────────────── */
+  .masthead {
+    position: fixed; inset: 0 0 auto; z-index: 30;
+    height: var(--header-h);
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0 var(--gutter);
+    background: linear-gradient(rgba(28,31,36,.85), rgba(28,31,36,0));
+    transition: background-color .3s;
   }
-  .scroller::-webkit-scrollbar { display: none; }
-  .scroller:focus { outline: none; }
-
-  .screen {
-    position: relative;
-    height: 100%;
-    min-height: 100%;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    isolation: isolate;
-  }
-
-  /* ───────── Background: placeholder / poster / video / shade ───────── */
-  .bg { position: absolute; inset: 0; z-index: -1; }
-
-  .ph {
-    position: absolute; inset: 0;
-    background: linear-gradient(#EFE4CF, #E3D3B8);
-    background-size: cover;
-    background-position: center;
-  }
-
-  .ph-label {
-    position: absolute;
-    left: 0; right: 0; top: 30%;
-    text-align: center;
-    padding: 0 var(--dots-space);
-    color: rgba(30, 26, 24, .4);
-    pointer-events: none;
-  }
-  .ph-label small {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 12px; letter-spacing: .04em;
-    border: 1px solid rgba(30, 26, 24, .2);
-    border-radius: 999px;
-    padding: 6px 12px 6px 10px;
-    margin-bottom: 14px;
-  }
-  .ph-label small::before {
-    content: ""; width: 0; height: 0;
-    border-left: 7px solid currentColor;
-    border-top: 4.5px solid transparent;
-    border-bottom: 4.5px solid transparent;
-  }
-  .ph-label span { display: block; font-family: var(--serif); font-style: italic; font-size: clamp(18px, 4.6vw, 26px); }
-  .ph.has-poster .ph-label { display: none; }
-  @media (max-height: 640px) { .ph-label { top: 10%; } }   /* keep clear of the text on short screens */
-
-  .bg video {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity .8s ease;
-  }
-  .bg video.ready { opacity: 1; }
-
-  .shade {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(to bottom, rgba(var(--paper),.55) 0%, rgba(var(--paper),0) 14%),
-      linear-gradient(to top, rgba(var(--paper),.96) 0%, rgba(var(--paper),.82) 28%, rgba(var(--paper),.3) 52%, rgba(var(--paper),0) 68%);
-  }
-  .screen--visit .shade {
-    background:
-      linear-gradient(to bottom, rgba(var(--paper),.55) 0%, rgba(var(--paper),0) 14%),
-      linear-gradient(to top, rgba(var(--paper),.97) 0%, rgba(var(--paper),.88) 45%, rgba(var(--paper),.35) 75%, rgba(var(--paper),.1) 100%);
-  }
-
-
-  /* ───────── Text content ───────── */
-  .content {
-    position: relative;
-    width: 100%;
-    max-width: 720px;
-    padding: 0 var(--dots-space) calc(56px + var(--safe-b)) var(--gutter);
-  }
-
-  .eyebrow {                 /* the shop's own voice, in Italian */
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(16px, 4.2vw, 20px);
-    color: var(--ash);
-    margin-bottom: 10px;
-  }
-
-  h1, h2 {
-    font-family: var(--serif);
-    font-weight: 600;
-    line-height: 1.04;
-    letter-spacing: -.01em;
-    text-shadow: 0 1px 20px rgba(var(--paper),.7);
-    text-wrap: balance;
-  }
-  h2 { font-size: clamp(40px, 11.5vw, 84px); }
-  .lede {
-    margin-top: 14px;
-    font-family: var(--serif);
-    font-size: clamp(17px, 4.5vw, 22px);
-    line-height: 1.6;
-    color: var(--ink-dim);
-    max-width: 30em;
-    text-wrap: pretty;
-  }
-
-  /* Big numbers: the one bold device on the page */
-  .bignum {
-    display: block;
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(112px, 34vw, 260px);
-    line-height: .8;
-    letter-spacing: -.035em;
-    color: var(--tomato);
-    font-variant-numeric: lining-nums tabular-nums;
-    text-shadow: 0 2px 30px rgba(var(--paper),.6);
-  }
-  .bignum .unit { font-size: .32em; letter-spacing: 0; margin-left: .04em; vertical-align: .95em; }
-  .numcap {
-    display: block;
-    margin-top: 14px;
-    font-size: clamp(30px, 8.2vw, 58px);
-  }
-
-  /* Opening */
-  .brand {
-    font-size: clamp(64px, 21vw, 168px);
-    font-style: italic;
-    font-weight: 500;
-    line-height: .95;
-    letter-spacing: -.02em;
-  }
-  .tagline {
-    margin-top: 18px;
-    font-family: var(--serif);
-    font-size: clamp(22px, 6.2vw, 34px);
+  .masthead.solid { background: rgba(28,31,36,.94); backdrop-filter: blur(8px); }
+  .wordmark {
+    font: 900 1.5rem/1 var(--display);
     letter-spacing: .01em;
-    color: var(--charcoal);
-  }
-  .swipe-hint {
-    position: absolute;
-    left: 0; right: 0;
-    bottom: calc(16px + var(--safe-b));
-    display: flex; flex-direction: column; align-items: center; gap: 4px;
-    font-size: 13px; letter-spacing: .04em;
-    color: var(--ink-dim);
-    pointer-events: none;
-  }
-  .swipe-hint svg { animation: nudge 1.8s var(--ease) infinite; }
-  .swipe-hint .desk { display: none; }
-  @media (hover: hover) and (pointer: fine) {
-    .swipe-hint .touch { display: none; }
-    .swipe-hint .desk { display: inline; }
-  }
-  @keyframes nudge {
-    0%, 100% { transform: translateY(0); opacity: .5; }
-    50% { transform: translateY(-6px); opacity: 1; }
-  }
-  .screen--fire .content { padding-bottom: calc(96px + var(--safe-b)); }
-
-  /* Price, set like a printed menu */
-  .menu-price {
-    margin-left: .12em;
-    font-weight: 400;
-    font-size: .62em;
-    color: var(--ink-dim);
-    white-space: nowrap;
-    font-variant-numeric: lining-nums;
-  }
-  .menu-price small { font-size: .5em; letter-spacing: .04em; margin-right: .15em; vertical-align: .55em; }
-
-  /* Signature pizza carousel */
-  /* Height follows the pizza on show, so a long name never leaves a gap */
-  .rotator { position: relative; transition: height .5s var(--ease); }
-  .pizza {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    opacity: 0;
-    transition: opacity .6s ease;
-    pointer-events: none;
-  }
-  .pizza.on { opacity: 1; pointer-events: auto; }
-  .pizza h2 { font-size: clamp(36px, 9.6vw, 76px); }
-  .pizza .it {
-    display: block;
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(16px, 4.3vw, 20px);
-    color: var(--ink-dim);
-    margin-top: 10px;
-  }
-  .ticks { display: flex; gap: 8px; margin-top: 26px; }
-  .ticks button {
-    flex: 0 0 auto;
-    width: 44px; height: 24px;
-    background: none; border: 0; cursor: pointer;
-    position: relative;
-  }
-  .ticks button::before, .ticks button::after {
-    content: ""; position: absolute; left: 0; top: 50%;
-    height: 3px; margin-top: -1.5px; border-radius: 2px;
-  }
-  .ticks button::before { right: 0; background: rgba(30,26,24,.18); }
-  .ticks button::after { width: 0; background: var(--charcoal); }
-  .ticks button.done::after { width: 100%; }
-  .ticks button.on::after { animation: fill var(--rot, 3200ms) linear forwards; }
-  .ticks.paused button.on::after { animation: none; width: 100%; }
-  @keyframes fill { from { width: 0; } to { width: 100%; } }
-
-  /* Screen 6: a line in the shop's own voice (swap for a real customer review later) */
-  .statement {
-    font-family: var(--serif);
-    font-size: clamp(28px, 7.6vw, 52px);
-    line-height: 1.22;
-    font-weight: 500;
-    font-style: italic;
-    text-wrap: pretty;
-    position: relative;
-  }
-
-  /* Visit */
-  .info {
-    margin-top: 22px;
-    display: grid; gap: 14px;
-    font-size: 15px; line-height: 1.5;
-  }
-  .info-row { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
-  .info-row svg { margin-top: 2px; color: var(--tomato); }
-  .hours { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; }
-  .hours dt { color: var(--ink-dim); }
-  .hours dd { font-variant-numeric: tabular-nums; }
-  address { font-style: normal; }
-
-  .actions { display: grid; gap: 12px; margin-top: 26px; }
-  .btn {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    min-height: 58px;
-    padding: 8px 20px;
-    border-radius: 16px;
-    font-size: 17px; font-weight: 600; letter-spacing: .01em;
-    line-height: 1.2;
-    text-align: center;
     text-decoration: none;
-    transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease;
-    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
   }
-  .btn svg { flex: 0 0 auto; }
-  .btn:active { transform: scale(.97); }
-  .btn--primary { background: var(--tomato); color: var(--cream); box-shadow: 0 10px 30px rgba(194,59,34,.35); }
-  .btn--primary:hover { background: var(--tomato-deep); }
-  .btn--ghost { background: transparent; color: var(--charcoal); box-shadow: inset 0 0 0 1.5px var(--charcoal); }
-  .btn--ghost:hover { background: rgba(30,26,24,.06); }
-  .btn:focus-visible, .dots button:focus-visible, .ticks button:focus-visible {
-    outline: 2px solid var(--charcoal); outline-offset: 3px;
-  }
-  .screen--visit .content { padding-bottom: calc(32px + var(--safe-b)); }
-  .screen--visit h2 { font-size: clamp(38px, 10.5vw, 76px); }
+  .wordmark .star { color: var(--red); margin: 0 .06em; }
+  .masthead nav { display: flex; gap: clamp(.75rem, 2.5vw, 2rem); align-items: center; }
+  .masthead nav a { text-decoration: none; font-weight: 500; font-size: .95rem; }
+  .masthead nav a:hover { color: var(--yellow); }
+  .masthead nav .btn { padding: .5rem 1rem; }
+  @media (max-width: 560px) { .masthead nav .hide-sm { display: none; } }
 
-  /* ───────── Dot navigation ───────── */
-  .dots {
-    position: fixed;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    display: flex; flex-direction: column; align-items: center;
-  }
-  .dots button {
-    width: 30px; height: 26px;
-    display: grid; place-items: center;
-    background: none; border: 0; cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .dots button span {
-    width: 7px; height: 7px;
-    border-radius: 999px;
-    background: rgba(30,26,24,.32);
-    box-shadow: 0 0 0 1px rgba(var(--paper),.6);
-    transition: height .35s var(--ease), background-color .3s ease;
-  }
-  .dots button:hover span { background: rgba(30,26,24,.7); }
-  .dots button[aria-current="true"] span { height: 22px; background: var(--tomato); }
-
-  .counter {
-    position: fixed;
-    top: calc(18px + var(--safe-t));
-    right: 18px;
-    z-index: 10;
-    font-size: 11px; letter-spacing: .2em;
-    color: var(--ink-dim);
-    font-variant-numeric: tabular-nums;
-    text-shadow: 0 0 8px rgba(var(--paper),.95), 0 0 2px rgba(var(--paper),.9);
-    pointer-events: none;
-  }
-  .counter b { color: var(--charcoal); font-weight: 600; }
-
-  /* ───────── Fade-in ───────── */
-  .js .reveal { opacity: 0; transition: opacity 1s ease .15s; }
-  .js .screen.in .reveal { opacity: 1; }
-
-  /* ───────── Phones: buttons use the full width (dots sit higher up) ───────── */
-  @media (max-width: 599px) {
-    .actions { margin-right: calc(var(--gutter) - var(--dots-space)); }
+  /* the livery stripe doubles as the scroll progress bar */
+  .progress {
+    position: absolute; left: 0; bottom: 0; height: 6px; width: 100%;
+    background: var(--stripe);
+    transform-origin: left; transform: scaleX(var(--p, 0));
   }
 
-  /* ───────── iPad / desktop ───────── */
-  @media (min-width: 600px) {
-    :root { --gutter: 56px; --dots-space: 80px; }
-    .actions { max-width: 440px; }
-    .dots { right: 22px; }
-    .counter { right: 30px; top: calc(26px + var(--safe-t)); }
+  /* ── Buttons ────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    min-height: 44px; padding: .7rem 1.4rem;
+    border: 2px solid var(--headlight); border-radius: 999px;
+    font-weight: 600; font-size: 1rem; text-decoration: none;
+    background: transparent; cursor: pointer;
+    transition: background-color .2s, color .2s, border-color .2s;
   }
-  @media (min-width: 1024px) {
-    :root { --gutter: 8vw; }
-    .content { padding-bottom: calc(11vh + var(--safe-b)); }
-    .screen--visit .content { max-width: 860px; padding-bottom: 9vh; }
-    .actions { grid-template-columns: 1fr 1fr; max-width: 600px; }
-    .shade {
-      background:
-        linear-gradient(to bottom, rgba(var(--paper),.45) 0%, rgba(var(--paper),0) 14%),
-        linear-gradient(to top, rgba(var(--paper),.85) 0%, rgba(var(--paper),.3) 40%, rgba(var(--paper),0) 65%),
-        linear-gradient(to right, rgba(var(--paper),.8) 0%, rgba(var(--paper),.3) 45%, rgba(var(--paper),0) 70%);
-    }
-    .info { font-size: 16px; }
-  }
-  /* Short landscape screens (phone on its side / small laptops): tighten sizes */
-  @media (max-height: 560px) and (orientation: landscape) {
-    h2 { font-size: clamp(32px, 7vh + 2vw, 56px); }
-    .brand { font-size: clamp(54px, 16vh, 110px); }
-    .content { padding-bottom: calc(28px + var(--safe-b)); }
-    .screen--fire .content { padding-bottom: 64px; }
-    .info { margin-top: 12px; gap: 8px; }
-    .actions { margin-top: 14px; grid-template-columns: 1fr 1fr; max-width: none; }
-    .btn { min-height: 48px; font-size: 16px; }
-    .screen--visit h2 { font-size: clamp(30px, 6vh + 2vw, 48px); }
-  }
+  .btn:hover { background: var(--headlight); color: var(--asphalt); }
+  .btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+  .btn.primary:hover { background: #A80D26; border-color: #A80D26; color: #fff; }
+  .btn[aria-disabled="true"] { opacity: .55; pointer-events: none; }
 
+  /* ── Hero ───────────────────────────────────────────────── */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: grid; align-items: end;
+    overflow: hidden; isolation: isolate;
+  }
+  .hero .stage { position: absolute; inset: 0; z-index: -1; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(to top, rgba(28,31,36,.92) 0%, rgba(28,31,36,.35) 45%, rgba(28,31,36,0) 70%),
+      linear-gradient(to right, rgba(28,31,36,.55), rgba(28,31,36,0) 60%);
+  }
+  .hero-copy {
+    padding: calc(var(--header-h) + 3rem) var(--gutter) clamp(3rem, 9vh, 6rem);
+    max-width: 62rem;
+  }
+  .collab { margin: 0 0 1rem; font-weight: 600; font-size: 1.05rem; color: var(--headlight); }
+  .collab b { color: var(--yellow); font-weight: 600; }
+  .hero h1 {
+    margin: 0;
+    font: 900 clamp(4rem, 13vw, 11.5rem)/.82 var(--display);
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+  }
+  .hero h1 .scale { display: inline-block; color: transparent; -webkit-text-stroke: 2px var(--headlight); }
+  .hero .lede { max-width: 34rem; margin: 1.5rem 0 2rem; font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: #D9DCE0; }
+  .ctas { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+  /* cinema letterbox that opens once on load */
+  .letterbox { position: absolute; left: 0; right: 0; height: 50.5%; background: #000; z-index: 2; pointer-events: none; }
+  .letterbox.top { top: 0; transform-origin: top; }
+  .letterbox.bottom { bottom: 0; transform-origin: bottom; }
+  .js .letterbox { animation: lb-open 1.6s cubic-bezier(.7,0,.2,1) .35s forwards; }
+  @keyframes lb-open { to { transform: scaleY(0); } }
+  .js .hero-copy > * { opacity: 0; transform: translateY(18px); animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .js .hero-copy > :nth-child(1) { animation-delay: 1.5s; }
+  .js .hero-copy > :nth-child(2) { animation-delay: 1.62s; }
+  .js .hero-copy > :nth-child(3) { animation-delay: 1.78s; }
+  .js .hero-copy > :nth-child(4) { animation-delay: 1.9s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) {
-    .scroller { scroll-behavior: auto; }
-    .ph::after, .swipe-hint svg { animation: none; }
-    .js .reveal, .pizza { transition: opacity .3s linear; }
+    .js .letterbox { animation: none; display: none; }
+    .js .hero-copy > * { animation: none; opacity: 1; transform: none; }
+  }
+
+  /* ── Stage (scene image / video / studio fallback) ─────── */
+  .stage { background: var(--asphalt-2); overflow: hidden; }
+  .stage img, .stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .stage video { opacity: 0; transition: opacity .8s; }
+  .stage video.playing { opacity: 1; }
+  .stage.studio { background: radial-gradient(120% 90% at 50% 40%, #F7F8F9, var(--studio) 60%, #C9CDD3); }
+  .stage.studio img { object-fit: contain; padding: 12% 8% 16%; mix-blend-mode: multiply; }
+
+  /* ── Intro ──────────────────────────────────────────────── */
+  .intro {
+    display: grid; grid-template-columns: auto 1fr; gap: clamp(1.5rem, 5vw, 5rem);
+    align-items: center;
+    padding: clamp(5rem, 14vh, 9rem) var(--gutter);
+    max-width: 78rem; margin: 0 auto;
+  }
+  .intro .kanji {
+    font: 900 clamp(5rem, 15vw, 12rem)/.9 "Noto Sans JP", var(--display);
+    writing-mode: vertical-rl;
+    color: var(--red);
+    margin: 0;
+  }
+  .intro p { margin: 0; font-size: clamp(1.35rem, 2.6vw, 2.1rem); line-height: 1.3; max-width: 34ch; font-weight: 500; }
+  .intro p + p { margin-top: 1.25rem; font-size: 1.0625rem; line-height: 1.55; color: var(--kerb); font-weight: 400; max-width: 52ch; }
+  .rule { height: 6px; background: linear-gradient(90deg, var(--red) 0 33.4%, var(--orange) 33.4% 66.7%, var(--yellow) 66.7%); border: 0; margin: 0; }
+
+  /* ── Scenes ─────────────────────────────────────────────── */
+  .scene { position: relative; min-height: 100svh; display: grid; align-items: end; isolation: isolate; scroll-margin-top: 0; }
+  .scene .stage { position: absolute; inset: 0; z-index: -1; }
+  .scene::after {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      linear-gradient(to top, rgba(28,31,36,.94) 0%, rgba(28,31,36,.45) 38%, rgba(28,31,36,0) 62%),
+      linear-gradient(to right, rgba(28,31,36,.6), rgba(28,31,36,0) 55%);
+  }
+  .scene-inner {
+    display: grid; grid-template-columns: minmax(0, 36rem) 1fr; gap: 2rem; align-items: end;
+    padding: calc(var(--header-h) + 2rem) var(--gutter) clamp(2.5rem, 7vh, 4.5rem);
+  }
+  .code { margin: 0 0 .5rem; font: 700 1.1rem/1 var(--display); letter-spacing: .04em; color: var(--yellow); }
+  .scene h2 { margin: 0; font: 900 clamp(2.8rem, 6.5vw, 5.6rem)/.86 var(--display); text-transform: uppercase; }
+  .scene .livery { display: block; margin-top: .6rem; font: 500 clamp(1.1rem, 1.8vw, 1.35rem)/1.25 var(--body); text-transform: none; color: #D9DCE0; }
+  .where { margin: 1rem 0 0; color: var(--kerb); font-style: italic; }
+  .features { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; display: grid; gap: .45rem; }
+  .features li { position: relative; padding-left: 1.6rem; }
+  .features li::before {
+    content: ""; position: absolute; left: 0; top: .5em; width: 1rem; height: 6px;
+    background: linear-gradient(90deg, var(--red) 0 33.4%, var(--orange) 33.4% 66.7%, var(--yellow) 66.7%);
+  }
+  .batch { margin: 0 0 1.25rem; font-weight: 600; }
+  .batch span { color: var(--kerb); font-weight: 400; }
+
+  .angles { display: flex; gap: .6rem; justify-content: flex-end; flex-wrap: wrap; }
+  .thumb {
+    position: relative; width: clamp(88px, 9vw, 132px); aspect-ratio: 4/3;
+    padding: 0; border: 2px solid rgba(243,244,241,.35); border-radius: 6px; overflow: hidden;
+    background: var(--studio); cursor: zoom-in;
+    transition: border-color .2s, transform .2s;
+  }
+  .thumb:hover { border-color: var(--yellow); transform: translateY(-3px); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .thumb.studio-shot img { object-fit: contain; padding: 6%; mix-blend-mode: multiply; }
+  .thumb[hidden] { display: none; }
+
+  /* scene index on the right edge (desktop) */
+  .scene-index {
+    position: fixed; right: var(--gutter); top: 50%; transform: translateY(-50%); z-index: 20;
+    list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; justify-items: end;
+    opacity: 0; pointer-events: none; transition: opacity .4s;
+  }
+  .scene-index.show { opacity: 1; pointer-events: auto; }
+  .scene-index a {
+    display: flex; align-items: center; gap: .6rem; text-decoration: none;
+    font: 700 .95rem/1 var(--display); letter-spacing: .04em; color: rgba(243,244,241,.6);
+    padding: .3rem 0;
+  }
+  .scene-index a::after { content: ""; width: 14px; height: 3px; background: currentColor; transition: width .3s, background .3s; }
+  .scene-index a[aria-current="true"] { color: var(--headlight); }
+  .scene-index a[aria-current="true"]::after { width: 36px; background: linear-gradient(90deg, var(--red) 0 33.4%, var(--orange) 33.4% 66.7%, var(--yellow) 66.7%); }
+  @media (max-width: 900px) { .scene-index { display: none; } }
+
+  /* ── Lineup (studio) ────────────────────────────────────── */
+  .lineup { background: var(--studio); color: var(--studio-ink); padding: clamp(4rem, 10vh, 7rem) var(--gutter); }
+  .lineup-head { max-width: 78rem; margin: 0 auto 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 2rem; }
+  .lineup h2, .preorder h2 { margin: 0; font: 900 clamp(2.6rem, 6vw, 4.8rem)/.9 var(--display); text-transform: uppercase; }
+  .lineup-head p { margin: 0; max-width: 32rem; color: #4B5059; }
+  .cars { list-style: none; margin: 0 auto; padding: 0; max-width: 78rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: .5rem 2rem; }
+  .cars a { display: block; text-decoration: none; padding: .5rem 0 1rem; border-bottom: 2px solid #CDD1D7; }
+  .cars a:hover .car-name { color: var(--red); }
+  .cars img { width: 100%; aspect-ratio: 16/5.6; object-fit: contain; mix-blend-mode: multiply; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+  .cars a:hover img { transform: translateX(10px); }
+  .car-name { display: block; margin-top: .5rem; font: 900 1.6rem/1 var(--display); text-transform: uppercase; transition: color .2s; }
+  .car-meta { display: block; margin-top: .3rem; color: #4B5059; font-size: .95rem; }
+
+  /* ── Preorder ───────────────────────────────────────────── */
+  .preorder { padding: clamp(4rem, 10vh, 7rem) var(--gutter); max-width: 78rem; margin: 0 auto; }
+  .preorder > p { max-width: 40rem; color: #D9DCE0; margin: 1rem 0 2.5rem; }
+  .batches { display: grid; gap: 2.5rem; }
+  .batch-group h3 { margin: 0 0 .25rem; font: 900 1.9rem/1 var(--display); text-transform: uppercase; color: var(--yellow); }
+  .batch-group ul { list-style: none; margin: 0; padding: 0; }
+  .batch-group li {
+    display: grid; grid-template-columns: 7rem 1fr auto; gap: 1rem; align-items: center;
+    padding: 1rem 0; border-bottom: 1px solid rgba(243,244,241,.14);
+  }
+  .batch-group .code { margin: 0; }
+  .batch-group .name { font-weight: 600; }
+  .batch-group .name span { display: block; font-weight: 400; color: var(--kerb); font-size: .95rem; }
+  .soon { color: var(--kerb); font-size: .95rem; }
+  @media (max-width: 640px) {
+    .batch-group li { grid-template-columns: 1fr auto; }
+    .batch-group .code { grid-column: 1 / -1; }
+  }
+
+  .follow { margin-top: clamp(4rem, 10vh, 6rem); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+  .follow h3 { margin: 0; font: 900 1.9rem/1 var(--display); text-transform: uppercase; }
+  .follow ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .75rem; }
+  .follow svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* ── Footer ─────────────────────────────────────────────── */
+  footer { padding: 2.5rem var(--gutter) 3rem; color: var(--kerb); font-size: .9rem; border-top: 1px solid rgba(243,244,241,.1); }
+  footer .wordmark { color: var(--headlight); font-size: 1.3rem; }
+  footer p { max-width: 60rem; margin: .75rem 0 0; }
+
+  /* ── Viewer (angle lightbox) ────────────────────────────── */
+  dialog.viewer {
+    width: min(1200px, 100vw - 32px); max-height: calc(100svh - 32px);
+    padding: 0; border: 0; border-radius: 10px; overflow: hidden;
+    background: #111316; color: var(--headlight);
+  }
+  dialog.viewer::backdrop { background: rgba(8,9,11,.86); }
+  .viewer figure { margin: 0; display: grid; grid-template-rows: 1fr auto; max-height: calc(100svh - 32px); }
+  .viewer .frame { position: relative; min-height: 0; background: var(--asphalt-2); display: grid; place-items: center; }
+  .viewer .frame.studio-shot { background: var(--studio); }
+  .viewer .frame img { max-height: calc(100svh - 140px); width: 100%; object-fit: contain; }
+  .viewer .frame.studio-shot img { mix-blend-mode: multiply; padding: 4%; }
+  .viewer figcaption { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; }
+  .viewer .controls { display: flex; gap: .5rem; }
+  .icon-btn {
+    width: 44px; height: 44px; display: grid; place-items: center;
+    border: 2px solid rgba(243,244,241,.4); border-radius: 50%; background: transparent; cursor: pointer;
+  }
+  .icon-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+  .icon-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ── Small screens: scene media becomes a 16:9 film frame ── */
+  @media (max-width: 760px) {
+    .hero { min-height: 92svh; }
+    .hero .stage img, .hero .stage video { object-position: 50% 50%; }
+    .intro { grid-template-columns: 1fr; }
+    .intro .kanji { writing-mode: horizontal-tb; font-size: 5rem; }
+    .scene { min-height: 0; display: block; }
+    .scene .stage { position: relative; inset: auto; aspect-ratio: 16/10; }
+    .scene::after { display: none; }
+    .scene-inner { grid-template-columns: 1fr; padding: 1.5rem var(--gutter) 3.5rem; }
+    .angles { justify-content: flex-start; }
+    .thumb { width: calc((100% - 1.8rem) / 4); }
   }
 </style>
 </head>
 <body>
 
-<main class="scroller" id="scroller" tabindex="-1">
+<header class="masthead" id="masthead">
+  <a class="wordmark" href="#top" aria-label="Kaido House home">KAIDO<span class="star" aria-hidden="true">★</span>HOUSE</a>
+  <nav aria-label="Main">
+    <a class="hide-sm" href="#lineup">Lineup</a>
+    <a class="hide-sm" href="#follow">Follow</a>
+    <a class="btn primary" href="#preorder">Preorder</a>
+  </nav>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
 
-  <!-- 1 · Opening -->
-  <section class="screen screen--fire" data-media="fire" data-title="Welcome" aria-label="Welcome to Fornello">
-    <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Wood-fired oven, flames</span></div></div>
-      <div class="shade"></div>
-    </div>
-    <div class="content reveal">
-      <p class="eyebrow" lang="it">pizzeria a legna</p>
-      <h1 class="brand">Fornello</h1>
-      <p class="tagline">Wood-fired. Made to order.</p>
-    </div>
-    <div class="swipe-hint" aria-hidden="true">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
-      <span class="touch">Swipe up</span><span class="desk">Scroll down</span>
-    </div>
-  </section>
-
-  <!-- 2 · Dough -->
-  <section class="screen screen--dough" data-media="dough" data-title="The dough">
-    <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Kneading and proofing dough</span></div></div>
-      <div class="shade"></div>
-    </div>
-    <div class="content reveal">
-      <p class="eyebrow" lang="it">l’impasto</p>
-      <h2 aria-label="72 hours of slow rise"><span class="bignum" data-count="72">72</span><span class="numcap">hours of slow rise.</span></h2>
-      <p class="lede">Three days of rest give our crust its airy bubbles and toasty depth.</p>
-    </div>
-  </section>
-
-  <!-- 3 · Ingredients -->
-  <section class="screen screen--ingredients" data-media="ingredients" data-title="Ingredients">
-    <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Tomatoes, basil, buffalo mozzarella</span></div></div>
-      <div class="shade"></div>
-    </div>
-    <div class="content reveal">
-      <p class="eyebrow" lang="it">gli ingredienti</p>
-      <h2>Fresh every<br>morning</h2>
-      <p class="lede">Tomatoes, basil, buffalo mozzarella. In this morning, gone by tonight.</p>
-    </div>
-  </section>
-
-  <!-- 4 · Out of the oven -->
-  <section class="screen screen--oven" data-media="oven" data-title="Margherita">
-    <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Out of the oven, cheese pull</span></div></div>
-      <div class="shade"></div>
-    </div>
-    <div class="content reveal">
-      <p class="eyebrow" lang="it">dal forno</p>
-      <p class="bignum" aria-label="450 degrees Celsius">450°<span class="unit">C</span></p>
-      <h2 class="numcap">Margherita <span class="menu-price"><small>RM</small>28</span></h2>
-      <p class="lede">90 seconds in the wood fire, and the cheese stretches just right.</p>
-    </div>
-  </section>
-
-  <!-- 5 · Signatures -->
-  <section class="screen screen--signature" data-media="signature" data-title="Signatures">
-    <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Three signature pizzas, close-ups</span></div></div>
-      <div class="shade"></div>
-    </div>
-    <div class="content reveal">
-      <p class="eyebrow" lang="it">le nostre pizze</p>
-      <div class="rotator" id="rotator" aria-live="polite">
-        <div class="pizza on">
-          <h2>Prosciutto <span class="menu-price"><small>RM</small>38</span></h2>
-          <span class="it">Parma ham, peppery greens, aged parmesan</span>
-        </div>
-        <div class="pizza">
-          <h2>Spicy Salami <span class="menu-price"><small>RM</small>34</span></h2>
-          <span class="it">Calabrian peppers, mozzarella, basil</span>
-        </div>
-        <div class="pizza">
-          <h2>Four Cheese <span class="menu-price"><small>RM</small>36</span></h2>
-          <span class="it">Gorgonzola, fontina, parmesan, honey</span>
-        </div>
-      </div>
-      <div class="ticks" id="ticks" role="group" aria-label="Choose a signature pizza"></div>
-    </div>
-  </section>
-
-  <!-- 6 · Ambience -->
-  <section class="screen screen--ambience" data-media="ambience" data-title="Ambience">
-    <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Warm light, guests dining</span></div></div>
-      <div class="shade"></div>
-    </div>
-    <div class="content reveal">
-      <p class="eyebrow" lang="it">la sala</p>
-      <p class="statement">Made for sharing, one slice at a time.</p>
-    </div>
-  </section>
-
-  <!-- 7 · Visit -->
-  <section class="screen screen--visit" data-media="visit" data-title="Visit us">
-    <div class="bg" aria-hidden="true">
-      <div class="ph"><div class="ph-label"><small>Video placeholder</small><span>Storefront, lights on</span></div></div>
-      <div class="shade"></div>
-    </div>
-    <div class="content reveal">
-      <p class="eyebrow" lang="it">vieni a trovarci</p>
-      <h2>See you at Fornello</h2>
-      <div class="info">
-        <div class="info-row">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <dl class="hours" id="hours" aria-label="Opening hours"></dl>
-        </div>
-        <div class="info-row">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-          <address id="address"></address>
-        </div>
-      </div>
-      <div class="actions">
-        <a class="btn btn--primary" id="btn-wa" href="#" target="_blank" rel="noopener">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></svg>
-          Reserve on WhatsApp
-        </a>
-        <a class="btn btn--ghost" id="btn-map" href="#" target="_blank" rel="noopener">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
-          Google Maps Directions
-        </a>
+<main>
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="stage" data-car="0" data-hero></div>
+    <div class="letterbox top" aria-hidden="true"></div>
+    <div class="letterbox bottom" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <p class="collab">Kaido House <b>×</b> Mini GT, 2026</p>
+      <h1 id="hero-title">The street,<br>at <span class="scale">1:64</span></h1>
+      <p class="lede">Five full-size street builds, shrunk to fit in your palm. Die-cast, with opening hoods and engines detailed down to the bay.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#preorder">Preorder</a>
+        <a class="btn" href="#KHMG315">Watch the lineup</a>
       </div>
     </div>
   </section>
 
+  <section class="intro" aria-label="About the lineup">
+    <p class="kanji" lang="ja" aria-label="Kaido">街道</p>
+    <div>
+      <p>Kaido means highway. Every car here was drawn for one: the back streets, mountain passes and late-night parking areas where street builds live.</p>
+      <p>Mini GT brings them down to 1:64 without losing the parts that matter. Lift the hood and the engine is there. Turn the car over and the wheels are two-piece, with aluminum barrels.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <div id="scenes"></div>
+
+  <section class="lineup" id="lineup" aria-labelledby="lineup-title">
+    <div class="lineup-head">
+      <h2 id="lineup-title">The lineup</h2>
+      <p>Preproduction samples, photographed in the studio. Select a car to jump to its scene.</p>
+    </div>
+    <ul class="cars" id="cars"></ul>
+  </section>
+
+  <section class="preorder" id="preorder" aria-labelledby="preorder-title">
+    <h2 id="preorder-title">Preorder</h2>
+    <p>Mini GT takes preorders in monthly batches. Each car below belongs to the batch it was announced in.</p>
+    <div class="batches" id="batches"></div>
+
+    <div class="follow" id="follow">
+      <h3>Follow the drop</h3>
+      <ul id="social"></ul>
+    </div>
+  </section>
 </main>
 
-<nav class="dots" id="dots" aria-label="Sections"></nav>
-<div class="counter" aria-hidden="true"><b id="counter-cur">01</b> / <span id="counter-total">07</span></div>
+<footer>
+  <span class="wordmark">KAIDO<span class="star" aria-hidden="true">★</span>HOUSE</span> <span>× Mini GT</span>
+  <p>Product photos show preproduction samples. Scene shots are digital renders of the models in miniature sets.</p>
+  <p>Nissan Motor Co., Ltd. trademarks, designs, copyrights and/or other intellectual property rights are used under license. Gulf livery used under license.</p>
+</footer>
+
+<ol class="scene-index" id="scene-index" aria-label="Scenes"></ol>
+
+<dialog class="viewer" id="viewer" aria-label="Angles">
+  <figure>
+    <div class="frame" id="viewer-frame"><img id="viewer-img" alt=""></div>
+    <figcaption>
+      <span id="viewer-caption"></span>
+      <span class="controls">
+        <button class="icon-btn" id="viewer-prev" type="button" aria-label="Previous angle"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="icon-btn" id="viewer-next" type="button" aria-label="Next angle"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+        <button class="icon-btn" id="viewer-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </span>
+    </figcaption>
+  </figure>
+</dialog>
 
 <script>
 (function () {
-  var C = window.FORNELLO || { media: {}, contact: {} };
-  var scroller = document.getElementById('scroller');
-  var screens = Array.prototype.slice.call(document.querySelectorAll('.screen'));
-  var dotsNav = document.getElementById('dots');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var current = -1;
-  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  const cfg = window.KAIDO;
+  const cars = cfg.cars;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const preorderHref = car => car.preorderUrl || cfg.preorderUrl || '';
+  const isExternal = href => /^https?:/i.test(href);
+  const shotsCache = new Map();
 
-  /* ── Background: poster + video ── */
-  screens.forEach(function (s) {
-    var m = (C.media && C.media[s.dataset.media]) || {};
-    var ph = s.querySelector('.ph');
-
-    if (m.poster) {
-      var img = new Image();
-      img.onload = function () {
-        ph.style.backgroundImage = 'url("' + m.poster + '")';
-        ph.classList.add('has-poster');
-      };
-      img.src = m.poster;
-    }
-
-    if (m.video) {
-      var v = document.createElement('video');
-      v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
-      v.setAttribute('muted', '');
-      v.setAttribute('playsinline', '');
-      v.setAttribute('webkit-playsinline', '');
-      v.setAttribute('disablepictureinpicture', '');
-      v.preload = 'none';
-      v.dataset.src = m.video;
-      v.addEventListener('playing', function () { v.classList.add('ready'); });
-      v.addEventListener('error', function () { v.remove(); s._video = null; });
-      ph.parentNode.insertBefore(v, ph.nextSibling);
-      s._video = v;
-    }
-  });
-
-  function load(i) {
-    var s = screens[i], v = s && s._video;
-    if (v && !v.getAttribute('src')) {
-      v.src = v.dataset.src;
-      v.preload = 'auto';
-      v.load();
+  /* ── Stages: scene poster + video, with studio-photo fallback ── */
+  function fillStage(stage, car, eager) {
+    const studio = () => {
+      stage.classList.add('studio');
+      stage.innerHTML = '<img src="' + esc(car.studio[0]) + '" alt="' + esc(car.make + ' ' + car.livery) + ', studio photo">';
+    };
+    if (!car.poster) return studio();
+    const img = new Image();
+    img.alt = car.make + ' ' + car.livery + ' in a miniature ' + car.scene.toLowerCase() + ' scene';
+    img.decoding = 'async';
+    if (!eager) img.loading = 'lazy';
+    img.onerror = studio;
+    img.src = car.poster;
+    stage.appendChild(img);
+    if (car.video && !reduceMotion) {
+      const v = document.createElement('video');
+      v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+      v.dataset.src = car.video;
+      v.addEventListener('playing', () => v.classList.add('playing'));
+      v.addEventListener('error', () => v.remove());
+      stage.appendChild(v);
     }
   }
-  function play(v) {
-    if (!v) return;
-    var p = v.play();
-    if (p && p.catch) p.catch(function () { /* autoplay blocked: keep showing the poster */ });
-  }
 
-  /* ── Dots ── */
-  document.getElementById('counter-total').textContent = pad(screens.length);
-  var dots = screens.map(function (s, i) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.setAttribute('aria-label', 'Section ' + (i + 1) + ': ' + s.dataset.title);
-    b.appendChild(document.createElement('span'));
-    b.addEventListener('click', function () { goTo(i); });
-    dotsNav.appendChild(b);
-    return b;
-  });
+  /* ── Scenes ── */
+  const scenesEl = document.getElementById('scenes');
+  cars.forEach((car, i) => {
+    const href = preorderHref(car);
+    const sec = document.createElement('section');
+    sec.className = 'scene';
+    sec.id = car.code;
+    sec.setAttribute('aria-labelledby', car.code + '-title');
+    sec.innerHTML =
+      '<div class="stage" data-car="' + i + '"></div>' +
+      '<div class="scene-inner">' +
+        '<div>' +
+          '<p class="code">' + esc(car.code) + '</p>' +
+          '<h2 id="' + car.code + '-title">' + esc(car.make) + '<span class="livery">' + esc(car.livery) + '</span></h2>' +
+          '<p class="where">' + esc(car.scene) + '</p>' +
+          '<ul class="features">' + car.features.map(f => '<li>' + esc(f) + '</li>').join('') + '</ul>' +
+          '<p class="batch">' + esc(car.batch) + ' <span>preorder batch</span></p>' +
+          '<div class="ctas">' +
+            '<a class="btn primary" href="' + esc(href || '#preorder') + '"' + (isExternal(href) ? ' target="_blank" rel="noopener"' : '') + '>Preorder ' + esc(car.short) + '</a>' +
+          '</div>' +
+        '</div>' +
+        '<div class="angles" aria-label="More angles of the ' + esc(car.short) + '"></div>' +
+      '</div>';
+    scenesEl.appendChild(sec);
 
-  function goTo(i) {
-    i = Math.max(0, Math.min(screens.length - 1, i));
-    scroller.scrollTo({ top: screens[i].offsetTop, behavior: reduceMotion ? 'auto' : 'smooth' });
-  }
-
-  /* ── Switch active screen ── */
-  function activate(i) {
-    if (i === current || i < 0) return;
-    current = i;
-    screens.forEach(function (s, j) {
-      s.classList.toggle('in', j === i);
-      if (s._video && j !== i) s._video.pause();
+    const angles = sec.querySelector('.angles');
+    viewerSet(car).forEach((shot, n) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'thumb' + (shot.studio ? ' studio-shot' : '');
+      b.setAttribute('aria-label', 'View ' + shot.label);
+      const im = new Image();
+      im.loading = 'lazy'; im.alt = ''; im.src = shot.src;
+      im.onerror = () => { b.hidden = true; shot.missing = true; };
+      b.appendChild(im);
+      b.addEventListener('click', () => openViewer(car, n));
+      angles.appendChild(b);
     });
-    load(i);
-    play(screens[i]._video);
-    load(i + 1);                                   // preload the next screen
-    dots.forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
-    document.getElementById('counter-cur').textContent = pad(i + 1);
-    if (screens[i].contains(rotator)) startRotator(); else stopRotator();
-    countUp(screens[i]);
-  }
-
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) activate(screens.indexOf(e.target));
-      });
-    }, { root: scroller, threshold: 0.6 });
-    screens.forEach(function (s) { io.observe(s); });
-  } else {
-    scroller.addEventListener('scroll', function () {
-      activate(Math.round(scroller.scrollTop / scroller.clientHeight));
-    }, { passive: true });
-  }
-
-  /* ── The one special moment: 72 counts up the first time it's seen ── */
-  var counted = false;
-  function countUp(s) {
-    var el = s.querySelector('[data-count]');
-    if (!el || counted) return;
-    counted = true;
-    if (reduceMotion) return;
-    var end = +el.dataset.count, t0 = null, dur = 1100;
-    el.textContent = '0';
-    (function step(ts) {
-      if (t0 === null) t0 = ts;
-      var k = Math.min(1, (ts - t0) / dur);
-      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
-      if (k < 1) requestAnimationFrame(step);
-    })(performance.now());
-  }
-
-  /* ── Keyboard (desktop) ── */
-  document.addEventListener('keydown', function (e) {
-    if (e.target.closest && e.target.closest('a, button') && (e.key === ' ' || e.key === 'Enter')) return;
-    var k = e.key;
-    if (k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); goTo(current + 1); }
-    else if (k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); goTo(current - 1); }
-    else if (k === 'Home') { e.preventDefault(); goTo(0); }
-    else if (k === 'End') { e.preventDefault(); goTo(screens.length - 1); }
   });
 
-  /* ── Signature pizza carousel ── */
-  var rotator = document.getElementById('rotator');
-  var ticksEl = document.getElementById('ticks');
-  var pizzas = Array.prototype.slice.call(rotator.querySelectorAll('.pizza'));
-  var interval = C.signatureInterval || 3200;
-  var ri = 0, timer = null;
-  ticksEl.style.setProperty('--rot', interval + 'ms');
-  if (reduceMotion) ticksEl.classList.add('paused');
-
-  var ticks = pizzas.map(function (p, i) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.setAttribute('aria-label', p.querySelector('h2').firstChild.textContent.trim());
-    b.addEventListener('click', function () { showPizza(i); if (timer) restartTimer(); });
-    ticksEl.appendChild(b);
-    return b;
+  document.querySelectorAll('.stage[data-car]').forEach(stage => {
+    fillStage(stage, cars[+stage.dataset.car], stage.hasAttribute('data-hero'));
   });
 
-  function showPizza(n) {
-    ri = n;
-    pizzas.forEach(function (p, j) {
-      p.classList.toggle('on', j === n);
-      p.setAttribute('aria-hidden', j === n ? 'false' : 'true');
+  /* play videos only while they are on screen */
+  const vio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      const v = e.target.querySelector('video');
+      if (!v) return;
+      if (e.isIntersecting) {
+        if (!v.src) v.src = v.dataset.src;
+        const p = v.play(); if (p && p.catch) p.catch(() => {});
+      } else if (!v.paused) v.pause();
     });
-    ticks.forEach(function (t, j) {
-      t.classList.remove('on');
-      t.classList.toggle('done', j < n);
-      t.setAttribute('aria-pressed', j === n ? 'true' : 'false');
+  }, { threshold: 0.25 });
+  document.querySelectorAll('.stage').forEach(s => vio.observe(s));
+
+  /* ── Angles viewer ── */
+  function viewerSet(car) {
+    if (shotsCache.has(car)) return shotsCache.get(car);
+    const views = ['front three-quarter', 'side profile', 'rear three-quarter', 'top', 'rear'];
+    const set = [];
+    if (car.angle) set.push({ src: car.angle, label: car.short + ', scene angle', studio: false });
+    car.studio.forEach((src, k) => {
+      const v = /-top\./.test(src) ? 'top view' : /-side\./.test(src) ? 'side profile' : /-rear\./.test(src) ? 'rear three-quarter' : views[k];
+      set.push({ src, label: car.short + ', ' + v + ' (studio)', studio: true });
     });
-    void ticks[n].offsetWidth;                     // restart the progress-bar animation
-    ticks[n].classList.add('on');
-    fitRotator();
+    shotsCache.set(car, set);
+    return set;
   }
-  function fitRotator() { rotator.style.height = pizzas[ri].offsetHeight + 'px'; }
-  window.addEventListener('resize', fitRotator);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitRotator);
-  function restartTimer() {
-    clearInterval(timer);
-    if (reduceMotion) return;
-    timer = setInterval(function () { showPizza((ri + 1) % pizzas.length); }, interval);
+  const viewer = document.getElementById('viewer');
+  const vImg = document.getElementById('viewer-img');
+  const vFrame = document.getElementById('viewer-frame');
+  const vCap = document.getElementById('viewer-caption');
+  let vCar = null, vIdx = 0;
+  function showShot() {
+    const set = viewerSet(vCar).filter(s => !s.missing);
+    vIdx = (vIdx + set.length) % set.length;
+    const s = set[vIdx];
+    vImg.src = s.src; vImg.alt = s.label;
+    vFrame.classList.toggle('studio-shot', s.studio);
+    vCap.textContent = s.label + '  (' + (vIdx + 1) + ' of ' + set.length + ')';
   }
-  function startRotator() { showPizza(0); restartTimer(); }
-  function stopRotator() { clearInterval(timer); timer = null; }
-  showPizza(0);
-
-  /* ── Visit details ── */
-  var ct = C.contact || {};
-  var hoursEl = document.getElementById('hours');
-  (ct.hours || []).forEach(function (h) {
-    var dt = document.createElement('dt'); dt.textContent = h[0];
-    var dd = document.createElement('dd'); dd.textContent = h[1];
-    hoursEl.appendChild(dt); hoursEl.appendChild(dd);
-  });
-  document.getElementById('address').textContent = ct.address || '';
-  document.getElementById('btn-wa').href =
-    'https://wa.me/' + String(ct.whatsapp || '').replace(/\D/g, '') +
-    (ct.whatsappMessage ? '?text=' + encodeURIComponent(ct.whatsappMessage) : '');
-  document.getElementById('btn-map').href = ct.mapsUrl ||
-    'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(ct.address || 'Fornello');
-
-  /* ── If autoplay was blocked, retry on first touch; pause when the tab is hidden ── */
-  ['touchstart', 'pointerdown', 'keydown'].forEach(function (ev) {
-    window.addEventListener(ev, function retry() {
-      if (screens[current]) play(screens[current]._video);
-      window.removeEventListener(ev, retry);
-    }, { passive: true });
-  });
-  document.addEventListener('visibilitychange', function () {
-    var v = screens[current] && screens[current]._video;
-    if (document.hidden) { if (v) v.pause(); stopRotator(); }
-    else { play(v); if (screens[current] && screens[current].contains(rotator)) restartTimer(); }
+  function openViewer(car, n) {
+    vCar = car;
+    const set = viewerSet(car);
+    vIdx = set.filter((s, k) => k < n && !s.missing).length;
+    showShot();
+    if (typeof viewer.showModal === 'function') viewer.showModal(); else viewer.setAttribute('open', '');
+  }
+  document.getElementById('viewer-prev').addEventListener('click', () => { vIdx--; showShot(); });
+  document.getElementById('viewer-next').addEventListener('click', () => { vIdx++; showShot(); });
+  document.getElementById('viewer-close').addEventListener('click', () => viewer.close());
+  viewer.addEventListener('click', e => { if (e.target === viewer) viewer.close(); });
+  viewer.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') { vIdx--; showShot(); }
+    if (e.key === 'ArrowRight') { vIdx++; showShot(); }
   });
 
-  activate(Math.round(scroller.scrollTop / (scroller.clientHeight || 1)));
+  /* ── Lineup ── */
+  document.getElementById('cars').innerHTML = cars.map(car => {
+    const side = car.studio.find(s => /-side\./.test(s)) || car.studio[0];
+    return '<li><a href="#' + car.code + '">' +
+      '<img src="' + esc(side) + '" alt="' + esc(car.make + ' ' + car.livery) + ', side view" loading="lazy">' +
+      '<span class="car-name">' + esc(car.make) + '</span>' +
+      '<span class="car-meta">' + esc(car.code) + ', ' + esc(car.livery) + '</span>' +
+    '</a></li>';
+  }).join('');
+
+  /* ── Preorder batches ── */
+  const batches = [];
+  cars.forEach(car => {
+    let g = batches.find(b => b.name === car.batch);
+    if (!g) batches.push(g = { name: car.batch, cars: [] });
+    g.cars.push(car);
+  });
+  const monthIndex = s => { const d = Date.parse('1 ' + s); return isNaN(d) ? 0 : d; };
+  batches.sort((a, b) => monthIndex(a.name) - monthIndex(b.name));
+  document.getElementById('batches').innerHTML = batches.map(g =>
+    '<div class="batch-group"><h3>' + esc(g.name) + ' batch</h3><ul>' +
+    g.cars.map(car => {
+      const href = preorderHref(car);
+      const action = href
+        ? '<a class="btn primary" href="' + esc(href) + '"' + (isExternal(href) ? ' target="_blank" rel="noopener"' : '') + '>Preorder</a>'
+        : '<span class="soon">Preorder link coming soon</span>';
+      return '<li><p class="code">' + esc(car.code) + '</p>' +
+        '<span class="name">' + esc(car.make) + '<span>' + esc(car.livery) + '</span></span>' + action + '</li>';
+    }).join('') + '</ul></div>'
+  ).join('');
+
+  /* ── Social ── */
+  const icons = {
+    instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg>',
+    tiktok: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 6.7a4.8 4.8 0 01-3.8-4.2V2h-3.4v13.7a2.9 2.9 0 01-5.2 1.7 2.9 2.9 0 013.2-4.5V9.4a6.3 6.3 0 00-5.4 10.7 6.3 6.3 0 0010.8-4.4V8.7a8.2 8.2 0 004.8 1.5V6.8a4.8 4.8 0 01-1-.1z"/></svg>',
+    youtube: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>'
+  };
+  const fallbacks = {
+    instagram: 'https://www.instagram.com/explore/tags/kaidohouse/',
+    tiktok: 'https://www.tiktok.com/tag/kaidohouse',
+    youtube: 'https://www.youtube.com/results?search_query=kaido+house+mini+gt'
+  };
+  const names = { instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube' };
+  document.getElementById('social').innerHTML = Object.keys(names).map(k =>
+    '<li><a class="btn" href="' + esc(cfg.social[k] || fallbacks[k]) + '" target="_blank" rel="noopener">' + icons[k] + names[k] + '</a></li>'
+  ).join('');
+
+  /* ── Scene index + progress stripe + header ── */
+  const index = document.getElementById('scene-index');
+  index.innerHTML = cars.map(car => '<li><a href="#' + car.code + '">' + esc(car.code) + '</a></li>').join('');
+  const links = [...index.querySelectorAll('a')];
+  const sceneEls = cars.map(c => document.getElementById(c.code));
+  const sio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const i = sceneEls.indexOf(e.target);
+      links.forEach((a, k) => a.setAttribute('aria-current', k === i ? 'true' : 'false'));
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  sceneEls.forEach(s => sio.observe(s));
+
+  const masthead = document.getElementById('masthead');
+  const progress = document.getElementById('progress');
+  const first = sceneEls[0], last = sceneEls[sceneEls.length - 1];
+  let ticking = false;
+  function onScroll() {
+    ticking = false;
+    const y = scrollY, vh = innerHeight;
+    const start = first.offsetTop - vh * .5, end = last.offsetTop + last.offsetHeight - vh * .5;
+    progress.style.setProperty('--p', Math.min(1, Math.max(0, (y - start) / (end - start))).toFixed(4));
+    masthead.classList.toggle('solid', y > vh * .6);
+    index.classList.toggle('show', y + vh * .5 > first.offsetTop && y + vh * .5 < last.offsetTop + last.offsetHeight);
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
 })();
 </script>
 </body>
