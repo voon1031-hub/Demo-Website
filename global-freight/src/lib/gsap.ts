@@ -1,8 +1,9 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
-gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+gsap.registerPlugin(ScrollTrigger);
+// Don't re-measure every pinned scene when a phone's address bar shows or hides.
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 /** Media query every scroll/ambient animation is gated behind. */
 export const MOTION_OK = '(prefers-reduced-motion: no-preference)';

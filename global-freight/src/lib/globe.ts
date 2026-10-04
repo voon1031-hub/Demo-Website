@@ -156,7 +156,8 @@ export type Globe = {
 
 export function createGlobe(canvas: HTMLCanvasElement): Globe {
   const renderer = new WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+  // Capped: a full-screen canvas at 3x on phones costs far more than it shows.
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
   renderer.outputColorSpace = SRGBColorSpace;
 
   const scene = new Scene();

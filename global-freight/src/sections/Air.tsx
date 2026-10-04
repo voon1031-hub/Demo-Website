@@ -39,7 +39,7 @@ export function Air() {
           globe.current.setProgress(zoom.current.p);
         });
       },
-      { rootMargin: '150% 0px' },
+      { rootMargin: '100% 0px' },
     );
     io.observe(root.current);
     return () => {
@@ -105,7 +105,7 @@ export function Air() {
             shown ungraded to match the canvas pixel for pixel. */}
         <div data-air-descent className="absolute inset-0 bg-navy-deep motion-reduce:hidden">
           <img src={media.airDescent.poster} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
-          <video ref={descent} className="absolute inset-0 h-full w-full object-cover" poster={media.airDescent.poster} muted playsInline preload="none" aria-hidden="true" tabIndex={-1} />
+          <video ref={descent} className="absolute inset-0 h-full w-full object-cover" muted playsInline preload="none" aria-hidden="true" tabIndex={-1} />
         </div>
 
         <div

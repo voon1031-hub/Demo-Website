@@ -43,7 +43,7 @@ export function Land() {
       <div className="relative h-svh min-h-[600px] overflow-hidden motion-reduce:h-auto motion-reduce:min-h-0">
         <div data-land-scene className="media-frame !absolute inset-0 will-change-transform motion-reduce:!relative motion-reduce:aspect-video motion-reduce:max-h-[70svh]">
           <img src={slot.poster} alt={slot.alt} loading="lazy" decoding="async" />
-          <video ref={video} className="absolute inset-0" poster={slot.poster} muted playsInline preload="none" aria-hidden="true" tabIndex={-1} />
+          <video ref={video} className="absolute inset-0" muted playsInline preload="none" aria-hidden="true" tabIndex={-1} />
           <span className="media-tint" aria-hidden="true" />
         </div>
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/30 to-transparent motion-reduce:hidden" />

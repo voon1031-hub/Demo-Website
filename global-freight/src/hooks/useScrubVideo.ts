@@ -15,17 +15,6 @@ export function useScrubVideo(video: RefObject<HTMLVideoElement | null>, src: st
     const v = video.current;
     if (!v || !near.current || prefersReducedMotion()) return;
     let raf = 0;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting || v.src) return;
-        v.src = src;
-        v.load();
-        // iOS only paints seeked frames after the video has played once.
-        v.addEventListener('loadeddata', () => v.play().then(() => v.pause()).catch(() => {}), { once: true });
-      },
-      { rootMargin: '100% 0px' },
-    );
-    io.observe(near.current);
     const tick = () => {
       if (v.readyState >= 1 && v.duration) {
         const goal = target.current * (v.duration - 0.05);
@@ -33,7 +22,25 @@ export function useScrubVideo(video: RefObject<HTMLVideoElement | null>, src: st
       }
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
+    // Attach the file when the section is a screen away; run the seek loop only while it is near.
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!v.src) {
+            v.src = src;
+            v.load();
+            // iOS only paints seeked frames after the video has played once.
+            v.addEventListener('loadeddata', () => v.play().then(() => v.pause()).catch(() => {}), { once: true });
+          }
+          if (!raf) raf = requestAnimationFrame(tick);
+        } else {
+          cancelAnimationFrame(raf);
+          raf = 0;
+        }
+      },
+      { rootMargin: '100% 0px' },
+    );
+    io.observe(near.current);
     return () => {
       io.disconnect();
       cancelAnimationFrame(raf);

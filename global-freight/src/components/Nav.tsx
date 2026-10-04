@@ -5,12 +5,12 @@ import { useContent, type SectionId } from '../content';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { Logo } from './Logo';
 
-export function Nav() {
+export function Nav({ ready }: { ready: boolean }) {
   const t = useContent();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const ids = useRef(t.nav.links.map((l) => l.id)).current;
-  const active = useActiveSection(ids);
+  const active = useActiveSection(ids, ready);
   const menuButton = useRef<HTMLButtonElement>(null);
   const firstLink = useRef<HTMLAnchorElement>(null);
 
@@ -45,9 +45,9 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
         scrolled || open
-          ? 'bg-navy/70 shadow-[0_1px_0_rgb(126_147_168/0.18)] backdrop-blur-md backdrop-saturate-150'
+          ? 'bg-navy/92 shadow-[0_1px_0_rgb(126_147_168/0.18)]'
           : 'bg-transparent'
       }`}
     >

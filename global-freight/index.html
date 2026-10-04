@@ -8,9 +8,26 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <title>Global freight</title>
+    <style>
+      /* Boot shell: closed container doors, painted before any JavaScript runs.
+         React replaces it with the identical Hero on first render. */
+      html, body { margin: 0; background: #07142a; }
+      .boot { position: fixed; inset: 0; display: grid; place-items: center;
+        background: linear-gradient(90deg, transparent calc(15% - 4px), rgb(7 20 42 / .8) calc(15% - 4px) calc(15% + 4px), transparent calc(15% + 4px)),
+          linear-gradient(90deg, transparent calc(35% - 4px), rgb(7 20 42 / .8) calc(35% - 4px) calc(35% + 4px), transparent calc(35% + 4px)),
+          linear-gradient(90deg, transparent calc(65% - 4px), rgb(7 20 42 / .8) calc(65% - 4px) calc(65% + 4px), transparent calc(65% + 4px)),
+          linear-gradient(90deg, transparent calc(85% - 4px), rgb(7 20 42 / .8) calc(85% - 4px) calc(85% + 4px), transparent calc(85% + 4px)),
+          repeating-linear-gradient(90deg, rgb(255 255 255 / .05) 0 2px, transparent 2px 26px, rgb(0 0 0 / .28) 26px 30px, transparent 30px 34px),
+          linear-gradient(180deg, #23344a 0%, #1c2836 55%, #141f2c 100%); }
+      .boot::after { content: ''; position: absolute; inset: 0 auto 0 50%; width: 3px; transform: translateX(-50%);
+        background: #ff5f1f; box-shadow: 0 0 24px 6px rgb(255 95 31 / .55); }
+      /* Same spot as the Hero's mark above the slogan */
+      .boot svg { position: relative; z-index: 1; width: 56px; height: 56px; transform: translateY(-168px); }
+      @media (min-width: 640px) { .boot svg { width: 64px; height: 64px; transform: translateY(-180px); } }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><div class="boot"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" aria-hidden="true" viewBox="469 468 1110 1110"><path fill="rgb(233,238,243)" d="M 694.681 553.432 C 728.066 552.048 767.601 553.049 801.441 553.064 C 801.812 606.016 802.677 662.798 801.193 715.508 L 780.091 715.599 L 779.95 752.836 L 801.756 753.013 C 803.141 822.737 801.989 895.768 801.981 965.833 L 801.503 1297.04 L 782.799 1297.05 L 782.595 1334.64 L 802.054 1334.76 L 801.694 1494.31 C 768.323 1494.32 719.818 1495.74 687.761 1493.67 C 653.62 1490.57 621.314 1476.82 595.404 1454.37 C 564.849 1428.09 542.421 1386.72 539.346 1346.3 C 537.979 1328.34 538.328 1304.97 538.319 1286.79 L 538.528 1198.18 L 538.852 949.634 L 538.563 780.36 C 538.58 757.422 537.152 714.178 540.396 693.175 C 545.256 662.109 558.803 633.052 579.472 609.357 C 609.459 575.185 649.478 556.209 694.681 553.432 z"/><path fill="rgb(233,238,243)" d="M 1273.68 522.31 C 1306.12 530.502 1339.2 543.714 1371.6 552.535 C 1419.61 565.606 1458.11 588.139 1484.78 631.332 C 1497.73 652.774 1505.83 676.79 1508.52 701.696 C 1510.36 720.244 1509.35 765.584 1509.4 785.759 L 1509.5 955.069 L 1509.59 1219.06 L 1509.64 1294.91 C 1509.64 1318.93 1511.06 1345.41 1505.24 1368.48 C 1492.95 1417.16 1465.77 1451.28 1423.36 1476.93 C 1398.33 1490.63 1382.07 1493.33 1355.28 1501.38 C 1328.14 1509.63 1300.95 1517.68 1273.7 1525.55 C 1272.15 1464.48 1273.84 1396.17 1274.02 1334.67 L 1293.63 1334.48 L 1293.36 1296.82 L 1273.63 1296.66 L 1273.87 752.993 L 1293.94 753.014 C 1293.58 740.703 1293.41 728.388 1293.41 716.072 L 1273.83 716.032 L 1273.53 584.252 C 1273.48 565.678 1272.46 540.267 1273.68 522.31 z"/><path fill="rgb(233,238,243)" d="M 1111.43 473.771 L 1194.58 499.046 C 1209.06 503.482 1226.81 508.497 1240.83 513.654 L 1240.98 715.289 C 1235.02 715.375 1228.6 715.34 1222.69 715.564 C 1222.44 728.02 1222.29 740.478 1222.25 752.937 L 1241.05 753.038 L 1241.24 1297.02 L 1222.76 1297.08 L 1222.71 1334.42 L 1240.92 1334.48 L 1241.04 1534.57 C 1199.03 1547.03 1153.26 1560.25 1111.7 1573.29 L 1111.7 1495.03 C 1093.96 1493.95 1064.2 1494.81 1045.45 1494.78 C 1044.74 1457.26 1045.38 1417.6 1045.4 1379.91 L 1045.25 1178.34 L 1045.44 552.891 L 1111.74 552.767 L 1111.43 473.771 z"/><path fill="rgb(255,95,31)" d="M 1111.74 552.767 L 1111.69 1179.96 L 1111.84 1385.22 C 1111.87 1421.05 1112.51 1459.33 1111.7 1495.03 C 1093.96 1493.95 1064.2 1494.81 1045.45 1494.78 C 1044.74 1457.26 1045.38 1417.6 1045.4 1379.91 L 1045.25 1178.34 L 1045.44 552.891 L 1111.74 552.767 z"/><path fill="rgb(233,238,243)" d="M 833.891 553.096 C 889.485 553.001 945.45 554.104 1000.94 553.499 L 1000.79 1494.5 C 988.694 1494.7 976.288 1494.59 964.161 1494.63 L 834.082 1494.56 L 834.13 1334.42 L 854.102 1334.41 L 854.111 1297.16 L 834.014 1297.3 L 834.173 753.016 L 853.92 753.124 L 853.885 716.444 L 834.179 716.073 C 833.466 662.118 833.94 607.13 833.891 553.096 z"/></svg></div></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

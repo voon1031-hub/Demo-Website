@@ -5,6 +5,8 @@ import { prefersReducedMotion } from '../lib/gsap';
 type Props = {
   slot: MediaKey;
   className?: string;
+  /** Load the poster immediately (only for media visible on first paint). */
+  priority?: boolean;
 };
 
 const showSlotIds =
@@ -18,10 +20,12 @@ function canPlayVideo() {
 
 /**
  * One media slot from config/media.ts with the shared photo grade.
- * The poster shows first; the looping video is attached only when the frame
- * comes near the viewport, and pauses again when it leaves.
+ * The poster <img> shows first (lazy, so off-screen ones don't download); the
+ * looping video is attached only when the frame comes near the viewport, and
+ * pauses again when it leaves. The video deliberately has no `poster`
+ * attribute: browsers fetch those eagerly for every video on the page.
  */
-export function MediaFrame({ slot, className = '' }: Props) {
+export function MediaFrame({ slot, className = '', priority }: Props) {
   const item: MediaSlot = media[slot];
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -39,7 +43,7 @@ export function MediaFrame({ slot, className = '' }: Props) {
           video.pause();
         }
       },
-      { rootMargin: '300px' },
+      { rootMargin: '200px' },
     );
     io.observe(video);
     return () => io.disconnect();
@@ -55,7 +59,8 @@ export function MediaFrame({ slot, className = '' }: Props) {
         className="relative"
         src={item.poster}
         alt={item.alt}
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
         decoding="async"
         onError={(e) => (e.currentTarget.style.visibility = 'hidden')}
       />
@@ -63,7 +68,6 @@ export function MediaFrame({ slot, className = '' }: Props) {
         <video
           ref={videoRef}
           className="absolute inset-0"
-          poster={item.poster}
           muted
           loop
           playsInline

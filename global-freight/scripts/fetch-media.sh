@@ -8,9 +8,9 @@
 #   file   saved as-is (SVG logos)
 #   image  JPG, at most 1920 px wide (style frames, posters)
 #   video  seamless-loop H.264 MP4, long edge 1280 px, no audio,
-#          plus a poster JPG next to it (<name>.jpg)
+#          plus a WebP poster next to it (<name>.webp)
 #   scrub  H.264 MP4 for scroll-controlled playback: no loop, long edge
-#          1024 px, a keyframe every 6 frames so seeking stays smooth, plus a poster JPG.
+#          1024 px, a keyframe every 6 frames so seeking stays smooth, plus a WebP poster.
 #          Several comma-separated URLs are joined end to end first.
 # Entries whose output already exists are skipped, so the script is safe to re-run.
 # Needs: curl, ffmpeg, ffprobe. Run from global-freight/: bash scripts/fetch-media.sh
@@ -33,7 +33,7 @@ loop_video() { # <src> <dest.mp4>
     "[0:v]split[a][b];[a]trim=start=${FADE},setpts=PTS-STARTPTS[main];[b]trim=0:${FADE},setpts=PTS-STARTPTS[head];[main][head]xfade=transition=fade:duration=${FADE}:offset=${offset},scale='if(gte(iw,ih),1280,-2)':'if(gte(iw,ih),-2,1280)',format=yuv420p[v]" \
     -map "[v]" -c:v libx264 -preset slow -crf 27 -maxrate 3M -bufsize 6M -g 48 \
     -movflags +faststart "$dest" &&
-    ffmpeg -nostdin -loglevel error -y -i "$dest" -frames:v 1 -q:v 4 "${dest%.mp4}.jpg"
+    ffmpeg -nostdin -loglevel error -y -i "$dest" -frames:v 1 -c:v libwebp -quality 66 "${dest%.mp4}.webp"
 }
 
 scrub_video() { # <src> <dest.mp4>
@@ -41,7 +41,7 @@ scrub_video() { # <src> <dest.mp4>
     -vf "scale='if(gte(iw,ih),1024,-2)':'if(gte(iw,ih),-2,1024)',format=yuv420p" \
     -c:v libx264 -preset slow -crf 28 -g 6 -keyint_min 6 -sc_threshold 0 \
     -movflags +faststart "$2" &&
-    ffmpeg -nostdin -loglevel error -y -i "$2" -frames:v 1 -q:v 4 "${2%.mp4}.jpg"
+    ffmpeg -nostdin -loglevel error -y -i "$2" -frames:v 1 -c:v libwebp -quality 66 "${2%.mp4}.webp"
 }
 
 while read -r kind dest url; do

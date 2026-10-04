@@ -6,7 +6,7 @@
  * style; the prompts that made them are in media/manifest.txt history.
  *
  * To replace one:
- *   1. Put your files in public/media/ (e.g. ocean-port.mp4 + ocean-port.jpg)
+ *   1. Put your files in public/media/ (e.g. ocean-port.mp4 + ocean-port.webp)
  *   2. Point `video` and `poster` below at them (via clip('name') or asset('media/file'))
  *   3. Update `alt` to describe what your footage actually shows
  * A slot without `video` shows its poster as a still photo.
@@ -30,7 +30,7 @@ export type MediaSlot = {
 /** Resolves a file in public/ against the site's base URL. */
 export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
-const clip = (name: string) => ({ video: asset(`media/${name}.mp4`), poster: asset(`media/${name}.jpg`) });
+const clip = (name: string) => ({ video: asset(`media/${name}.mp4`), poster: asset(`media/${name}.webp`) });
 
 export const media = {
   // Hero: what the container doors open onto
