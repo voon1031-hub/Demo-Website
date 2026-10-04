@@ -25,6 +25,8 @@ export function Land() {
         if (entry.isIntersecting && !v.src) {
           v.src = slot.video;
           v.load();
+          // iOS only paints seeked frames after the video has played once.
+          v.addEventListener('loadeddata', () => v.play().then(() => v.pause()).catch(() => {}), { once: true });
         }
       },
       { rootMargin: '100% 0px' },
