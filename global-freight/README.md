@@ -3,8 +3,8 @@
 Single-page, scroll-driven brand site for a global air, ocean and land freight company.
 Vite + React + TypeScript + Tailwind CSS v4, GSAP ScrollTrigger and Lenis.
 
-**Status:** round 1 (style sample). Built so far: Nav, Hero, Ocean.
-The other sections show as dashed placeholders until the style is approved.
+**Status:** round 1. Built so far: Nav, Hero, Ocean, logo, contact details.
+The other sections are placeholders; About, Air and Land already play their footage.
 
 ## Run locally
 
@@ -22,35 +22,36 @@ npm run preview    # serve the production build at http://localhost:4173
 
 | What | File |
 |---|---|
-| Company name, short name, slogan, logo, contact details, headline numbers | `src/config/brand.ts` |
-| Every image on the page (source, alt text, recommended size, shot brief) | `src/config/media.ts` |
+| Company name, short name, slogan, logo, email, WhatsApp, headline numbers | `src/config/brand.ts` |
+| Every video/image slot (files, alt text, recommended size, shot brief) | `src/config/media.ts` |
 | All other copy (English) | `src/content/en.ts` |
 | Colours, fonts, type scale, shared photo grade | `src/styles/index.css` |
 | Hero map routes and hub cities | `src/sections/heroRoutes.ts` |
 
 ### Replace the logo
 
-Put the file in `public/media/` (SVG preferred), then in `src/config/brand.ts` set
-`logo.src` to `'/media/your-logo.svg'` and adjust `width`/`height`.
-With `src` empty, a placeholder mark plus `brand.name` is shown.
+The logo mark is `public/media/logo-mark.svg` (the favicon is `public/favicon.svg`).
+It was generated with Higgsfield (Recraft vector); the three original candidates are in
+`design/logo-options/`. The company name is typed next to the mark in the site font, so it
+follows `brand.name`. To use another mark, replace the SVG or change `logo.mark` in
+`src/config/brand.ts`; set `logo.showName: false` if your file already contains the name.
 
-### Replace images
+### Replace footage
 
-1. Open the site with `?media` at the end of the URL (e.g. `http://localhost:5173/?media`).
-   Each image shows an orange tag with its slot id and the recommended size.
-2. Export your photo at that size and save it in `public/media/`.
-3. In `src/config/media.ts`, set that slot's `src` to `'/media/<file>'` and rewrite `alt`
-   to describe your photo.
+Every media slot is a short muted loop plus a poster image (first frame), listed in
+`src/config/media.ts`. The current clips were generated with Higgsfield in the night
+light-trails style. Open the site with `?media` to see each slot's id and size on the page.
 
-Every slot has a `brief` describing the shot (camera angle, subject), which you can hand
-to a photographer or use as an image-generation prompt. When a slot has no image or the
-image fails to load, the id and brief show in its place.
+To swap one, drop `name.mp4` + `name.jpg` into `public/media/` and point the slot at
+`clip('name')`. Keep clips short (4–6 s), H.264, no audio, long edge about 1280 px.
+Videos load only when their section comes near the screen; with reduced motion or
+data saver on, the poster shows instead.
 
-All images get the same grade in CSS (`.media-frame` in `src/styles/index.css`): slightly
-muted colour, cool shadows, a dark falloff at the bottom and fine grain. Mixed sources
-(stock, shoot, AI) end up matching. Tune it there, once, for the whole site.
-
-The current Unsplash links are temporary placeholders. Replace them before launch.
+**Fetching new Higgsfield output:** the cloud dev environment can't reach Higgsfield's
+media host, so `.github/workflows/fetch-global-freight-media.yml` does it on a GitHub
+runner. Add a line to `media/manifest.txt` (`video <path> <url>`, `image …`, or `file …`)
+and push to `claude/global-freight-site`; the runner downloads it, turns videos into
+seamless loops with posters (`scripts/fetch-media.sh`), and commits the result.
 
 ### Add a language
 
