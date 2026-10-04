@@ -37,6 +37,16 @@ export const en: Content = {
     globeLabel: 'Globe zooming in from orbit to a cargo flight between Hong Kong and Frankfurt',
     routeLabel: 'Hong Kong to Frankfurt',
   },
+  land: {
+    heading: 'By land',
+    intro:
+      'Trucks and rail from the port to the door, booked together with the sea or air leg so the hand-off is planned before the cargo lands.',
+    facts: [
+      { term: 'Road', detail: 'Full and part truckloads' },
+      { term: 'Rail', detail: 'China–Europe in 14–18 days' },
+      { term: 'Borders', detail: 'Customs filed in transit' },
+    ],
+  },
   ocean: {
     heading: 'By sea',
     intro:

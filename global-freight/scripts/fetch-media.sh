@@ -9,6 +9,8 @@
 #   image  JPG, at most 1920 px wide (style frames, posters)
 #   video  seamless-loop H.264 MP4, long edge 1280 px, no audio,
 #          plus a poster JPG next to it (<name>.jpg)
+#   scrub  H.264 MP4 for scroll-controlled playback: no loop, a keyframe
+#          every 4 frames so seeking stays smooth, plus a poster JPG
 # Entries whose output already exists are skipped, so the script is safe to re-run.
 # Needs: curl, ffmpeg, ffprobe. Run from global-freight/: bash scripts/fetch-media.sh
 set -uo pipefail
@@ -33,6 +35,14 @@ loop_video() { # <src> <dest.mp4>
     ffmpeg -nostdin -loglevel error -y -i "$dest" -frames:v 1 -q:v 4 "${dest%.mp4}.jpg"
 }
 
+scrub_video() { # <src> <dest.mp4>
+  ffmpeg -nostdin -loglevel error -y -i "$1" -an \
+    -vf "scale='if(gte(iw,ih),1280,-2)':'if(gte(iw,ih),-2,1280)',format=yuv420p" \
+    -c:v libx264 -preset slow -crf 26 -g 4 -keyint_min 4 -sc_threshold 0 \
+    -movflags +faststart "$2" &&
+    ffmpeg -nostdin -loglevel error -y -i "$2" -frames:v 1 -q:v 4 "${2%.mp4}.jpg"
+}
+
 while read -r kind dest url; do
   [[ -z "${kind:-}" || "$kind" == \#* ]] && continue
   [[ -e "$dest" ]] && continue
@@ -44,6 +54,7 @@ while read -r kind dest url; do
       get "$tmp/src" "$url" &&
         ffmpeg -nostdin -loglevel error -y -i "$tmp/src" -vf "scale='min(1920,iw)':-2" -q:v 3 "$dest" || ok=0 ;;
     video) get "$tmp/src.mp4" "$url" && loop_video "$tmp/src.mp4" "$dest" || ok=0 ;;
+    scrub) get "$tmp/src.mp4" "$url" && scrub_video "$tmp/src.mp4" "$dest" || ok=0 ;;
     *) echo "unknown kind: $kind"; ok=0 ;;
   esac
   if ((ok)); then echo "done: $dest ($(du -h "$dest" | cut -f1))"; else failed+=("$dest"); rm -f "$dest"; fi

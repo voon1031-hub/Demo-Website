@@ -8,6 +8,7 @@ import { PendingSection } from './components/PendingSection';
 import { Hero } from './sections/Hero';
 import { Ocean } from './sections/Ocean';
 import { Air } from './sections/Air';
+import { Land } from './sections/Land';
 
 export default function App() {
   const t = useContent();
@@ -28,7 +29,7 @@ export default function App() {
         <PendingSection id="about" label={label('about')} slot="aboutCrane" />
         <Air />
         <Ocean />
-        <PendingSection id="land" label={label('land')} slot="landRoad" />
+        <Land />
         <PendingSection id="network" label={label('network')} />
         <PendingSection id="process" label={label('process')} />
         <PendingSection id="why" label={label('why')} />

@@ -87,12 +87,13 @@ export const media = {
     size: '1280×720 video, landscape',
     brief: 'Side-on tracking shot of a freighter aircraft above the clouds.',
   },
-  landRoad: {
-    id: 'land.truck',
-    ...clip('land-truck'),
-    alt: 'Chase view behind a container truck on a highway at night, lights stretched into orange trails',
-    size: '1280×720 video, landscape',
-    brief: 'Third-person chase shot following a container truck down a highway.',
+  // Land: scroll-controlled, not looped
+  landOrbit: {
+    id: 'land.orbit',
+    ...clip('land-orbit'),
+    alt: 'Drone circling a container truck as it crosses a lit sea bridge at night',
+    size: '1280×720 video, 6–10 s, one continuous camera move',
+    brief: 'Drone orbit around a truck on a bridge or mountain road; scrolling turns the camera.',
   },
 } satisfies Record<string, MediaSlot>;
 

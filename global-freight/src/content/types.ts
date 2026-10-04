@@ -34,6 +34,11 @@ export type Content = {
     globeLabel: string;
     routeLabel: string;
   };
+  land: {
+    heading: string;
+    intro: string;
+    facts: { term: string; detail: string }[];
+  };
   ocean: {
     heading: string;
     intro: string;
