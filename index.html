@@ -13,6 +13,9 @@
   social      : your account links. Empty "" ones fall back to the
                 #kaidohouse hashtag / search page on that platform.
 
+  music       : looping background track (MP3). Browsers never autoplay
+                sound, so visitors turn it on with the sound button.
+                Leave "" or omit the file to hide the button.
   hero        : the opening cover (video + poster). If its files are
                 missing, the first car's scene is used instead.
 
@@ -30,6 +33,7 @@ window.KAIDO = {
     poster: "assets/scenes/cover.jpg",
     alt: "Kaido House × Mini GT 1:64 cars in a miniature night scene"
   },
+  music: "assets/audio/theme.mp3",        // background track; the sound button only appears if this file exists
   preorderUrl: "https://minigt.tsm-models.com/index.php?action=product-list&b_id=73",
   social: {
     instagram: "",
@@ -205,6 +209,11 @@ window.KAIDO = {
   .masthead nav a:hover { color: var(--yellow); }
   .masthead nav .btn { padding: .5rem 1rem; }
   @media (max-width: 560px) { .masthead nav .hide-sm { display: none; } }
+  .sound[hidden] { display: none; }
+  .sound .wave { display: none; }
+  .sound[aria-pressed="true"] .wave { display: inline; }
+  .sound[aria-pressed="true"] .mute { display: none; }
+  .sound[aria-pressed="true"] { border-color: var(--yellow); color: var(--yellow); }
 
   /* the livery stripe doubles as the scroll progress bar */
   .progress {
@@ -438,6 +447,9 @@ window.KAIDO = {
   <nav aria-label="Main">
     <a class="hide-sm" href="#lineup">Lineup</a>
     <a class="hide-sm" href="#follow">Follow</a>
+    <button class="icon-btn sound" id="sound" type="button" aria-pressed="false" aria-label="Play music" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="wave" d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/><path class="mute" d="M16 9l6 6M22 9l-6 6"/></svg>
+    </button>
     <a class="btn primary" href="#preorder">Preorder</a>
   </nav>
   <div class="progress" id="progress" aria-hidden="true"></div>
@@ -712,6 +724,25 @@ window.KAIDO = {
   document.getElementById('social').innerHTML = Object.keys(names).map(k =>
     '<li><a class="btn" href="' + esc(cfg.social[k] || fallbacks[k]) + '" target="_blank" rel="noopener">' + icons[k] + names[k] + '</a></li>'
   ).join('');
+
+  /* ── Background music: only offered once the file is known to load ── */
+  if (cfg.music) {
+    const btn = document.getElementById('sound');
+    const audio = new Audio();
+    audio.loop = true; audio.preload = 'metadata'; audio.volume = 0.6;
+    audio.addEventListener('loadedmetadata', () => { btn.hidden = false; }, { once: true });
+    audio.src = cfg.music;
+    btn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-label', 'Pause music');
+        }).catch(() => {});
+      } else {
+        audio.pause();
+        btn.setAttribute('aria-pressed', 'false'); btn.setAttribute('aria-label', 'Play music');
+      }
+    });
+  }
 
   /* ── Scene index + progress stripe + header ── */
   const index = document.getElementById('scene-index');
