@@ -45,7 +45,7 @@ export function Air() {
   useGsap(root, () => {
     const mm = gsap.matchMedia();
     mm.add(MOTION_OK, () => {
-      gsap.set('[data-air-video]', { opacity: 0, scale: 1.3 });
+      gsap.set('[data-air-video]', { opacity: 0, scale: 1.18 });
       gsap.set('[data-air-copy] > *', { opacity: 0, x: -40 });
 
       gsap
@@ -59,8 +59,10 @@ export function Air() {
           onUpdate: () => globe.current?.setProgress(zoom.current.p),
         })
         .to('[data-air-label]', { opacity: 0, duration: 0.12 }, 0.08)
-        .to('[data-air-video]', { opacity: 1, scale: 1, ease: 'power2.out', duration: 0.16 }, 0.56)
-        .to('[data-air-globe]', { opacity: 0, duration: 0.1 }, 0.62)
+        // While the camera is inside the clouds, the footage fades in behind
+        // them and the globe dissolves, so the plane emerges as the clouds clear.
+        .to('[data-air-video]', { opacity: 1, scale: 1, ease: 'sine.inOut', duration: 0.3 }, 0.44)
+        .to('[data-air-globe]', { opacity: 0, ease: 'sine.inOut', duration: 0.14 }, 0.5)
         .to('[data-air-copy] > *', { opacity: 1, x: 0, stagger: 0.04, duration: 0.14 }, 0.76)
         .to({}, { duration: 0.1 });
     });
@@ -69,9 +71,6 @@ export function Air() {
   return (
     <section id="air" ref={root} tabIndex={-1} aria-labelledby="air-title" className="relative bg-navy-deep">
       <div className="relative h-svh min-h-[600px] overflow-hidden motion-reduce:h-auto motion-reduce:min-h-0">
-        <div data-air-globe className="absolute inset-0 motion-reduce:hidden">
-          <canvas ref={canvas} className="h-full w-full" role="img" aria-label={c.globeLabel} />
-        </div>
 
         <p
           data-air-label
@@ -87,6 +86,11 @@ export function Air() {
         >
           <MediaFrame slot="airFreighter" className="!absolute inset-0" />
           <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/40 to-transparent" />
+        </div>
+
+        {/* Above the footage, so the clouds drift over it as it fades in */}
+        <div data-air-globe className="pointer-events-none absolute inset-0 motion-reduce:hidden">
+          <canvas ref={canvas} className="h-full w-full" role="img" aria-label={c.globeLabel} />
         </div>
 
         <div className="relative mx-auto flex h-full max-w-7xl items-end px-4 pb-14 pt-24 sm:px-8 sm:pb-20 motion-reduce:h-auto">
