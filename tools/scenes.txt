@@ -12,3 +12,5 @@ khmg319-angle  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvai
 khmg315         https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175812_b20a9a06-7571-4e30-8972-177bb46b52db.mp4
 khmg309         https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175812_d8dc1b03-7f43-4aa2-863a-8db2b7aa073b.mp4
 khmg319         https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175812_2a992aeb-48a5-47bd-96b4-c765e8af651d.mp4
+khmg313        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175952_ef82dc58-1b73-4530-ae46-8c3cf52bc230.mp4
+khmg317        https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261004_175952_a35e5034-2604-4b93-a03d-0797e7aab7ff.mp4
