@@ -27,7 +27,7 @@ export function PendingSection({
           <h2 id={`${id}-title`} className="type-heading text-2xl text-fog">
             {label}
           </h2>
-          <p className="mt-2 text-fog/80">
+          <p className="mt-2 text-fog">
             {t.pending.title}. {t.pending.note}
           </p>
           {children}

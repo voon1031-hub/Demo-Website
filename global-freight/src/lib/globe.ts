@@ -22,17 +22,14 @@ import {
   ShaderMaterial,
   SphereGeometry,
   SRGBColorSpace,
+  TextureLoader,
   TubeGeometry,
   Vector3,
   WebGLRenderer,
 } from 'three';
-import { LAND_PATH, WORLD_VIEWBOX } from '../assets/world-land';
+import { paintLandMap } from './landMap';
 
 const COLORS = {
-  ocean: '#0B1D33',
-  land: '#1C2836',
-  coast: 'rgba(126,147,168,0.45)',
-  grid: 'rgba(126,147,168,0.12)',
   signal: '#FF5F1F',
   chart: '#7E93A8',
   glow: '#3E6A99',
@@ -82,38 +79,15 @@ function arc(a: LonLat, b: LonLat, lift: number) {
   return new CatmullRomCurve3(points);
 }
 
-function landTexture() {
+function landTexture(url: string | undefined, onReady: () => void) {
+  if (url) {
+    const tex = new TextureLoader().load(url, onReady);
+    tex.colorSpace = SRGBColorSpace;
+    tex.anisotropy = 4;
+    return tex;
+  }
   const c = document.createElement('canvas');
-  c.width = 2048;
-  c.height = 1024;
-  const ctx = c.getContext('2d')!;
-  ctx.fillStyle = COLORS.ocean;
-  ctx.fillRect(0, 0, c.width, c.height);
-  ctx.strokeStyle = COLORS.grid;
-  ctx.lineWidth = 1;
-  for (let lon = 0; lon <= 360; lon += 15) {
-    const x = (lon / 360) * c.width;
-    ctx.beginPath();
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, c.height);
-    ctx.stroke();
-  }
-  for (let lat = 0; lat <= 180; lat += 15) {
-    const y = (lat / 180) * c.height;
-    ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(c.width, y);
-    ctx.stroke();
-  }
-  ctx.save();
-  ctx.scale(c.width / WORLD_VIEWBOX.width, c.height / WORLD_VIEWBOX.height);
-  const land = new Path2D(LAND_PATH);
-  ctx.fillStyle = COLORS.land;
-  ctx.fill(land);
-  ctx.strokeStyle = COLORS.coast;
-  ctx.lineWidth = 0.35;
-  ctx.stroke(land);
-  ctx.restore();
+  paintLandMap(c);
   const tex = new CanvasTexture(c);
   tex.colorSpace = SRGBColorSpace;
   tex.anisotropy = 4;
@@ -154,7 +128,8 @@ export type Globe = {
   dispose: () => void;
 };
 
-export function createGlobe(canvas: HTMLCanvasElement): Globe {
+/** `textureUrl`: pre-rendered land map; without it the map is painted at runtime. */
+export function createGlobe(canvas: HTMLCanvasElement, textureUrl?: string): Globe {
   const renderer = new WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
   // Capped: a full-screen canvas at 3x on phones costs far more than it shows.
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
@@ -165,7 +140,8 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
   const earth = new Group();
   scene.add(earth);
 
-  const texture = landTexture();
+  // `schedule` is a function declaration below, so it is safe to reference here.
+  const texture = landTexture(textureUrl, () => schedule());
   earth.add(new Mesh(new SphereGeometry(1, 128, 96), new MeshBasicMaterial({ map: texture })));
   scene.add(atmosphere());
 
@@ -258,6 +234,8 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
 
   resize();
   window.addEventListener('resize', resize);
+  // Compile shaders now (while idle) rather than on the first scroll frame.
+  renderer.compile(scene, camera);
 
   return {
     setProgress(p) {

@@ -3,7 +3,7 @@ import { useContent } from '../content';
 import { gsap, MOTION_OK, prefersReducedMotion } from '../lib/gsap';
 import { useGsap } from '../hooks/useGsap';
 import { MediaFrame } from '../components/MediaFrame';
-import { media } from '../config/media';
+import { asset, media } from '../config/media';
 import { useScrubVideo } from '../hooks/useScrubVideo';
 import type { Globe } from '../lib/globe';
 
@@ -25,26 +25,24 @@ export function Air() {
   const descent = useRef<HTMLVideoElement>(null);
   const descentAt = useScrubVideo(descent, media.airDescent.video!, root);
 
-  // Load three.js only when the section is getting close.
+  // Build the globe while the page is idle, well before the visitor scrolls
+  // here, so loading three.js and compiling shaders never lands mid-scroll.
   useEffect(() => {
-    if (prefersReducedMotion() || !root.current) return;
+    if (prefersReducedMotion()) return;
     let disposed = false;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        io.disconnect();
+    const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 600));
+    const handle = window.setTimeout(() => {
+      idle(() => {
         import('../lib/globe').then(({ createGlobe }) => {
           if (disposed || !canvas.current) return;
-          globe.current = createGlobe(canvas.current);
+          globe.current = createGlobe(canvas.current, asset('media/globe-land.webp'));
           globe.current.setProgress(zoom.current.p);
         });
-      },
-      { rootMargin: '100% 0px' },
-    );
-    io.observe(root.current);
+      });
+    }, 800);
     return () => {
       disposed = true;
-      io.disconnect();
+      window.clearTimeout(handle);
       globe.current?.dispose();
       globe.current = null;
     };
@@ -113,7 +111,7 @@ export function Air() {
           className="absolute inset-0 motion-reduce:relative motion-reduce:aspect-video motion-reduce:max-h-[70svh] motion-reduce:w-full motion-reduce:!opacity-100"
         >
           <MediaFrame slot="airFreighter" className="!absolute inset-0" />
-          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/40 to-transparent" />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/70 to-navy-deep/10" />
         </div>
 
         {/* Above the footage, so the clouds drift over it as it fades in */}
@@ -122,15 +120,15 @@ export function Air() {
         </div>
 
         <div className="relative mx-auto flex h-full max-w-7xl items-end px-4 pb-14 pt-24 sm:px-8 sm:pb-20 motion-reduce:h-auto">
-          <div data-air-copy className="max-w-xl">
+          <div data-air-copy className="text-legible max-w-xl">
             <h2 id="air-title" className="type-display text-3xl">
               {c.heading}
             </h2>
-            <p className="mt-4 max-w-[42ch] text-fog/90 md:mt-6 md:text-lg">{c.intro}</p>
+            <p className="mt-4 max-w-[42ch] text-fog md:mt-6 md:text-lg">{c.intro}</p>
             <dl className="mt-6 grid gap-4 border-t border-chart/25 pt-4 sm:grid-cols-3 md:mt-8">
               {c.facts.map((f) => (
                 <div key={f.term}>
-                  <dt className="text-sm text-chart">{f.term}</dt>
+                  <dt className="text-sm text-chart-light">{f.term}</dt>
                   <dd className="type-data mt-1 text-fog">{f.detail}</dd>
                 </div>
               ))}

@@ -70,7 +70,7 @@ export function Nav({ ready }: { ready: boolean }) {
                     onClick={go(link.id)}
                     aria-current={isActive ? 'location' : undefined}
                     className={`relative block px-3 py-2 text-sm transition-colors duration-200 ${
-                      isActive ? 'text-fog' : 'text-chart hover:text-fog'
+                      isActive ? 'text-fog' : 'text-chart-light hover:text-fog'
                     }`}
                   >
                     {link.label}

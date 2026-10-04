@@ -47,7 +47,7 @@ export default function App() {
           <PendingSection id="contact" label={t.contact.heading}>
             <dl className="mt-6 grid gap-4 sm:grid-cols-2">
               <div>
-                <dt className="text-sm text-chart">{t.contact.email}</dt>
+                <dt className="text-sm text-chart-light">{t.contact.email}</dt>
                 <dd>
                   <a className="type-heading text-lg underline decoration-signal underline-offset-4 hover:text-signal" href={`mailto:${brand.contact.email}`}>
                     {brand.contact.email}
@@ -55,7 +55,7 @@ export default function App() {
                 </dd>
               </div>
               <div>
-                <dt className="text-sm text-chart">{t.contact.whatsapp}</dt>
+                <dt className="text-sm text-chart-light">{t.contact.whatsapp}</dt>
                 <dd>
                   <a
                     className="type-heading text-lg underline decoration-signal underline-offset-4 hover:text-signal"

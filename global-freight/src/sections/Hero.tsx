@@ -77,7 +77,7 @@ export function Hero() {
         <MediaFrame slot="heroPort" className="!absolute inset-0" priority />
         <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_45%,transparent_30%,rgb(7_20_42/0.85)_100%)]" />
         {/* Keeps the headline and lede readable over bright quay lights */}
-        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(55%_38%_at_50%_55%,rgb(7_20_42/0.72),transparent)]" />
+        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(55%_38%_at_50%_55%,rgb(7_20_42/0.82),transparent)]" />
       </div>
 
       <div aria-hidden="true" className="absolute inset-0 [perspective:1600px] motion-reduce:hidden">
@@ -89,7 +89,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-8">
+      <div className="text-legible relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-4 text-center sm:px-8">
         <img data-hero-mark src={asset(brand.logo.mark)} alt="" width={64} height={64} className="mb-6 h-14 w-14 sm:h-16 sm:w-16" />
         <h1 id="hero-title" className="type-display text-display">
           <span className="sr-only">{brand.name}: </span>
@@ -99,7 +99,7 @@ export function Hero() {
             </span>
           </span>
         </h1>
-        <p data-hero-reveal className="mt-6 max-w-[38ch] text-lg text-fog/90 sm:text-xl sm:leading-snug">
+        <p data-hero-reveal className="mt-6 max-w-[38ch] text-lg text-fog sm:text-xl sm:leading-snug">
           {t.hero.lede}
         </p>
         <div data-hero-reveal className="mt-8 flex flex-wrap justify-center gap-3">
@@ -112,7 +112,7 @@ export function Hero() {
         </div>
       </div>
 
-      <p data-hero-hint className="type-data absolute inset-x-0 bottom-8 flex flex-col items-center gap-3 text-sm text-fog/80 motion-reduce:hidden">
+      <p data-hero-hint className="type-data absolute inset-x-0 bottom-8 flex flex-col items-center gap-3 text-sm text-fog motion-reduce:hidden">
         <span aria-hidden="true" className="block h-8 w-px origin-top animate-[scrollcue_2.4s_ease-in-out_infinite] bg-signal" />
         {t.hero.scrollHint}
       </p>

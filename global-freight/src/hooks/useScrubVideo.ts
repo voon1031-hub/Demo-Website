@@ -4,7 +4,8 @@ import { prefersReducedMotion } from '../lib/gsap';
 /**
  * Drives a video's playhead from scroll instead of playing it. Returns a ref:
  * write a 0–1 progress into `.current` (e.g. from a ScrollTrigger) and the
- * video eases towards that point. The file is attached only when `near`
+ * video eases towards that point (lightly: the ScrollTrigger scrub already
+ * smooths the input, and a second heavy ease reads as lag). The file is attached only when `near`
  * comes within a screen of the viewport. Encode such clips with short
  * keyframe intervals (the "scrub" kind in scripts/fetch-media.sh).
  */
@@ -18,7 +19,7 @@ export function useScrubVideo(video: RefObject<HTMLVideoElement | null>, src: st
     const tick = () => {
       if (v.readyState >= 1 && v.duration) {
         const goal = target.current * (v.duration - 0.05);
-        if (Math.abs(goal - v.currentTime) > 0.01) v.currentTime += (goal - v.currentTime) * 0.2;
+        if (Math.abs(goal - v.currentTime) > 0.01) v.currentTime += (goal - v.currentTime) * 0.5;
       }
       raf = requestAnimationFrame(tick);
     };

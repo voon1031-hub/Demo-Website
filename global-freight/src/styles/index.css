@@ -11,6 +11,8 @@
   --color-steel: #1c2836;
   --color-steel-light: #263649;
   --color-chart: #7e93a8;
+  /* Label grey for text: 7.7:1 on navy (chart grey is for lines and borders). */
+  --color-chart-light: #a3b5c8;
   --color-fog: #e9eef3;
   --color-signal: #ff5f1f;
   --color-signal-hover: #ff7a42;
@@ -62,6 +64,13 @@
 }
 
 @layer components {
+  /* For copy that sits over footage: keeps edges crisp over bright lights. */
+  .text-legible {
+    text-shadow:
+      0 1px 2px rgb(7 20 42 / 0.65),
+      0 0 28px rgb(7 20 42 / 0.55);
+  }
+
   /* Expanded, heavy cut: reads like stencilled container lettering. */
   .type-display {
     font-stretch: 125%;

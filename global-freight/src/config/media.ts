@@ -98,9 +98,9 @@ export const media = {
   // Land: scroll-controlled, not looped
   landOrbit: {
     id: 'land.orbit',
-    ...clip('land-orbit-360'),
-    alt: 'Drone circling all the way around a container truck as it crosses a lit sea bridge at night',
-    size: '1280×720 video, one full orbit that ends where it starts',
+    ...clip('land-orbit-180'),
+    alt: 'Drone sweeping around a container truck, from one side past the front to the other, on a lit sea bridge at night',
+    size: '1024×576 video, one continuous sweep in a single direction',
     brief: 'Drone orbit around a truck on a bridge or mountain road; scrolling turns the camera.',
   },
 } satisfies Record<string, MediaSlot>;

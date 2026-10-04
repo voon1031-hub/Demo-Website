@@ -102,11 +102,11 @@ export function Ocean() {
               <h2 id="ocean-title" className="type-display text-3xl">
                 {c.heading}
               </h2>
-              <p className="mt-4 max-w-[42ch] text-fog/85 md:mt-6 md:text-lg">{c.intro}</p>
+              <p className="mt-4 max-w-[42ch] text-fog md:mt-6 md:text-lg">{c.intro}</p>
               <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-chart/20 pt-4 md:mt-10 md:grid-cols-1 md:gap-0 md:pt-0">
                 {c.facts.map((f) => (
                   <div key={f.term} className="md:flex md:items-baseline md:justify-between md:gap-6 md:border-b md:border-chart/20 md:py-3">
-                    <dt className="text-sm text-chart">{f.term}</dt>
+                    <dt className="text-sm text-chart-light">{f.term}</dt>
                     <dd className="type-data mt-1 text-base text-fog md:mt-0 md:text-right md:text-lg">{fillStats(f.detail)}</dd>
                   </div>
                 ))}
@@ -128,7 +128,7 @@ export function Ocean() {
             </div>
             <div data-ocean-copy className="md:max-w-[36ch] md:self-end md:pb-[6svh]">
               <h3 className="type-heading text-2xl">{c.panels[0].heading}</h3>
-              <p className="mt-4 text-fog/80 md:text-lg">{c.panels[0].body}</p>
+              <p className="mt-4 text-fog md:text-lg">{c.panels[0].body}</p>
             </div>
           </div>
 
@@ -136,7 +136,7 @@ export function Ocean() {
           <div className="flex w-screen shrink-0 flex-col gap-6 px-4 pb-[22svh] pt-24 sm:px-8 md:w-[86vw] md:flex-row md:items-center md:gap-14 md:pb-[18svh] motion-reduce:w-full motion-reduce:pb-16">
             <div data-ocean-copy className="order-2 md:order-1 md:max-w-[34ch] md:self-start md:pt-[8svh]">
               <h3 className="type-heading text-2xl">{c.panels[1].heading}</h3>
-              <p className="mt-4 text-fog/80 md:text-lg">{c.panels[1].body}</p>
+              <p className="mt-4 text-fog md:text-lg">{c.panels[1].body}</p>
             </div>
             <div className="relative order-1 min-h-0 flex-1 md:order-2 md:h-[80%] motion-reduce:min-h-[60svh]">
               <div className="absolute inset-0 overflow-hidden rounded-[28px] md:right-[18%] md:bottom-[22%]">
@@ -154,7 +154,7 @@ export function Ocean() {
           <div className="flex w-screen shrink-0 flex-col justify-center px-4 pb-[22svh] pt-24 sm:px-8 md:w-[62vw] md:pb-[18svh] md:pr-[10vw] motion-reduce:w-full motion-reduce:pb-24">
             <div data-ocean-copy>
               <h3 className="type-display text-2xl md:max-w-[14ch] md:text-[clamp(2.25rem,4.4vw,4rem)]">{c.handoff.heading}</h3>
-              <p className="mt-5 max-w-[40ch] text-fog/80 md:text-lg">{c.handoff.body}</p>
+              <p className="mt-5 max-w-[40ch] text-fog md:text-lg">{c.handoff.body}</p>
             </div>
           </div>
 
@@ -169,7 +169,7 @@ export function Ocean() {
                 style={{ left: `calc(${SHIP_X * 100}vw + ${i / (c.ports.length - 1)} * (100% - 100vw))` }}
               >
                 <span className="block h-3 w-3 rounded-full border-2 border-chart bg-navy transition-colors duration-300 group-[.is-passed]:border-signal group-[.is-passed]:bg-signal" />
-                <span className="type-data absolute top-5 whitespace-nowrap text-sm text-chart transition-colors duration-300 group-[.is-passed]:text-fog">
+                <span className="type-data absolute top-5 whitespace-nowrap text-sm text-chart-light transition-colors duration-300 group-[.is-passed]:text-fog">
                   {port}
                 </span>
               </li>
