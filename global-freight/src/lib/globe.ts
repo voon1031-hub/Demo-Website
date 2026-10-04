@@ -2,9 +2,11 @@
  * The Air section's globe: a three.js Earth that renders only on demand.
  * Loaded with a dynamic import so three.js stays out of the first page load.
  *
- * setProgress(0) frames the whole planet; setProgress(1) puts the camera just
- * behind the cargo flight on the Hong Kong → Frankfurt arc, where the page
- * cuts to the plane footage.
+ * setProgress(0) frames the whole planet; setProgress(1) stops at HANDOFF on
+ * the way down to the cargo flight. That frame is identical on every screen
+ * size and is the first frame of the descent clip (media/air-descent.mp4),
+ * so the page can swap the canvas for the video without a visible cut.
+ * Changing HANDOFF or the camera path means re-rendering that first frame.
  */
 import {
   AdditiveBlending,
@@ -19,8 +21,6 @@ import {
   Scene,
   ShaderMaterial,
   SphereGeometry,
-  Sprite,
-  SpriteMaterial,
   SRGBColorSpace,
   TubeGeometry,
   Vector3,
@@ -51,6 +51,10 @@ const HUBS: Record<string, LonLat> = {
 };
 /** Where on the featured arc the plane is (0 = Hong Kong, 1 = Frankfurt). */
 const PLANE_AT = 0.42;
+/** How far down the camera path the globe goes before the descent clip takes over. */
+export const HANDOFF = 0.6;
+/** Desktop field of view; the hand-off frame is rendered with it. */
+const FOV = 35;
 
 /** Lon/lat → point on a sphere, matching three's equirectangular UV layout. */
 function toVec([lon, lat]: LonLat, r = 1) {
@@ -142,36 +146,6 @@ function atmosphere() {
   );
 }
 
-/** A soft, lumpy cloud puff drawn from overlapping radial gradients. */
-function cloudTexture() {
-  const size = 256;
-  const c = document.createElement('canvas');
-  c.width = c.height = size;
-  const ctx = c.getContext('2d')!;
-  let seed = 7;
-  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-  for (let i = 0; i < 28; i++) {
-    const a = rand() * Math.PI * 2;
-    const d = rand() * size * 0.22;
-    const x = size / 2 + Math.cos(a) * d;
-    const y = size / 2 + Math.sin(a) * d * 0.7;
-    const r = size * (0.12 + rand() * 0.16);
-    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-    g.addColorStop(0, 'rgba(255,255,255,0.22)');
-    g.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, size, size);
-  }
-  const tex = new CanvasTexture(c);
-  tex.colorSpace = SRGBColorSpace;
-  return tex;
-}
-
-const smooth = (a: number, b: number, x: number) => {
-  const t = Math.min(1, Math.max(0, (x - a) / (b - a)));
-  return t * t * (3 - 2 * t);
-};
-
 const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 export type Globe = {
@@ -186,7 +160,7 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
   renderer.outputColorSpace = SRGBColorSpace;
 
   const scene = new Scene();
-  const camera = new PerspectiveCamera(35, 1, 0.005, 50);
+  const camera = new PerspectiveCamera(FOV, 1, 0.005, 50);
   const earth = new Group();
   scene.add(earth);
 
@@ -206,8 +180,7 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
   }
   const flight = arc(HUBS.hongKong, HUBS.frankfurt, 0.12);
   const signal = new MeshBasicMaterial({ color: COLORS.signal });
-  const routeMat = new MeshBasicMaterial({ color: COLORS.signal, transparent: true });
-  earth.add(new Mesh(new TubeGeometry(flight, 160, 0.0045, 8), routeMat));
+  earth.add(new Mesh(new TubeGeometry(flight, 160, 0.0045, 8), signal));
 
   const hubGeo = new SphereGeometry(0.012, 16, 12);
   for (const hub of Object.values(HUBS)) {
@@ -239,37 +212,22 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
   const pos = new Vector3();
   const look = new Vector3();
 
-  // Cloud layer along the last stretch of the descent: the camera flies
-  // through it, which hides the hand-off to the plane footage.
-  const puff = cloudTexture();
-  const cloudMat = new SpriteMaterial({ map: puff, color: '#3F5674', transparent: true, opacity: 0, depthWrite: false });
-  let cs = 11;
-  const crand = () => ((cs = (cs * 48271) % 2147483647) / 2147483647);
-  const side = new Vector3().crossVectors(planeDir, up).normalize();
-  for (let i = 0; i < 70; i++) {
-    const t = 0.72 + crand() * 0.27;
-    const p = ease(t);
-    const at = new Vector3().lerpVectors(start, end, p);
-    const spread = 0.025 + (1 - t) * 0.5;
-    const cloud = new Sprite(cloudMat);
-    cloud.position
-      .copy(at)
-      .add(side.clone().multiplyScalar((crand() - 0.5) * spread * 2))
-      .add(up.clone().multiplyScalar((crand() - 0.5) * spread));
-    cloud.scale.setScalar(spread * (1.2 + crand() * 1.5));
-    scene.add(cloud);
-  }
-
   let progress = 0;
   let frame = 0;
   /** Tall phone screens need the camera further out to fit the whole route. */
   let orbitScale = 1;
+  let narrowFov = FOV;
   const startPos = new Vector3();
 
   function render() {
     frame = 0;
-    const p = ease(progress);
-    startPos.copy(start).multiplyScalar(orbitScale);
+    const p = ease(progress * HANDOFF);
+    // Phone framing (wider fov, camera further out) converges on the desktop
+    // framing by the hand-off point, so the hand-off frame matches everywhere.
+    const settle = Math.min(1, p / ease(HANDOFF));
+    camera.fov = narrowFov + (FOV - narrowFov) * settle;
+    camera.updateProjectionMatrix();
+    startPos.copy(start).multiplyScalar(1 + (orbitScale - 1) * (1 - settle));
     pos.lerpVectors(startPos, end, p);
     look.lerpVectors(lookStart, planePos, Math.min(1, p * 1.3));
     camera.position.copy(pos);
@@ -278,12 +236,6 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
     // The globe turns towards the flight as the camera descends.
     earth.rotation.y = (1 - p) * 0.9;
     halo.scale.setScalar(1 + p * 0.5);
-    // Clouds thicken only on the final approach, then thin as the camera breaks through.
-    cloudMat.opacity = smooth(0.55, 0.78, progress) * (1 - smooth(0.9, 1, progress)) * 0.6;
-    // The marker and route give way to the real plane footage.
-    const handOff = 1 - smooth(0.7, 0.85, progress);
-    routeMat.opacity = handOff;
-    plane.visible = halo.visible = handOff > 0.01;
     renderer.render(scene, camera);
   }
 
@@ -297,7 +249,7 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     // Keep the whole globe in frame on tall phone screens.
-    camera.fov = w / h < 0.8 ? 42 : 35;
+    narrowFov = w / h < 0.8 ? 42 : FOV;
     orbitScale = w / h < 0.8 ? 1.45 : 1;
     camera.updateProjectionMatrix();
     schedule();
@@ -315,7 +267,6 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
     dispose() {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
-      cloudMat.dispose();
       scene.traverse((o) => {
         if (o instanceof Mesh) {
           o.geometry.dispose();
@@ -323,7 +274,6 @@ export function createGlobe(canvas: HTMLCanvasElement): Globe {
         }
       });
       texture.dispose();
-      puff.dispose();
       renderer.dispose();
     },
   };
