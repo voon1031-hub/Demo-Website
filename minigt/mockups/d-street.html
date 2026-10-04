@@ -202,9 +202,9 @@
   let G;
 
   function layout() {
-    const W = frame.clientWidth, H = frame.clientHeight, portrait = H > W;
+    const W = frame.clientWidth, H = frame.clientHeight, portrait = matchMedia('(max-aspect-ratio: 3/4)').matches;
     const pw0 = Math.max(W, H * A), ph0 = pw0 / A;          // wide shot: photo covers the frame
-    const S = (portrait ? W : .64 * W) / (CAR * pw0);       // zoom factor to the close-up
+    const S = (portrait ? Math.min(W, H * .95) : .64 * W) / (CAR * pw0);   // zoom factor to the close-up
     const pw1 = pw0 * S, ph1 = ph0 * S, carW = CAR * pw1;
     const T = { x: W * .5, y: H * (portrait ? .5 : .63) };
     const cx = x => Math.min(0, Math.max(W - pw1, x)), cy = y => Math.min(0, Math.max(H - ph1 * 1.6, y));
@@ -352,7 +352,16 @@
     if (['ArrowDown', 'PageDown', ' '].includes(e.key)) go(1);
     if (['ArrowUp', 'PageUp'].includes(e.key)) go(-1);
   });
-  addEventListener('resize', () => { layout(); intro.invalidate(); story.invalidate(); });
+  let rt;
+  addEventListener('resize', () => {   // e.g. a phone rotated: recompute the camera, keep the current shot
+    clearTimeout(rt);
+    rt = setTimeout(() => {
+      layout();
+      const a = intro.time(), b = story.time();
+      intro.invalidate().seek(0, true).seek(a, true);          // force a full re-render with the new geometry
+      if (introDone) story.invalidate().seek(0, true).seek(b, true);
+    }, 150);
+  });
   gsap.ticker.add(() => grain(intro.time() + story.time()));
 
   const start = () => {
