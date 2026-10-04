@@ -56,8 +56,8 @@ window.LAIFEN_TEXT = {
     "s4.body": "Air leaves the nozzle at up to 23 m/s. Try the settings.",
     "s4.heat": "Heat", "s4.h0": "Cool", "s4.h1": "Warm", "s4.h2": "Hot",
     "s4.speed": "Speed", "s4.s0": "Low", "s4.s1": "Medium", "s4.s2": "High",
-    "s5.title": "Take it apart",
-    "s5.body": "Here’s what’s inside Swift 4. Tap a part to read about it.",
+    "s5.title": "Look inside",
+    "s5.body": "Keep scrolling and the body turns see-through, one section at a time, from the head down. Tap a marker to jump there.",
     "s5.note": "Illustration of the internal layout.",
     "part.motor": "Motor", "part.air": "Airflow", "part.ion": "Ion generator",
     "part.heat": "Heater and sensor", "part.shell": "Aluminium body",
@@ -108,8 +108,8 @@ window.LAIFEN_TEXT = {
     "s4.body": "出风口风速最高 23 m/s。试试切换设置。",
     "s4.heat": "温度", "s4.h0": "冷风", "s4.h1": "温风", "s4.h2": "热风",
     "s4.speed": "风速", "s4.s0": "低速", "s4.s1": "中速", "s4.s2": "高速",
-    "s5.title": "拆开看看",
-    "s5.body": "这是 Swift 4 的内部结构。点一下部件查看介绍。",
+    "s5.title": "看看里面",
+    "s5.body": "继续往下滑，机身会从机头开始逐段变透明，露出里面的部件。点标记可以直接跳过去。",
     "s5.note": "内部结构示意图。",
     "part.motor": "马达", "part.air": "风道", "part.ion": "离子发生器",
     "part.heat": "发热丝与温度传感器", "part.shell": "铝合金机身",
@@ -1427,14 +1427,16 @@ async function main() {
   const gNourish = placeGift(nourishNozzle(), [-.55, 1.68, GZ], [-.95, 4.7, 1.3], [1.05, 0, 0], .1);
   const gPods = [.78, 1.72, 2.66].map((x, k) => placeGift(pod(), [x, 1.73, GZ], [.85 + k * 1.05, 4.5, 1.3], [1.05, 0, 0], .18 + k * .04));
 
+  const SHELL = new Set(["headShell", "backCover", "outlet", "handleA", "handleB", "filter", "bottom"]);
+
   // ══ Labels over the canvas ══════════════════════════════════════
   const labelsEl = document.getElementById("labels");
   const HOTS = [
     { state: "motor", key: "part.motor", part: "motor", at: [0, MOTOR_Y, HZ + .27] },
     { state: "air", key: "part.air", part: "filter", at: [0, -4.14, HZ + HR] },
     { state: "ions", key: "part.ion", part: "ionGen", at: [0, .66, -.3] },
-    { state: "heat", key: "part.heat", part: "heater", at: [0, .47, .05] },
-    { state: "shell", key: "part.shell", part: "headShell", at: [0, HEAD_R, 0] }
+    { state: "heat", key: "part.heat", part: "heater", at: [0, .47, .05], left: true },
+    { state: "shell", key: "part.shell", part: "handleA", at: [0, -2.5, HZ + HR] }
   ].filter(h => APP.ids.includes(h.state));
   // numbered annotations for the close-ups, in the order they appear (head → base)
   const CALL_ORDER = ["ions", "heat", "motor", "air"].filter(id => APP.ids.includes(id));
@@ -1510,7 +1512,7 @@ async function main() {
     lid: 0, gifts: 0, glabels: 0, sink: 0, lift: 0, cable: 0,
     px: 0, py: 3.3, pz: .6, pyaw: 25,
     explode: 0, hs: 0, air: 0, path: 0, ions: 0, heat: 0, spin: .2,
-    fMotor: 0, fIon: 0, fHeat: 0, dim: 0, sweep: 0, turn: 0, stage: 0
+    fMotor: 0, fIon: 0, fHeat: 0, dim: 0, xray: 0, sweep: 0, turn: 0, stage: 0
   };
   const UP = { lid: 1, sink: 1, lift: 1, cable: 1, onD: 1, pitch: 5, dy: 0, my: .2 };
   const DEF = {
@@ -1519,11 +1521,11 @@ async function main() {
     gifts:  { lid: 1, gifts: 1, glabels: 1, ty: 2.9, tz: .4, pitch: 14, R: 5.0, mk: .9, dx: .17, dy: 0, my: .2 },
     lift:   { ...UP, R: 3.0, dx: .17 },
     on:     { ...UP, pyaw: 64, air: 1, spin: .8, ox: -1.0, oy: .45, R: 3.5, dx: -.1, mx: .08 },
-    inside: { ...UP, pyaw: 35, explode: 1, hs: 1, R: 4.8, dx: .17, spin: .3 },
-    motor:  { ...UP, pyaw: 35, explode: 1, fMotor: 1, dim: 1, spin: 1, ay: -.9, az: .3, R: 1.1, pitch: -12, yaw: -8, dx: .14 },
-    air:    { ...UP, pyaw: 35, explode: 1, path: 1, dim: .7, spin: .9, ay: -2.3, az: .3, R: 2.1, pitch: 4, yaw: 12, dx: .14 },
-    ions:   { ...UP, pyaw: -50, explode: 1, ions: 1, fIon: 1, dim: 1, spin: .5, ay: 3.0, az: -1.0, R: 1.8, pitch: 10, yaw: -14, dx: .14 },
-    heat:   { ...UP, pyaw: 35, explode: 1, heat: 1, fHeat: 1, dim: 1, spin: .5, ay: 2.2, az: -.15, R: 1.5, pitch: 14, yaw: -35, dx: .14 },
+    inside: { ...UP, pyaw: 30, hs: 1, R: 3.1, dx: .17, spin: .3 },
+    motor:  { ...UP, pyaw: 35, xray: 1, fMotor: 1, dim: 1, spin: 1, ay: -.9, az: .3, R: 1.2, pitch: -8, yaw: -8, dx: .14 },
+    air:    { ...UP, pyaw: 35, xray: 1, path: 1, dim: .7, spin: .9, ay: -1.7, az: .3, R: 2.1, pitch: 4, yaw: 12, dx: .14 },
+    ions:   { ...UP, pyaw: -50, xray: 1, ions: 1, fIon: 1, dim: 1, spin: .5, ay: 2.6, az: -1.0, R: 1.9, pitch: 10, yaw: -14, dx: .14 },
+    heat:   { ...UP, pyaw: 35, xray: 1, heat: 1, fHeat: 1, dim: 1, spin: .5, ay: 2.2, az: -.15, R: 1.5, pitch: 14, yaw: -35, dx: .14 },
     shell:  { ...UP, pyaw: 16, sweep: 1, ay: 1.1, R: 2.5, pitch: 8, dx: -.17 },
     colors: { ...UP, pyaw: 25, stage: 1, turn: 1, oz: -1.0, oy: .1, R: 5.0, mk: .78, pitch: 9, dx: 0, dy: .12, my: .17 }
   };
@@ -1533,9 +1535,9 @@ async function main() {
     "open>gifts": { gifts: [.15, 1], glabels: [.75, 1] },
     "gifts>lift": { gifts: [0, .4], glabels: [0, .15], lift: [.12, 1], sink: [.3, .95], cable: [.75, 1], "*": [.15, 1] },
     "lift>on": { air: [.3, 1] },
-    "on>inside": { air: [0, .3], explode: [.2, 1], hs: [.75, 1] },
+    "on>inside": { air: [0, .3], hs: [.75, 1] },
     "inside>ions": { hs: [0, .3] },
-    "air>shell": { explode: [0, .8], path: [0, .3] },
+    "air>shell": { xray: [0, .8], path: [0, .3] },
     "shell>colors": { stage: [.25, 1] }
   };
   const SEQ = APP.ids.map(id => ({ ...BASE, ...(DEF[id] || {}) }));
@@ -1694,7 +1696,8 @@ async function main() {
     // focus: dim everything except the part being explained
     for (const id in partMats) {
       const w = id === "motor" ? p.fMotor : id === "ionGen" ? p.fIon : (id === "heater" || id === "sensor") ? p.fHeat : 0;
-      const o = (1 - p.dim * (1 - w)) * (1 - p.stage);
+      // x-ray: the outer body turns see-through; inside, the part being explained stays solid
+      const o = (SHELL.has(id) ? 1 - p.xray * .86 : 1 - p.dim * (1 - w) * .7) * (1 - p.stage);
       for (const m of partMats[id]) setOpacity(m, o);
       if (parts[id]) parts[id].visible = o > .01;
       if (id === "bottom") setOpacity(cableMat, o * p.cable);
@@ -1779,7 +1782,7 @@ async function main() {
       const x = place(h.el, tgt, p.hs, (x, y) => h.el.classList.contains("flip")
         ? `translate(${x + 8}px, ${y - 8}px) translate(-100%, 0)`
         : `translate(${x - 8}px, ${y - 8}px)`);
-      h.el.classList.toggle("flip", x > W * .7);
+      h.el.classList.toggle("flip", !!h.left || x > W * .7);
       h.el.style.pointerEvents = p.hs > .5 ? "auto" : "none";
     }
     for (const c of CALLS) {
