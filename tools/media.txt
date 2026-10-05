@@ -1,4 +1,6 @@
 # name  url   (one generated file per line; the "Fetch generated media" workflow
 #              downloads them into assets/media/, and build-* clips into assets/build/)
-cand-house-a  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172140_a2fc9df9-e0e3-476f-b65d-9ff0895f6fe1.png
-cand-house-b  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172140_fdca2c47-fd63-4b6b-aae2-b8953b407d0b.png
+house    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172140_fdca2c47-fd63-4b6b-aae2-b8953b407d0b.png
+stage-0  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172600_6ad5072d-6c6f-4f90-9e29-664e6947edde.png
+stage-1  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172600_ef83ddba-4a25-4eb9-92ed-b89ae248c4fd.png
+stage-2  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172559_60779fad-dacb-4090-bccc-7e5568bf17cd.png
