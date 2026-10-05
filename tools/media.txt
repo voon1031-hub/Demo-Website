@@ -13,3 +13,6 @@ prj-courtyard   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJva
 prj-shopoffice  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172656_0fa21e75-9a3f-4840-a94b-869bf803b2b6.png
 prj-hillside    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172656_24e9ed05-a168-48af-82ea-1ef42652596b.png
 prj-office      https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172656_3d953039-5126-46ca-8ac3-f157221d20a8.png
+build-1  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172929_ce2b4ef1-5bb6-4d05-b71b-a53fe1d07ccb.mp4
+build-2  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172930_26c929df-b814-4e04-ba5b-eb54f308972c.mp4
+build-3  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172930_9d0c6ec6-181b-4a77-96e3-78648c1eb78e.mp4

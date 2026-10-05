@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Downloads every "<name> <url>" line in tools/media.txt and prepares it for the site.
-#   images (.png/.jpg/.webp)  -> assets/media/<name>.jpg  (up to 1920px wide)
+#   images (.png/.jpg/.webp)  -> assets/media/<name>.jpg  (fits in 1920x1400)
 #   videos (.mp4)             -> assets/media/<name>.mp4  (1280px, H.264, no audio)
 #   build-1, build-2 … videos -> the hero construction timelapse, joined in order and
 #                                cut into assets/build/NNN.webp frames, plus
@@ -30,7 +30,8 @@ while read -r name url _; do
         -movflags +faststart "assets/media/$name.mp4"
       echo "video: $name $(du -h "assets/media/$name.mp4" | cut -f1)" ;;
     *)
-      ffmpeg -nostdin -loglevel error -y -i "$file" -vf "scale='min(1920,iw)':-2" -q:v 3 "assets/media/$name.jpg"
+      ffmpeg -nostdin -loglevel error -y -i "$file" \
+        -vf "scale='min(1920,iw)':'min(1400,ih)':force_original_aspect_ratio=decrease" -q:v 4 "assets/media/$name.jpg"
       echo "image: $name $(du -h "assets/media/$name.jpg" | cut -f1)" ;;
   esac
 done < tools/media.txt
