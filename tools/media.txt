@@ -1,0 +1,4 @@
+# name  url   (one generated file per line; the "Fetch generated media" workflow
+#              downloads them into assets/media/, and build-* clips into assets/build/)
+cand-house-a  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172140_a2fc9df9-e0e3-476f-b65d-9ff0895f6fe1.png
+cand-house-b  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172140_fdca2c47-fd63-4b6b-aae2-b8953b407d0b.png
