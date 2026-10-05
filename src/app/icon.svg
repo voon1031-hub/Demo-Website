@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <radialGradient id="dusk">
+      <stop offset="0" stop-color="#d3a27a" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#d3a27a" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="sky">
+      <rect width="32" height="21"/>
+    </clipPath>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="#09090b"/>
+  <ellipse cx="16" cy="21" rx="13" ry="10" fill="url(#dusk)" clip-path="url(#sky)"/>
+  <path d="M9 21a7 7 0 0 1 14 0z" fill="#ececee"/>
+  <rect x="5" y="21" width="22" height="1.25" rx=".6" fill="#f7e0cc"/>
+</svg>
