@@ -32,8 +32,9 @@ Open `index.html` in a browser, or serve the folder with any static server.
 
 The cloud dev environment can't download from the media host, so a GitHub
 Actions workflow (`.github/workflows/fetch-media.yml`) does it: it runs
-`tools/fetch-media.sh` on every push that changes `tools/media.txt`, then commits
-the results back to the branch.
+`tools/fetch-media.sh` on pushes that change `tools/media.txt` (on the branch
+named in the workflow; it can also be started by hand from the Actions tab),
+then commits the results back to the branch.
 
 `tools/media.txt` lists one `name url` per line:
 
