@@ -2,6 +2,8 @@
 # Downloads every "<name> <url>" line in tools/media.txt and prepares it for the site.
 #   images (.png/.jpg/.webp)  -> assets/media/<name>.jpg  (fits in 1920x1400)
 #   videos (.mp4)             -> assets/media/<name>.mp4  (1280px, H.264, no audio)
+#   clip-* videos             -> the same, played forward then backward so the
+#                                loop has no jump (fits in 1280x1280)
 #   build-1, build-2 … videos -> the hero construction timelapse, joined in order and
 #                                cut into assets/build/NNN.webp frames, plus
 #                                assets/build/frames.js, start.jpg and end.jpg
@@ -24,6 +26,11 @@ while read -r name url _; do
   fi
   case "$name:$ext" in
     build-*:mp4) echo "build segment: $name" ;;  # used below, not published on its own
+    clip-*:mp4)
+      ffmpeg -nostdin -loglevel error -y -i "$file" -an -filter_complex \
+        "[0:v]scale='min(1280,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2,split[f][b];[b]reverse,trim=start_frame=1,setpts=PTS-STARTPTS[r];[f][r]concat=n=2:v=1:a=0,format=yuv420p[v]" \
+        -map "[v]" -c:v libx264 -preset slow -crf 26 -maxrate 3M -bufsize 6M -movflags +faststart "assets/media/$name.mp4"
+      echo "loop clip: $name $(du -h "assets/media/$name.mp4" | cut -f1)" ;;
     *:mp4|*:mov|*:webm)
       ffmpeg -nostdin -loglevel error -y -i "$file" -an -vf "scale=1280:-2" \
         -c:v libx264 -preset slow -crf 24 -maxrate 4M -bufsize 8M -pix_fmt yuv420p \

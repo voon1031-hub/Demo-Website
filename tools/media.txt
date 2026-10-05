@@ -13,3 +13,7 @@ prj-office      https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJva
 build-1  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172929_ce2b4ef1-5bb6-4d05-b71b-a53fe1d07ccb.mp4
 build-2  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172930_26c929df-b814-4e04-ba5b-eb54f308972c.mp4
 build-3  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172930_9d0c6ec6-181b-4a77-96e3-78648c1eb78e.mp4
+clip-courtyard   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_174631_32340a82-7377-4f32-af86-7155da28a4b7.mp4
+clip-hillside    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_174715_520702a7-8892-472b-8244-040baec3d5ba.mp4
+clip-shopoffice  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_174715_f7a7a3d6-7597-459e-9db6-0e06e7e775bf.mp4
+clip-office      https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_174629_f6484560-8d7a-4959-bc0b-0e2658937d35.mp4
