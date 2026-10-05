@@ -1,12 +1,9 @@
 # name  url   (one generated file per line; the "Fetch generated media" workflow
 #              downloads them into assets/media/, and build-* clips into assets/build/)
 house    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172140_fdca2c47-fd63-4b6b-aae2-b8953b407d0b.png
-stage-0  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172600_6ad5072d-6c6f-4f90-9e29-664e6947edde.png
-stage-1  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172600_ef83ddba-4a25-4eb9-92ed-b89ae248c4fd.png
-stage-2  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172559_60779fad-dacb-4090-bccc-7e5568bf17cd.png
 svc-homes       https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172656_ace66da0-e61a-42bc-98e4-9cc7987c8fc5.png
-svc-renovation  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172656_b5fa3e3d-bc56-4cf4-8075-1dc7ee94ba8f.png
-svc-commercial  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172656_3e5df1fd-ec64-43fa-93cd-3c273ca72f12.png
+svc-renovation  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_173339_a9ebc0aa-9cb7-495a-ba58-c96070fb4c04.png
+svc-commercial  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_173339_a8f85323-911f-4a09-8d10-f34b343fc782.png
 svc-structure   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172657_b3d17ec9-a317-4fc6-960c-fa43fd5b2cfb.png
 svc-interiors   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172656_b88ae1df-c81f-4aec-87c2-5396dd4e10c0.png
 prj-courtyard   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261005_172656_0453f1ae-684a-4a5a-8a3a-eb197ebb685b.png
