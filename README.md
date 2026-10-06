@@ -1,34 +1,55 @@
 # Demo-Website
 
-## Plumbline Builders – "From the ground up"
+## OWN TONE 本色 – "Made to disappear"
 
-A dark, cinematic single-page site for a design-and-build construction company.
-The opening screen is a construction timelapse driven by scrolling: the page
-opens on an unfinished concrete frame, and as the visitor scrolls the house is
-built from the bottom up (slabs and roof, walls, windows and finishes) until
-the lights come on. Scrolling back up takes the build back down.
+A single-page site for a foundation brand with 40 shades. The page itself is a
+shade card: its background is one of the 40 foundation shades, moving from the
+lightest (100C) at the top to the deepest (590C) at the bottom as the visitor
+scrolls. Picking a shade (the 40 dots under the headline, the "All 40" wall or
+the shade finder) holds the whole page in that skin tone until "恢复色阶" is
+pressed. Text and surfaces switch between dark and light ink so every shade
+keeps readable contrast.
 
-- `index.html` – the whole site. The company name, phone, email, office hours
-  and the four figures next to "One team from survey to keys" are in the config
-  block at the top of the file. Services, projects and the five steps are plain
-  text further down.
-- `assets/build/` – the hero timelapse as 120 WebP frames (`000.webp` to
-  `119.webp`), plus `frames.js`, which tells the page how many there are.
-- `assets/media/` – photos and project clips: `house.jpg` (finished house,
-  also the contact background and share image), `svc-*.jpg` (services),
-  `prj-*.jpg` (project photos) and `clip-*.mp4` (short looping project videos
-  that play while they are on screen).
-- `assets/fonts/` – Archivo (variable width and weight, SIL Open Font License),
-  self-hosted so headlines never fall back to a system font.
+Headlines and navigation are in English, set in an original typeface; the
+explanations and product copy are in Chinese.
 
-All pictures and videos are AI-generated placeholders, and the project names,
-sizes and figures are samples. Replace them with real project photos and
-numbers before the site goes live, then set `imageNote` in the config block to
-`""` to remove the footer note about AI images.
+- `index.html` – the whole site. The brand details (currency, contact email,
+  Instagram, free-shipping threshold and the footer note about AI images) are
+  in the config block at the top. The six products are plain HTML cards in the
+  "Shop" section, each carrying its price, category, finish and search
+  keywords. The 40 shades are mixed from the six colours in `SHADE_STOPS` in
+  the script at the bottom of the file.
+- `assets/fonts/owntone-display.woff2` – **OWN TONE Display**, the headline
+  face drawn for this site: wide, heavy geometric capitals, figures and
+  punctuation, plus the brand characters 本 and 色. Every dot (. : ; ! ? ·) is
+  a true circle, the zero is a pill like the buttons, and lowercase letters set
+  as capitals.
+- `tools/font/build-display.py` – draws that face from geometry and writes the
+  WOFF2 (and `tools/font/owntone-display.otf` for installing on a computer).
+  To change a letter, edit its function and run
+  `python3 tools/font/build-display.py` (needs
+  `pip install fonttools skia-pathops brotli`).
+- `assets/fonts/albert-sans-var.woff2` – Albert Sans (SIL Open Font License,
+  see `OFL-AlbertSans.txt`), subset to Latin, for English body text. Chinese
+  body text uses the visitor's system font (PingFang, Microsoft YaHei, Noto
+  Sans SC).
+- `assets/media/cut-*.webp` – the product images with transparent backgrounds,
+  so they sit straight on the page colour: liquid foundation, the six-shade
+  line-up, cushion, stick, skin tint, concealer, setting powder and a texture
+  swatch. `share.jpg` is the link preview image, `assets/favicon.svg` the tab
+  icon.
 
-Open `index.html` in a browser, or serve the folder with any static server.
+The product images were generated with Higgsfield (GPT Image 2.5). Products,
+prices, ingredients and figures are samples. The sample sign-up form and the
+checkout button do not send anything. Replace the pictures and data before
+the site goes live, then set `imageNote` in the config block to `""` to
+remove the footer note.
 
-### Regenerating media
+Serve the folder with any static server (for example `python3 -m http.server`)
+and open `index.html`; browsers block web fonts on pages opened straight from
+the disk.
+
+### Regenerating product images
 
 The cloud dev environment can't download from the media host, so a GitHub
 Actions workflow (`.github/workflows/fetch-media.yml`) does it: it runs
@@ -38,9 +59,7 @@ then commits the results back to the branch.
 
 `tools/media.txt` lists one `name url` per line:
 
-- images become `assets/media/<name>.jpg`;
-- videos become `assets/media/<name>.mp4`; `clip-*` videos are played forward
-  then backward so they loop without a jump;
-- `build-1`, `build-2`, `build-3` are the timelapse segments, each starting on
-  the previous one's last frame. They are joined in order and cut into the
-  frames in `assets/build/`.
+- `cut-*` images keep their transparent background, are trimmed to the
+  product and become `assets/media/<name>.webp`;
+- other images become `assets/media/<name>.jpg`;
+- videos become `assets/media/<name>.mp4`.

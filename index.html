@@ -1,877 +1,1147 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plumbline Builders – Design and build contractor</title>
-<meta name="description" content="Plumbline Builders designs and builds homes and commercial buildings, from the first site visit to the day you get the keys.">
-<meta name="theme-color" content="#061523">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OWN TONE 本色 – 40 个色号的本色粉底</title>
+<meta name="description" content="OWN TONE 本色粉底：40 个色号，冷调、中性、暖调。看不出涂了，只看出好看。">
+<meta name="theme-color" content="#F6DECB">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Plumbline Builders – From the ground up">
-<meta property="og:description" content="Design and build for homes and commercial buildings, one team from site visit to handover.">
-<meta property="og:image" content="assets/media/house.jpg">
+<meta property="og:title" content="OWN TONE 本色 – Made to disappear">
+<meta property="og:description" content="40 个色号的本色粉底，三步找到你的色号。">
+<meta property="og:image" content="assets/media/share.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <!--
   ══════════════════════════════════════════════════════════════════
-  ★ COMPANY DETAILS — this block is the part you need to edit ★
+  ★ BRAND DETAILS — the part you are most likely to edit ★
 
-  name      : company name (header, footer, page title is in <title> above)
-  phone     : the number as visitors should read it
-  phoneLink : the same number in international format, digits only;
-              this is what a phone dials when the number is tapped
-  email     : where enquiries go
-  hours     : office hours, shown in the contact section
-  reply     : how quickly you answer, shown in the contact section
-  licence   : licence or registration line in the footer ("" hides it)
-  facts     : the four figures next to "One team from survey to keys".
-              The ones below are samples: replace them with your own.
-  imageNote : footer note about the photos. Set it to "" once the
-              AI-generated pictures are replaced with real project photos.
+  currency  : shown in front of every price
+  email     : shown in the footer as the contact address
+  instagram : shown in the footer
+  freeShip  : free-shipping threshold, shown in the bag
+  imageNote : footer note about the pictures. Set it to "" once the
+              AI-generated product images are replaced with real photos.
 
-  Everything else (services, projects, steps) is plain text further down
-  in this file. Photos live in assets/media/, the scroll-built house
-  in assets/build/ (made by tools/fetch-media.sh).
+  Products are plain HTML in the "Shop" section further down: each card
+  carries its price, category, finish and skin types. The 40 shades are
+  generated from six reference colours in SHADE_STOPS in the script at
+  the bottom of this file. The headline face is assets/fonts/
+  owntone-display.woff2, built by tools/font/build-display.py.
   ══════════════════════════════════════════════════════════════════
 -->
 <script>
 window.SITE = {
-  name: "Plumbline Builders",
-  phone: "+60 12-345 6789",
-  phoneLink: "+60123456789",
-  email: "hello@plumbline.example",
-  hours: "Monday to Saturday, 9am to 6pm",
-  reply: "We call back within one working day.",
-  licence: "Licensed building contractor",
-  facts: [
-    { label: "Building since", value: "2009" },
-    { label: "Homes and buildings handed over", value: "120+" },
-    { label: "Site and office team", value: "45" },
-    { label: "Defects cover after handover", value: "12 months" }
-  ],
-  imageNote: "Photos on this page are AI-generated concept images."
+  currency: "RM",
+  email: "hello@owntone.example",
+  instagram: "@owntone.beauty",
+  freeShip: 150,
+  imageNote: "页面上的产品图由 Higgsfield 生成，产品、价格和成分数据都是示例。"
 };
 </script>
-<script src="assets/build/frames.js"></script>
-<link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/build/000.webp" as="image" fetchpriority="high">
+<link rel="preload" href="assets/fonts/owntone-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/albert-sans-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* OWN TONE Display: original wide geometric capitals drawn for this site
+   (tools/font/build-display.py). Albert Sans (SIL OFL) sets the Latin body
+   text; Chinese body text uses the reader's own system font. */
 @font-face {
-  font-family: "Archivo";
-  src: url("assets/fonts/archivo-var.woff2") format("woff2");
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
+  font-family: "OWN TONE Display";
+  src: url("assets/fonts/owntone-display.woff2") format("woff2");
+  font-weight: 900;
+  font-display: block;
+}
+@font-face {
+  font-family: "Albert Sans";
+  src: url("assets/fonts/albert-sans-var.woff2") format("woff2");
+  font-weight: 400 700;
   font-display: swap;
 }
 
+/* The page colour is one of the 40 shades. The script moves it from the
+   lightest shade at the top to the deepest at the bottom, or holds the
+   shade a visitor picks. Ink and paper flip so text keeps its contrast. */
+@property --canvas { syntax: "<color>"; inherits: true; initial-value: #F6DECB; }
+@property --ink    { syntax: "<color>"; inherits: true; initial-value: #22120B; }
+@property --paper  { syntax: "<color>"; inherits: true; initial-value: #FFF8F1; }
+
 :root {
-  --night: #061523;            /* the hero's sky after dark: page background */
-  --dusk: #0b2033;             /* image placeholders */
-  --plaster: #ebe7df;          /* text */
-  --plaster-2: rgba(235, 231, 223, .78);
-  --concrete: #98a3ab;         /* secondary text */
-  --lamp: #ebb46b;             /* window light: actions and progress */
-  --rule: rgba(235, 231, 223, .14);
-  --gutter: clamp(16px, 4.5vw, 64px);
-  --max: 1320px;
-  --edge: max(var(--gutter), calc((100vw - var(--max)) / 2));   /* shared left/right edge */
-  --bar: 68px;
-  color-scheme: dark;
+  --canvas: #F6DECB;          /* current shade: the page */
+  --ink: #22120B;             /* text, outlines, dots */
+  --paper: #FFF8F1;           /* the opposite of ink: lifts cards off the page */
+  --card: color-mix(in srgb, var(--canvas) 70%, var(--paper));
+  --deep: color-mix(in srgb, var(--canvas) 52%, var(--paper));
+  --line: color-mix(in srgb, var(--canvas) 35%, var(--ink));
+  --faint: color-mix(in srgb, var(--canvas) 91%, var(--ink));
+  --red: #D0102C;             /* the one accent: buy, picked shade, the dot */
+  --on-red: #FFF4EC;
+  --f-display: "OWN TONE Display", "Albert Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --f-body: "Albert Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", system-ui, sans-serif;
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1440px;
+  --bar: 64px;
+  color-scheme: light;
 }
+html.ease { transition: --canvas .7s ease, --ink .7s ease, --paper .7s ease; }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: var(--bar); }
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+html { background: var(--canvas); scroll-behavior: smooth; scroll-padding-top: calc(var(--bar) + 12px); }
 body {
   margin: 0;
-  background: var(--night);
-  color: var(--plaster);
-  font-family: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 400;
-  font-stretch: 100%;
-  line-height: 1.6;
+  background: var(--canvas);
+  color: var(--ink);
+  font: 400 16px/1.4 var(--f-body);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-img { display: block; max-width: 100%; height: auto; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button, input { font: inherit; color: inherit; }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--lamp); outline-offset: 3px; }
-::selection { background: var(--lamp); color: var(--night); }
-
-.skip {
-  position: absolute; left: var(--edge); top: -100px; z-index: 50;
-  padding: .6em 1em; background: var(--lamp); color: var(--night);
-  font-weight: 600; text-decoration: none;
-}
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+::selection { background: var(--red); color: var(--on-red); }
+[hidden] { display: none !important; }
+.no-js .picker, .no-js .wall, .no-js .dock { display: none; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 999px; background: var(--ink); color: var(--canvas); text-decoration: none; }
 .skip:focus { top: 12px; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.wrap { padding-inline: var(--edge); }
 
-h2 {
-  margin: 0 0 1.5rem;
-  font-size: clamp(2.125rem, 4.4vw, 4rem);
-  font-weight: 680;
-  font-stretch: 120%;
-  line-height: 1;
-  letter-spacing: -.03em;
+/* ---------- type ---------- */
+.d {
+  font-family: var(--f-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  line-height: .84;
   text-wrap: balance;
 }
-h3 { text-wrap: balance; }
-.lede { margin: 0; max-width: 36rem; font-size: clamp(1.0625rem, 1.4vw, 1.25rem); color: var(--plaster-2); }
+.d-hero { font-size: clamp(46px, 12.9vw, 190px); line-height: .82; letter-spacing: -.024em; }
+.d-xl { font-size: clamp(38px, 9.2vw, 138px); line-height: .86; letter-spacing: -.018em; }
+.d-l { font-size: clamp(32px, 5.2vw, 76px); line-height: .9; letter-spacing: -.012em; }
+.d-m { font-size: clamp(24px, 2.8vw, 40px); line-height: 1; letter-spacing: -.006em; }
+.d-s { font-size: 18px; line-height: 1.1; letter-spacing: .01em; }
+.dot { color: var(--red); }
+.lede { font-size: clamp(17px, 1.5vw, 18px); line-height: 1.4; max-width: 34em; }
+.cn-big { font-size: clamp(20px, 2.1vw, 28px); font-weight: 600; line-height: 1.3; letter-spacing: .02em; }
+.small { font-size: 13px; line-height: 1.4; }
 
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 48px; padding: 0 1.35em; border-radius: 2px;
-  font-size: 1rem; font-weight: 600; font-stretch: 110%;
-  text-decoration: none; white-space: nowrap;
-  transition: background-color .2s, color .2s, border-color .2s;
+/* ---------- controls: everything is a pill ---------- */
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55em;
+  min-height: 38px; padding: 8px 17px;
+  border: 1px solid var(--ink); border-radius: 999px;
+  background: transparent; color: var(--ink);
+  font: 900 13px/1 var(--f-display); letter-spacing: .03em; text-transform: uppercase;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
 }
-.btn-lamp { background: var(--lamp); color: var(--night); }
-.btn-lamp:hover { background: #f4c788; }
-.btn-line { border: 1px solid rgba(235, 231, 223, .5); color: var(--plaster); }
-.btn-line:hover { border-color: var(--plaster); }
+.pill:hover, .pill[aria-pressed="true"] { background: var(--ink); color: var(--canvas); }
+.pill--fill { background: var(--red); border-color: var(--red); color: var(--on-red); padding: 10px 20px; }
+.pill--fill:hover { background: #A80B22; border-color: #A80B22; color: var(--on-red); }
+.pill--cn { font-family: var(--f-body); font-weight: 600; font-size: 14px; letter-spacing: .02em; text-transform: none; }
+.pill--sm { min-height: 32px; padding: 6px 14px; }
+.pill svg { width: 16px; height: 16px; flex: none; }
+.badge {
+  display: inline-block; padding: 5px 11px 4px; border-radius: 999px;
+  font: 900 11px/1 var(--f-display); letter-spacing: .04em; text-transform: uppercase;
+  background: var(--ink); color: var(--canvas);
+}
+.badge--red { background: var(--red); color: var(--on-red); }
+.badge--soft { background: var(--deep); color: var(--ink); }
+.badge--cn { font-family: var(--f-body); font-weight: 600; font-size: 12px; letter-spacing: .04em; }
+.field {
+  width: 100%; min-height: 48px; padding: 12px 20px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: transparent; color: var(--ink); font-size: 15px;
+  transition: border-color .15s ease;
+}
+.field::placeholder { color: color-mix(in srgb, var(--ink) 82%, var(--canvas)); }
+.field:hover { border-color: var(--ink); }
+.field:focus { border-color: var(--red); outline: none; }
+.field:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.rule { border: 0; border-top: 2px dotted var(--line); margin: 0; }
 
-/* ── Header ─────────────────────────────────────────────── */
+/* ---------- top bar ---------- */
 .bar {
-  position: fixed; inset: 0 0 auto; z-index: 20;
-  height: var(--bar);
-  display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.5rem);
-  padding-inline: var(--edge);
-  transition: background-color .3s, box-shadow .3s;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
+  background: var(--canvas);
+  padding-inline: var(--gutter);
 }
-.bar.is-solid {
-  background: rgba(6, 21, 35, .88);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 var(--rule);
+.bar-in {
+  max-width: var(--max); margin-inline: auto; min-height: var(--bar);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
 }
-.brand {
-  display: inline-flex; align-items: center; gap: .6rem;
-  font-size: 1.0625rem; font-weight: 650; font-stretch: 116%; letter-spacing: -.01em;
-  text-decoration: none;
+.bar-left, .bar-right { display: flex; gap: 8px; align-items: center; }
+.bar-right { justify-content: flex-end; }
+.brand { display: inline-flex; align-items: baseline; gap: .42em; text-decoration: none; font: 900 21px/1 var(--f-display); letter-spacing: .01em; white-space: nowrap; }
+.brand .cn { font-size: .92em; letter-spacing: .04em; }
+.bar-menu { display: none; }
+@media (max-width: 980px) {
+  .bar-in { grid-template-columns: auto 1fr; }
+  .bar-left, .bar-right [data-open-search] { display: none; }
+  .bar-menu { display: inline-flex; }
 }
-.brand svg { flex: none; width: 12px; height: 26px; }
-.brand span { white-space: nowrap; }
-.nav { display: flex; gap: clamp(1rem, 2.4vw, 2rem); margin-left: auto; }
-.nav a { font-size: .9375rem; color: var(--plaster-2); text-decoration: none; }
-.nav a:hover { color: var(--plaster); }
-.call {
-  display: inline-flex; align-items: center; gap: .4em;
-  min-height: 40px; padding: 0 .95em;
-  border: 1px solid rgba(235, 180, 107, .55); border-radius: 2px;
-  color: var(--lamp); font-size: .9375rem; font-weight: 600;
-  font-variant-numeric: tabular-nums; text-decoration: none; white-space: nowrap;
-  transition: background-color .2s, color .2s;
+@media (max-width: 420px) {
+  .brand { font-size: 18px; }
+  .bar-right .pill--fill { display: none; }
 }
-.call:hover { background: var(--lamp); color: var(--night); }
-@media (max-width: 860px) {
-  .nav { display: none; }
-  .call { margin-left: auto; }
+.menu {
+  position: fixed; inset: 0; z-index: 60; background: var(--canvas);
+  padding: calc(env(safe-area-inset-top, 0px) + 16px) var(--gutter) calc(env(safe-area-inset-bottom, 0px) + 24px);
+  display: flex; flex-direction: column; gap: 28px; overflow-y: auto;
 }
-@media (max-width: 480px) { .call-number { display: none; } }
+.menu-head { display: flex; justify-content: space-between; align-items: center; min-height: 48px; }
+.menu nav { display: grid; gap: 4px; }
+.menu nav a { text-decoration: none; font: 900 clamp(44px, 14vw, 88px)/.95 var(--f-display); text-transform: uppercase; letter-spacing: -.02em; }
+.menu nav a small { display: block; font: 600 15px/1.4 var(--f-body); letter-spacing: .04em; margin: 4px 0 14px; }
 
-/* ── Hero: the house builds itself as you scroll ────────── */
-.build { position: relative; height: 420vh; }
-.build-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--night); }
-.build-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
-.build-shade {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(6, 21, 35, .9) 0%, rgba(6, 21, 35, .42) 22%, rgba(6, 21, 35, 0) 40%),
-    linear-gradient(0deg, rgba(6, 21, 35, .94) 0%, rgba(6, 21, 35, .55) 17%, rgba(6, 21, 35, 0) 34%),
-    linear-gradient(270deg, rgba(6, 21, 35, .7) 0%, rgba(6, 21, 35, .3) 12%, rgba(6, 21, 35, 0) 24%);
+/* ---------- scenes ---------- */
+.scene { position: relative; padding: clamp(72px, 9vw, 120px) var(--gutter); overflow: clip; }
+.wrap { position: relative; z-index: 1; max-width: var(--max); margin-inline: auto; }
+.mark {
+  position: absolute; z-index: 0; pointer-events: none; user-select: none;
+  font: 900 clamp(140px, 30vw, 460px)/.8 var(--f-display); letter-spacing: -.05em;
+  color: var(--faint); white-space: nowrap;
 }
-.build-title {
-  position: absolute; left: var(--edge); right: var(--edge); top: calc(var(--bar) + 3.5vh);
-  margin: 0; padding-bottom: .1em;
-  font-size: clamp(2.5rem, min(5.6vw, 9.5vh), 6.75rem);
-  font-weight: 720; font-stretch: 125%;
-  line-height: .95; letter-spacing: -.035em;
-}
-@media (prefers-reduced-motion: no-preference) {
-  /* The headline goes up the way the house does: from its base line upward. */
-  .build-title { animation: rise 1.1s cubic-bezier(.2, .7, .1, 1) .2s both; }
-  @keyframes rise {
-    from { clip-path: inset(100% 0 0 0); transform: translateY(.3em); }
-    to { clip-path: inset(0 0 0 0); transform: none; }
-  }
-}
-.build-copy {
-  position: absolute; left: var(--edge); bottom: max(5vh, 28px);
-  width: min(33rem, calc(100% - 2 * var(--edge)));
-}
-.build-copy p { margin: 0 0 1.4rem; font-size: clamp(1rem, 1.25vw, 1.1875rem); color: rgba(235, 231, 223, .9); }
-.actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.head { display: grid; gap: 22px; margin-top: clamp(28px, 4vw, 48px); }
 
-.gauge {
-  position: absolute; right: var(--edge); bottom: calc(max(5vh, 28px) + 2.6rem);
-  height: clamp(170px, 30vh, 280px);
-  display: flex; gap: 20px;
-  font-size: .875rem; line-height: 1.2;
-  text-shadow: 0 1px 10px rgba(6, 21, 35, .9);
+/* hero */
+.hero { padding-top: clamp(20px, 3vw, 40px); }
+.hero .mark { right: -2vw; bottom: 6%; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(16px, 2vw, 32px); align-items: start; }
+.hero-text { min-width: 0; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero h1 { margin-top: clamp(22px, 3vw, 36px); font-size: min(10.3vw, 150px); }
+.hero-bottle { grid-column: 2; grid-row: 1; width: auto; height: clamp(380px, 40vw, 600px); }
+.hero-copy { display: grid; gap: 18px; max-width: 520px; margin-top: clamp(26px, 3.4vw, 44px); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.picker { margin-top: clamp(48px, 6vw, 84px); display: grid; gap: 14px; position: relative; z-index: 2; }
+.picker-row { display: grid; grid-template-columns: repeat(40, minmax(0, 1fr)); }
+.pick-dot {
+  appearance: none; border: 0; padding: 0; margin: 0; background: none; cursor: pointer;
+  aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%;
 }
-.gauge ol {
-  display: flex; flex-direction: column; justify-content: space-between;
-  margin: 0; padding: 0; list-style: none; text-align: right;
+.pick-dot::before {
+  content: ""; width: 54%; aspect-ratio: 1; border-radius: 50%; background: var(--c);
+  box-sizing: border-box; border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  transition: transform .15s ease;
 }
-.gauge li { --mark: rgba(235, 231, 223, .35); position: relative; color: rgba(235, 231, 223, .5); white-space: nowrap; transition: color .3s; }
-.gauge li::before, .gauge li::after { content: ""; position: absolute; top: 50%; background: var(--mark); transition: background-color .3s; }
-.gauge li::before { right: -30px; width: 21px; height: 1px; }                   /* level line */
-.gauge li::after {                                                            /* datum mark */
-  right: -25px; width: 11px; height: 8px; margin-top: -8px;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
+.pick-dot:hover::before { transform: scale(1.3); }
+.pick-dot[aria-pressed="true"]::before { outline: 2px solid var(--red); outline-offset: 3px; transform: scale(1.15); }
+.picker-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; }
+.picker-now b { font: 900 15px/1 var(--f-display); letter-spacing: .02em; }
+@media (max-width: 760px) {
+  .picker-row { grid-template-columns: repeat(20, minmax(0, 1fr)); row-gap: 2px; }
+  .pick-dot::before { width: 62%; }
 }
-.gauge li.is-reached { --mark: var(--lamp); color: var(--plaster-2); }
-.gauge li.is-now { color: var(--plaster); font-weight: 600; }
-.gauge-line { position: relative; width: 1px; margin-block: .6em; background: rgba(235, 231, 223, .22); }
-.gauge-fill {
-  position: absolute; left: -1px; bottom: 0; width: 3px; height: 100%;
-  background: var(--lamp); transform-origin: 50% 100%; transform: scaleY(0);
-}
-.hint {
-  position: absolute; right: var(--edge); bottom: max(5vh, 28px);
-  display: flex; align-items: center; gap: .5rem; margin: 0;
-  font-size: .875rem; color: var(--plaster-2);
-  transition: opacity .4s;
-}
-.hint svg { width: 10px; height: 18px; }
-.build.is-moving .hint { opacity: 0; }
-
-.build-status, .build-band { display: none; }
-
-@media (max-aspect-ratio: 1/1) {
-  /* Tall screens: title, the house, progress and intro stacked in one column. */
-  .build { height: 360vh; }
-  .build-stage { display: flex; flex-direction: column; padding: calc(var(--bar) + 2vh) var(--gutter) max(4vh, 24px); }
-  .build-shade, .gauge, .hint { display: none; }
-  .build-title { position: relative; inset: auto; font-size: clamp(2.4rem, 11vw, 5rem); line-height: .98; }
-  .build-band { display: block; flex: 1; min-height: 160px; }
-  .build-status {
-    position: relative; display: flex; align-items: center; gap: 1rem; margin: 0 0 1.75rem;
-    font-size: .875rem; color: var(--plaster-2);
-  }
-  .build-copy { position: relative; left: auto; bottom: auto; width: auto; max-width: 34rem; }
-  .build-status b { font-weight: 600; color: var(--plaster); white-space: nowrap; }
-  .build-track { position: relative; flex: 1; height: 1px; background: rgba(235, 231, 223, .22); }
-  .build-track i { position: absolute; left: 0; top: -1px; width: 100%; height: 3px; background: var(--lamp); transform-origin: 0 50%; transform: scaleX(0); }
-}
-@media (max-height: 520px) and (min-aspect-ratio: 1/1) {
-  .gauge, .hint { display: none; }
-  .build-copy p { display: none; }
-}
-.no-js .build { height: auto; }
-.no-js .build-stage { position: relative; background: var(--night) url("assets/media/house.jpg") center 60% / cover no-repeat; }
-.no-js .gauge, .no-js .hint { display: none; }
-
-/* ── One team ───────────────────────────────────────────── */
-.about { padding-block: clamp(5rem, 11vw, 9rem); }
-.about-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2.5rem clamp(1rem, 3vw, 3rem); align-items: start; }
-.about-text { grid-column: 1 / span 6; }
-.facts { grid-column: 8 / span 5; margin: .5rem 0 0; }
-.facts div { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: 1.1rem 0; border-top: 1px solid var(--rule); }
-.facts div:last-child { border-bottom: 1px solid var(--rule); }
-.facts dt { max-width: 15rem; font-size: .9375rem; color: var(--concrete); }
-.facts dd {
-  margin: 0; white-space: nowrap;
-  font-size: clamp(1.5rem, 2.4vw, 2.125rem); font-weight: 650; font-stretch: 118%;
-  font-variant-numeric: tabular-nums; letter-spacing: -.02em; line-height: 1.1;
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero h1 { font-size: 12.9vw; }
+  .hero-bottle { grid-column: 1; grid-row: auto; justify-self: center; height: clamp(300px, 80vw, 440px); margin-top: 28px; }
+  .hero-copy { max-width: none; }
 }
 
-/* ── Services ───────────────────────────────────────────── */
-.services, .projects, .process { padding-block: clamp(4.5rem, 9vw, 8rem); border-top: 1px solid var(--rule); }
-.section-head { max-width: 42rem; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
-.services-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 3rem); align-items: start; }
-.service-list { grid-column: 1 / span 7; margin: 0; padding: 0; list-style: none; }
-.service {
-  padding: 1.8rem 0 1.8rem 1.4rem;
-  border-top: 1px solid var(--rule);
-  box-shadow: inset 2px 0 0 transparent;
-  transition: box-shadow .3s;
+/* shades */
+.shades .mark { left: -2vw; top: 4%; }
+.lineup { margin-top: clamp(40px, 5vw, 64px); }
+.lineup img { width: 100%; }
+.lineup-labels { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin-top: 14px; text-align: center; }
+.lineup-labels li { display: grid; gap: 2px; }
+.lineup-labels b { font: 900 clamp(13px, 1.5vw, 20px)/1 var(--f-display); letter-spacing: .02em; }
+.lineup-labels span { font-size: clamp(12px, 1.2vw, 14px); }
+.tones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: clamp(40px, 5vw, 60px); }
+.tone { background: var(--card); border-radius: 6px; padding: 16px; display: grid; gap: 8px; align-content: start; }
+.tone-key { display: flex; align-items: baseline; gap: 10px; }
+.tone-key b { font: 900 34px/1 var(--f-display); }
+.tone-key span { font-weight: 600; }
+.wall { margin-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.wall-grid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 14px 6px; }
+.chip { appearance: none; border: 0; background: none; padding: 0; cursor: pointer; display: grid; justify-items: center; gap: 6px; color: var(--ink); }
+.chip i { width: min(46px, 100%); aspect-ratio: 1; border-radius: 50%; background: var(--c); border: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); transition: transform .15s ease; }
+.chip span { font: 900 11px/1 var(--f-display); letter-spacing: .02em; }
+.chip:hover i { transform: scale(1.08); }
+.chip[aria-pressed="true"] i { outline: 2px solid var(--red); outline-offset: 3px; }
+.wall-info { background: var(--card); border-radius: 6px; padding: clamp(18px, 2vw, 24px); display: grid; gap: 14px; position: sticky; top: calc(var(--bar) + 24px); }
+.wall-swatch { height: 64px; border-radius: 6px; background: var(--c, #E8BF9E); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.wall-code { font: 900 clamp(64px, 7vw, 104px)/.82 var(--f-display); letter-spacing: -.03em; }
+@media (max-width: 900px) {
+  .wall { grid-template-columns: minmax(0, 1fr); }
+  .wall-info { position: static; }
+  .tones { grid-template-columns: minmax(0, 1fr); }
 }
-.service:last-child { border-bottom: 1px solid var(--rule); }
-.service.is-active { box-shadow: inset 2px 0 0 var(--lamp); }
-.service h3 {
-  margin: 0 0 .5rem;
-  font-size: clamp(1.375rem, 2.3vw, 2rem); font-weight: 640; font-stretch: 116%;
-  line-height: 1.1; letter-spacing: -.02em;
+@media (max-width: 560px) {
+  .wall-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .lineup-labels span { display: none; }
 }
-.service p { margin: 0 0 .9rem; max-width: 36rem; color: var(--plaster-2); }
-.scope { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; margin: 0; padding: 0; list-style: none; font-size: .875rem; color: var(--concrete); }
-.scope li { position: relative; padding-left: .85rem; }
-.scope li::before { content: ""; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; background: rgba(235, 180, 107, .7); }
-.service-photo { display: none; }
-.preview { grid-column: 9 / span 4; position: sticky; top: calc(var(--bar) + 2rem); aspect-ratio: 4 / 5; overflow: hidden; background: var(--dusk); }
-.preview img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
-.preview img.is-active { opacity: 1; }
 
-/* ── Projects ───────────────────────────────────────────── */
-.project-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(1rem, 3vw, 3rem); row-gap: clamp(3.5rem, 7vw, 6rem); align-items: start; }
-.project { margin: 0; }
-.project.wide { grid-column: span 8; }
-.project.tall { grid-column: span 4; }
-.project:nth-child(2) { margin-top: clamp(3rem, 9vw, 9rem); }
-.project:nth-child(4) { margin-top: clamp(2rem, 6vw, 6rem); }
-.project-media { position: relative; overflow: hidden; background: var(--dusk); }
-.project-media img { width: 100%; object-fit: cover; }
-.project.wide .project-media img { aspect-ratio: 16 / 9; }
-.project.tall .project-media img { aspect-ratio: 4 / 5; }
-.project-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .8s ease; }
-.project-media video.is-playing { opacity: 1; }
-.projects-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; max-width: none; }
-.projects-head > div { max-width: 42rem; }
-.motion-toggle {
-  display: inline-flex; align-items: center; gap: .5rem; min-height: 40px; padding: 0 .9rem;
-  border: 1px solid var(--rule); border-radius: 2px; background: none; color: var(--plaster-2);
-  font: inherit; font-size: .875rem; cursor: pointer;
-}
-.motion-toggle:hover { color: var(--plaster); border-color: rgba(235, 231, 223, .4); }
-.motion-toggle svg { width: 10px; height: 12px; }
-.motion-toggle[hidden] { display: none; }
-.project h3 { margin: 1.15rem 0 .2rem; font-size: 1.375rem; font-weight: 640; font-stretch: 114%; letter-spacing: -.015em; line-height: 1.2; }
-.project p { margin: 0 0 .7rem; color: var(--plaster-2); }
-.spec { display: flex; flex-wrap: wrap; gap: .3rem 1.6rem; margin: 0; font-size: .875rem; }
-.spec div { display: flex; gap: .45rem; }
-.spec dt { color: var(--concrete); }
-.spec dd { margin: 0; font-variant-numeric: tabular-nums; }
+/* shop */
+.shop .mark { right: -3vw; top: 2%; }
+.tools { margin-top: clamp(32px, 4vw, 48px); display: grid; gap: 12px; }
+.search { position: relative; max-width: 560px; }
+.search svg { position: absolute; left: 18px; top: 50%; width: 18px; height: 18px; transform: translateY(-50%); pointer-events: none; }
+.search .field { padding-left: 46px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.filters + .filters { margin-top: -2px; }
+.filters .gap { width: 1px; height: 22px; background: var(--line); margin-inline: 6px; }
+.found { margin-top: 18px; font-weight: 600; }
+.cards { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); }
+.card { background: var(--card); border-radius: 6px; padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+.card-img { height: clamp(220px, 24vw, 320px); padding: 18px 0 6px; }
+.card-img img { width: 100%; height: 100%; object-fit: contain; }
+.card-badges { position: absolute; left: 14px; top: 14px; display: flex; gap: 6px; }
+.card h3 { font-size: clamp(17px, 1.5vw, 20px); }
+.card-cn { font-weight: 600; margin-top: -4px; }
+.card-desc { font-size: 15px; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 6px; align-content: start; }
+.card-tags li { font-size: 12px; font-weight: 600; letter-spacing: .02em; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); }
+.card-buy { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 12px; margin-top: auto; border-top: 2px dotted var(--line); }
+.price { font: 900 22px/1 var(--f-display); letter-spacing: .01em; white-space: nowrap; }
+.price small { font-size: .62em; margin-right: .2em; }
+.card-shade { font-size: 13px; }
+.card-shade b { font: 900 13px/1 var(--f-display); letter-spacing: .02em; }
+.empty { margin-top: 18px; background: var(--card); border-radius: 6px; padding: 22px; display: grid; gap: 12px; justify-items: start; }
+@media (max-width: 1060px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .cards { grid-template-columns: minmax(0, 1fr); } .card-img { height: 250px; } }
 
-/* ── Process ────────────────────────────────────────────── */
-.process-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2.5rem clamp(1rem, 3vw, 3rem); align-items: start; }
-.process-head { grid-column: 1 / span 4; position: sticky; top: calc(var(--bar) + 2rem); }
-.steps { grid-column: 6 / span 7; margin: 0; padding: 0; list-style: none; counter-reset: step; }
-.step { position: relative; display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); column-gap: 1.5rem; padding-bottom: 3rem; }
-.step:last-child { padding-bottom: 0; }
-.step::before {
-  counter-increment: step; content: counter(step);
-  font-size: 2.5rem; font-weight: 700; font-stretch: 125%; line-height: 1;
-  font-variant-numeric: tabular-nums; color: var(--concrete);
+/* finder */
+.finder .mark { left: -2vw; bottom: 2%; }
+.finder-grid { margin-top: clamp(36px, 5vw, 60px); display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
+.steps { display: grid; gap: 14px; counter-reset: step; }
+.step { margin: 0; border: 0; padding: 18px; border-radius: 6px; background: var(--card); display: grid; gap: 12px; min-width: 0; }
+.step legend { float: left; width: 100%; padding: 0; display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 17px; }
+.step-no { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--card); font: 900 15px/1 var(--f-display); }
+.step legend + * { clear: both; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.opt span {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 40px; padding: 8px 16px;
+  border: 1px solid var(--ink); border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 14px;
+  transition: background-color .15s ease, color .15s ease;
 }
-.step::after { content: ""; position: absolute; left: .95rem; top: 3.25rem; bottom: .75rem; width: 1px; background: var(--rule); }
-.step:last-child::after { display: none; }
-.step h3 { margin: .15rem 0 .5rem; font-size: clamp(1.25rem, 1.9vw, 1.625rem); font-weight: 640; font-stretch: 114%; line-height: 1.15; letter-spacing: -.015em; }
-.step p { margin: 0 0 .7rem; color: var(--plaster-2); }
-.step .gets { margin: 0; font-size: .9375rem; color: var(--plaster); }
-.step .gets span { color: var(--concrete); }
+.opt span small { font-weight: 400; font-size: 13px; }
+.opt i { width: 22px; height: 22px; border-radius: 50%; background: var(--c); border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); flex: none; }
+.opt:hover span { background: color-mix(in srgb, var(--card) 60%, var(--ink) 12%); }
+.opt input:checked + span { background: var(--ink); color: var(--card); }
+.opt input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
+.result { background: var(--deep); border-radius: 6px; padding: clamp(18px, 2.4vw, 28px); display: grid; gap: 14px; position: sticky; top: calc(var(--bar) + 24px); }
+.result-swatch { height: 120px; border-radius: 6px; background: var(--c, #CF9566); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); display: grid; place-items: center; }
+.result-swatch img { height: 104px; width: auto; }
+.result-code { font: 900 clamp(76px, 9vw, 132px)/.8 var(--f-display); letter-spacing: -.03em; }
+.result-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 900px) { .finder-grid { grid-template-columns: minmax(0, 1fr); } .result { position: static; } }
 
-/* ── Contact ────────────────────────────────────────────── */
-.contact { position: relative; isolation: isolate; display: flex; align-items: center; min-height: 100vh; padding-block: clamp(6rem, 12vw, 10rem); overflow: hidden; }
-.contact-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 60% 62%; }
-.contact::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(6, 21, 35, .96) 0%, rgba(6, 21, 35, .8) 40%, rgba(6, 21, 35, .12) 100%),
-    linear-gradient(0deg, rgba(6, 21, 35, .9) 0%, rgba(6, 21, 35, 0) 38%),
-    linear-gradient(180deg, rgba(6, 21, 35, 1) 0%, rgba(6, 21, 35, 0) 22%);
-}
-.contact h2 { max-width: 13ch; }
-.contact-lines { display: grid; gap: 1.75rem; margin-top: 2.75rem; justify-items: start; }
-.contact-line { display: grid; gap: .3rem; max-width: 100%; text-decoration: none; }
-.contact-line > span:first-child { font-size: .9375rem; color: var(--concrete); }
-.contact-line > span:last-child {
-  padding-bottom: .12em; border-bottom: 2px solid rgba(235, 180, 107, .45);
-  font-weight: 680; font-stretch: 118%; letter-spacing: -.025em; line-height: 1.05;
-  overflow-wrap: anywhere; transition: border-color .2s, color .2s;
-}
-.contact-line:hover > span:last-child { border-color: var(--lamp); color: var(--lamp); }
-.contact-phone > span:last-child { font-size: clamp(2rem, 5.4vw, 4.75rem); font-variant-numeric: tabular-nums; }
-.contact-email > span:last-child { font-size: clamp(1.375rem, 3.6vw, 3.25rem); }
-.contact-note { margin: 2.25rem 0 0; max-width: 34rem; color: var(--plaster-2); }
+/* formula */
+.formula .mark { right: -2vw; top: 30%; }
+.swatch-img { width: min(100%, 1100px); margin: clamp(28px, 4vw, 48px) 0 0 auto; }
+.formula-grid { margin-top: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.label { display: grid; gap: 4px; }
+.label div { display: flex; align-items: baseline; gap: 10px; padding-block: 9px; }
+.label dt { flex: 1; display: flex; align-items: baseline; gap: 10px; font-weight: 600; white-space: nowrap; }
+.label dt::after { content: ""; flex: 1; min-width: 24px; border-bottom: 2px dotted var(--line); transform: translateY(-4px); }
+.label dd { font: 900 clamp(16px, 1.6vw, 20px)/1.1 var(--f-display); letter-spacing: .01em; text-align: right; }
+.label dd.cn { font: 600 16px/1.3 var(--f-body); }
+.closing { margin-top: clamp(48px, 6vw, 80px); text-align: right; }
+@media (max-width: 900px) { .formula-grid { grid-template-columns: minmax(0, 1fr); } }
 
-.foot {
-  display: flex; flex-wrap: wrap; gap: .5rem 2rem;
-  padding: 2rem var(--edge) 2.5rem; border-top: 1px solid var(--rule);
-  font-size: .875rem; color: var(--concrete);
-}
-.foot p { margin: 0; }
-.foot a { margin-left: auto; color: var(--plaster-2); }
-.foot [hidden] { display: none; }
+/* story + samples */
+.story .mark { left: -2vw; top: 6%; }
+.story-grid { margin-top: clamp(36px, 5vw, 60px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.sample { background: var(--card); border-radius: 6px; padding: clamp(18px, 2.4vw, 28px); display: grid; gap: 14px; }
+.sample-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.sample-row .field { flex: 1 1 220px; }
+.sample-msg { min-height: 1.4em; font-weight: 600; }
+@media (max-width: 900px) { .story-grid { grid-template-columns: minmax(0, 1fr); } }
 
-@media (max-width: 860px) {
-  .about-text, .facts, .service-list, .process-head, .steps { grid-column: 1 / -1; }
-  .process-head { position: static; }
-  .preview { display: none; }
-  .service { padding-left: 0; box-shadow: none; }
-  .service.is-active { box-shadow: none; }
-  .service-photo { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: 1.25rem; background: var(--dusk); }
-  .project.wide, .project.tall { grid-column: 1 / -1; }
-  .project:nth-child(n) { margin-top: 0; }
-  .foot a { margin-left: 0; }
+/* footer */
+.foot { padding-top: clamp(16px, 2vw, 24px); padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 40px); }
+.foot-mark { font-size: clamp(54px, 13.6vw, 198px); line-height: .82; margin-top: clamp(32px, 4vw, 56px); }
+.foot-grid { margin-top: clamp(32px, 4vw, 48px); display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; }
+.foot-grid nav { display: flex; flex-wrap: wrap; gap: 8px; align-content: start; }
+.foot-cn { font: 900 40px/1 var(--f-display); }
+.foot-note { margin-top: 36px; font-size: 13px; max-width: 56em; }
+@media (max-width: 760px) { .foot-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- floating: dock, picked shade, bag, toast ---------- */
+.dock { position: fixed; z-index: 45; right: max(10px, calc((100vw - var(--max)) / 2 - 64px)); bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); display: flex; flex-direction: column; gap: 10px; }
+.fab {
+  position: relative; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  background: var(--canvas); color: var(--ink); border: 1px solid var(--ink);
+  transition: background-color .15s ease, color .15s ease;
 }
+.fab:hover { background: var(--ink); color: var(--canvas); }
+.fab svg { width: 20px; height: 20px; }
+.fab-count { position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--red); color: var(--on-red); font: 900 11px/22px var(--f-display); text-align: center; }
+.held {
+  position: fixed; z-index: 45; left: 10px; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  display: flex; align-items: center; gap: 10px; padding: 6px 6px 6px 8px; border-radius: 999px;
+  background: var(--canvas); border: 1px solid var(--ink); max-width: calc(100vw - 110px);
+}
+.held i { width: 26px; height: 26px; border-radius: 50%; background: var(--c); border: 2px solid var(--red); flex: none; }
+.held p { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.held b { font: 900 14px/1 var(--f-display); }
+.bag {
+  position: fixed; z-index: 70; top: 0; right: 0; bottom: 0; width: min(420px, 100vw);
+  background: var(--canvas); border-left: 1px solid var(--ink);
+  padding: calc(env(safe-area-inset-top, 0px) + 18px) 20px calc(env(safe-area-inset-bottom, 0px) + 20px);
+  display: grid; grid-template-rows: auto 1fr auto; gap: 16px;
+}
+.bag-head { display: flex; justify-content: space-between; align-items: center; }
+.bag-list { overflow-y: auto; display: grid; gap: 10px; align-content: start; }
+.bag-item { background: var(--card); border-radius: 6px; padding: 10px; display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.bag-item img { height: 64px; width: 56px; object-fit: contain; }
+.bag-item p { font-size: 14px; }
+.bag-item .qty { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.bag-item .qty button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--ink); background: none; cursor: pointer; line-height: 1; }
+.bag-foot { display: grid; gap: 12px; border-top: 2px dotted var(--line); padding-top: 14px; }
+.bag-sum { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; }
+.scrim { position: fixed; inset: 0; z-index: 65; background: color-mix(in srgb, var(--ink) 40%, transparent); }
+.toast {
+  position: fixed; z-index: 80; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); transform: translate(-50%, 12px);
+  padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--canvas); font-weight: 600; font-size: 14px;
+  opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; max-width: calc(100vw - 32px); text-align: center;
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
 @media (prefers-reduced-motion: reduce) {
-  .preview img, .gauge li, .gauge li::before, .gauge li::after, .hint, .project-media video { transition: none; }
+  html { scroll-behavior: auto; }
+  html.ease { transition: none; }
+  *, *::before, *::after { transition-duration: 0s !important; }
 }
 </style>
 </head>
-<body class="no-js">
-<script>document.body.classList.replace("no-js", "js");</script>
-<a class="skip" href="#main">Skip to content</a>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
 
-<header class="bar">
-  <a class="brand" href="#top">
-    <svg viewBox="0 0 12 26" aria-hidden="true"><path d="M6 0v10" stroke="currentColor" stroke-width="1.4"/><path d="M6 10.5 10.5 17 6 25.5 1.5 17Z" fill="#ebb46b"/></svg>
-    <span data-site="name">Plumbline Builders</span>
-  </a>
-  <nav class="nav" aria-label="Sections">
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#process">How we work</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="call" data-link="tel" href="tel:+60123456789">Call<span class="call-number" data-site="phone">+60 12-345 6789</span></a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15.5 15.5 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="bar" id="top">
+  <div class="bar-in">
+    <nav class="bar-left" aria-label="主导航">
+      <a class="pill" href="#shop">Shop</a>
+      <a class="pill" href="#shades">Shades</a>
+      <a class="pill" href="#finder">Finder</a>
+      <a class="pill" href="#story">Story</a>
+    </nav>
+    <a class="brand" href="#top" aria-label="OWN TONE 本色，回到顶部"><span>Own tone<span class="dot">·</span></span><span class="cn">本色</span></a>
+    <div class="bar-right">
+      <button class="pill" type="button" data-open-search><svg aria-hidden="true"><use href="#i-search"/></svg>Search</button>
+      <a class="pill pill--fill" href="#shop">Buy now</a>
+      <button class="pill bar-menu" type="button" aria-expanded="false" aria-controls="menu" data-menu>Menu</button>
+    </div>
+  </div>
 </header>
 
+<div class="menu" id="menu" hidden>
+  <div class="menu-head">
+    <span class="brand">Own tone<span class="dot">·</span> <span class="cn">本色</span></span>
+    <button class="pill" type="button" data-menu-close><svg aria-hidden="true"><use href="#i-close"/></svg>Close</button>
+  </div>
+  <nav aria-label="菜单">
+    <a href="#shop">Shop<small>选购底妆</small></a>
+    <a href="#shades">Shades<small>40 个色号</small></a>
+    <a href="#finder">Finder<small>三步找色号</small></a>
+    <a href="#story">Story<small>品牌和小样</small></a>
+  </nav>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="pill" type="button" data-open-search><svg aria-hidden="true"><use href="#i-search"/></svg>Search</button>
+    <a class="pill pill--fill" href="#shop">Buy now</a>
+  </div>
+</div>
+
 <main id="main">
-  <section class="build" id="top" aria-labelledby="build-title">
-    <div class="build-stage">
-      <canvas class="build-canvas" aria-hidden="true"></canvas>
-      <p class="sr">As you scroll, a two-storey house goes up on its plot, from a bare concrete frame to a finished home with the lights on.</p>
-      <div class="build-shade" aria-hidden="true"></div>
-      <h1 class="build-title" id="build-title">From the ground up.</h1>
-      <div class="build-band" aria-hidden="true"></div>
-      <div class="gauge" aria-hidden="true">
-        <ol>
-          <li data-at="0.86">Keys handed over</li>
-          <li data-at="0.64">Windows and finishes</li>
-          <li data-at="0.29">Walls</li>
-          <li data-at="0.06">Slabs and roof</li>
-          <li data-at="0">Columns</li>
-        </ol>
-        <div class="gauge-line"><i class="gauge-fill"></i></div>
-      </div>
-      <p class="build-status" aria-hidden="true"><b>Scroll to build</b><span class="build-track"><i></i></span></p>
-      <div class="build-copy">
-        <p>We design and build homes and commercial buildings. One team takes your project from the first site visit to the day you get the keys.</p>
-        <div class="actions">
-          <a class="btn btn-lamp" href="#contact">Get a quote</a>
-          <a class="btn btn-line" href="#projects">See our projects</a>
+
+<!-- ============ HERO: lightest shade ============ -->
+<section class="scene hero" data-shade="100C" aria-labelledby="hero-h">
+  <div class="mark" data-mark aria-hidden="true">100C</div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-badges"><span class="badge badge--red">New</span><span class="badge">40 shades</span><span class="badge badge--soft badge--cn">本色粉底液</span></div>
+        <h1 class="d d-hero" id="hero-h">Made to<br>disappear<span class="dot">.</span></h1>
+        <div class="hero-copy">
+          <p class="cn-big">看不出涂了，只看出好看。</p>
+          <p class="lede">本色粉底液有 40 个色号，从瓷白到浓缩咖啡色，每个深浅再分冷调、中性和暖调。选对了，它就消失在你的皮肤里。</p>
+          <div class="hero-actions">
+            <a class="pill pill--fill pill--cn" href="#shop">立即购买</a>
+            <a class="pill pill--cn" href="#finder">找到我的色号</a>
+          </div>
         </div>
       </div>
-      <p class="hint" aria-hidden="true">Scroll to build <svg viewBox="0 0 10 18"><path d="M5 0v16M1 12l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></p>
+      <img class="hero-bottle" src="assets/media/cut-liquid.webp" width="693" height="1600" alt="OWN TONE 本色粉底液，磨砂玻璃瓶，深咖啡色按压泵头，色号 200W" fetchpriority="high">
     </div>
-  </section>
-
-  <section class="about" aria-labelledby="about-title">
-    <div class="wrap about-grid">
-      <div class="about-text">
-        <h2 id="about-title">One team from survey to keys.</h2>
-        <p class="lede">Most delays on a build happen in the gaps between the designer, the contractor and the trades. We keep design, approvals, structure and finishing under one contract, so you follow one schedule and call one number.</p>
+    <div class="picker">
+      <div class="picker-row" data-picker role="group" aria-label="40 个色号，点一个让整页换成这个肤色"></div>
+      <div class="picker-meta small">
+        <p>点一个色号，整页会换成那个肤色。</p>
+        <p class="picker-now" aria-live="polite">现在的颜色 <b data-now-code>100C</b> <span data-now-name>瓷白</span></p>
       </div>
-      <dl class="facts" data-site="facts">
-        <div><dt>Building since</dt><dd>2009</dd></div>
-        <div><dt>Homes and buildings handed over</dt><dd>120+</dd></div>
-        <div><dt>Site and office team</dt><dd>45</dd></div>
-        <div><dt>Defects cover after handover</dt><dd>12 months</dd></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHADES ============ -->
+<section class="scene shades" id="shades" data-shade="200W" aria-labelledby="shades-h">
+  <div class="mark" data-mark aria-hidden="true">200W</div>
+  <div class="wrap">
+    <hr class="rule">
+    <div class="head">
+      <h2 class="d d-xl" id="shades-h">40 shades<span class="dot">.</span><br>One is yours<span class="dot">.</span></h2>
+      <p class="lede">深浅从 100 到 590，数字越大颜色越深。数字后面的字母是底调：C 是偏粉的冷调，N 是中性，W 是偏黄的暖调。</p>
+    </div>
+    <figure class="lineup">
+      <img src="assets/media/cut-lineup.webp" width="1600" height="629" alt="六瓶本色粉底液并排，液体颜色从最浅的 100C 到最深的 590C" loading="lazy">
+      <figcaption>
+        <ol class="lineup-labels">
+          <li><b>100C</b><span>瓷白</span></li>
+          <li><b>200W</b><span>沙</span></li>
+          <li><b>300N</b><span>蜂蜜</span></li>
+          <li><b>390W</b><span>焦糖</span></li>
+          <li><b>490N</b><span>摩卡</span></li>
+          <li><b>590C</b><span>浓缩</span></li>
+        </ol>
+      </figcaption>
+    </figure>
+    <ul class="tones">
+      <li class="tone"><p class="tone-key"><b>C</b><span>冷调</span></p><p>皮肤透粉，戴银饰更显气色。</p></li>
+      <li class="tone"><p class="tone-key"><b>N</b><span>中性</span></p><p>粉和黄都不明显，金饰银饰都合适。</p></li>
+      <li class="tone"><p class="tone-key"><b>W</b><span>暖调</span></p><p>皮肤偏黄或偏橄榄色，戴金饰更好看。</p></li>
+    </ul>
+    <div class="wall">
+      <div>
+        <h3 class="d d-m">All 40<span class="dot">.</span></h3>
+        <p class="small" style="margin:10px 0 18px">点一个色号看它的名字和底调。</p>
+        <div class="wall-grid" data-wall role="group" aria-label="全部 40 个色号"></div>
+      </div>
+      <div class="wall-info" aria-live="polite">
+        <div class="wall-swatch" data-wall-swatch></div>
+        <p class="wall-code" data-wall-code>200W</p>
+        <p class="cn-big" data-wall-name>沙，暖调</p>
+        <p data-wall-note>适合偏黄的浅肤色。</p>
+        <button class="pill pill--fill pill--cn" type="button" data-hold-wall>用这个色号看网站</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section class="scene shop" id="shop" data-shade="300N" aria-labelledby="shop-h">
+  <div class="mark" data-mark aria-hidden="true">300N</div>
+  <div class="wrap">
+    <hr class="rule">
+    <div class="head">
+      <h2 class="d d-xl" id="shop-h">Build your<br>base<span class="dot">.</span></h2>
+      <p class="lede">底妆全套，所有产品共用一套色号：粉底液选 200W，遮瑕也选 200W。</p>
+    </div>
+    <div class="tools">
+      <label class="search" for="q">
+        <span class="vh">搜索产品</span>
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <input class="field" id="q" type="search" placeholder="搜索：气垫、遮瑕、哑光、油皮" autocomplete="off">
+      </label>
+      <div class="filters" role="group" aria-label="按类别筛选">
+        <button class="pill pill--cn pill--sm" type="button" data-cat="all" aria-pressed="true">全部</button>
+        <button class="pill pill--cn pill--sm" type="button" data-cat="foundation" aria-pressed="false">粉底液</button>
+        <button class="pill pill--cn pill--sm" type="button" data-cat="cushion" aria-pressed="false">气垫</button>
+        <button class="pill pill--cn pill--sm" type="button" data-cat="stick" aria-pressed="false">粉底棒</button>
+        <button class="pill pill--cn pill--sm" type="button" data-cat="concealer" aria-pressed="false">遮瑕</button>
+        <button class="pill pill--cn pill--sm" type="button" data-cat="powder" aria-pressed="false">散粉</button>
+      </div>
+      <div class="filters" role="group" aria-label="按妆效筛选">
+        <button class="pill pill--cn pill--sm" type="button" data-finish="all" aria-pressed="true">所有妆效</button>
+        <button class="pill pill--cn pill--sm" type="button" data-finish="matte" aria-pressed="false">哑光</button>
+        <button class="pill pill--cn pill--sm" type="button" data-finish="satin" aria-pressed="false">柔光</button>
+        <button class="pill pill--cn pill--sm" type="button" data-finish="dewy" aria-pressed="false">水光</button>
+      </div>
+    </div>
+    <p class="found" data-found aria-live="polite">6 件产品</p>
+    <ul class="cards" data-cards>
+      <li class="card" data-id="liquid" data-cat="foundation" data-finish="satin" data-price="129" data-shades="40"
+          data-keywords="skin-true foundation 本色粉底液 粉底液 粉底 liquid 柔光 satin 中度遮瑕 持妆 24小时 干皮 油皮 混合 敏感 所有肤质">
+        <div class="card-img"><img src="assets/media/cut-liquid.webp" width="693" height="1600" alt="本色粉底液，磨砂玻璃瓶" loading="lazy"></div>
+        <div class="card-badges"><span class="badge badge--red">Bestseller</span></div>
+        <h3 class="d">Skin-true foundation</h3>
+        <p class="card-cn">本色粉底液，30 ml</p>
+        <p class="card-desc">轻薄柔光，中度遮瑕可以叠加，24 小时不暗沉。</p>
+        <ul class="card-tags"><li>柔光</li><li>中度遮瑕</li><li>所有肤质</li><li>40 个色号</li></ul>
+        <div class="card-buy"><div><p class="price"><small>RM</small>129</p><p class="card-shade">色号 <b data-card-shade>200W</b></p></div><button class="pill pill--cn" type="button" data-add>加入购物袋</button></div>
+      </li>
+      <li class="card" data-id="cushion" data-cat="cushion" data-finish="dewy" data-price="115" data-shades="24"
+          data-keywords="cushion foundation 本色气垫 气垫 粉扑 水光 dewy 轻度遮瑕 补妆 干皮 混合">
+        <div class="card-img"><img src="assets/media/cut-cushion.webp" width="912" height="1100" alt="本色气垫，打开的深咖啡色粉盒和米色粉扑" loading="lazy"></div>
+        <div class="card-badges"><span class="badge">New</span></div>
+        <h3 class="d">Cushion foundation</h3>
+        <p class="card-cn">本色气垫，15 g</p>
+        <p class="card-desc">水光妆效，补妆一拍就匀，干皮和混合肌都合适。</p>
+        <ul class="card-tags"><li>水光</li><li>轻度遮瑕</li><li>干皮</li><li>混合肌</li><li>24 个色号</li></ul>
+        <div class="card-buy"><div><p class="price"><small>RM</small>115</p><p class="card-shade">色号 <b data-card-shade>200W</b></p></div><button class="pill pill--cn" type="button" data-add>加入购物袋</button></div>
+      </li>
+      <li class="card" data-id="stick" data-cat="stick" data-finish="matte" data-price="99" data-shades="24"
+          data-keywords="foundation stick 本色粉底棒 粉底棒 哑光 matte 高遮瑕 控油 油皮 混合 补妆">
+        <div class="card-img"><img src="assets/media/cut-stick.webp" width="977" height="1600" alt="本色粉底棒，斜切面的米色膏体和深咖啡色管身" loading="lazy"></div>
+        <h3 class="d">Foundation stick</h3>
+        <p class="card-cn">本色粉底棒，9 g</p>
+        <p class="card-desc">斜切面一笔带过，哑光高遮瑕，出门补妆不脏手。</p>
+        <ul class="card-tags"><li>哑光</li><li>高遮瑕</li><li>油皮</li><li>混合肌</li><li>24 个色号</li></ul>
+        <div class="card-buy"><div><p class="price"><small>RM</small>99</p><p class="card-shade">色号 <b data-card-shade>200W</b></p></div><button class="pill pill--cn" type="button" data-add>加入购物袋</button></div>
+      </li>
+      <li class="card" data-id="tint" data-cat="foundation" data-finish="dewy" data-price="89" data-shades="16"
+          data-keywords="skin tint 本色轻薄粉底液 轻薄 粉底液 滴管 水光 dewy 轻透 干皮 敏感">
+        <div class="card-img"><img src="assets/media/cut-tint.webp" width="455" height="1600" alt="本色轻薄粉底液，细长磨砂玻璃滴管瓶" loading="lazy"></div>
+        <div class="card-badges"><span class="badge">New</span></div>
+        <h3 class="d">Skin tint</h3>
+        <p class="card-cn">本色轻薄粉底液，30 ml</p>
+        <p class="card-desc">比粉底液更薄的一层，只修饰不遮盖，敏感肌也能用。</p>
+        <ul class="card-tags"><li>水光</li><li>轻透</li><li>干皮</li><li>敏感肌</li><li>16 个色号</li></ul>
+        <div class="card-buy"><div><p class="price"><small>RM</small>89</p><p class="card-shade">色号 <b data-card-shade>200W</b></p></div><button class="pill pill--cn" type="button" data-add>加入购物袋</button></div>
+      </li>
+      <li class="card" data-id="concealer" data-cat="concealer" data-finish="matte" data-price="69" data-shades="24"
+          data-keywords="concealer 本色遮瑕 遮瑕 遮瑕液 黑眼圈 痘印 哑光 matte 高遮瑕 所有肤质">
+        <div class="card-img"><img src="assets/media/cut-concealer.webp" width="247" height="1600" alt="本色遮瑕，细长透明管和深咖啡色盖子" loading="lazy"></div>
+        <h3 class="d">Concealer</h3>
+        <p class="card-cn">本色遮瑕，6 ml</p>
+        <p class="card-desc">和粉底液同一套色号，盖黑眼圈和痘印也不卡粉。</p>
+        <ul class="card-tags"><li>哑光</li><li>高遮瑕</li><li>所有肤质</li><li>24 个色号</li></ul>
+        <div class="card-buy"><div><p class="price"><small>RM</small>69</p><p class="card-shade">色号 <b data-card-shade>200W</b></p></div><button class="pill pill--cn" type="button" data-add>加入购物袋</button></div>
+      </li>
+      <li class="card" data-id="powder" data-cat="powder" data-finish="satin" data-price="85" data-shades="3"
+          data-keywords="setting powder 本色定妆散粉 散粉 定妆 蜜粉 粉扑 控油 柔光 satin 油皮 混合">
+        <div class="card-img"><img src="assets/media/cut-powder.webp" width="1100" height="908" alt="本色定妆散粉，磨砂玻璃罐、粉扑和深咖啡色盖子" loading="lazy"></div>
+        <h3 class="d">Setting powder</h3>
+        <p class="card-cn">本色定妆散粉，12 g</p>
+        <p class="card-desc">细到看不见的粉，定妆控油，不改变粉底的颜色。</p>
+        <ul class="card-tags"><li>柔光</li><li>定妆</li><li>油皮</li><li>混合肌</li><li>3 个色调</li></ul>
+        <div class="card-buy"><div><p class="price"><small>RM</small>85</p><p class="card-shade">色调 <b>透明</b></p></div><button class="pill pill--cn" type="button" data-add>加入购物袋</button></div>
+      </li>
+    </ul>
+    <div class="empty" data-empty hidden>
+      <p class="cn-big">没有找到符合的产品。</p>
+      <p>换个关键词，或者清除筛选再看看。</p>
+      <button class="pill pill--cn" type="button" data-clear>清除筛选</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINDER ============ -->
+<section class="scene finder" id="finder" data-shade="350W" aria-labelledby="finder-h">
+  <div class="mark" data-mark aria-hidden="true">350W</div>
+  <div class="wrap">
+    <hr class="rule">
+    <div class="head">
+      <h2 class="d d-xl" id="finder-h">Find your<br>shade<span class="dot">.</span></h2>
+      <p class="lede">三步，大约 30 秒。选完马上告诉你色号和适合的产品。</p>
+    </div>
+    <div class="finder-grid">
+      <form class="steps" id="finder-form">
+        <fieldset class="step">
+          <legend><span class="step-no">1</span>你的肤色更接近哪一个？</legend>
+          <p class="small">对着下颌线比，靠近自然光最准。</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="depth" value="0"><span><i style="--c:#F2D6BF"></i>瓷白</span></label>
+            <label class="opt"><input type="radio" name="depth" value="1"><span><i style="--c:#E7BE9D"></i>沙</span></label>
+            <label class="opt"><input type="radio" name="depth" value="2" checked><span><i style="--c:#CD9364"></i>蜂蜜</span></label>
+            <label class="opt"><input type="radio" name="depth" value="3"><span><i style="--c:#A5663D"></i>焦糖</span></label>
+            <label class="opt"><input type="radio" name="depth" value="4"><span><i style="--c:#6F4128"></i>摩卡</span></label>
+            <label class="opt"><input type="radio" name="depth" value="5"><span><i style="--c:#46271A"></i>浓缩</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="step">
+          <legend><span class="step-no">2</span>你的底调是？</legend>
+          <p class="small">看手腕内侧的血管：偏紫偏蓝是冷调，偏绿是暖调，分不清就选中性。</p>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="tone" value="C"><span>冷调 C <small>偏粉</small></span></label>
+            <label class="opt"><input type="radio" name="tone" value="N" checked><span>中性 N</span></label>
+            <label class="opt"><input type="radio" name="tone" value="W"><span>暖调 W <small>偏黄</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="step">
+          <legend><span class="step-no">3</span>想要什么妆效？</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="finish" value="matte"><span>哑光 <small>控油不反光</small></span></label>
+            <label class="opt"><input type="radio" name="finish" value="satin" checked><span>柔光 <small>像好皮肤的光泽</small></span></label>
+            <label class="opt"><input type="radio" name="finish" value="dewy"><span>水光 <small>透亮</small></span></label>
+          </div>
+        </fieldset>
+      </form>
+      <div class="result" aria-live="polite">
+        <p class="small">你的色号</p>
+        <p class="result-code" data-result-code>300N</p>
+        <p class="cn-big" data-result-name>蜂蜜，中性调</p>
+        <div class="result-swatch" data-result-swatch><img data-result-img src="assets/media/cut-liquid.webp" width="693" height="1600" alt="" loading="lazy"></div>
+        <p>推荐 <b data-result-product>本色粉底液</b>，<span data-result-why>柔光妆效，中度遮瑕。</span></p>
+        <div class="result-actions">
+          <button class="pill pill--fill pill--cn" type="button" data-hold-result>用这个色号看网站</button>
+          <button class="pill pill--cn" type="button" data-add-result>加入购物袋</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA ============ -->
+<section class="scene formula" id="formula" data-shade="490N" aria-labelledby="formula-h">
+  <div class="mark" data-mark aria-hidden="true">490N</div>
+  <div class="wrap">
+    <hr class="rule">
+    <div class="head">
+      <h2 class="d d-xl" id="formula-h">Feels like<br>nothing<span class="dot">.</span></h2>
+    </div>
+    <img class="swatch-img" src="assets/media/cut-swatch.webp" width="1600" height="431" alt="一滴粉底液被手指推开的质地特写" loading="lazy">
+    <div class="formula-grid">
+      <div style="display:grid;gap:16px">
+        <p class="cn-big">一泵够全脸。</p>
+        <p class="lede">乳液质地，推开以后像第二层皮肤：透气，不闷，不搓泥，到晚上也不会氧化变暗。</p>
+      </div>
+      <dl class="label" aria-label="成分和数据">
+        <div><dt>持妆</dt><dd>24H</dd></div>
+        <div><dt>防晒</dt><dd>SPF 30 PA+++</dd></div>
+        <div><dt>烟酰胺</dt><dd>2%</dd></div>
+        <div><dt>透明质酸</dt><dd class="cn">3 种分子量</dd></div>
+        <div><dt>容量</dt><dd>30 ML</dd></div>
+        <div><dt>不添加</dt><dd class="cn">酒精、香精</dd></div>
       </dl>
     </div>
-  </section>
+    <p class="d d-xl closing" aria-hidden="true">Looks like<br>skin<span class="dot">.</span></p>
+  </div>
+</section>
 
-  <section class="services" id="services" aria-labelledby="services-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="services-title">What we build</h2>
-        <p class="lede">Five kinds of work, each run on site by one of our own supervisors.</p>
+<!-- ============ STORY + SAMPLES: deepest shade ============ -->
+<section class="scene story" id="story" data-shade="590C" aria-labelledby="story-h">
+  <div class="mark" data-mark aria-hidden="true">590C</div>
+  <div class="wrap">
+    <hr class="rule">
+    <div class="head">
+      <h2 class="d d-xl" id="story-h">We don’t change your tone<span class="dot">.</span> We match it<span class="dot">.</span></h2>
+    </div>
+    <div class="story-grid">
+      <div style="display:grid;gap:16px">
+        <p class="cn-big">本色，就是本来的颜色。</p>
+        <p class="lede">我们做 40 个色号，是为了让每一种肤色都能找到刚好的那一支。从 100C 到 590C，每个色号都用同样的配方，卖同样的价格。</p>
       </div>
-      <div class="services-grid">
-        <ul class="service-list">
-          <li class="service is-active" data-photo="0">
-            <img class="service-photo" src="assets/media/svc-homes.jpg" alt="Rebar laid over formwork for a first-floor slab, ready for the concrete pour" width="1128" height="1400" loading="lazy">
-            <h3>New homes</h3>
-            <p>Detached houses, semi-detached pairs and bungalows, designed and built on your land under one contract.</p>
-            <ul class="scope"><li>Design and approvals</li><li>Structure and roofing</li><li>Finishes and landscaping</li></ul>
-          </li>
-          <li class="service" data-photo="1">
-            <img class="service-photo" src="assets/media/svc-renovation.jpg" alt="A terrace house getting a new upper floor, wrapped in scaffolding" width="1128" height="1400" loading="lazy">
-            <h3>Renovations and extensions</h3>
-            <p>Add a floor, open up a layout or rebuild a kitchen and bathrooms. Our engineer checks the existing structure before any wall comes down.</p>
-            <ul class="scope"><li>Structural checks</li><li>Upper-floor extensions</li><li>Kitchens and bathrooms</li></ul>
-          </li>
-          <li class="service" data-photo="2">
-            <img class="service-photo" src="assets/media/svc-commercial.jpg" alt="A showroom during fit-out, with a glass partition going in" width="1128" height="1400" loading="lazy">
-            <h3>Commercial buildings and fit-out</h3>
-            <p>Shop-offices, showrooms, offices and small factories, from bare shell to a fitted-out space that is ready to open.</p>
-            <ul class="scope"><li>Shell and core</li><li>Shopfronts and partitions</li><li>Mechanical and electrical works</li></ul>
-          </li>
-          <li class="service" data-photo="3">
-            <img class="service-photo" src="assets/media/svc-structure.jpg" alt="Concrete being pumped into a foundation raft at dusk" width="1128" height="1400" loading="lazy">
-            <h3>Structural and civil works</h3>
-            <p>Piling, foundations, retaining walls, drainage and internal roads, planned with your engineer and the local authority.</p>
-            <ul class="scope"><li>Piling and foundations</li><li>Retaining walls</li><li>Drainage and roads</li></ul>
-          </li>
-          <li class="service" data-photo="4">
-            <img class="service-photo" src="assets/media/svc-interiors.jpg" alt="A finished concrete staircase with timber treads beside a timber slat wall" width="1128" height="1400" loading="lazy">
-            <h3>Interiors and finishing</h3>
-            <p>Carpentry, tiling, ceilings, lighting and built-in joinery, finished to the drawings and checked room by room.</p>
-            <ul class="scope"><li>Joinery and carpentry</li><li>Tiling and flooring</li><li>Ceilings and lighting</li></ul>
-          </li>
-        </ul>
-        <div class="preview" aria-hidden="true">
-          <img class="is-active" src="assets/media/svc-homes.jpg" alt="" width="1128" height="1400" loading="lazy">
-          <img src="assets/media/svc-renovation.jpg" alt="" width="1128" height="1400" loading="lazy">
-          <img src="assets/media/svc-commercial.jpg" alt="" width="1128" height="1400" loading="lazy">
-          <img src="assets/media/svc-structure.jpg" alt="" width="1128" height="1400" loading="lazy">
-          <img src="assets/media/svc-interiors.jpg" alt="" width="1128" height="1400" loading="lazy">
+      <form class="sample" id="sample-form" novalidate>
+        <h3 class="d d-m">Get 3 samples<span class="dot">.</span></h3>
+        <p>留下邮箱，我们按你的色号寄三个相邻色号的小样，在家对着自然光试。</p>
+        <div class="sample-row">
+          <label class="vh" for="sample-email">邮箱</label>
+          <input class="field" id="sample-email" name="email" type="email" placeholder="你的邮箱" autocomplete="email" required>
+          <button class="pill pill--fill pill--cn" type="submit">领取小样</button>
         </div>
-      </div>
+        <p class="sample-msg" data-sample-msg role="status"></p>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="projects" id="projects" aria-labelledby="projects-title">
-    <div class="wrap">
-      <div class="section-head projects-head">
-        <div>
-          <h2 id="projects-title">Recent projects</h2>
-          <p class="lede">A few of the buildings we have handed over. Ask us for addresses you can visit.</p>
-        </div>
-        <button class="motion-toggle" type="button" aria-pressed="false" hidden><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M1 0h3v12H1zM6 0h3v12H6z" fill="currentColor"/></svg><span>Pause videos</span></button>
-      </div>
-      <!-- Sample projects: swap in your own photos (assets/media/) and details. -->
-      <div class="project-grid">
-        <figure class="project wide">
-          <div class="project-media">
-            <img src="assets/media/prj-courtyard.jpg" alt="Single-storey house around a courtyard pool, lit at dusk" width="1920" height="1072" loading="lazy">
-            <video class="project-clip" data-src="assets/media/clip-courtyard.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <figcaption>
-            <h3>Courtyard house</h3>
-            <p>Single-storey home built around a lap pool.</p>
-            <dl class="spec"><div><dt>Floor area</dt><dd>380 m²</dd></div><div><dt>Built in</dt><dd>11 months</dd></div><div><dt>Handed over</dt><dd>2025</dd></div></dl>
-          </figcaption>
-        </figure>
-        <figure class="project tall">
-          <div class="project-media">
-            <img src="assets/media/prj-shopoffice.jpg" alt="Three-storey corner shop-office with lit glass shopfronts" width="1128" height="1400" loading="lazy">
-            <video class="project-clip" data-src="assets/media/clip-shopoffice.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <figcaption>
-            <h3>Corner shop-office</h3>
-            <p>Three storeys, shops below and offices above.</p>
-            <dl class="spec"><div><dt>Floor area</dt><dd>960 m²</dd></div><div><dt>Built in</dt><dd>14 months</dd></div><div><dt>Handed over</dt><dd>2025</dd></div></dl>
-          </figcaption>
-        </figure>
-        <figure class="project tall">
-          <div class="project-media">
-            <img src="assets/media/prj-office.jpg" alt="Office reception with a concrete desk and timber slat ceiling" width="1128" height="1400" loading="lazy">
-            <video class="project-clip" data-src="assets/media/clip-office.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <figcaption>
-            <h3>Office fit-out</h3>
-            <p>Reception, meeting rooms and open office on one floor.</p>
-            <dl class="spec"><div><dt>Floor area</dt><dd>420 m²</dd></div><div><dt>Built in</dt><dd>10 weeks</dd></div><div><dt>Handed over</dt><dd>2024</dd></div></dl>
-          </figcaption>
-        </figure>
-        <figure class="project wide">
-          <div class="project-media">
-            <img src="assets/media/prj-hillside.jpg" alt="Pair of two-storey semi-detached houses above stepped retaining walls" width="1920" height="1072" loading="lazy">
-            <video class="project-clip" data-src="assets/media/clip-hillside.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <figcaption>
-            <h3>Hillside pair</h3>
-            <p>Two semi-detached houses on a slope, with stepped retaining walls.</p>
-            <dl class="spec"><div><dt>Floor area</dt><dd>2 × 290 m²</dd></div><div><dt>Built in</dt><dd>16 months</dd></div><div><dt>Handed over</dt><dd>2024</dd></div></dl>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="process" id="process" aria-labelledby="process-title">
-    <div class="wrap process-grid">
-      <div class="process-head">
-        <h2 id="process-title">How a build runs with us</h2>
-        <p class="lede">Five steps, with a fixed price agreed before anything is built.</p>
-      </div>
-      <ol class="steps">
-        <li class="step">
-          <div>
-            <h3>Site visit and brief</h3>
-            <p>We walk the land or building with you, listen to what you need, and check access, soil and utilities.</p>
-            <p class="gets"><span>You get:</span> a written brief and a budget range.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3>Design and approvals</h3>
-            <p>Our architect and engineer draw up the plans, and we submit them and follow them through the local authority.</p>
-            <p class="gets"><span>You get:</span> approved drawings.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3>Fixed quote and contract</h3>
-            <p>A priced bill of quantities, a programme with dates, and a contract written so you can read it.</p>
-            <p class="gets"><span>You get:</span> one fixed price.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3>Construction</h3>
-            <p>A supervisor on site every working day. Payments are tied to finished stages, not to dates.</p>
-            <p class="gets"><span>You get:</span> photo updates every week.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3>Handover</h3>
-            <p>We inspect the building together, fix anything on the list, and hand over the keys with every document in one folder.</p>
-            <p class="gets"><span>You get:</span> keys, warranties and as-built drawings.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="contact" id="contact" aria-labelledby="contact-title">
-    <img class="contact-bg" src="assets/media/house.jpg" alt="" width="1920" height="1072" loading="lazy">
-    <div class="wrap">
-      <h2 id="contact-title">Tell us what you want to build.</h2>
-      <p class="lede">Send the site location, the size you have in mind and a budget range. <span data-site="reply">We call back within one working day.</span></p>
-      <div class="contact-lines">
-        <a class="contact-line contact-phone" data-link="tel" href="tel:+60123456789"><span>Call</span><span data-site="phone">+60 12-345 6789</span></a>
-        <a class="contact-line contact-email" data-link="mailto" href="mailto:hello@plumbline.example"><span>Email</span><span data-site="email">hello@plumbline.example</span></a>
-      </div>
-      <p class="contact-note">Office hours: <span data-site="hours">Monday to Saturday, 9am to 6pm</span></p>
-    </div>
-  </section>
 </main>
 
-<footer class="foot">
-  <p>© <span data-site="year">2026</span> <span data-site="name">Plumbline Builders</span></p>
-  <p data-site="licence">Licensed building contractor</p>
-  <p data-site="imageNote">Photos on this page are AI-generated concept images.</p>
-  <a href="#top">Back to top</a>
+<footer class="scene foot" data-shade="590C">
+  <div class="wrap">
+    <hr class="rule">
+    <p class="d foot-mark" aria-hidden="true">Own tone<span class="dot">·</span></p>
+    <div class="foot-grid">
+      <div style="display:grid;gap:10px;align-content:start">
+        <p class="foot-cn">本色</p>
+        <p>40 个色号的本色粉底。</p>
+      </div>
+      <nav aria-label="页脚导航">
+        <a class="pill" href="#shop">Shop</a>
+        <a class="pill" href="#shades">Shades</a>
+        <a class="pill" href="#finder">Finder</a>
+        <a class="pill" href="#story">Story</a>
+      </nav>
+      <div style="display:grid;gap:6px;align-content:start">
+        <p>联系我们 <b data-email></b></p>
+        <p>Instagram <b data-instagram></b></p>
+        <p class="small">© 2026 OWN TONE 本色</p>
+      </div>
+    </div>
+    <p class="foot-note" data-image-note></p>
+  </div>
 </footer>
+
+<div class="dock">
+  <button class="fab" type="button" data-open-bag aria-label="打开购物袋"><svg aria-hidden="true"><use href="#i-bag"/></svg><span class="fab-count" data-bag-count hidden>0</span></button>
+</div>
+
+<div class="held" data-held hidden>
+  <i data-held-dot></i>
+  <p>你的色号 <b data-held-code>200W</b> <span data-held-name>沙</span></p>
+  <button class="pill pill--cn pill--sm" type="button" data-release>恢复色阶</button>
+</div>
+
+<div class="scrim" data-scrim hidden></div>
+<aside class="bag" id="bag" aria-label="购物袋" hidden>
+  <div class="bag-head">
+    <p class="d d-m">Bag<span class="dot">.</span></p>
+    <button class="pill" type="button" data-close-bag><svg aria-hidden="true"><use href="#i-close"/></svg>Close</button>
+  </div>
+  <div style="overflow-y:auto;min-height:0">
+    <ul class="bag-list" data-bag-list></ul>
+    <p data-bag-empty>购物袋是空的。先挑一个色号，再把产品加进来。</p>
+  </div>
+  <div class="bag-foot">
+    <p class="bag-sum"><span>小计</span><span class="price" data-bag-total>RM 0</span></p>
+    <p class="small" data-bag-ship></p>
+    <button class="pill pill--fill pill--cn" type="button" data-checkout>去结账</button>
+  </div>
+</aside>
+
+<p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script>
 (function () {
   "use strict";
-  const S = window.SITE || {};
+  var SITE = window.SITE || {};
+  var root = document.documentElement;
+  root.classList.remove("no-js");
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
 
-  /* ── Company details from the config block ── */
-  document.querySelectorAll("[data-site]").forEach((el) => {
-    const key = el.dataset.site;
-    if (key === "year") { el.textContent = new Date().getFullYear(); return; }
-    if (key === "facts") {
-      if (!Array.isArray(S.facts)) return;
-      el.replaceChildren(...S.facts.map((f) => {
-        const row = document.createElement("div");
-        const dt = document.createElement("dt");
-        const dd = document.createElement("dd");
-        dt.textContent = f.label; dd.textContent = f.value;
-        row.append(dt, dd);
-        return row;
-      }));
+  /* ---------------- the 40 shades ---------------- */
+  // Six reference colours, lightest to deepest. Every shade in between is mixed from these.
+  var SHADE_STOPS = ["#F6DECB", "#E8BF9E", "#CF9566", "#A9693F", "#74442A", "#3F2318"];
+  var FAMILIES = [
+    { name: "瓷白", note: "最浅的一档，适合很白的皮肤。" },
+    { name: "沙", note: "浅肤色，带一点米色。" },
+    { name: "蜂蜜", note: "浅到中等的自然肤色。" },
+    { name: "焦糖", note: "中等偏深，晒过的健康肤色。" },
+    { name: "摩卡", note: "深肤色，颜色饱满。" },
+    { name: "浓缩", note: "最深的一档，深而有光泽。" }
+  ];
+  var TONES = { C: "冷调", N: "中性调", W: "暖调" };
+  var TONE_KEYS = ["C", "N", "W"];
+
+  function rgb(h) { h = h.replace("#", ""); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function hex(c) { return "#" + c.map(function (v) { return Math.round(v).toString(16).padStart(2, "0"); }).join(""); }
+  function mixRGB(a, b, t) { return a.map(function (v, k) { return v + (b[k] - v) * t; }); }
+  function ramp(t) {
+    var s = t * (SHADE_STOPS.length - 1), i = Math.min(Math.floor(s), SHADE_STOPS.length - 2);
+    return mixRGB(rgb(SHADE_STOPS[i]), rgb(SHADE_STOPS[i + 1]), s - i);
+  }
+  function lum(c) {
+    var l = c.map(function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * l[0] + 0.7152 * l[1] + 0.0722 * l[2];
+  }
+  function contrast(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+
+  var SHADES = [];
+  for (var i = 0; i < 40; i++) {
+    var t = i / 39, tone = TONE_KEYS[i % 3], fam = Math.round(t * 5);
+    SHADES.push({ i: i, code: (100 + Math.round(i * 2.5) * 5) + tone, tone: tone, family: fam, rgb: ramp(t) });
+  }
+  SHADES.forEach(function (s) { s.hex = hex(s.rgb); });
+  var byCode = {};
+  SHADES.forEach(function (s) { byCode[s.code] = s; });
+  function shadeName(s) { return FAMILIES[s.family].name + "，" + TONES[s.tone]; }
+
+  /* ---------------- page colour ---------------- */
+  // Ink is a warm near-black or a warm off-white, whichever keeps 4.6:1. A few
+  // mid shades are too close to call; they get pure black or white instead.
+  var INK_DARK = rgb("#22120B"), INK_LIGHT = rgb("#FFF8F1");
+  function inkFor(c) {
+    if (contrast(c, INK_DARK) >= 4.6) return { ink: INK_DARK, paper: rgb("#FFF8F1") };
+    if (contrast(c, INK_LIGHT) >= 4.6) return { ink: INK_LIGHT, paper: rgb("#140904") };
+    return contrast(c, [0, 0, 0]) >= contrast(c, [255, 255, 255])
+      ? { ink: [0, 0, 0], paper: [255, 255, 255] }
+      : { ink: [255, 255, 255], paper: [0, 0, 0] };
+  }
+  var themeMeta = $('meta[name="theme-color"]');
+  var painted = "";
+  function paint(c) {
+    var h = hex(c);
+    if (h === painted) return;
+    painted = h;
+    var p = inkFor(c);
+    root.style.setProperty("--canvas", h);
+    root.style.setProperty("--ink", hex(p.ink));
+    root.style.setProperty("--paper", hex(p.paper));
+    if (themeMeta) themeMeta.setAttribute("content", h);
+  }
+  function ease() {
+    root.classList.add("ease");
+    clearTimeout(ease.t);
+    ease.t = setTimeout(function () { root.classList.remove("ease"); }, 750);
+  }
+
+  var scenes = $$("[data-shade]").map(function (el) {
+    var s = byCode[el.getAttribute("data-shade")] || SHADES[0];
+    return { el: el, shade: s, mark: $("[data-mark]", el) };
+  });
+  var held = null;            // a shade the visitor picked, or null to follow the scroll
+  var nowCode = $("[data-now-code]"), nowName = $("[data-now-name]");
+
+  // Each scene keeps its own shade while it fills the middle of the screen and
+  // blends into the next one across the last 180px before the boundary.
+  function scrollShade() {
+    var mid = innerHeight * 0.5, B = 180;
+    for (var k = 0; k < scenes.length; k++) {
+      var r = scenes[k].el.getBoundingClientRect();
+      if (r.bottom <= mid && k < scenes.length - 1) continue;
+      var next = scenes[k + 1], d = r.bottom - mid;
+      if (next && d < B && d > -B) {
+        var u = (B - d) / (2 * B);
+        u = u * u * (3 - 2 * u);
+        return { rgb: mixRGB(scenes[k].shade.rgb, next.shade.rgb, u), shade: u < 0.5 ? scenes[k].shade : next.shade };
+      }
+      return { rgb: scenes[k].shade.rgb, shade: scenes[k].shade };
+    }
+    return { rgb: SHADES[0].rgb, shade: SHADES[0] };
+  }
+  var shown = null;
+  function update() {
+    var s = held ? { rgb: held.rgb, shade: held } : scrollShade();
+    paint(s.rgb);
+    if (shown !== s.shade) {
+      shown = s.shade;
+      if (nowCode) nowCode.textContent = shown.code;
+      if (nowName) nowName.textContent = FAMILIES[shown.family].name;
+      $$("[data-picker] .pick-dot").forEach(function (b) { b.setAttribute("aria-pressed", String(!!held && b.dataset.code === held.code)); });
+    }
+  }
+  var queued = false;
+  function onScroll() { if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; update(); }); } }
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", onScroll);
+
+  /* ---------------- holding a shade ---------------- */
+  var heldBar = $("[data-held]");
+  function hold(s) {
+    held = s;
+    ease();
+    update();
+    scenes.forEach(function (sc) { if (sc.mark) sc.mark.textContent = s.code; });
+    heldBar.hidden = false;
+    $("[data-held-dot]").style.background = s.hex;
+    $("[data-held-code]").textContent = s.code;
+    $("[data-held-name]").textContent = FAMILIES[s.family].name;
+    syncCardShades();
+    toast("整页换成了 " + s.code + " " + FAMILIES[s.family].name);
+  }
+  function release() {
+    held = null;
+    ease();
+    update();
+    scenes.forEach(function (sc) { if (sc.mark) sc.mark.textContent = sc.shade.code; });
+    heldBar.hidden = true;
+    syncCardShades();
+    toast("回到色阶：往下滑，颜色会一路变深。");
+  }
+  $("[data-release]").addEventListener("click", release);
+
+  /* hero: 40 dots */
+  var picker = $("[data-picker]");
+  SHADES.forEach(function (s) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pick-dot";
+    b.style.setProperty("--c", s.hex);
+    b.dataset.code = s.code;
+    b.setAttribute("aria-pressed", "false");
+    b.setAttribute("aria-label", "色号 " + s.code + "，" + shadeName(s));
+    b.title = s.code;
+    b.addEventListener("click", function () { if (held === s) release(); else hold(s); });
+    picker.appendChild(b);
+  });
+
+  /* shade wall */
+  var wall = $("[data-wall]"), wallPick = byCode["200W"];
+  function showWall(s) {
+    wallPick = s;
+    $$(".chip", wall).forEach(function (c) { c.setAttribute("aria-pressed", String(c.dataset.code === s.code)); });
+    $("[data-wall-swatch]").style.setProperty("--c", s.hex);
+    $("[data-wall-code]").textContent = s.code;
+    $("[data-wall-name]").textContent = shadeName(s);
+    $("[data-wall-note]").textContent = FAMILIES[s.family].note;
+  }
+  SHADES.forEach(function (s) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip";
+    b.dataset.code = s.code;
+    b.style.setProperty("--c", s.hex);
+    b.setAttribute("aria-label", "色号 " + s.code + "，" + shadeName(s));
+    b.innerHTML = "<i></i><span>" + s.code + "</span>";
+    b.addEventListener("click", function () { showWall(s); });
+    wall.appendChild(b);
+  });
+  showWall(wallPick);
+  $("[data-hold-wall]").addEventListener("click", function () { hold(wallPick); });
+
+  /* ---------------- finder ---------------- */
+  var RANGES = [[0, 3], [4, 11], [12, 19], [20, 27], [28, 35], [36, 39]];
+  var PRODUCTS = {
+    matte: { id: "stick", name: "本色粉底棒", why: "哑光高遮瑕，控油。", img: "assets/media/cut-stick.webp" },
+    satin: { id: "liquid", name: "本色粉底液", why: "柔光妆效，中度遮瑕。", img: "assets/media/cut-liquid.webp" },
+    dewy: { id: "cushion", name: "本色气垫", why: "水光妆效，补妆方便。", img: "assets/media/cut-cushion.webp" }
+  };
+  var form = $("#finder-form"), result = null;
+  function findShade() {
+    var f = +form.depth.value, tone = form.tone.value, best = null;
+    var center = (RANGES[f][0] + RANGES[f][1]) / 2;
+    for (var i = RANGES[f][0]; i <= RANGES[f][1]; i++) {
+      if (SHADES[i].tone !== tone) continue;
+      if (!best || Math.abs(i - center) < Math.abs(best.i - center)) best = SHADES[i];
+    }
+    return best || SHADES[Math.round(center)];
+  }
+  function showResult() {
+    var s = findShade(), p = PRODUCTS[form.finish.value];
+    result = { shade: s, product: p };
+    $("[data-result-code]").textContent = s.code;
+    $("[data-result-name]").textContent = shadeName(s);
+    $("[data-result-swatch]").style.setProperty("--c", s.hex);
+    $("[data-result-product]").textContent = p.name;
+    $("[data-result-why]").textContent = p.why;
+    var img = $("[data-result-img]");
+    if (img.getAttribute("src") !== p.img) img.setAttribute("src", p.img);
+  }
+  var finderTouched = false;
+  form.addEventListener("change", function () { finderTouched = true; showResult(); syncCardShades(); });
+  form.addEventListener("submit", function (e) { e.preventDefault(); });
+  showResult();
+  $("[data-hold-result]").addEventListener("click", function () { hold(result.shade); });
+  $("[data-add-result]").addEventListener("click", function () { addToBag(result.product.id, result.shade.code); });
+
+  /* ---------------- shop: search and filters ---------------- */
+  var cards = $$("[data-cards] .card"), q = $("#q"), cat = "all", finish = "all";
+  var found = $("[data-found]"), empty = $("[data-empty]");
+  function filter() {
+    var words = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean), n = 0;
+    cards.forEach(function (c) {
+      var hay = (c.dataset.keywords + " " + c.textContent).toLowerCase();
+      var ok = (cat === "all" || c.dataset.cat === cat) &&
+               (finish === "all" || c.dataset.finish === finish) &&
+               words.every(function (w) { return hay.indexOf(w) !== -1; });
+      c.hidden = !ok;
+      if (ok) n++;
+    });
+    found.textContent = n ? n + " 件产品" : "0 件产品";
+    empty.hidden = n !== 0;
+  }
+  // the cards carry data-cat and data-finish too, so only buttons are toggles
+  function pressGroup(attr, value) {
+    $$("button[" + attr + "]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute(attr) === value)); });
+  }
+  $$("button[data-cat]").forEach(function (b) {
+    b.addEventListener("click", function () { cat = b.dataset.cat; pressGroup("data-cat", cat); filter(); });
+  });
+  $$("button[data-finish]").forEach(function (b) {
+    b.addEventListener("click", function () { finish = b.dataset.finish; pressGroup("data-finish", finish); filter(); });
+  });
+  q.addEventListener("input", filter);
+  $("[data-clear]").addEventListener("click", function () {
+    q.value = ""; cat = "all"; finish = "all";
+    pressGroup("data-cat", "all"); pressGroup("data-finish", "all"); filter(); q.focus();
+  });
+  $$("[data-open-search]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      closeMenu();
+      $("#shop").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      setTimeout(function () { q.focus({ preventScroll: true }); }, 450);
+    });
+  });
+
+  /* ---------------- bag ---------------- */
+  var CUR = SITE.currency || "RM";
+  var bag = [];
+  try { bag = JSON.parse(localStorage.getItem("owntone-bag") || "[]") || []; } catch (e) { bag = []; }
+  function save() { try { localStorage.setItem("owntone-bag", JSON.stringify(bag)); } catch (e) {} }
+  function cardById(id) { return $('.card[data-id="' + id + '"]'); }
+  function currentCode() { return held ? held.code : (finderTouched && result ? result.shade.code : "200W"); }
+  function syncCardShades() { var code = currentCode(); $$("[data-card-shade]").forEach(function (b) { b.textContent = code; }); }
+  function addToBag(id, code) {
+    var c = cardById(id);
+    if (!c) return;
+    var shade = c.dataset.shades === "3" ? "透明" : (code || currentCode());
+    var hit = bag.filter(function (b) { return b.id === id && b.shade === shade; })[0];
+    if (hit) hit.qty++; else bag.push({ id: id, shade: shade, qty: 1 });
+    save(); renderBag();
+    toast("已加入购物袋：" + $(".card-cn", c).textContent.split("，")[0] + "，" + shade);
+  }
+  $$("[data-add]").forEach(function (b) {
+    b.addEventListener("click", function () { addToBag(b.closest(".card").dataset.id); });
+  });
+  var list = $("[data-bag-list]"), count = $("[data-bag-count]");
+  function renderBag() {
+    var n = 0, total = 0;
+    list.innerHTML = "";
+    bag.forEach(function (item, k) {
+      var c = cardById(item.id);
+      if (!c) return;
+      var price = +c.dataset.price;
+      n += item.qty; total += price * item.qty;
+      var li = document.createElement("li");
+      li.className = "bag-item";
+      li.innerHTML = '<img src="' + $("img", c).getAttribute("src") + '" alt="">' +
+        '<div><p><b>' + $(".card-cn", c).textContent.split("，")[0] + '</b></p><p class="small">色号 ' + item.shade + '</p>' +
+        '<div class="qty"><button type="button" aria-label="减少一件">−</button><span>' + item.qty + '</span><button type="button" aria-label="增加一件">+</button></div></div>' +
+        '<p class="price"><small>' + CUR + '</small>' + price * item.qty + '</p>';
+      var btns = $$("button", li);
+      btns[0].addEventListener("click", function () { item.qty--; if (item.qty < 1) bag.splice(k, 1); save(); renderBag(); });
+      btns[1].addEventListener("click", function () { item.qty++; save(); renderBag(); });
+      list.appendChild(li);
+    });
+    $("[data-bag-empty]").hidden = n > 0;
+    $("[data-bag-total]").textContent = CUR + " " + total;
+    var left = (SITE.freeShip || 0) - total;
+    $("[data-bag-ship]").textContent = !n ? "" : left > 0 ? "再买 " + CUR + " " + left + " 免运费。" : "已经免运费。";
+    count.hidden = n === 0;
+    count.textContent = n;
+    $("[data-open-bag]").setAttribute("aria-label", "打开购物袋，" + n + " 件");
+  }
+  var bagEl = $("#bag"), scrim = $("[data-scrim]"), lastFocus = null;
+  function openBag() { lastFocus = document.activeElement; bagEl.hidden = false; scrim.hidden = false; $("[data-close-bag]").focus(); }
+  function closeBag() { bagEl.hidden = true; scrim.hidden = true; if (lastFocus) lastFocus.focus(); }
+  $("[data-open-bag]").addEventListener("click", openBag);
+  $("[data-close-bag]").addEventListener("click", closeBag);
+  scrim.addEventListener("click", closeBag);
+  $("[data-checkout]").addEventListener("click", function () { toast(bag.length ? "这是演示网站，还没有接入付款。" : "购物袋是空的。"); });
+  renderBag();
+
+  /* ---------------- menu ---------------- */
+  var menu = $("#menu"), menuBtn = $("[data-menu]");
+  function closeMenu() { if (!menu.hidden) { menu.hidden = true; menuBtn.setAttribute("aria-expanded", "false"); } }
+  menuBtn.addEventListener("click", function () { menu.hidden = false; menuBtn.setAttribute("aria-expanded", "true"); $("[data-menu-close]").focus(); });
+  $("[data-menu-close]").addEventListener("click", function () { closeMenu(); menuBtn.focus(); });
+  $$("#menu a").forEach(function (a) { a.addEventListener("click", closeMenu); });
+  addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (!bagEl.hidden) closeBag();
+    if (!menu.hidden) { closeMenu(); menuBtn.focus(); }
+  });
+
+  /* ---------------- samples ---------------- */
+  var sample = $("#sample-form"), msg = $("[data-sample-msg]");
+  sample.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = sample.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.textContent = "请填写完整的邮箱地址，比如 name@example.com。";
+      sample.email.focus();
       return;
     }
-    if (!(key in S)) return;
-    if (S[key]) el.textContent = S[key];
-    else el.hidden = true;
+    msg.textContent = "已登记 " + email + "，小样会按色号 " + currentCode() + " 准备（演示网站，不会真的发送）。";
+    sample.reset();
   });
-  document.querySelectorAll('[data-link="tel"]').forEach((a) => { if (S.phoneLink) a.href = "tel:" + S.phoneLink; });
-  document.querySelectorAll('[data-link="mailto"]').forEach((a) => { if (S.email) a.href = "mailto:" + S.email; });
 
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-
-  /* ── Hero: scroll-scrubbed construction timelapse ── */
-  const sec = document.querySelector(".build");
-  const stage = sec.querySelector(".build-stage");
-  const canvas = sec.querySelector(".build-canvas");
-  const ctx = canvas.getContext("2d", { alpha: false });
-  const bar = document.querySelector(".bar");
-  const items = [...sec.querySelectorAll(".gauge li")].reverse();   // first stage first
-  const at = items.map((li) => parseFloat(li.dataset.at));
-  const fill = sec.querySelector(".gauge-fill");
-  const statusName = sec.querySelector(".build-status b");
-  const statusFill = sec.querySelector(".build-track i");
-  const band = sec.querySelector(".build-band");
-  const NIGHT = "#061523";
-
-  // The frames play between these two scroll positions; before and after,
-  // the unfinished frame and the finished house hold still for a moment.
-  const PLAY_FROM = 0.02, PLAY_TO = 0.9;
-
-  const F = window.BUILD_FRAMES;
-  const count = F && F.count > 1 ? F.count : 0;
-  const imgs = new Array(count);
-  const ok = new Uint8Array(count);
-  let still = null;                       // fallback picture when there are no frames
-  let iw = count ? F.width : 1920, ih = count ? F.height : 1072;
-  const tall = window.matchMedia("(max-aspect-ratio: 1/1)");   // same switch as the CSS
-  let fit = null, portrait = false;
-  let target = 0, cur = 0, raf = 0;
-
-  const frameSrc = (i) => "assets/build/" + String(i).padStart(3, "0") + "." + F.ext;
-
-  function loadFrames() {
-    const order = [], seen = new Uint8Array(count);
-    const add = (i) => { if (!seen[i]) { seen[i] = 1; order.push(i); } };
-    add(0); add(count - 1);
-    [24, 12, 6, 3, 1].forEach((step) => { for (let i = 0; i < count; i += step) add(i); });
-    let next = 0, busy = 0;
-    const pump = () => {
-      while (busy < 6 && next < order.length) {
-        const i = order[next++];
-        const im = new Image();
-        busy++;
-        im.decoding = "async";
-        im.onload = () => { imgs[i] = im; ok[i] = 1; busy--; request(); pump(); };
-        im.onerror = () => { busy--; pump(); };
-        im.src = frameSrc(i);
-      }
-    };
-    pump();
+  /* ---------------- toast + details ---------------- */
+  var toastEl = $("[data-toast]");
+  function toast(text) {
+    toastEl.textContent = text;
+    toastEl.classList.add("is-on");
+    clearTimeout(toast.t);
+    toast.t = setTimeout(function () { toastEl.classList.remove("is-on"); }, 2600);
   }
+  $("[data-email]").textContent = SITE.email || "";
+  $("[data-instagram]").textContent = SITE.instagram || "";
+  var note = $("[data-image-note]");
+  if (SITE.imageNote) note.textContent = SITE.imageNote; else note.remove();
 
-  function nearest(i) {
-    if (ok[i]) return i;
-    for (let d = 1; d < count; d++) {
-      if (i - d >= 0 && ok[i - d]) return i - d;
-      if (i + d < count && ok[i + d]) return i + d;
-    }
-    return -1;
-  }
-
-  function layout() {
-    const w = stage.clientWidth, h = stage.clientHeight;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const cw = Math.round(w * dpr), ch = Math.round(h * dpr);
-    if (canvas.width !== cw || canvas.height !== ch) { canvas.width = cw; canvas.height = ch; }
-    portrait = tall.matches;
-    let s, x, y;
-    if (!portrait) {
-      // Cover the screen, keeping a little more of the ground than of the sky.
-      s = Math.max(w / iw, h / ih);
-      x = (w - iw * s) / 2;
-      y = (h - ih * s) * 0.6;
-    } else {
-      // Tall screens: fit the house into the band between title and intro, always
-      // filling the width and showing at least the middle 54% of the frame; sky and
-      // street fade into the page.
-      const r = band.getBoundingClientRect(), top = r.top - stage.getBoundingClientRect().top;
-      s = Math.max(w / iw, Math.min(w / (iw * 0.54), Math.max(r.height, 1) / (ih * 0.8)));
-      x = clamp(w / 2 - iw * s * 0.48, w - iw * s, 0);
-      y = top + r.height / 2 - ih * s * 0.5;
-    }
-    fit = { x: x * dpr, y: y * dpr, w: iw * s * dpr, h: ih * s * dpr };
-    request();
-  }
-
-  function paint(im, alpha) {
-    ctx.globalAlpha = alpha;
-    ctx.drawImage(im, fit.x, fit.y, fit.w, fit.h);
-    ctx.globalAlpha = 1;
-  }
-
-  function draw() {
-    ctx.fillStyle = NIGHT;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    if (count) {
-      const x = clamp((cur - PLAY_FROM) / (PLAY_TO - PLAY_FROM), 0, 1) * (count - 1);
-      const i = Math.floor(x), t = x - i;
-      const a = nearest(i);
-      if (a >= 0) {
-        paint(imgs[a], 1);
-        if (a === i && t > 0.02 && i + 1 < count && ok[i + 1]) paint(imgs[i + 1], t);  // blend neighbours
-      }
-    } else if (still && still.complete && still.naturalWidth) {
-      paint(still, 1);
-    }
-    if (portrait) {
-      const top = ctx.createLinearGradient(0, fit.y, 0, fit.y + fit.h * 0.32);
-      top.addColorStop(0, NIGHT); top.addColorStop(1, "rgba(6,21,35,0)");
-      ctx.fillStyle = top; ctx.fillRect(0, fit.y - 1, canvas.width, fit.h * 0.32 + 1);
-      const low = ctx.createLinearGradient(0, fit.y + fit.h, 0, fit.y + fit.h * 0.8);
-      low.addColorStop(0, NIGHT); low.addColorStop(1, "rgba(6,21,35,0)");
-      ctx.fillStyle = low; ctx.fillRect(0, fit.y + fit.h * 0.8, canvas.width, fit.h * 0.2 + 1);
-    }
-  }
-
-  function gauge(p) {
-    let k = 0;
-    for (let j = 0; j < at.length; j++) if (p >= at[j]) k = j;
-    const last = at.length - 1;
-    const f = k === last ? 1 : (k + clamp((p - at[k]) / (at[k + 1] - at[k]), 0, 1)) / last;
-    fill.style.transform = "scaleY(" + f.toFixed(4) + ")";
-    items.forEach((li, j) => {
-      li.classList.toggle("is-reached", j <= k && (j > 0 || p > 0.005));
-      li.classList.toggle("is-now", j === k && p > 0.005);
-    });
-    statusFill.style.transform = "scaleX(" + f.toFixed(4) + ")";
-    statusName.textContent = p > 0.005 ? items[k].textContent : "Scroll to build";
-  }
-
-  function measure() {
-    const r = sec.getBoundingClientRect();
-    const span = sec.offsetHeight - stage.offsetHeight;
-    target = span > 0 ? clamp(-r.top / span, 0, 1) : 0;
-    sec.classList.toggle("is-moving", target > 0.015);
-    bar.classList.toggle("is-solid", r.bottom <= bar.offsetHeight + 1);
-  }
-
-  function tick() {
-    raf = 0;
-    const d = target - cur;
-    if (reduce.matches || Math.abs(d) < 0.0004) cur = target;
-    else cur += d * 0.18;
-    draw();
-    gauge(cur);
-    if (cur !== target) request();
-  }
-
-  function request() { if (!raf) raf = requestAnimationFrame(tick); }
-
-  if (count) loadFrames();
-  else {
-    still = new Image();
-    still.onload = () => { iw = still.naturalWidth; ih = still.naturalHeight; layout(); };
-    still.src = "assets/media/house.jpg";
-  }
-  layout();
-  measure();
-  cur = target;
-  window.addEventListener("scroll", () => { measure(); request(); }, { passive: true });
-  window.addEventListener("resize", () => { layout(); measure(); });
-
-  /* ── Projects: short loops play while on screen ── */
-  const clips = [...document.querySelectorAll(".project-clip")];
-  const toggle = document.querySelector(".motion-toggle");
-  const saveData = navigator.connection && navigator.connection.saveData;
-  const onScreen = new Set();
-  let paused = reduce.matches;
-  if (clips.length && "IntersectionObserver" in window && !saveData) {
-    const run = (v) => {
-      if (paused || !onScreen.has(v)) { if (!v.paused) v.pause(); return; }
-      if (!v.src) v.src = v.dataset.src;
-      v.play().then(() => v.classList.add("is-playing")).catch(() => {});
-    };
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) onScreen.add(e.target); else onScreen.delete(e.target);
-        run(e.target);
-      });
-    }, { threshold: 0.3 });
-    clips.forEach((v) => cio.observe(v));
-    toggle.hidden = false;
-    const label = () => {
-      toggle.setAttribute("aria-pressed", String(paused));
-      toggle.querySelector("span").textContent = paused ? "Play videos" : "Pause videos";
-      toggle.querySelector("path").setAttribute("d", paused ? "M1 0l8 6-8 6z" : "M1 0h3v12H1zM6 0h3v12H6z");
-    };
-    label();
-    toggle.addEventListener("click", () => { paused = !paused; label(); clips.forEach(run); });
-  }
-
-  /* ── Services: the photo follows the row you point at or scroll to ── */
-  const rows = [...document.querySelectorAll(".service")];
-  const shots = [...document.querySelectorAll(".preview img")];
-  function show(row) {
-    rows.forEach((r) => r.classList.toggle("is-active", r === row));
-    shots.forEach((img, j) => img.classList.toggle("is-active", j === +row.dataset.photo));
-  }
-  rows.forEach((row) => row.addEventListener("pointerenter", () => show(row)));
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) show(e.target); });
-    }, { rootMargin: "-45% 0px -45% 0px" });
-    rows.forEach((row) => io.observe(row));
-  }
+  update();
 })();
 </script>
 </body>
