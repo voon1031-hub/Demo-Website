@@ -46,18 +46,11 @@ window.SITE = {
   html.classList.remove("no-js");
   try {
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (still) html.classList.add("no-film");
-    if (!still) {
-      var l = document.createElement("link");
-      l.rel = "preload"; l.as = "image"; l.href = "assets/film/000.webp";
-      document.head.appendChild(l);
-    }
     if (!location.hash && !still && !sessionStorage.getItem("owntone-intro"))
       html.classList.add("intro-on");
   } catch (e) {}
 })();
 </script>
-<script src="assets/film/frames.js"></script>
 <link rel="preload" href="assets/fonts/owntone-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/albert-sans-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -100,15 +93,11 @@ window.SITE = {
   --gutter: clamp(16px, 4vw, 56px);
   --max: 1440px;
   --bar: 64px;
-  --stage-h: calc(100vh - var(--bar));   /* the pinned hero film */
-  --film-run: 270vh;                     /* scroll distance that plays it */
   color-scheme: light;
 }
-@supports (height: 100svh) { :root { --stage-h: calc(100svh - var(--bar)); } }
-@media (max-width: 760px) { :root { --film-run: 220vh; } }
 html.flip { transition: --ink .3s ease, --paper .3s ease; }   /* ink fades as it flips sides */
 html.ease { transition: --canvas .7s ease, --ink .7s ease, --paper .7s ease; }
-html.ease .backdrop, html.ease .bar, html.ease .film-stage { transition: background-color .7s ease; }
+html.ease .backdrop, html.ease .bar { transition: background-color .7s ease; }
 /* the page colour, repainted as the page scrolls */
 .backdrop { position: fixed; inset: 0 0 auto; height: 100vh; height: 100lvh; z-index: -1; background: var(--canvas); pointer-events: none; }
 
@@ -144,7 +133,6 @@ a { color: inherit; }
   line-height: .84;
   text-wrap: balance;
 }
-.d-hero { font-size: clamp(46px, 12.9vw, 190px); line-height: .82; letter-spacing: -.024em; }
 .d-xl { font-size: clamp(38px, 9.2vw, 138px); line-height: .86; letter-spacing: -.018em; }
 .d-l { font-size: clamp(32px, 5.2vw, 76px); line-height: .9; letter-spacing: -.012em; }
 .d-m { font-size: clamp(24px, 2.8vw, 40px); line-height: 1; letter-spacing: -.006em; }
@@ -232,44 +220,24 @@ a { color: inherit; }
 }
 .head { display: grid; gap: 22px; margin-top: clamp(28px, 4vw, 48px); }
 
-/* hero: a pinned stage; scrolling plays the film frame by frame */
-.hero { padding: 0 0 clamp(40px, 5vw, 72px); }
-.film { position: relative; height: calc(var(--stage-h) + var(--film-run)); }
-.film-stage {
-  position: sticky; top: calc(var(--bar) + env(safe-area-inset-top, 0px)); height: var(--stage-h);
-  overflow: hidden; background: var(--canvas);
-}
-.film-stage .mark { left: -1.5vw; bottom: 2%; font-size: clamp(120px, 21vw, 330px); }
-@media (max-aspect-ratio: 23/20) { .film-stage .mark { display: none; } }
-/* the film is shot on white; multiply turns the white into the page colour */
-.film-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; mix-blend-mode: multiply; }
-.film-still { display: none; }
-.film-text { position: absolute; z-index: 2; left: max(var(--gutter), calc((100% - var(--max)) / 2)); right: max(var(--gutter), calc((100% - var(--max)) / 2)); top: clamp(16px, 2.6vw, 36px); }
+/* hero: the headline is a window; a film of foundation in several shades
+   plays inside the letters (assets/hero-type.svg, from tools/font/hero-mask.py) */
+.hero { padding: clamp(16px, 2.6vw, 36px) var(--gutter) clamp(48px, 6vw, 88px); }
 .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; }
-.hero h1 { margin-top: clamp(18px, 2.4vw, 30px); font-size: min(10.3vw, 150px); }
-.hero h1 .ln { display: inline-block; }
-.film-steps { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: clamp(16px, 2vw, 26px); }
-.film-steps li { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
-.film-steps b { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; font: 900 12px/1 var(--f-display); transition: background-color .2s ease, color .2s ease; }
-.film-steps li.is-on b { background: var(--ink); color: var(--canvas); }
-.film-hint { margin-top: 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; transition: opacity .3s ease; }
-.film-hint::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex: none; }
-.film-hint.is-gone { opacity: 0; }
-.hero-after { padding: clamp(28px, 4vw, 52px) var(--gutter) 0; }
+.hero-h { margin: clamp(20px, 2.6vw, 36px) 0 0; }
+.type { position: relative; display: block; aspect-ratio: 6646 / 1568; }
+.type-fill {
+  position: absolute; inset: 0; display: block;
+  background: #8E5532;                  /* the letters until the film arrives */
+  -webkit-mask: url("assets/hero-type.svg") center / 100% 100% no-repeat;
+  mask: url("assets/hero-type.svg") center / 100% 100% no-repeat;
+}
+.type-fill video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.type-dot { position: absolute; left: 96.81%; top: 85.587%; width: 3.19%; aspect-ratio: 1; border-radius: 50%; background: var(--red); }
+.hero-after { margin-top: clamp(32px, 4.5vw, 64px); }
 .hero-copy { display: grid; gap: 18px; max-width: 560px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
-/* without the film (no script, reduced motion): a still of the last frame */
-.no-js .film, .no-film .film { height: auto; }
-.no-js .film-stage, .no-film .film-stage { position: relative; top: auto; height: auto; overflow: visible; display: grid; }
-.no-js .film-canvas, .no-film .film-canvas, .no-js .film-steps, .no-film .film-steps, .no-js .film-hint, .no-film .film-hint { display: none; }
-.no-js .film-text, .no-film .film-text { position: relative; left: auto; right: auto; top: auto; padding: clamp(16px, 2.6vw, 36px) max(var(--gutter), calc((100% - var(--max)) / 2)) 0; }
-.no-js .film-still, .no-film .film-still {
-  display: block; order: 2; position: relative; z-index: 1; width: min(100%, 1180px); justify-self: end;
-  margin-top: clamp(-120px, -6vw, -20px); mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 70% 78% at 62% 58%, #000 58%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 78% at 62% 58%, #000 58%, transparent 100%);
-}
-.no-js .film-text, .no-film .film-text { order: 1; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .picker { margin-top: clamp(40px, 5vw, 72px); display: grid; gap: 14px; position: relative; z-index: 2; }
 .picker-row { display: grid; grid-template-columns: repeat(40, minmax(0, 1fr)); }
 .pick-dot {
@@ -288,10 +256,8 @@ a { color: inherit; }
 @media (max-width: 760px) {
   .picker-row { grid-template-columns: repeat(20, minmax(0, 1fr)); row-gap: 2px; }
   .pick-dot::before { width: 62%; }
-  .film-steps li { font-size: 13px; }
 }
 @media (max-width: 900px) {
-  .hero h1 { font-size: 12.9vw; }
   .hero-copy { max-width: none; }
 }
 
@@ -307,12 +273,11 @@ a { color: inherit; }
 .intro-skip:hover { background: #22120B; color: #FFF8F1; }
 .intro-wash .intro-skip { opacity: 0; pointer-events: none; }
 .intro-out .intro { opacity: 0; pointer-events: none; }
-.hero-in .hero h1 .ln { animation: ot-rise .9s cubic-bezier(.2, .75, .2, 1) both; }
-.hero-in .hero h1 .ln + br + .ln { animation-delay: .12s; }
-.hero-in .hero h1 .dot { display: inline-block; animation: ot-drop .7s .55s cubic-bezier(.3, 1.45, .5, 1) both; }
-.hero-in .hero-badges, .hero-in .film-steps, .hero-in .film-hint { animation: ot-fade .6s .45s ease both; }
-@keyframes ot-rise { from { transform: translateY(.45em); opacity: 0; } to { transform: none; opacity: 1; } }
-@keyframes ot-drop { from { transform: translateY(-1.6em); opacity: 0; } 60% { opacity: 1; } to { transform: none; opacity: 1; } }
+.hero-in .hero .type-fill { animation: ot-rise .9s cubic-bezier(.2, .75, .2, 1) both; }
+.hero-in .hero .type-dot { animation: ot-drop .7s .55s cubic-bezier(.3, 1.45, .5, 1) both; }
+.hero-in .hero-badges { animation: ot-fade .6s .45s ease both; }
+@keyframes ot-rise { from { transform: translateY(9%); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes ot-drop { from { transform: translateY(-320%); opacity: 0; } 60% { opacity: 1; } to { transform: none; opacity: 1; } }
 @keyframes ot-fade { from { opacity: 0; } to { opacity: 1; } }
 
 /* shades */
@@ -540,25 +505,19 @@ a { color: inherit; }
 
 <!-- ============ HERO: lightest shade ============ -->
 <section class="scene hero" data-shade="100C" aria-labelledby="hero-h">
-  <div class="film" data-film>
-    <div class="film-stage">
-      <div class="mark" data-mark aria-hidden="true">100C</div>
-      <canvas class="film-canvas" data-film-canvas aria-hidden="true"></canvas>
-      <img class="film-still" src="assets/film/end.jpg" width="1600" height="906" alt="OWN TONE 本色粉底液旁边，一滴粉底被推开成一道柔光抹痕" loading="lazy">
-      <div class="film-text">
-        <div class="hero-badges"><span class="badge badge--red">New</span><span class="badge">40 shades</span><span class="badge badge--soft badge--cn">本色粉底液</span></div>
-        <h1 class="d d-hero" id="hero-h"><span class="ln">Made to</span><br><span class="ln">disappear<span class="dot">.</span></span></h1>
-        <ol class="film-steps" aria-label="短片的三个步骤">
-          <li class="is-on"><b>1</b>按压</li>
-          <li><b>2</b>落下</li>
-          <li><b>3</b>推开</li>
-        </ol>
-        <p class="film-hint">往下滑，按一下泵头</p>
-      </div>
-    </div>
-  </div>
-  <div class="hero-after">
-    <div class="wrap">
+  <div class="wrap">
+    <div class="hero-badges"><span class="badge badge--red">New</span><span class="badge">40 shades</span><span class="badge badge--soft badge--cn">本色粉底液</span></div>
+    <h1 class="hero-h" id="hero-h">
+      <span class="sr-only">Made to disappear.</span>
+      <span class="type" aria-hidden="true">
+        <span class="type-fill"><video data-type-video muted loop playsinline disablepictureinpicture preload="auto" poster="assets/media/type-poster.jpg">
+          <source src="assets/media/type.webm" type="video/webm">
+          <source src="assets/media/type.mp4" type="video/mp4">
+        </video></span>
+        <i class="type-dot"></i>
+      </span>
+    </h1>
+    <div class="hero-after">
       <div class="hero-copy">
         <p class="cn-big">看不出涂了，只看出好看。</p>
         <p class="lede">本色粉底液有 40 个色号，从瓷白到浓缩咖啡色，每个深浅再分冷调、中性和暖调。选对了，它就消失在你的皮肤里。</p>
@@ -969,13 +928,13 @@ a { color: inherit; }
     return there;
   }
   // Two layers of colour. The page colour itself (a fixed backdrop behind the
-  // page, the top bar and the film stage) follows every frame: three
-  // backgrounds cost next to nothing to change. The theme on the root (--canvas
+  // page and the top bar) follows every frame: two backgrounds cost next to
+  // nothing to change. The theme on the root (--canvas
   // for cards and fills, --ink, --paper) changes only when the colour reaches
   // the next of the 40 shades or the ink has to change, because every change
   // there restyles the whole page.
   var themeMeta = $('meta[name="theme-color"]');
-  var pageBg = $$("[data-backdrop], .bar, .film-stage"), pageHex = "", themed = "", inked = "";
+  var pageBg = $$("[data-backdrop], .bar"), pageHex = "", themed = "", inked = "";
   function paint(c, s) {
     var h = hex(c), k;
     if (h !== pageHex) {
@@ -1014,20 +973,19 @@ a { color: inherit; }
   });
   var held = null;            // a shade the visitor picked, or null to follow the scroll
   var nowCode = $("[data-now-code]"), nowName = $("[data-now-name]");
-  var filmBox = $("[data-film]"), padTop = 0;
+  var padTop = 0;
   function measure() { padTop = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0; }
   measure();
 
   // The colour follows the scroll the whole way down. Each scene's shade sits
   // where a link to the scene lands (its top just under the bar), and the colour
   // runs through every shade in between, so it changes a little with each bit
-  // of scrolling instead of jumping from one scene to the next. The hero keeps
-  // its shade until its film has played. Returns a place on the ramp, 0 to 1.
+  // of scrolling instead of jumping from one scene to the next. Returns a place
+  // on the ramp, 0 to 1.
   function scrollT() {
     var y = scrollY, max = root.scrollHeight - innerHeight, at = [], prev = 0, k;
     for (k = 0; k < scenes.length; k++) {
-      var s = k ? y + scenes[k].el.getBoundingClientRect().top - padTop
-        : filmBox && !root.classList.contains("no-film") ? y + filmBox.getBoundingClientRect().bottom - innerHeight : 0;
+      var s = k ? y + scenes[k].el.getBoundingClientRect().top - padTop : 0;
       prev = Math.max(prev, Math.min(s, max));
       at.push(prev);
     }
@@ -1300,8 +1258,8 @@ a { color: inherit; }
   // The drop falls and spreads for under three seconds. Once the pool has nearly
   // filled the screen the film dissolves into the page colour while it is still
   // moving, and the page rises underneath: no hold on a still frame, no cut.
-  var intro = $("[data-intro]");
-  if (root.classList.contains("intro-on") && intro) {
+  var intro = $("[data-intro]"), introRunning = root.classList.contains("intro-on") && !!intro;
+  if (introRunning) {
     var vid = $("[data-intro-video]", intro), done = false, started = false;
     var WASH = 2.75, REVEAL = 3.2;    // seconds into the film
     var finish = function () {
@@ -1309,6 +1267,8 @@ a { color: inherit; }
       done = true;
       try { sessionStorage.setItem("owntone-intro", "1"); } catch (e) {}
       root.classList.add("intro-wash", "intro-out", "hero-in");
+      introRunning = false;
+      typePlay();
       setTimeout(function () { root.classList.remove("intro-on", "intro-wash", "intro-out"); intro.remove(); }, 650);
     };
     var watch = function () {
@@ -1333,116 +1293,22 @@ a { color: inherit; }
     intro.remove();
   }
 
-  /* ---------------- hero film: scrolling plays it frame by frame ---------------- */
-  var film = $("[data-film]"), F = window.FILM_FRAMES;
-  var canvas = $("[data-film-canvas]");
-  if (!film || !F || !F.count || reduce || !canvas.getContext) {
-    root.classList.add("no-film");
-  } else {
-    var stage = $(".film-stage", film), textBox = $(".film-text", film), ctx = canvas.getContext("2d");
-    var steps = $$(".film-steps li", film), hint = $(".film-hint", film);
-    var N = F.count, frames = [], ready = [];
-    // F.ease[i] is how far into the scroll frame i sits: busy frames get more scrolling
-    var curve = Array.isArray(F.ease) && F.ease.length === N ? F.ease : null;
-    var frameAt = function (p) {
-      if (!curve) return Math.round(p * (N - 1));
-      var lo = 0, hi = N - 1;
-      while (lo < hi) { var mid = (lo + hi + 1) >> 1; if (curve[mid] <= p) lo = mid; else hi = mid - 1; }
-      if (lo < N - 1 && p - curve[lo] > curve[lo + 1] - p) lo++;
-      return lo;
-    };
-    // the film is three equal segments: press, fall, spread
-    var cut1 = curve ? curve[Math.round(N / 3)] : 1 / 3, cut2 = curve ? curve[Math.round(N * 2 / 3)] : 2 / 3;
-    // phones and data saver load every other frame
-    var lite = (navigator.connection && navigator.connection.saveData) || innerWidth < 700;
-    var order = [0, N - 1], seen = {};
-    seen[0] = seen[N - 1] = true;
-    [16, 8, 4, 2, 1].forEach(function (step) {
-      if (lite && step === 1) return;
-      for (var i = 0; i < N; i += step) if (!seen[i]) { seen[i] = true; order.push(i); }
-    });
-    var next = 0, loading = 0, want = 0, drawn = -1, W = 0, H = 0, dpr = 1, stick = 0, framePending = false;
-    var src = function (i) { return "assets/film/" + String(i).padStart(3, "0") + "." + F.ext; };
-    var load = function () {
-      while (loading < 4 && next < order.length) {
-        (function (i) {
-          loading++;
-          var im = new Image();
-          im.decoding = "async";
-          im.onload = function () { frames[i] = im; ready[i] = true; loading--; if (drawn < 0 || Math.abs(i - want) < 4) queueDraw(); load(); };
-          im.onerror = function () { loading--; load(); };
-          im.src = src(i);
-        })(order[next++]);
-      }
-    };
-    var nearest = function (i) {
-      for (var d = 0; d < N; d++) { if (ready[i - d]) return i - d; if (ready[i + d]) return i + d; }
-      return -1;
-    };
-    // Wide screens: the whole frame, a little smaller, tucked into the bottom right
-    // under the headline. Tall screens: just the bottle and swatch, under the headline.
-    var place = function (img) {
-      var fw = img.naturalWidth, fh = img.naturalHeight;
-      if (W / H >= 1.15) {
-        var base = Math.min(W / fw, H / fh), k = 0.78;
-        return [W - fw * base * k, H - fh * base * k, fw * base * k, fh * base * k];
-      }
-      var top = textBox.offsetTop + textBox.offsetHeight + 12, room = H - top - 12;
-      var fx0 = 0.5, fx1 = 1, fy0 = 0.2, fy1 = 0.95;
-      var s = Math.min(W / ((fx1 - fx0) * fw), room / ((fy1 - fy0) * fh));
-      var x = (W - (fx1 - fx0) * fw * s) / 2 - fx0 * fw * s;
-      var y = top + (room - (fy1 - fy0) * fh * s) / 2 - fy0 * fh * s;
-      return [x, y, fw * s, fh * s];
-    };
-    var draw = function () {
-      framePending = false;
-      var i = nearest(want);
-      if (i < 0 || i === drawn) return;
-      var r = place(frames[i]);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, W, H);
-      ctx.imageSmoothingQuality = "high";
-      ctx.drawImage(frames[i], r[0], r[1], r[2], r[3]);
-      // fade the frame's edges out so no rectangle shows against the page colour
-      ctx.globalCompositeOperation = "destination-in";
-      var gx = ctx.createLinearGradient(r[0], 0, r[0] + r[2], 0);
-      gx.addColorStop(0, "rgba(0,0,0,0)"); gx.addColorStop(0.14, "#000"); gx.addColorStop(0.95, "#000"); gx.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = gx; ctx.fillRect(0, 0, W, H);
-      var gy = ctx.createLinearGradient(0, r[1], 0, r[1] + r[3]);
-      gy.addColorStop(0, "rgba(0,0,0,0)"); gy.addColorStop(0.16, "#000"); gy.addColorStop(0.97, "#000"); gy.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = gy; ctx.fillRect(0, 0, W, H);
-      ctx.globalCompositeOperation = "source-over";
-      drawn = i;
-    };
-    var queueDraw = function () { if (!framePending) { framePending = true; requestAnimationFrame(draw); } };
-    var layout = function () {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = stage.clientWidth; H = stage.clientHeight;
-      canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
-      stick = parseFloat(getComputedStyle(stage).top) || 0;
-      drawn = -1;
-      progress();
-    };
-    var lastStep = -1;
-    var progress = function () {
-      var r = film.getBoundingClientRect(), run = r.height - H;
-      var p = run > 0 ? Math.min(1, Math.max(0, (stick - r.top) / run)) : 0;
-      want = frameAt(p);
-      var step = p < cut1 ? 0 : p < cut2 ? 1 : 2;
-      if (step !== lastStep) {
-        lastStep = step;
-        steps.forEach(function (li, k) { li.classList.toggle("is-on", k === step); });
-      }
-      hint.classList.toggle("is-gone", p > 0.02);
-      queueDraw();
-    };
-    addEventListener("scroll", progress, { passive: true });
-    var resizeT;
-    addEventListener("resize", function () { clearTimeout(resizeT); resizeT = setTimeout(layout, 120); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
-    layout();
-    load();
+  /* ---------------- headline film ---------------- */
+  // The film of foundation inside the headline letters. It starts when the
+  // opening film ends, pauses while the headline is off screen, and with
+  // reduced motion stays on its first frame.
+  var typeVid = $("[data-type-video]"), typeSeen = true;
+  function typePlay() {
+    if (!typeVid || reduce || introRunning || !typeSeen) return;
+    var q = typeVid.play();
+    if (q && q.catch) q.catch(function () {});
   }
+  if (typeVid && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      typeSeen = entries[entries.length - 1].isIntersecting;
+      if (typeSeen) typePlay(); else typeVid.pause();
+    }).observe(typeVid);
+  } else typePlay();
 
   /* ---------------- toast + details ---------------- */
   var toastEl = $("[data-toast]");

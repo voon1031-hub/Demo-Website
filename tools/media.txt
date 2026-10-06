@@ -1,6 +1,8 @@
-# name  url   (one generated file per line; the "Fetch generated media" workflow
-#              downloads them into assets/media/. cut-* files keep their transparent
-#              background and become .webp, other images become .jpg)
+# name  url  [filter]   (one generated file per line; the "Fetch generated media"
+#              workflow downloads them into assets/media/. cut-* files keep their
+#              transparent background and become .webp, other images become .jpg,
+#              videos become .mp4, .webm and -poster.jpg; an optional ffmpeg filter
+#              after a video's url runs before scaling)
 # OWN TONE product cutouts (Higgsfield, GPT Image 2.5, transparent background)
 cut-liquid     https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_035843_00020806-877c-40d0-bd48-9f0b61cc35a5.png
 cut-lineup     https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_040109_169ae3f0-0386-4026-9419-7e2ceb6c9800.png
@@ -12,11 +14,7 @@ cut-concealer  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvai
 cut-swatch     https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_040023_c7421427-ab83-4a93-b716-f4c74a0a8bd8.png
 # Opening film: a drop of foundation floods the screen (FLUX 3 Video, 1080p)
 intro    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050015_31187dda-fecc-468a-bc2c-312cf555d10b.mp4
-# Hero film, played by scrolling: press, fall, spread. Each segment starts on the
-# previous segment's last frame (FLUX 3 Video, start and end keyframes)
-film-1   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050034_580116a7-ceaa-4f57-afc8-f2b8a827fdf8.mp4
-film-2   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050015_fdcf523b-4e80-45cb-8897-3bfe82c2ab3d.mp4
-film-3   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050034_9d641146-85de-40e2-b06e-2b8d086dffd6.mp4
-kf-type-a  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_074549_b62adda0-1104-43a1-a1c4-880efc33b2f7.png
-kf-type-b  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_074550_d9158e32-69b9-4744-ad60-6575b49d601b.png
-kf-type-c  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_074549_0a488cf7-814f-4837-87c9-ee65a8447389.png
+# Headline film: marbled foundation that plays inside the hero letters. The same
+# keyframe starts and ends it, so it loops (FLUX 3 Video). Only the middle band
+# shows through the letters, so the rest is cropped away.
+type      https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_075138_c36b2c2d-164a-4c7c-a99d-3d1484e4cc8c.mp4  crop=iw:ih*0.46

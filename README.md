@@ -23,13 +23,12 @@ when the page is opened at an anchor. If the film is replaced, set `WASH` and
 `REVEAL` in the opening-film script: the seconds into the film where it starts
 to dissolve and where the page appears.
 
-**Scroll film.** The first screen stays pinned while the visitor scrolls, and
-the scroll plays a product film frame by frame: the pump presses, a drop
-falls, and the drop is spread into a swatch (scrolling back plays it
-backwards). The film is shot on white and drawn with multiply, so the white
-takes on whatever shade the page is in. Phones show a crop around the bottle
-and load every other frame. With reduced motion the film is replaced by its
-last frame.
+**Headline film.** The headline is a window: inside the letters of MADE TO
+DISAPPEAR. a film of foundation in several shades, marbled together, slowly
+swirls. The letters are a mask drawn from the display face, so nothing else
+crowds the headline. The film loops (its first and last frames are the same
+keyframe), starts when the opening film ends, pauses while the headline is off
+screen and stays on its first frame with reduced motion.
 
 - `index.html` – the whole site. The brand details (currency, contact email,
   Instagram, free-shipping threshold and the footer note about AI images) are
@@ -47,24 +46,25 @@ last frame.
   To change a letter, edit its function and run
   `python3 tools/font/build-display.py` (needs
   `pip install fonttools skia-pathops brotli`).
+- `assets/hero-type.svg` – the hero headline as outlines, used as the mask the
+  headline film plays through. `python3 tools/font/hero-mask.py` draws it from
+  the font, set as the page sets the headline; run it after changing the font
+  and copy the position of the red dot it prints into `.type-dot`.
 - `assets/fonts/albert-sans-var.woff2` – Albert Sans (SIL Open Font License,
   see `OFL-AlbertSans.txt`), subset to Latin, for English body text. Chinese
   body text uses the visitor's system font (PingFang, Microsoft YaHei, Noto
   Sans SC).
-- `assets/film/` – the scroll film as 150 WebP frames (`000.webp` to
-  `149.webp`, 1.7 MB in all), `end.jpg` (the last frame, used as the still)
-  and `frames.js`, which lists the frame count and, for each frame, how far
-  into the scroll it sits: frames where a lot changes get more scrolling.
 - `assets/media/intro.webm` and `intro.mp4` – the opening film.
+- `assets/media/type.webm`, `type.mp4` and `type-poster.jpg` – the headline
+  film and its first frame.
 - `assets/media/cut-*.webp` – the product images with transparent backgrounds,
   so they sit straight on the page colour: liquid foundation, the six-shade
   line-up, cushion, stick, skin tint, concealer, setting powder and a texture
   swatch. `share.jpg` is the link preview image, `assets/favicon.svg` the tab
   icon.
 
-The product images were generated with Higgsfield (GPT Image 2.5); the
-opening film and the three film segments with FLUX 3 Video, each segment
-starting on the previous segment's last keyframe so the joins are seamless.
+The product images and the keyframes were generated with Higgsfield (GPT Image
+2.5); the opening film and the headline film with FLUX 3 Video.
 Products, prices, ingredients and figures are samples. The sample sign-up
 form and the checkout button do not send anything. Replace the pictures and
 data before the site goes live, then set `imageNote` in the config block to
@@ -87,12 +87,10 @@ then commits the results back to the branch.
 - `cut-*` images keep their transparent background, are trimmed to the
   product and become `assets/media/<name>.webp`;
 - other images become `assets/media/<name>.jpg`;
-- `film-1`, `film-2`, `film-3` are the scroll film segments, joined in order
-  and cut into the frames in `assets/film/`, with the near-white backdrop
-  lifted to pure white (`WHITE` at the top of the script sets how far) so no
-  faint patch shows through the page colour;
-- other videos become `assets/media/<name>.mp4` and `.webm`.
+- videos become `assets/media/<name>.mp4` and `.webm`, plus
+  `<name>-poster.jpg` (the first frame). An ffmpeg filter after the url runs
+  first: the headline film keeps only its middle band (`crop=iw:ih*0.46`),
+  because that is all the letters show.
 
-Files that are already in `assets/` are skipped, and the film is only cut
-again when its `film-*` lines or the film settings at the top of the script
-change; start the script with `FORCE=1` to fetch everything again.
+Files that are already in `assets/` are skipped; start the script with
+`FORCE=1` to fetch everything again.

@@ -1,4 +1,0 @@
-film-1   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050034_580116a7-ceaa-4f57-afc8-f2b8a827fdf8.mp4
-film-2   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050015_fdcf523b-4e80-45cb-8897-3bfe82c2ab3d.mp4
-film-3   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050034_9d641146-85de-40e2-b06e-2b8d086dffd6.mp4
-# frames=150 width=1600 white=0.937
