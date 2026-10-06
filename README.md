@@ -84,10 +84,11 @@ then commits the results back to the branch.
   product and become `assets/media/<name>.webp`;
 - other images become `assets/media/<name>.jpg`;
 - `film-1`, `film-2`, `film-3` are the scroll film segments, joined in order
-  and cut into the frames in `assets/film/` (with the near-white backdrop
-  lifted to pure white);
+  and cut into the frames in `assets/film/`, with the near-white backdrop
+  lifted to pure white (`WHITE` at the top of the script sets how far) so no
+  faint patch shows through the page colour;
 - other videos become `assets/media/<name>.mp4` and `.webm`.
 
 Files that are already in `assets/` are skipped, and the film is only cut
-again when its `film-*` lines change; start the script with `FORCE=1` to fetch
-everything again.
+again when its `film-*` lines or the film settings at the top of the script
+change; start the script with `FORCE=1` to fetch everything again.
