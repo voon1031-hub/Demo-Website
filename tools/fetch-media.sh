@@ -3,7 +3,8 @@
 #   cut-* images              -> assets/media/<name>.webp, transparent background kept,
 #                                empty margins trimmed (fits in 1600x1600)
 #   images (.png/.jpg/.webp)  -> assets/media/<name>.jpg  (fits in 1920x1400)
-#   videos (.mp4)             -> assets/media/<name>.mp4  (1280px, H.264, no audio)
+#   videos (.mp4)             -> assets/media/<name>.mp4 and .webm (1280px, H.264 and
+#                                VP9, no audio)
 #   clip-* videos             -> the same, played forward then backward so the
 #                                loop has no jump (fits in 1280x1280)
 #   film-1, film-2 … videos   -> the scroll-driven hero film, joined in order and
@@ -14,7 +15,7 @@
 # change; run with FORCE=1 to fetch everything again.
 # Needs: curl, ffmpeg, ffprobe, ImageMagick (convert). Run from the repository root.
 set -uo pipefail
-FRAMES=${FRAMES:-120}     # frames in the hero film
+FRAMES=${FRAMES:-150}     # frames in the hero film
 FRAME_W=${FRAME_W:-1600}  # frame width in px
 src=.media-src
 rm -rf "$src"; mkdir -p "$src" assets/media
@@ -61,7 +62,10 @@ while read -r name url _; do
       ffmpeg -nostdin -loglevel error -y -i "$file" -an -vf "scale=1280:-2" \
         -c:v libx264 -preset slow -crf 24 -maxrate 4M -bufsize 8M -pix_fmt yuv420p \
         -movflags +faststart "assets/media/$name.mp4"
-      echo "video: $name $(du -h "assets/media/$name.mp4" | cut -f1)" ;;
+      # WebM too: some browsers (and Chromium builds without H.264) only play this one
+      ffmpeg -nostdin -loglevel error -y -i "$file" -an -vf "scale=1280:-2" \
+        -c:v libvpx-vp9 -b:v 0 -crf 36 -row-mt 1 -pix_fmt yuv420p "assets/media/$name.webm"
+      echo "video: $name $(du -h "assets/media/$name.mp4" | cut -f1) mp4, $(du -h "assets/media/$name.webm" | cut -f1) webm" ;;
     *)
       ffmpeg -nostdin -loglevel error -y -i "$file" \
         -vf "scale='min(1920,iw)':'min(1400,ih)':force_original_aspect_ratio=decrease" -q:v 4 "assets/media/$name.jpg"
@@ -77,7 +81,7 @@ if [ "${#segs[@]}" -gt 0 ]; then
   for i in "${!segs[@]}"; do
     inputs+=(-i "${segs[$i]}")
     trim=""; [ "$i" -gt 0 ] && trim="trim=start_frame=1,setpts=PTS-STARTPTS,"
-    graph+="[$i:v]fps=24,${trim}scale=${FRAME_W}:-2:flags=lanczos,setsar=1,format=yuv420p[v$i];"
+    graph+="[$i:v]fps=24,${trim}scale=${FRAME_W}:-2:flags=lanczos,setsar=1,colorlevels=rimax=0.96:gimax=0.96:bimax=0.96,format=yuv420p[v$i];"
     labels+="[v$i]"
   done
   graph+="${labels}concat=n=${#segs[@]}:v=1:a=0[out]"

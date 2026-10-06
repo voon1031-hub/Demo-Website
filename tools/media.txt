@@ -10,14 +10,10 @@ cut-powder     https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvai
 cut-tint       https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_040123_f424ec51-c98e-4250-a522-e9298ff1143f.png
 cut-concealer  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_040023_1f6c6f58-2ec3-4a5b-ad9e-88962187adea.png
 cut-swatch     https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_040023_c7421427-ab83-4a93-b716-f4c74a0a8bd8.png
-# Hero film keyframes, two candidates (a, b); for review, removed once the film is cut
-key-k0a  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045309_0a391751-e9fe-4a32-81e0-c1077c985f62.png
-key-k1a  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045355_e4d48d55-24e0-432b-ad1b-107de0ed183d.png
-key-k2a  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045355_7034243d-7d2e-422c-9f38-117e129fc35a.png
-key-k3a  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045356_eae168e4-7620-4d34-afcf-1d541b555543.png
-key-k0b  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045310_fe421810-7c0d-4aa8-9ae4-ee5b12857d3b.png
-key-k1b  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045435_67d697c4-3c46-4958-a3d8-2b6c747c4d0b.png
-key-k2b  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045445_5ed38115-c3fb-46e2-91ab-4ba3c27332b2.png
-key-k3b  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045355_b5702869-fe86-49ea-a06f-f3b01e72143a.png
-key-i0   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045311_fee77a1f-c9b8-4fd0-a7fc-2a693cc63b21.png
-key-i1   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_045312_1a590f69-40bf-4877-81ff-b9f42373f807.png
+# Opening film: a drop of foundation floods the screen (FLUX 3 Video, 1080p)
+intro    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050015_31187dda-fecc-468a-bc2c-312cf555d10b.mp4
+# Hero film, played by scrolling: press, fall, spread. Each segment starts on the
+# previous segment's last frame (FLUX 3 Video, start and end keyframes)
+film-1   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050034_580116a7-ceaa-4f57-afc8-f2b8a827fdf8.mp4
+film-2   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050015_fdcf523b-4e80-45cb-8897-3bfe82c2ab3d.mp4
+film-3   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050034_9d641146-85de-40e2-b06e-2b8d086dffd6.mp4
