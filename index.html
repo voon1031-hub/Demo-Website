@@ -2,877 +2,196 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plumbline Builders – Design and build contractor</title>
-<meta name="description" content="Plumbline Builders designs and builds homes and commercial buildings, from the first site visit to the day you get the keys.">
-<meta name="theme-color" content="#061523">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Montciel Kairos</title>
+<meta name="description" content="A film in one scroll: from the clouds above Kuala Lumpur, into the crown of Merdeka 118, down to the heart of a one-minute tourbillon, and back to the sky.">
+<meta name="theme-color" content="#070b15">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Plumbline Builders – From the ground up">
-<meta property="og:description" content="Design and build for homes and commercial buildings, one team from site visit to handover.">
-<meta property="og:image" content="assets/media/house.jpg">
-<!--
-  ══════════════════════════════════════════════════════════════════
-  ★ COMPANY DETAILS — this block is the part you need to edit ★
-
-  name      : company name (header, footer, page title is in <title> above)
-  phone     : the number as visitors should read it
-  phoneLink : the same number in international format, digits only;
-              this is what a phone dials when the number is tapped
-  email     : where enquiries go
-  hours     : office hours, shown in the contact section
-  reply     : how quickly you answer, shown in the contact section
-  licence   : licence or registration line in the footer ("" hides it)
-  facts     : the four figures next to "One team from survey to keys".
-              The ones below are samples: replace them with your own.
-  imageNote : footer note about the photos. Set it to "" once the
-              AI-generated pictures are replaced with real project photos.
-
-  Everything else (services, projects, steps) is plain text further down
-  in this file. Photos live in assets/media/, the scroll-built house
-  in assets/build/ (made by tools/fetch-media.sh).
-  ══════════════════════════════════════════════════════════════════
--->
-<script>
-window.SITE = {
-  name: "Plumbline Builders",
-  phone: "+60 12-345 6789",
-  phoneLink: "+60123456789",
-  email: "hello@plumbline.example",
-  hours: "Monday to Saturday, 9am to 6pm",
-  reply: "We call back within one working day.",
-  licence: "Licensed building contractor",
-  facts: [
-    { label: "Building since", value: "2009" },
-    { label: "Homes and buildings handed over", value: "120+" },
-    { label: "Site and office team", value: "45" },
-    { label: "Defects cover after handover", value: "12 months" }
-  ],
-  imageNote: "Photos on this page are AI-generated concept images."
-};
-</script>
-<script src="assets/build/frames.js"></script>
-<link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/build/000.webp" as="image" fetchpriority="high">
-<style>
-@font-face {
-  font-family: "Archivo";
-  src: url("assets/fonts/archivo-var.woff2") format("woff2");
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-display: swap;
-}
-
-:root {
-  --night: #061523;            /* the hero's sky after dark: page background */
-  --dusk: #0b2033;             /* image placeholders */
-  --plaster: #ebe7df;          /* text */
-  --plaster-2: rgba(235, 231, 223, .78);
-  --concrete: #98a3ab;         /* secondary text */
-  --lamp: #ebb46b;             /* window light: actions and progress */
-  --rule: rgba(235, 231, 223, .14);
-  --gutter: clamp(16px, 4.5vw, 64px);
-  --max: 1320px;
-  --edge: max(var(--gutter), calc((100vw - var(--max)) / 2));   /* shared left/right edge */
-  --bar: 68px;
-  color-scheme: dark;
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: var(--bar); }
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-body {
-  margin: 0;
-  background: var(--night);
-  color: var(--plaster);
-  font-family: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 400;
-  font-stretch: 100%;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; }
-:focus-visible { outline: 2px solid var(--lamp); outline-offset: 3px; }
-::selection { background: var(--lamp); color: var(--night); }
-
-.skip {
-  position: absolute; left: var(--edge); top: -100px; z-index: 50;
-  padding: .6em 1em; background: var(--lamp); color: var(--night);
-  font-weight: 600; text-decoration: none;
-}
-.skip:focus { top: 12px; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.wrap { padding-inline: var(--edge); }
-
-h2 {
-  margin: 0 0 1.5rem;
-  font-size: clamp(2.125rem, 4.4vw, 4rem);
-  font-weight: 680;
-  font-stretch: 120%;
-  line-height: 1;
-  letter-spacing: -.03em;
-  text-wrap: balance;
-}
-h3 { text-wrap: balance; }
-.lede { margin: 0; max-width: 36rem; font-size: clamp(1.0625rem, 1.4vw, 1.25rem); color: var(--plaster-2); }
-
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 48px; padding: 0 1.35em; border-radius: 2px;
-  font-size: 1rem; font-weight: 600; font-stretch: 110%;
-  text-decoration: none; white-space: nowrap;
-  transition: background-color .2s, color .2s, border-color .2s;
-}
-.btn-lamp { background: var(--lamp); color: var(--night); }
-.btn-lamp:hover { background: #f4c788; }
-.btn-line { border: 1px solid rgba(235, 231, 223, .5); color: var(--plaster); }
-.btn-line:hover { border-color: var(--plaster); }
-
-/* ── Header ─────────────────────────────────────────────── */
-.bar {
-  position: fixed; inset: 0 0 auto; z-index: 20;
-  height: var(--bar);
-  display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.5rem);
-  padding-inline: var(--edge);
-  transition: background-color .3s, box-shadow .3s;
-}
-.bar.is-solid {
-  background: rgba(6, 21, 35, .88);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 var(--rule);
-}
-.brand {
-  display: inline-flex; align-items: center; gap: .6rem;
-  font-size: 1.0625rem; font-weight: 650; font-stretch: 116%; letter-spacing: -.01em;
-  text-decoration: none;
-}
-.brand svg { flex: none; width: 12px; height: 26px; }
-.brand span { white-space: nowrap; }
-.nav { display: flex; gap: clamp(1rem, 2.4vw, 2rem); margin-left: auto; }
-.nav a { font-size: .9375rem; color: var(--plaster-2); text-decoration: none; }
-.nav a:hover { color: var(--plaster); }
-.call {
-  display: inline-flex; align-items: center; gap: .4em;
-  min-height: 40px; padding: 0 .95em;
-  border: 1px solid rgba(235, 180, 107, .55); border-radius: 2px;
-  color: var(--lamp); font-size: .9375rem; font-weight: 600;
-  font-variant-numeric: tabular-nums; text-decoration: none; white-space: nowrap;
-  transition: background-color .2s, color .2s;
-}
-.call:hover { background: var(--lamp); color: var(--night); }
-@media (max-width: 860px) {
-  .nav { display: none; }
-  .call { margin-left: auto; }
-}
-@media (max-width: 480px) { .call-number { display: none; } }
-
-/* ── Hero: the house builds itself as you scroll ────────── */
-.build { position: relative; height: 420vh; }
-.build-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--night); }
-.build-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
-.build-shade {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(6, 21, 35, .9) 0%, rgba(6, 21, 35, .42) 22%, rgba(6, 21, 35, 0) 40%),
-    linear-gradient(0deg, rgba(6, 21, 35, .94) 0%, rgba(6, 21, 35, .55) 17%, rgba(6, 21, 35, 0) 34%),
-    linear-gradient(270deg, rgba(6, 21, 35, .7) 0%, rgba(6, 21, 35, .3) 12%, rgba(6, 21, 35, 0) 24%);
-}
-.build-title {
-  position: absolute; left: var(--edge); right: var(--edge); top: calc(var(--bar) + 3.5vh);
-  margin: 0; padding-bottom: .1em;
-  font-size: clamp(2.5rem, min(5.6vw, 9.5vh), 6.75rem);
-  font-weight: 720; font-stretch: 125%;
-  line-height: .95; letter-spacing: -.035em;
-}
-@media (prefers-reduced-motion: no-preference) {
-  /* The headline goes up the way the house does: from its base line upward. */
-  .build-title { animation: rise 1.1s cubic-bezier(.2, .7, .1, 1) .2s both; }
-  @keyframes rise {
-    from { clip-path: inset(100% 0 0 0); transform: translateY(.3em); }
-    to { clip-path: inset(0 0 0 0); transform: none; }
-  }
-}
-.build-copy {
-  position: absolute; left: var(--edge); bottom: max(5vh, 28px);
-  width: min(33rem, calc(100% - 2 * var(--edge)));
-}
-.build-copy p { margin: 0 0 1.4rem; font-size: clamp(1rem, 1.25vw, 1.1875rem); color: rgba(235, 231, 223, .9); }
-.actions { display: flex; flex-wrap: wrap; gap: .75rem; }
-
-.gauge {
-  position: absolute; right: var(--edge); bottom: calc(max(5vh, 28px) + 2.6rem);
-  height: clamp(170px, 30vh, 280px);
-  display: flex; gap: 20px;
-  font-size: .875rem; line-height: 1.2;
-  text-shadow: 0 1px 10px rgba(6, 21, 35, .9);
-}
-.gauge ol {
-  display: flex; flex-direction: column; justify-content: space-between;
-  margin: 0; padding: 0; list-style: none; text-align: right;
-}
-.gauge li { --mark: rgba(235, 231, 223, .35); position: relative; color: rgba(235, 231, 223, .5); white-space: nowrap; transition: color .3s; }
-.gauge li::before, .gauge li::after { content: ""; position: absolute; top: 50%; background: var(--mark); transition: background-color .3s; }
-.gauge li::before { right: -30px; width: 21px; height: 1px; }                   /* level line */
-.gauge li::after {                                                            /* datum mark */
-  right: -25px; width: 11px; height: 8px; margin-top: -8px;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-}
-.gauge li.is-reached { --mark: var(--lamp); color: var(--plaster-2); }
-.gauge li.is-now { color: var(--plaster); font-weight: 600; }
-.gauge-line { position: relative; width: 1px; margin-block: .6em; background: rgba(235, 231, 223, .22); }
-.gauge-fill {
-  position: absolute; left: -1px; bottom: 0; width: 3px; height: 100%;
-  background: var(--lamp); transform-origin: 50% 100%; transform: scaleY(0);
-}
-.hint {
-  position: absolute; right: var(--edge); bottom: max(5vh, 28px);
-  display: flex; align-items: center; gap: .5rem; margin: 0;
-  font-size: .875rem; color: var(--plaster-2);
-  transition: opacity .4s;
-}
-.hint svg { width: 10px; height: 18px; }
-.build.is-moving .hint { opacity: 0; }
-
-.build-status, .build-band { display: none; }
-
-@media (max-aspect-ratio: 1/1) {
-  /* Tall screens: title, the house, progress and intro stacked in one column. */
-  .build { height: 360vh; }
-  .build-stage { display: flex; flex-direction: column; padding: calc(var(--bar) + 2vh) var(--gutter) max(4vh, 24px); }
-  .build-shade, .gauge, .hint { display: none; }
-  .build-title { position: relative; inset: auto; font-size: clamp(2.4rem, 11vw, 5rem); line-height: .98; }
-  .build-band { display: block; flex: 1; min-height: 160px; }
-  .build-status {
-    position: relative; display: flex; align-items: center; gap: 1rem; margin: 0 0 1.75rem;
-    font-size: .875rem; color: var(--plaster-2);
-  }
-  .build-copy { position: relative; left: auto; bottom: auto; width: auto; max-width: 34rem; }
-  .build-status b { font-weight: 600; color: var(--plaster); white-space: nowrap; }
-  .build-track { position: relative; flex: 1; height: 1px; background: rgba(235, 231, 223, .22); }
-  .build-track i { position: absolute; left: 0; top: -1px; width: 100%; height: 3px; background: var(--lamp); transform-origin: 0 50%; transform: scaleX(0); }
-}
-@media (max-height: 520px) and (min-aspect-ratio: 1/1) {
-  .gauge, .hint { display: none; }
-  .build-copy p { display: none; }
-}
-.no-js .build { height: auto; }
-.no-js .build-stage { position: relative; background: var(--night) url("assets/media/house.jpg") center 60% / cover no-repeat; }
-.no-js .gauge, .no-js .hint { display: none; }
-
-/* ── One team ───────────────────────────────────────────── */
-.about { padding-block: clamp(5rem, 11vw, 9rem); }
-.about-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2.5rem clamp(1rem, 3vw, 3rem); align-items: start; }
-.about-text { grid-column: 1 / span 6; }
-.facts { grid-column: 8 / span 5; margin: .5rem 0 0; }
-.facts div { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: 1.1rem 0; border-top: 1px solid var(--rule); }
-.facts div:last-child { border-bottom: 1px solid var(--rule); }
-.facts dt { max-width: 15rem; font-size: .9375rem; color: var(--concrete); }
-.facts dd {
-  margin: 0; white-space: nowrap;
-  font-size: clamp(1.5rem, 2.4vw, 2.125rem); font-weight: 650; font-stretch: 118%;
-  font-variant-numeric: tabular-nums; letter-spacing: -.02em; line-height: 1.1;
-}
-
-/* ── Services ───────────────────────────────────────────── */
-.services, .projects, .process { padding-block: clamp(4.5rem, 9vw, 8rem); border-top: 1px solid var(--rule); }
-.section-head { max-width: 42rem; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
-.services-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 3rem); align-items: start; }
-.service-list { grid-column: 1 / span 7; margin: 0; padding: 0; list-style: none; }
-.service {
-  padding: 1.8rem 0 1.8rem 1.4rem;
-  border-top: 1px solid var(--rule);
-  box-shadow: inset 2px 0 0 transparent;
-  transition: box-shadow .3s;
-}
-.service:last-child { border-bottom: 1px solid var(--rule); }
-.service.is-active { box-shadow: inset 2px 0 0 var(--lamp); }
-.service h3 {
-  margin: 0 0 .5rem;
-  font-size: clamp(1.375rem, 2.3vw, 2rem); font-weight: 640; font-stretch: 116%;
-  line-height: 1.1; letter-spacing: -.02em;
-}
-.service p { margin: 0 0 .9rem; max-width: 36rem; color: var(--plaster-2); }
-.scope { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; margin: 0; padding: 0; list-style: none; font-size: .875rem; color: var(--concrete); }
-.scope li { position: relative; padding-left: .85rem; }
-.scope li::before { content: ""; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; background: rgba(235, 180, 107, .7); }
-.service-photo { display: none; }
-.preview { grid-column: 9 / span 4; position: sticky; top: calc(var(--bar) + 2rem); aspect-ratio: 4 / 5; overflow: hidden; background: var(--dusk); }
-.preview img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
-.preview img.is-active { opacity: 1; }
-
-/* ── Projects ───────────────────────────────────────────── */
-.project-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(1rem, 3vw, 3rem); row-gap: clamp(3.5rem, 7vw, 6rem); align-items: start; }
-.project { margin: 0; }
-.project.wide { grid-column: span 8; }
-.project.tall { grid-column: span 4; }
-.project:nth-child(2) { margin-top: clamp(3rem, 9vw, 9rem); }
-.project:nth-child(4) { margin-top: clamp(2rem, 6vw, 6rem); }
-.project-media { position: relative; overflow: hidden; background: var(--dusk); }
-.project-media img { width: 100%; object-fit: cover; }
-.project.wide .project-media img { aspect-ratio: 16 / 9; }
-.project.tall .project-media img { aspect-ratio: 4 / 5; }
-.project-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .8s ease; }
-.project-media video.is-playing { opacity: 1; }
-.projects-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; max-width: none; }
-.projects-head > div { max-width: 42rem; }
-.motion-toggle {
-  display: inline-flex; align-items: center; gap: .5rem; min-height: 40px; padding: 0 .9rem;
-  border: 1px solid var(--rule); border-radius: 2px; background: none; color: var(--plaster-2);
-  font: inherit; font-size: .875rem; cursor: pointer;
-}
-.motion-toggle:hover { color: var(--plaster); border-color: rgba(235, 231, 223, .4); }
-.motion-toggle svg { width: 10px; height: 12px; }
-.motion-toggle[hidden] { display: none; }
-.project h3 { margin: 1.15rem 0 .2rem; font-size: 1.375rem; font-weight: 640; font-stretch: 114%; letter-spacing: -.015em; line-height: 1.2; }
-.project p { margin: 0 0 .7rem; color: var(--plaster-2); }
-.spec { display: flex; flex-wrap: wrap; gap: .3rem 1.6rem; margin: 0; font-size: .875rem; }
-.spec div { display: flex; gap: .45rem; }
-.spec dt { color: var(--concrete); }
-.spec dd { margin: 0; font-variant-numeric: tabular-nums; }
-
-/* ── Process ────────────────────────────────────────────── */
-.process-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2.5rem clamp(1rem, 3vw, 3rem); align-items: start; }
-.process-head { grid-column: 1 / span 4; position: sticky; top: calc(var(--bar) + 2rem); }
-.steps { grid-column: 6 / span 7; margin: 0; padding: 0; list-style: none; counter-reset: step; }
-.step { position: relative; display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); column-gap: 1.5rem; padding-bottom: 3rem; }
-.step:last-child { padding-bottom: 0; }
-.step::before {
-  counter-increment: step; content: counter(step);
-  font-size: 2.5rem; font-weight: 700; font-stretch: 125%; line-height: 1;
-  font-variant-numeric: tabular-nums; color: var(--concrete);
-}
-.step::after { content: ""; position: absolute; left: .95rem; top: 3.25rem; bottom: .75rem; width: 1px; background: var(--rule); }
-.step:last-child::after { display: none; }
-.step h3 { margin: .15rem 0 .5rem; font-size: clamp(1.25rem, 1.9vw, 1.625rem); font-weight: 640; font-stretch: 114%; line-height: 1.15; letter-spacing: -.015em; }
-.step p { margin: 0 0 .7rem; color: var(--plaster-2); }
-.step .gets { margin: 0; font-size: .9375rem; color: var(--plaster); }
-.step .gets span { color: var(--concrete); }
-
-/* ── Contact ────────────────────────────────────────────── */
-.contact { position: relative; isolation: isolate; display: flex; align-items: center; min-height: 100vh; padding-block: clamp(6rem, 12vw, 10rem); overflow: hidden; }
-.contact-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 60% 62%; }
-.contact::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(6, 21, 35, .96) 0%, rgba(6, 21, 35, .8) 40%, rgba(6, 21, 35, .12) 100%),
-    linear-gradient(0deg, rgba(6, 21, 35, .9) 0%, rgba(6, 21, 35, 0) 38%),
-    linear-gradient(180deg, rgba(6, 21, 35, 1) 0%, rgba(6, 21, 35, 0) 22%);
-}
-.contact h2 { max-width: 13ch; }
-.contact-lines { display: grid; gap: 1.75rem; margin-top: 2.75rem; justify-items: start; }
-.contact-line { display: grid; gap: .3rem; max-width: 100%; text-decoration: none; }
-.contact-line > span:first-child { font-size: .9375rem; color: var(--concrete); }
-.contact-line > span:last-child {
-  padding-bottom: .12em; border-bottom: 2px solid rgba(235, 180, 107, .45);
-  font-weight: 680; font-stretch: 118%; letter-spacing: -.025em; line-height: 1.05;
-  overflow-wrap: anywhere; transition: border-color .2s, color .2s;
-}
-.contact-line:hover > span:last-child { border-color: var(--lamp); color: var(--lamp); }
-.contact-phone > span:last-child { font-size: clamp(2rem, 5.4vw, 4.75rem); font-variant-numeric: tabular-nums; }
-.contact-email > span:last-child { font-size: clamp(1.375rem, 3.6vw, 3.25rem); }
-.contact-note { margin: 2.25rem 0 0; max-width: 34rem; color: var(--plaster-2); }
-
-.foot {
-  display: flex; flex-wrap: wrap; gap: .5rem 2rem;
-  padding: 2rem var(--edge) 2.5rem; border-top: 1px solid var(--rule);
-  font-size: .875rem; color: var(--concrete);
-}
-.foot p { margin: 0; }
-.foot a { margin-left: auto; color: var(--plaster-2); }
-.foot [hidden] { display: none; }
-
-@media (max-width: 860px) {
-  .about-text, .facts, .service-list, .process-head, .steps { grid-column: 1 / -1; }
-  .process-head { position: static; }
-  .preview { display: none; }
-  .service { padding-left: 0; box-shadow: none; }
-  .service.is-active { box-shadow: none; }
-  .service-photo { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: 1.25rem; background: var(--dusk); }
-  .project.wide, .project.tall { grid-column: 1 / -1; }
-  .project:nth-child(n) { margin-top: 0; }
-  .foot a { margin-left: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .preview img, .gauge li, .gauge li::before, .gauge li::after, .hint, .project-media video { transition: none; }
-}
-</style>
+<meta property="og:title" content="Montciel Kairos">
+<meta property="og:description" content="Tame the whirlwind. Keep the moment.">
+<meta property="og:image" content="assets/keys/key-01.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b15'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%23dde2e9' stroke-width='2'/%3E%3Cpath d='M32 13v5M32 46v5M13 32h5M46 32h5' stroke='%23dde2e9' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Montserrat:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap">
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body class="no-js">
-<script>document.body.classList.replace("no-js", "js");</script>
-<a class="skip" href="#main">Skip to content</a>
+<body>
 
-<header class="bar">
-  <a class="brand" href="#top">
-    <svg viewBox="0 0 12 26" aria-hidden="true"><path d="M6 0v10" stroke="currentColor" stroke-width="1.4"/><path d="M6 10.5 10.5 17 6 25.5 1.5 17Z" fill="#ebb46b"/></svg>
-    <span data-site="name">Plumbline Builders</span>
-  </a>
-  <nav class="nav" aria-label="Sections">
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#process">How we work</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="call" data-link="tel" href="tel:+60123456789">Call<span class="call-number" data-site="phone">+60 12-345 6789</span></a>
-</header>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     THE STAGE — fixed, full screen, behind everything.
+       #film   the film frames (WebGL, or canvas 2D on phones)
+       #watch  the finale's packshot, placed inside the ring by finale.js
+       #sky    stars, the sixty seconds and the ring (finale.js)
+       scrims  soft shadows that rise behind the words on bright frames
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div class="stage" aria-hidden="true">
+  <canvas id="film" class="stage__film"></canvas>
+  <div class="finale">
+    <img id="watch" class="finale__watch" src="assets/media/packshot.jpg" alt="" decoding="async">
+  </div>
+  <canvas id="sky" class="stage__sky"></canvas>
+  <div class="scrim scrim--low"></div>
+  <div class="scrim scrim--mid"></div>
+</div>
 
-<main id="main">
-  <section class="build" id="top" aria-labelledby="build-title">
-    <div class="build-stage">
-      <canvas class="build-canvas" aria-hidden="true"></canvas>
-      <p class="sr">As you scroll, a two-storey house goes up on its plot, from a bare concrete frame to a finished home with the lights on.</p>
-      <div class="build-shade" aria-hidden="true"></div>
-      <h1 class="build-title" id="build-title">From the ground up.</h1>
-      <div class="build-band" aria-hidden="true"></div>
-      <div class="gauge" aria-hidden="true">
-        <ol>
-          <li data-at="0.86">Keys handed over</li>
-          <li data-at="0.64">Windows and finishes</li>
-          <li data-at="0.29">Walls</li>
-          <li data-at="0.06">Slabs and roof</li>
-          <li data-at="0">Columns</li>
-        </ol>
-        <div class="gauge-line"><i class="gauge-fill"></i></div>
-      </div>
-      <p class="build-status" aria-hidden="true"><b>Scroll to build</b><span class="build-track"><i></i></span></p>
-      <div class="build-copy">
-        <p>We design and build homes and commercial buildings. One team takes your project from the first site visit to the day you get the keys.</p>
-        <div class="actions">
-          <a class="btn btn-lamp" href="#contact">Get a quote</a>
-          <a class="btn btn-line" href="#projects">See our projects</a>
-        </div>
-      </div>
-      <p class="hint" aria-hidden="true">Scroll to build <svg viewBox="0 0 10 18"><path d="M5 0v16M1 12l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></p>
-    </div>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     THE WORDS — each cue appears at the scroll positions set in js/config.js
+     (matched by data-cue). Lines marked data-line rise in one by one.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<main class="story" id="story">
+
+  <!-- I · The Sky -->
+  <section class="cue cue--title" data-cue="1">
+    <h1 class="wordmark" data-line>MONTCIEL</h1>
+    <p class="cue__sub" data-line>Watchmakers of the Vallée de Joux since 1851</p>
   </section>
 
-  <section class="about" aria-labelledby="about-title">
-    <div class="wrap about-grid">
-      <div class="about-text">
-        <h2 id="about-title">One team from survey to keys.</h2>
-        <p class="lede">Most delays on a build happen in the gaps between the designer, the contractor and the trades. We keep design, approvals, structure and finishing under one contract, so you follow one schedule and call one number.</p>
-      </div>
-      <dl class="facts" data-site="facts">
-        <div><dt>Building since</dt><dd>2009</dd></div>
-        <div><dt>Homes and buildings handed over</dt><dd>120+</dd></div>
-        <div><dt>Site and office team</dt><dd>45</dd></div>
-        <div><dt>Defects cover after handover</dt><dd>12 months</dd></div>
-      </dl>
-    </div>
-  </section>
+  <p class="cue cue--low" data-cue="2" data-scrim="low">
+    <span class="line" data-line>Long before the first clock, there was the sky.</span>
+  </p>
 
-  <section class="services" id="services" aria-labelledby="services-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="services-title">What we build</h2>
-        <p class="lede">Five kinds of work, each run on site by one of our own supervisors.</p>
-      </div>
-      <div class="services-grid">
-        <ul class="service-list">
-          <li class="service is-active" data-photo="0">
-            <img class="service-photo" src="assets/media/svc-homes.jpg" alt="Rebar laid over formwork for a first-floor slab, ready for the concrete pour" width="1128" height="1400" loading="lazy">
-            <h3>New homes</h3>
-            <p>Detached houses, semi-detached pairs and bungalows, designed and built on your land under one contract.</p>
-            <ul class="scope"><li>Design and approvals</li><li>Structure and roofing</li><li>Finishes and landscaping</li></ul>
-          </li>
-          <li class="service" data-photo="1">
-            <img class="service-photo" src="assets/media/svc-renovation.jpg" alt="A terrace house getting a new upper floor, wrapped in scaffolding" width="1128" height="1400" loading="lazy">
-            <h3>Renovations and extensions</h3>
-            <p>Add a floor, open up a layout or rebuild a kitchen and bathrooms. Our engineer checks the existing structure before any wall comes down.</p>
-            <ul class="scope"><li>Structural checks</li><li>Upper-floor extensions</li><li>Kitchens and bathrooms</li></ul>
-          </li>
-          <li class="service" data-photo="2">
-            <img class="service-photo" src="assets/media/svc-commercial.jpg" alt="A showroom during fit-out, with a glass partition going in" width="1128" height="1400" loading="lazy">
-            <h3>Commercial buildings and fit-out</h3>
-            <p>Shop-offices, showrooms, offices and small factories, from bare shell to a fitted-out space that is ready to open.</p>
-            <ul class="scope"><li>Shell and core</li><li>Shopfronts and partitions</li><li>Mechanical and electrical works</li></ul>
-          </li>
-          <li class="service" data-photo="3">
-            <img class="service-photo" src="assets/media/svc-structure.jpg" alt="Concrete being pumped into a foundation raft at dusk" width="1128" height="1400" loading="lazy">
-            <h3>Structural and civil works</h3>
-            <p>Piling, foundations, retaining walls, drainage and internal roads, planned with your engineer and the local authority.</p>
-            <ul class="scope"><li>Piling and foundations</li><li>Retaining walls</li><li>Drainage and roads</li></ul>
-          </li>
-          <li class="service" data-photo="4">
-            <img class="service-photo" src="assets/media/svc-interiors.jpg" alt="A finished concrete staircase with timber treads beside a timber slat wall" width="1128" height="1400" loading="lazy">
-            <h3>Interiors and finishing</h3>
-            <p>Carpentry, tiling, ceilings, lighting and built-in joinery, finished to the drawings and checked room by room.</p>
-            <ul class="scope"><li>Joinery and carpentry</li><li>Tiling and flooring</li><li>Ceilings and lighting</li></ul>
-          </li>
-        </ul>
-        <div class="preview" aria-hidden="true">
-          <img class="is-active" src="assets/media/svc-homes.jpg" alt="" width="1128" height="1400" loading="lazy">
-          <img src="assets/media/svc-renovation.jpg" alt="" width="1128" height="1400" loading="lazy">
-          <img src="assets/media/svc-commercial.jpg" alt="" width="1128" height="1400" loading="lazy">
-          <img src="assets/media/svc-structure.jpg" alt="" width="1128" height="1400" loading="lazy">
-          <img src="assets/media/svc-interiors.jpg" alt="" width="1128" height="1400" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
+  <p class="cue cue--low" data-cue="3" data-scrim="low">
+    <span class="place" data-line>Kuala Lumpur</span>
+    <span class="cue__sub" data-line>679 metres</span>
+  </p>
 
-  <section class="projects" id="projects" aria-labelledby="projects-title">
-    <div class="wrap">
-      <div class="section-head projects-head">
-        <div>
-          <h2 id="projects-title">Recent projects</h2>
-          <p class="lede">A few of the buildings we have handed over. Ask us for addresses you can visit.</p>
-        </div>
-        <button class="motion-toggle" type="button" aria-pressed="false" hidden><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M1 0h3v12H1zM6 0h3v12H6z" fill="currentColor"/></svg><span>Pause videos</span></button>
-      </div>
-      <!-- Sample projects: swap in your own photos (assets/media/) and details. -->
-      <div class="project-grid">
-        <figure class="project wide">
-          <div class="project-media">
-            <img src="assets/media/prj-courtyard.jpg" alt="Single-storey house around a courtyard pool, lit at dusk" width="1920" height="1072" loading="lazy">
-            <video class="project-clip" data-src="assets/media/clip-courtyard.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <figcaption>
-            <h3>Courtyard house</h3>
-            <p>Single-storey home built around a lap pool.</p>
-            <dl class="spec"><div><dt>Floor area</dt><dd>380 m²</dd></div><div><dt>Built in</dt><dd>11 months</dd></div><div><dt>Handed over</dt><dd>2025</dd></div></dl>
-          </figcaption>
-        </figure>
-        <figure class="project tall">
-          <div class="project-media">
-            <img src="assets/media/prj-shopoffice.jpg" alt="Three-storey corner shop-office with lit glass shopfronts" width="1128" height="1400" loading="lazy">
-            <video class="project-clip" data-src="assets/media/clip-shopoffice.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <figcaption>
-            <h3>Corner shop-office</h3>
-            <p>Three storeys, shops below and offices above.</p>
-            <dl class="spec"><div><dt>Floor area</dt><dd>960 m²</dd></div><div><dt>Built in</dt><dd>14 months</dd></div><div><dt>Handed over</dt><dd>2025</dd></div></dl>
-          </figcaption>
-        </figure>
-        <figure class="project tall">
-          <div class="project-media">
-            <img src="assets/media/prj-office.jpg" alt="Office reception with a concrete desk and timber slat ceiling" width="1128" height="1400" loading="lazy">
-            <video class="project-clip" data-src="assets/media/clip-office.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <figcaption>
-            <h3>Office fit-out</h3>
-            <p>Reception, meeting rooms and open office on one floor.</p>
-            <dl class="spec"><div><dt>Floor area</dt><dd>420 m²</dd></div><div><dt>Built in</dt><dd>10 weeks</dd></div><div><dt>Handed over</dt><dd>2024</dd></div></dl>
-          </figcaption>
-        </figure>
-        <figure class="project wide">
-          <div class="project-media">
-            <img src="assets/media/prj-hillside.jpg" alt="Pair of two-storey semi-detached houses above stepped retaining walls" width="1920" height="1072" loading="lazy">
-            <video class="project-clip" data-src="assets/media/clip-hillside.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <figcaption>
-            <h3>Hillside pair</h3>
-            <p>Two semi-detached houses on a slope, with stepped retaining walls.</p>
-            <dl class="spec"><div><dt>Floor area</dt><dd>2 × 290 m²</dd></div><div><dt>Built in</dt><dd>16 months</dd></div><div><dt>Handed over</dt><dd>2024</dd></div></dl>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+  <!-- II · The Tower -->
+  <p class="cue cue--low" data-cue="4" data-scrim="low">
+    <span class="line" data-line>Above the city, a room that keeps its own time.</span>
+  </p>
 
-  <section class="process" id="process" aria-labelledby="process-title">
-    <div class="wrap process-grid">
-      <div class="process-head">
-        <h2 id="process-title">How a build runs with us</h2>
-        <p class="lede">Five steps, with a fixed price agreed before anything is built.</p>
-      </div>
-      <ol class="steps">
-        <li class="step">
-          <div>
-            <h3>Site visit and brief</h3>
-            <p>We walk the land or building with you, listen to what you need, and check access, soil and utilities.</p>
-            <p class="gets"><span>You get:</span> a written brief and a budget range.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3>Design and approvals</h3>
-            <p>Our architect and engineer draw up the plans, and we submit them and follow them through the local authority.</p>
-            <p class="gets"><span>You get:</span> approved drawings.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3>Fixed quote and contract</h3>
-            <p>A priced bill of quantities, a programme with dates, and a contract written so you can read it.</p>
-            <p class="gets"><span>You get:</span> one fixed price.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3>Construction</h3>
-            <p>A supervisor on site every working day. Payments are tied to finished stages, not to dates.</p>
-            <p class="gets"><span>You get:</span> photo updates every week.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3>Handover</h3>
-            <p>We inspect the building together, fix anything on the list, and hand over the keys with every document in one folder.</p>
-            <p class="gets"><span>You get:</span> keys, warranties and as-built drawings.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
+  <p class="cue cue--low" data-cue="5" data-scrim="low">
+    <span class="line" data-line>On the desk, a single watch.</span>
+  </p>
 
-  <section class="contact" id="contact" aria-labelledby="contact-title">
-    <img class="contact-bg" src="assets/media/house.jpg" alt="" width="1920" height="1072" loading="lazy">
-    <div class="wrap">
-      <h2 id="contact-title">Tell us what you want to build.</h2>
-      <p class="lede">Send the site location, the size you have in mind and a budget range. <span data-site="reply">We call back within one working day.</span></p>
-      <div class="contact-lines">
-        <a class="contact-line contact-phone" data-link="tel" href="tel:+60123456789"><span>Call</span><span data-site="phone">+60 12-345 6789</span></a>
-        <a class="contact-line contact-email" data-link="mailto" href="mailto:hello@plumbline.example"><span>Email</span><span data-site="email">hello@plumbline.example</span></a>
-      </div>
-      <p class="contact-note">Office hours: <span data-site="hours">Monday to Saturday, 9am to 6pm</span></p>
+  <!-- III · The Dial -->
+  <p class="cue cue--low" data-cue="6" data-scrim="low">
+    <span class="line" data-line>Forty-two millimetres of night sky.</span>
+    <span class="cue__sub" data-line>Aventurine dial, platinum case</span>
+  </p>
+
+  <!-- IIII · The Movement -->
+  <p class="cue cue--low" data-cue="7" data-scrim="low">
+    <span class="line" data-line>312 parts, each finished by hand, even the ones no one will see.</span>
+    <span class="cue__sub" data-line>Calibre MC 1851. One-minute tourbillon. 21,600 vibrations an hour.</span>
+  </p>
+
+  <!-- V · Kairos — 5.1 the whirlwind -->
+  <p class="cue cue--word" data-cue="8" data-scrim="mid">
+    <span class="word" data-line>Tourbillon</span>
+    <span class="cue__sub" data-line>French for whirlwind.</span>
+  </p>
+
+  <!-- 5.2 the return -->
+  <p class="cue cue--low" data-cue="9" data-scrim="low">
+    <span class="line" data-line>We found the whirlwind in the sky,</span>
+    <span class="line" data-line>and taught it to keep time.</span>
+  </p>
+
+  <!-- 5.3 this moment: the numbers are the visitor's own time on the page -->
+  <p class="cue cue--finale" data-cue="10">
+    <span class="line" data-line><span data-live="duration">0 seconds</span> since you set out from the clouds.</span>
+    <span class="cue__sub" data-line><span data-live="turns">The tourbillon is still on its first turn for you.</span>
+      Its heart, the balance, has beaten <span data-live="beats">0</span> times.</span>
+  </p>
+
+  <div class="cue cue--finale cue--verse" data-cue="11">
+    <p class="line" data-line>The Greeks had two words for time.</p>
+    <p class="line line--turn" data-line>Chronos, the time that passes.</p>
+    <p class="line" data-line>Kairos, the moment that stays.</p>
+    <p class="line line--turn" data-line>We spend our lives mastering the first,</p>
+    <p class="line" data-line>so that you may keep the second.</p>
+  </div>
+
+  <section class="cue cue--finale cue--signoff" data-cue="12" inert>
+    <h2 class="model" data-line>KAIROS</h2>
+    <p class="cue__sub" data-line>One-minute tourbillon</p>
+    <p class="tagline" data-line>Tame the whirlwind. Keep the moment.</p>
+    <div class="actions" data-line>
+      <button type="button" class="action" id="cta-viewing">Request a private viewing</button>
+      <button type="button" class="action" id="wind-back">
+        <svg viewBox="0 0 11 14" aria-hidden="true"><rect x="0.5" y="2.5" width="7" height="9" rx="1.5" fill="none" stroke="currentColor"/><path d="M7.5 7h3M2.5 2.5V.5M5.5 2.5V.5" stroke="currentColor"/></svg>
+        Wind back
+      </button>
     </div>
+    <p class="footnote" data-line>A concept film. Montciel is a fictional maison; all imagery is AI-generated.</p>
   </section>
 </main>
 
-<footer class="foot">
-  <p>© <span data-site="year">2026</span> <span data-site="name">Plumbline Builders</span></p>
-  <p data-site="licence">Licensed building contractor</p>
-  <p data-site="imageNote">Photos on this page are AI-generated concept images.</p>
-  <a href="#top">Back to top</a>
-</footer>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     THE INTERFACE — kept to hairlines and a few words.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<header class="chrome">
+  <a class="chrome__mark" id="home" href="#" aria-label="Montciel, wind back to the start">MONTCIEL</a>
+  <nav class="chrome__nav" aria-label="Site">
+    <button type="button" class="chrome__link" id="nav-viewing">Private viewing</button>
+    <button type="button" class="chrome__link" id="sound-toggle" aria-pressed="false">
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      Sound <span id="sound-state">off</span>
+    </button>
+  </nav>
+</header>
 
-<script>
-(function () {
-  "use strict";
-  const S = window.SITE || {};
+<!-- Field of view, 10 km at the top to 0.1 mm at the bottom; in the finale it shows the visitor's time. -->
+<div class="gauge" aria-hidden="true">
+  <span class="gauge__line"></span>
+  <span class="gauge__tick" style="top:0%"></span>
+  <span class="gauge__tick" style="top:12.5%"></span>
+  <span class="gauge__tick" style="top:25%"></span>
+  <span class="gauge__tick" style="top:37.5%"></span>
+  <span class="gauge__tick" style="top:50%"></span>
+  <span class="gauge__tick" style="top:62.5%"></span>
+  <span class="gauge__tick" style="top:75%"></span>
+  <span class="gauge__tick" style="top:87.5%"></span>
+  <span class="gauge__tick" style="top:100%"></span>
+  <span class="gauge__marker"><span class="gauge__read">10 km</span></span>
+  <span class="gauge__label">field of view</span>
+</div>
 
-  /* ── Company details from the config block ── */
-  document.querySelectorAll("[data-site]").forEach((el) => {
-    const key = el.dataset.site;
-    if (key === "year") { el.textContent = new Date().getFullYear(); return; }
-    if (key === "facts") {
-      if (!Array.isArray(S.facts)) return;
-      el.replaceChildren(...S.facts.map((f) => {
-        const row = document.createElement("div");
-        const dt = document.createElement("dt");
-        const dd = document.createElement("dd");
-        dt.textContent = f.label; dd.textContent = f.value;
-        row.append(dt, dd);
-        return row;
-      }));
-      return;
-    }
-    if (!(key in S)) return;
-    if (S[key]) el.textContent = S[key];
-    else el.hidden = true;
-  });
-  document.querySelectorAll('[data-link="tel"]').forEach((a) => { if (S.phoneLink) a.href = "tel:" + S.phoneLink; });
-  document.querySelectorAll('[data-link="mailto"]').forEach((a) => { if (S.email) a.href = "mailto:" + S.email; });
+<!-- Chapter numeral: the fourth is written IIII, as on a watch dial. -->
+<div class="chapter" aria-hidden="true">
+  <span class="chapter__num">I</span>
+  <span class="chapter__name">The Sky</span>
+</div>
 
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+<div class="scroll-cue" aria-hidden="true"><span></span></div>
 
-  /* ── Hero: scroll-scrubbed construction timelapse ── */
-  const sec = document.querySelector(".build");
-  const stage = sec.querySelector(".build-stage");
-  const canvas = sec.querySelector(".build-canvas");
-  const ctx = canvas.getContext("2d", { alpha: false });
-  const bar = document.querySelector(".bar");
-  const items = [...sec.querySelectorAll(".gauge li")].reverse();   // first stage first
-  const at = items.map((li) => parseFloat(li.dataset.at));
-  const fill = sec.querySelector(".gauge-fill");
-  const statusName = sec.querySelector(".build-status b");
-  const statusFill = sec.querySelector(".build-track i");
-  const band = sec.querySelector(".build-band");
-  const NIGHT = "#061523";
+<!-- The scroll track: its height is the length of the film. -->
+<div class="track" id="track"></div>
 
-  // The frames play between these two scroll positions; before and after,
-  // the unfinished frame and the finished house hold still for a moment.
-  const PLAY_FROM = 0.02, PLAY_TO = 0.9;
+<!-- Loader: a ring that closes as the first chapter arrives. -->
+<div class="loader" id="loader" role="status">
+  <svg class="loader__ring" viewBox="0 0 100 100" aria-hidden="true"><circle id="loader-ring" cx="50" cy="50" r="48" pathLength="1"/></svg>
+  <p class="loader__mark" aria-hidden="true">MONTCIEL</p>
+  <p class="loader__pct"><span class="visually-hidden">Loading the film, </span><span id="loader-pct">00</span></p>
+</div>
 
-  const F = window.BUILD_FRAMES;
-  const count = F && F.count > 1 ? F.count : 0;
-  const imgs = new Array(count);
-  const ok = new Uint8Array(count);
-  let still = null;                       // fallback picture when there are no frames
-  let iw = count ? F.width : 1920, ih = count ? F.height : 1072;
-  const tall = window.matchMedia("(max-aspect-ratio: 1/1)");   // same switch as the CSS
-  let fit = null, portrait = false;
-  let target = 0, cur = 0, raf = 0;
+<!-- Private viewing -->
+<dialog class="viewing" id="viewing" aria-labelledby="viewing-title">
+  <form method="dialog" class="viewing__inner">
+    <h2 id="viewing-title">A private viewing</h2>
+    <p>Kairos is shown by appointment in our salon in Kuala Lumpur, one guest at a time, in the company of the watchmaker who assembled it.</p>
+    <p class="viewing__note">This is a concept site. Montciel is a fictional maison, so no appointments are taken here.</p>
+    <button class="action" value="close">Close</button>
+  </form>
+</dialog>
 
-  const frameSrc = (i) => "assets/build/" + String(i).padStart(3, "0") + "." + F.ext;
+<noscript><p class="noscript">This film is played by scrolling, which needs JavaScript.</p></noscript>
 
-  function loadFrames() {
-    const order = [], seen = new Uint8Array(count);
-    const add = (i) => { if (!seen[i]) { seen[i] = 1; order.push(i); } };
-    add(0); add(count - 1);
-    [24, 12, 6, 3, 1].forEach((step) => { for (let i = 0; i < count; i += step) add(i); });
-    let next = 0, busy = 0;
-    const pump = () => {
-      while (busy < 6 && next < order.length) {
-        const i = order[next++];
-        const im = new Image();
-        busy++;
-        im.decoding = "async";
-        im.onload = () => { imgs[i] = im; ok[i] = 1; busy--; request(); pump(); };
-        im.onerror = () => { busy--; pump(); };
-        im.src = frameSrc(i);
-      }
-    };
-    pump();
-  }
-
-  function nearest(i) {
-    if (ok[i]) return i;
-    for (let d = 1; d < count; d++) {
-      if (i - d >= 0 && ok[i - d]) return i - d;
-      if (i + d < count && ok[i + d]) return i + d;
-    }
-    return -1;
-  }
-
-  function layout() {
-    const w = stage.clientWidth, h = stage.clientHeight;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const cw = Math.round(w * dpr), ch = Math.round(h * dpr);
-    if (canvas.width !== cw || canvas.height !== ch) { canvas.width = cw; canvas.height = ch; }
-    portrait = tall.matches;
-    let s, x, y;
-    if (!portrait) {
-      // Cover the screen, keeping a little more of the ground than of the sky.
-      s = Math.max(w / iw, h / ih);
-      x = (w - iw * s) / 2;
-      y = (h - ih * s) * 0.6;
-    } else {
-      // Tall screens: fit the house into the band between title and intro, always
-      // filling the width and showing at least the middle 54% of the frame; sky and
-      // street fade into the page.
-      const r = band.getBoundingClientRect(), top = r.top - stage.getBoundingClientRect().top;
-      s = Math.max(w / iw, Math.min(w / (iw * 0.54), Math.max(r.height, 1) / (ih * 0.8)));
-      x = clamp(w / 2 - iw * s * 0.48, w - iw * s, 0);
-      y = top + r.height / 2 - ih * s * 0.5;
-    }
-    fit = { x: x * dpr, y: y * dpr, w: iw * s * dpr, h: ih * s * dpr };
-    request();
-  }
-
-  function paint(im, alpha) {
-    ctx.globalAlpha = alpha;
-    ctx.drawImage(im, fit.x, fit.y, fit.w, fit.h);
-    ctx.globalAlpha = 1;
-  }
-
-  function draw() {
-    ctx.fillStyle = NIGHT;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    if (count) {
-      const x = clamp((cur - PLAY_FROM) / (PLAY_TO - PLAY_FROM), 0, 1) * (count - 1);
-      const i = Math.floor(x), t = x - i;
-      const a = nearest(i);
-      if (a >= 0) {
-        paint(imgs[a], 1);
-        if (a === i && t > 0.02 && i + 1 < count && ok[i + 1]) paint(imgs[i + 1], t);  // blend neighbours
-      }
-    } else if (still && still.complete && still.naturalWidth) {
-      paint(still, 1);
-    }
-    if (portrait) {
-      const top = ctx.createLinearGradient(0, fit.y, 0, fit.y + fit.h * 0.32);
-      top.addColorStop(0, NIGHT); top.addColorStop(1, "rgba(6,21,35,0)");
-      ctx.fillStyle = top; ctx.fillRect(0, fit.y - 1, canvas.width, fit.h * 0.32 + 1);
-      const low = ctx.createLinearGradient(0, fit.y + fit.h, 0, fit.y + fit.h * 0.8);
-      low.addColorStop(0, NIGHT); low.addColorStop(1, "rgba(6,21,35,0)");
-      ctx.fillStyle = low; ctx.fillRect(0, fit.y + fit.h * 0.8, canvas.width, fit.h * 0.2 + 1);
-    }
-  }
-
-  function gauge(p) {
-    let k = 0;
-    for (let j = 0; j < at.length; j++) if (p >= at[j]) k = j;
-    const last = at.length - 1;
-    const f = k === last ? 1 : (k + clamp((p - at[k]) / (at[k + 1] - at[k]), 0, 1)) / last;
-    fill.style.transform = "scaleY(" + f.toFixed(4) + ")";
-    items.forEach((li, j) => {
-      li.classList.toggle("is-reached", j <= k && (j > 0 || p > 0.005));
-      li.classList.toggle("is-now", j === k && p > 0.005);
-    });
-    statusFill.style.transform = "scaleX(" + f.toFixed(4) + ")";
-    statusName.textContent = p > 0.005 ? items[k].textContent : "Scroll to build";
-  }
-
-  function measure() {
-    const r = sec.getBoundingClientRect();
-    const span = sec.offsetHeight - stage.offsetHeight;
-    target = span > 0 ? clamp(-r.top / span, 0, 1) : 0;
-    sec.classList.toggle("is-moving", target > 0.015);
-    bar.classList.toggle("is-solid", r.bottom <= bar.offsetHeight + 1);
-  }
-
-  function tick() {
-    raf = 0;
-    const d = target - cur;
-    if (reduce.matches || Math.abs(d) < 0.0004) cur = target;
-    else cur += d * 0.18;
-    draw();
-    gauge(cur);
-    if (cur !== target) request();
-  }
-
-  function request() { if (!raf) raf = requestAnimationFrame(tick); }
-
-  if (count) loadFrames();
-  else {
-    still = new Image();
-    still.onload = () => { iw = still.naturalWidth; ih = still.naturalHeight; layout(); };
-    still.src = "assets/media/house.jpg";
-  }
-  layout();
-  measure();
-  cur = target;
-  window.addEventListener("scroll", () => { measure(); request(); }, { passive: true });
-  window.addEventListener("resize", () => { layout(); measure(); });
-
-  /* ── Projects: short loops play while on screen ── */
-  const clips = [...document.querySelectorAll(".project-clip")];
-  const toggle = document.querySelector(".motion-toggle");
-  const saveData = navigator.connection && navigator.connection.saveData;
-  const onScreen = new Set();
-  let paused = reduce.matches;
-  if (clips.length && "IntersectionObserver" in window && !saveData) {
-    const run = (v) => {
-      if (paused || !onScreen.has(v)) { if (!v.paused) v.pause(); return; }
-      if (!v.src) v.src = v.dataset.src;
-      v.play().then(() => v.classList.add("is-playing")).catch(() => {});
-    };
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) onScreen.add(e.target); else onScreen.delete(e.target);
-        run(e.target);
-      });
-    }, { threshold: 0.3 });
-    clips.forEach((v) => cio.observe(v));
-    toggle.hidden = false;
-    const label = () => {
-      toggle.setAttribute("aria-pressed", String(paused));
-      toggle.querySelector("span").textContent = paused ? "Play videos" : "Pause videos";
-      toggle.querySelector("path").setAttribute("d", paused ? "M1 0l8 6-8 6z" : "M1 0h3v12H1zM6 0h3v12H6z");
-    };
-    label();
-    toggle.addEventListener("click", () => { paused = !paused; label(); clips.forEach(run); });
-  }
-
-  /* ── Services: the photo follows the row you point at or scroll to ── */
-  const rows = [...document.querySelectorAll(".service")];
-  const shots = [...document.querySelectorAll(".preview img")];
-  function show(row) {
-    rows.forEach((r) => r.classList.toggle("is-active", r === row));
-    shots.forEach((img, j) => img.classList.toggle("is-active", j === +row.dataset.photo));
-  }
-  rows.forEach((row) => row.addEventListener("pointerenter", () => show(row)));
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) show(e.target); });
-    }, { rootMargin: "-45% 0px -45% 0px" });
-    rows.forEach((row) => io.observe(row));
-  }
-})();
-</script>
+<!-- Libraries, served from this site: GSAP 3.15 (ScrollTrigger, CustomEase) and Lenis 1.3. -->
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/CustomEase.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<!-- The film's frame list, written by tools/fetch-media.sh. Without it the page shows placeholder frames. -->
+<script src="assets/film/film.js"></script>
+<script src="js/util.js"></script>
+<script src="js/config.js"></script>
+<script src="js/frames.js"></script>
+<script src="js/renderer.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/finale.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

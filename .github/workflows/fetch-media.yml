@@ -1,6 +1,6 @@
 # Downloads the generated media listed in tools/media.txt on a GitHub runner
 # (the cloud dev environment can't reach the media host), compresses it, cuts the
-# hero timelapse into frames, and commits assets/ back to this branch.
+# scroll film into frames, and commits assets/ back to this branch.
 name: Fetch generated media
 on:
   push:

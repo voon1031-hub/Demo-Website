@@ -1,0 +1,664 @@
+/* =============================================================================
+   MONTCIEL · Kairos — styles
+   -----------------------------------------------------------------------------
+   Layout: a fixed full-screen stage (the film) under a fixed layer of copy and
+   a thin frame of interface. The document itself is one tall, empty scroll
+   track; scrolling it moves the camera.
+
+   Type: Cinzel (the maison's wordmark and the chapter numerals), Playfair
+   Display italic (everything the film says), Montserrat (the few interface
+   words). Colour: the picture provides it; the interface keeps to warm white
+   hairlines and one accent, the platinum of the watch.
+   ============================================================================= */
+
+:root {
+  /* colour */
+  --night: #070b15;                      /* the film's final midnight */
+  --ink: #f3f1ec;                        /* text over the picture */
+  --ink-soft: rgba(243, 241, 236, 0.76);
+  --ink-faint: rgba(243, 241, 236, 0.52);
+  --hair: rgba(243, 241, 236, 0.34);     /* hairlines */
+  --platinum: #dde2e9;                   /* the one accent: the watch's metal */
+
+  /* type */
+  --f-mark: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+  --f-serif: "Playfair Display", "Didot", "Bodoni 72", Georgia, serif;
+  --f-ui: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* motion: the brief's curve and two companions (also defined in js/util.js) */
+  --cine: cubic-bezier(0.25, 1, 0.5, 1);
+  --cine-in: cubic-bezier(0.55, 0, 0.75, 0.06);
+  --cine-in-out: cubic-bezier(0.7, 0, 0.2, 1);
+
+  /* layout */
+  --edge: clamp(20px, 3.2vw, 48px);       /* interface distance from the screen edge */
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+
+  /* the finale ring (kept in step with js/finale.js) */
+  --ring-y: 40vh;
+  --ring-r: min(23.5vh, 20vw);
+
+  color-scheme: dark;
+}
+
+/* ------------------------------------------------------------------- base */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  background: var(--night);
+  /* The film has its own progress gauge; hiding the native scrollbar also
+     keeps 100vw exactly the width of the screen on desktop browsers. */
+  scrollbar-width: none;
+  -webkit-text-size-adjust: 100%;
+}
+html::-webkit-scrollbar { display: none; }
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--ink);
+  font-family: var(--f-ui);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+html.is-loading,
+html.is-loading body { overflow: hidden; }
+
+/* Lenis */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: clip; }
+
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 1px solid var(--platinum); outline-offset: 5px; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* The scroll track: 14 screens of film plus the final screen. */
+.track {
+  height: 1500vh;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ stage */
+.stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  background: var(--night);
+}
+
+/* Both canvases cover the screen; the renderer crops each frame with the same
+   rule as object-fit: cover, so there is never a bar or a gap. */
+.stage canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+.stage img { object-fit: cover; }
+
+.stage__sky { pointer-events: none; }
+
+.finale__watch {
+  position: absolute;
+  max-width: none;
+  opacity: 0;
+  transform-origin: 47.8% 42.5%;
+  will-change: opacity, transform;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Scrims: soft shadows that rise behind the words so they read on a bright sky. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.scrim--low {
+  background: radial-gradient(120% 95% at 0% 100%, rgba(5, 8, 16, 0.66) 0%, rgba(5, 8, 16, 0.3) 40%, rgba(5, 8, 16, 0) 70%);
+}
+.scrim--mid {
+  background: radial-gradient(56% 46% at 50% 48%, rgba(5, 8, 16, 0.46) 0%, rgba(5, 8, 16, 0) 74%);
+}
+
+/* ------------------------------------------------------------------- copy */
+.story {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cue {
+  position: absolute;
+  margin: 0;
+}
+
+/* Zero-specificity resets, so the component rules below always win. */
+:where(.story) p,
+:where(.story) h1,
+:where(.story) h2 { margin: 0; }
+
+:where(.cue) [data-line] {
+  display: block;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* What the film says: Playfair italic, set large and quiet. */
+.line {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.65rem, 2.7vw, 2.8rem);
+  line-height: 1.22;
+  letter-spacing: 0.004em;
+  text-wrap: balance;
+  text-shadow: 0 1px 28px rgba(3, 5, 12, 0.4);
+}
+
+/* Facts and captions under a line. */
+.cue__sub {
+  margin-top: 1.15rem;
+  font-family: var(--f-ui);
+  font-weight: 400;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  letter-spacing: 0.15em;
+  color: rgba(243, 241, 236, 0.88);
+  text-shadow: 0 1px 16px rgba(3, 5, 12, 0.6);
+}
+
+/* Live figures use lining numerals: Playfair's old-style zero reads as an "o". */
+[data-live] { font-variant-numeric: lining-nums tabular-nums; }
+
+/* Lower left, above the chapter numeral. */
+.cue--low {
+  left: var(--edge);
+  bottom: calc(var(--edge) + 96px + var(--safe-b));
+  max-width: min(36rem, 78vw);
+}
+
+/* The opening title, over the blue of the sky. */
+.cue--title {
+  top: 12vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.wordmark {
+  margin: 0;
+  /* Wide tracking adds space after the last letter too; this centres it again. */
+  padding-left: 0.34em;
+  font-family: var(--f-mark);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6.4vw, 6.2rem);
+  line-height: 1;
+  letter-spacing: 0.34em;
+  text-shadow: 0 2px 40px rgba(10, 30, 70, 0.28);
+}
+.cue--title .cue__sub {
+  margin-top: 1.7rem;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.3vw, 1.3rem);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-shadow: 0 1px 24px rgba(10, 30, 70, 0.45);
+}
+
+.place {
+  font-family: var(--f-serif);
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 28px rgba(3, 5, 12, 0.4);
+}
+
+/* "Tourbillon", in the middle of the whirlwind. */
+.cue--word {
+  top: 36vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.cue--word .cue__sub {
+  margin-top: 1.4rem;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.3vw, 1.3rem);
+  letter-spacing: 0.02em;
+}
+.word {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(3.6rem, 9vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 50px rgba(3, 5, 12, 0.45);
+}
+
+/* The finale: centred under the ring. */
+.cue--finale {
+  top: calc(var(--ring-y) + var(--ring-r) + 5.5vh);
+  left: 50%;
+  width: min(44rem, 88vw);
+  margin-left: calc(min(44rem, 88vw) / -2);
+  text-align: center;
+}
+.cue--finale .line {
+  font-size: clamp(1.1rem, 1.55vw, 1.55rem);
+  line-height: 1.5;
+}
+.cue--verse .line { line-height: 1.55; }
+.cue--verse .line + .line { margin-top: 0.1rem; }
+.cue--verse .line--turn { margin-top: 0.9rem; }
+
+.model {
+  margin: 0;
+  padding-left: 0.42em;
+  font-family: var(--f-mark);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 2.6vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0.42em;
+}
+.cue--signoff .cue__sub { margin-top: 0.9rem; }
+.tagline {
+  margin-top: 1.4rem;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem);
+}
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem clamp(1.6rem, 3vw, 3rem);
+  margin-top: 1.6rem;
+}
+.cue--signoff.is-live .actions { pointer-events: auto; }
+.footnote {
+  margin-top: 1.4rem;
+  font-family: var(--f-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+/* Text buttons with a hairline that brightens on hover. */
+.action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 0.1rem;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-family: var(--f-ui);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+.action::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.5rem;
+  height: 1px;
+  background: var(--hair);
+  transform-origin: left center;
+  transition: background-color 0.9s var(--cine), transform 0.9s var(--cine);
+}
+.action:hover::after { background: var(--platinum); }
+.action svg { width: 11px; height: 14px; flex: none; }
+
+/* -------------------------------------------------------------- interface */
+.chrome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(var(--edge) * 0.75 + var(--safe-t)) var(--edge) 0;
+  pointer-events: none;
+}
+.chrome > * { pointer-events: auto; }
+
+.chrome__mark {
+  padding: 0.6rem 0;
+  font-family: var(--f-mark);
+  font-size: 0.82rem;
+  letter-spacing: 0.46em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.chrome__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 40px);
+}
+
+.chrome__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  font-family: var(--f-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  transition: color 0.7s var(--cine);
+}
+.chrome__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.25rem;
+  height: 1px;
+  background: var(--platinum);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.9s var(--cine);
+}
+.chrome__link:hover { color: var(--ink); }
+.chrome__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+.chrome__link[aria-pressed="true"] { color: var(--ink); }
+
+/* Three hairlines that move while the sound is on. */
+.bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 9px;
+}
+.bars i {
+  display: block;
+  width: 1px;
+  height: 3px;
+  background: currentColor;
+  transition: height 0.6s var(--cine);
+}
+[aria-pressed="true"] .bars i { animation: bar 1.4s var(--cine-in-out) infinite alternate; }
+[aria-pressed="true"] .bars i:nth-child(2) { animation-delay: -0.5s; }
+[aria-pressed="true"] .bars i:nth-child(3) { animation-delay: -0.9s; }
+@keyframes bar {
+  from { height: 2px; }
+  to { height: 9px; }
+}
+
+/* Field-of-view gauge: a log scale from 10 km down to 0.1 mm. */
+.gauge {
+  position: fixed;
+  right: var(--edge);
+  top: 31vh;
+  height: 38vh;
+  width: 1px;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 1.2s var(--cine);
+}
+.gauge__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background: var(--hair);
+}
+.gauge__tick {
+  position: absolute;
+  right: 0;
+  width: 6px;
+  height: 1px;
+  background: var(--hair);
+  transition: opacity 1.2s var(--cine);
+}
+.gauge__marker {
+  position: absolute;
+  right: -4px;
+  top: 0;
+  width: 15px;
+  height: 1px;
+  background: var(--ink);
+  will-change: transform;
+}
+.gauge__read {
+  position: absolute;
+  right: 24px;
+  top: -0.62em;
+  font-family: var(--f-ui);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--ink);
+  text-shadow: 0 1px 14px rgba(3, 5, 12, 0.6);
+}
+.gauge__label {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 16px);
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 0.74rem;
+  white-space: nowrap;
+  color: var(--ink-faint);
+}
+.gauge.is-time .gauge__tick { opacity: 0; }
+
+/* Chapter numeral, bottom left. */
+.chapter {
+  position: fixed;
+  left: var(--edge);
+  bottom: calc(var(--edge) + var(--safe-b));
+  z-index: 3;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  pointer-events: none;
+}
+.chapter__num {
+  font-family: var(--f-mark);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+}
+.chapter__name {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+/* The only scroll hint: a hairline with a slow falling light, opening only. */
+.scroll-cue {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--edge) + var(--safe-b));
+  z-index: 3;
+  width: 1px;
+  height: 64px;
+  overflow: hidden;
+  background: var(--hair);
+  transition: opacity 1s var(--cine);
+}
+.scroll-cue span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 40%;
+  background: var(--ink);
+  transform: translateY(-100%);
+  animation: fall 2.8s var(--cine-in-out) infinite;
+}
+.scroll-cue.is-hidden { opacity: 0; }
+@keyframes fall {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(260%); }
+}
+
+/* ----------------------------------------------------------------- loader */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background: var(--night);
+}
+.loader > * { grid-area: 1 / 1; }
+.loader__ring {
+  width: min(38vmin, 280px);
+  height: min(38vmin, 280px);
+  transform: rotate(-90deg);
+}
+.loader__ring circle {
+  fill: none;
+  stroke: var(--platinum);
+  stroke-width: 0.3;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.7s var(--cine);
+}
+.loader__mark {
+  margin: 0;
+  padding-left: 0.46em;
+  font-family: var(--f-mark);
+  font-size: 0.86rem;
+  letter-spacing: 0.46em;
+}
+.loader__pct {
+  align-self: end;
+  margin: 0 0 calc(var(--edge) + var(--safe-b));
+  font-family: var(--f-ui);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-faint);
+}
+
+/* --------------------------------------------------------- private viewing */
+.viewing {
+  width: min(32rem, calc(100vw - 32px));
+  max-width: none;
+  padding: 0;
+  border: 1px solid var(--hair);
+  background: rgba(9, 13, 24, 0.9);
+  color: var(--ink);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.viewing::backdrop {
+  background: rgba(4, 6, 12, 0.55);
+}
+.viewing__inner {
+  margin: 0;
+  padding: clamp(28px, 4vw, 52px);
+}
+.viewing h2 {
+  margin: 0 0 1.2rem;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  line-height: 1.2;
+}
+.viewing p {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+.viewing .viewing__note {
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+}
+.viewing .action { margin-top: 0.6rem; }
+
+/* ---------------------------------------------------------------- no script */
+.noscript {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--night);
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* --------------------------------------------- phones and touch (lite mode) */
+.is-lite {
+  --ring-y: 34vh;
+  --ring-r: min(20vh, 36vw);
+}
+@media (max-width: 760px) {
+  :root { --edge: 18px; }
+  .line { font-size: clamp(1.35rem, 6.2vw, 1.9rem); }
+  .cue--low {
+    right: var(--edge);
+    bottom: calc(var(--edge) + 70px + var(--safe-b));
+    max-width: none;
+  }
+  .cue--title { top: 14vh; }
+  .wordmark { font-size: clamp(1.9rem, 10vw, 3rem); }
+  .word { font-size: clamp(3rem, 17vw, 5rem); }
+  .cue--finale .line { font-size: 1.05rem; }
+  .gauge { top: auto; bottom: calc(var(--edge) + var(--safe-b)); height: 0; }
+  .gauge__line,
+  .gauge__tick,
+  .gauge__label { display: none; }
+  .gauge__marker { transform: none !important; background: none; }
+  .gauge__read { right: 0; top: -0.4em; }
+  .chrome__mark { letter-spacing: 0.36em; }
+  .chrome__nav { gap: 16px; }
+}
+
+/* ---------------------------------------------------------- reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue span { animation: none; transform: none; height: 100%; opacity: 0.4; }
+  [aria-pressed="true"] .bars i { animation: none; height: 6px; }
+}
