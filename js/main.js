@@ -143,11 +143,21 @@
     };
   }
 
+  /* Between two frames the picture is a crossfade, which reads as motion blur
+     while scrolling but would leave a double exposure on anything that moves
+     fast (the push-ins) once the scroll comes to rest. So at rest the blend
+     dissolves onto the nearer frame, and lets go the moment scrolling resumes. */
+  let settle = 0; // 0 while moving → 1 at rest
+  function updateSettle(speed, dt) {
+    settle = speed < 1.5 ? Math.min(1, settle + dt / 0.4) : Math.max(0, settle - dt / 0.1);
+  }
+
   function filmState(v) {
     const fade = smoothstep(C.finale.nightFrom, C.finale.nightFull, v);
     if (!frames.available) return placeholderState(v, fade);
     const pair = reduceMotion ? stillPair(v) : frames.pair(curve(v));
     if (!pair) return null;
+    if (!reduceMotion) pair.mix = lerp(pair.mix, pair.mix < 0.5 ? 0 : 1, smoothstep(0, 1, settle));
     return { ...pair, fade, focusX: 0.5, focusY: 0.5 };
   }
 
@@ -446,6 +456,7 @@
     const v = vNow();
     speed = lerp(speed, Math.abs(v - lastV) / (Math.max(delta, 1) / 1000), 0.2); // vh per second
     lastV = v;
+    updateSettle(speed, Math.min(delta, 100) / 1000);
     drawFilm(v, time);
     finale.update(v, now, time);
     updateInterface(v, now);
