@@ -42,15 +42,18 @@ window.SITE = {
 /* The opening film plays once per visit, never with reduced motion or when
    the page is opened at an anchor. Decided here so the page never flashes. */
 (function () {
+  var html = document.documentElement;
+  html.classList.remove("no-js");
   try {
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (still) html.classList.add("no-film");
     if (!still) {
       var l = document.createElement("link");
       l.rel = "preload"; l.as = "image"; l.href = "assets/film/000.webp";
       document.head.appendChild(l);
     }
     if (!location.hash && !still && !sessionStorage.getItem("owntone-intro"))
-      document.documentElement.classList.add("intro-on");
+      html.classList.add("intro-on");
   } catch (e) {}
 })();
 </script>
