@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Downloads every "<name> <url>" line in tools/media.txt and prepares it for the site.
+#   cut-* images              -> assets/media/<name>.webp, transparent background kept,
+#                                empty margins trimmed (fits in 1600x1600)
 #   images (.png/.jpg/.webp)  -> assets/media/<name>.jpg  (fits in 1920x1400)
 #   videos (.mp4)             -> assets/media/<name>.mp4  (1280px, H.264, no audio)
 #   clip-* videos             -> the same, played forward then backward so the
@@ -8,7 +10,7 @@
 #                                cut into assets/build/NNN.webp frames, plus
 #                                assets/build/frames.js, start.jpg and end.jpg
 # A later line with the same name replaces an earlier one.
-# Needs: curl, ffmpeg, ffprobe. Run from the repository root.
+# Needs: curl, ffmpeg, ffprobe, ImageMagick (convert). Run from the repository root.
 set -uo pipefail
 FRAMES=${FRAMES:-120}     # frames in the hero sequence
 FRAME_W=${FRAME_W:-1600}  # frame width in px
@@ -26,6 +28,13 @@ while read -r name url _; do
   fi
   case "$name:$ext" in
     build-*:mp4) echo "build segment: $name" ;;  # used below, not published on its own
+    cut-*:png|cut-*:webp)
+      # Product cutouts sit straight on the page colour, so keep the alpha channel.
+      convert "$file" -fuzz 3% -trim +repage -bordercolor none -border 12 -resize '1600x1600>' "PNG32:$src/$name.trim.png" &&
+      ffmpeg -nostdin -loglevel error -y -i "$src/$name.trim.png" -c:v libwebp -pix_fmt yuva420p \
+        -quality 88 -compression_level 6 "assets/media/$name.webp" ||
+        { echo "FAILED: cutout $name"; failed=$((failed+1)); continue; }
+      echo "cutout: $name $(du -h "assets/media/$name.webp" | cut -f1)" ;;
     clip-*:mp4)
       ffmpeg -nostdin -loglevel error -y -i "$file" -an -filter_complex \
         "[0:v]scale='min(1280,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2,split[f][b];[b]reverse,trim=start_frame=1,setpts=PTS-STARTPTS[r];[f][r]concat=n=2:v=1:a=0,format=yuv420p[v]" \
