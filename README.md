@@ -61,11 +61,10 @@ last frame.
 The product images were generated with Higgsfield (GPT Image 2.5); the
 opening film and the three film segments with FLUX 3 Video, each segment
 starting on the previous segment's last keyframe so the joins are seamless.
-Products,
-prices, ingredients and figures are samples. The sample sign-up form and the
-checkout button do not send anything. Replace the pictures and data before
-the site goes live, then set `imageNote` in the config block to `""` to
-remove the footer note.
+Products, prices, ingredients and figures are samples. The sample sign-up
+form and the checkout button do not send anything. Replace the pictures and
+data before the site goes live, then set `imageNote` in the config block to
+`""` to remove the footer note.
 
 Serve the folder with any static server (for example `python3 -m http.server`)
 and open `index.html`; browsers block web fonts on pages opened straight from
