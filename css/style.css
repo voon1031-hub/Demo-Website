@@ -267,10 +267,11 @@ button { font: inherit; color: inherit; }
 .cue--finale {
   top: calc(var(--ring-y) + var(--ring-r) + 5.5vh);
   left: 50%;
-  width: min(44rem, 88vw);
-  margin-left: calc(min(44rem, 88vw) / -2);
+  width: min(54rem, 90vw);
+  margin-left: calc(min(54rem, 90vw) / -2);
   text-align: center;
 }
+.cue--finale .cue__sub { letter-spacing: 0.1em; }
 .cue--finale .line {
   font-size: clamp(1.1rem, 1.55vw, 1.55rem);
   line-height: 1.5;
