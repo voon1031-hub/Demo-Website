@@ -271,14 +271,18 @@
   function onInput() {
     lastInput = performance.now();
     snapping = false;
-    // The counter in the finale measures from the first scroll of the journey.
+  }
+  // The counter in the finale measures from the first scroll of the journey.
+  function onScrollIntent() {
+    onInput();
     if (awaitingJourney && started && !rewinding) {
       awaitingJourney = false;
       finale.journeyStart = performance.now();
     }
   }
-  for (const type of ["wheel", "touchstart", "keydown", "pointerdown"]) {
-    window.addEventListener(type, onInput, { passive: true });
+  window.addEventListener("pointerdown", onInput, { passive: true });
+  for (const type of ["wheel", "touchstart", "keydown"]) {
+    window.addEventListener(type, onScrollIntent, { passive: true });
   }
 
   function maybeSnap(v, now) {
@@ -301,19 +305,15 @@
   /* "Wind back": the whole film plays in reverse to the clouds, like winding
      a mechanical watch. */
   function windBack() {
-    if (rewinding) return;
+    if (rewinding || vNow() < 1) return;
     sound.whoosh(6.2);
     awaitingJourney = true;
     finale.journeyStart = null;
     if (lenis) {
       rewinding = true;
-      lenis.scrollTo(0, {
-        duration: 6,
-        easing: ease.cineInOut,
-        lock: true,
-        force: true,
-        onComplete: () => { rewinding = false; },
-      });
+      const done = () => { rewinding = false; };
+      lenis.scrollTo(0, { duration: 6, easing: ease.cineInOut, lock: true, force: true, onComplete: done });
+      setTimeout(done, 7000); // in case the scroll is interrupted
     } else {
       window.scrollTo(0, 0);
     }
