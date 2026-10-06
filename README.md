@@ -68,9 +68,11 @@ the 2D renderer.
 
 ### Regenerating media
 
-All images and video segments were generated with Higgsfield (keyframes with
-GPT Image 2.5, segments with Kling 3.0 from a first and a last keyframe, so
-each segment starts exactly where the previous one ends).
+All images and video segments were generated with Higgsfield: keyframes with
+GPT Image 2.5, segments from a first and a last keyframe so that each one
+starts exactly where the previous one ends. The segments are Kling 3.0, except
+the push-in from the desk to the dial, which is Wan 3.0 Prime because it keeps
+the MONTCIEL lettering on the dial crisp all the way in.
 
 The cloud dev environment can't download from the media host, so a GitHub
 Actions workflow (`.github/workflows/fetch-media.yml`) does it: it runs
@@ -88,6 +90,11 @@ then commits the results back to the branch.
   `assets/film/film.js` listing where each segment starts. `keep` (0–1) uses
   only the leading share of a segment whose motion finishes early;
 - `review-NN` videos become contact sheets in `assets/review/` for checking a
-  segment before it goes into the film (the page doesn't use them).
+  segment before it goes into the film, and `stills-NN` videos become
+  full-size stills there for checking fine detail such as lettering (the page
+  uses neither).
+
+The film is cut again only when its `film-NN` lines (or the script) change, so
+adding a keyframe or a review line leaves `assets/film/` untouched.
 
 Montciel and Kairos are fictional, and all imagery is AI-generated.
