@@ -55,15 +55,17 @@
     snapRange: 40,
 
     /* The copy. Each cue is visible between `from` and `to` (vh) and is
-       matched to an element in index.html by data-cue. */
+       matched to an element in index.html by data-cue. Lines take about
+       25 vh to rise in, so a cue starts at least that long before the
+       resting point where it should be read in full. */
     cues: [
-      { id: 1, from: 0, to: 60 },
-      { id: 2, from: 80, to: 150 },
-      { id: 3, from: 160, to: 240 },
+      { id: 1, from: 0, to: 55 },
+      { id: 2, from: 62, to: 128 },
+      { id: 3, from: 136, to: 240 },
       { id: 4, from: 320, to: 390 },
       { id: 5, from: 470, to: 560 },
       { id: 6, from: 640, to: 720 },
-      { id: 7, from: 840, to: 930 },
+      { id: 7, from: 830, to: 930 },
       { id: 8, from: 975, to: 1040 },
       { id: 9, from: 1120, to: 1200 },
       { id: 10, from: 1270, to: 1325 },

@@ -240,7 +240,7 @@
         thud.frequency.exponentialRampToValueAtTime(46, t + 0.2);
         const tg = ctx.createGain();
         tg.gain.setValueAtTime(0.0001, t);
-        tg.gain.exponentialRampToValueAtTime(0.75 * deep * lvl + 0.0001, t + 0.004);
+        tg.gain.exponentialRampToValueAtTime(0.2 * deep * lvl + 0.0001, t + 0.004);
         tg.gain.exponentialRampToValueAtTime(0.0001, t + 0.32);
         thud.connect(tg).connect(this.tickBus);
         thud.start(t);
@@ -334,15 +334,15 @@
       const t = this.ctx.currentTime;
       const k = 0.12; // smoothing time constant (s)
       const rush = clamp(speed / 120, 0, 1); // faster scrolling, brighter wind
-      this.wind.gain.setTargetAtTime(this.levels.wind * (0.3 + 0.12 * rush), t, k);
+      this.wind.gain.setTargetAtTime(this.levels.wind * (0.46 + 0.16 * rush), t, k);
       this.windLow.frequency.setTargetAtTime(1100 + 2600 * rush, t, 0.2);
-      this.city.gain.setTargetAtTime(this.levels.city * 0.24, t, k);
-      this.room.gain.setTargetAtTime(this.levels.room * 0.16, t, k);
-      this.tickSend.gain.setTargetAtTime(this.levels.deep * 0.9, t, k);
+      this.city.gain.setTargetAtTime(this.levels.city * 0.36, t, k);
+      this.room.gain.setTargetAtTime(this.levels.room * 0.3, t, k);
+      this.tickSend.gain.setTargetAtTime(this.levels.deep * 0.45, t, k);
       const whirl = clamp((v - 985) / (1180 - 985), 0, 1);
       this.whirlBand.frequency.setTargetAtTime(300 + 2100 * whirl, t, 0.2);
-      this.air.gain.setTargetAtTime(this.levels.air * 0.26, t, k);
-      this.pad.gain.setTargetAtTime(this.levels.pad * 0.07, t, 0.4);
+      this.air.gain.setTargetAtTime(this.levels.air * 0.6, t, k);
+      this.pad.gain.setTargetAtTime(this.levels.pad * 0.09, t, 0.4);
 
       // The chime rings once each time the ring closes going forwards.
       const close = this.finale.ringClose;

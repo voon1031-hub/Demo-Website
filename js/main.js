@@ -505,6 +505,8 @@
     intro();
   }
 
+  MC.sound = sound; // exposed for testing the mix from the console
+
   /* Jump to a point of the film (in vh), e.g. MC.goTo(1180) for the blue hour. */
   MC.goTo = (v, immediate = true) => {
     const y = scrollFor(clamp(v, 0, TOTAL));

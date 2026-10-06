@@ -4,6 +4,8 @@
 #                                                 shows them as stills when motion is reduced
 #   packshot image  -> assets/media/packshot.jpg the watch shown inside the ring in the finale
 #   other images    -> assets/media/<name>.jpg   (fits in 1920x1400)
+#   review-NN videos-> assets/review/review-NN.jpg, a 4 × 3 contact sheet for checking
+#                      a generated segment (not used by the page)
 #   film-NN videos  -> the scroll film. Segments are taken in name order; each one starts on the
 #                      previous one's last frame, so that duplicate frame is dropped. "frames"
 #                      evenly spaced frames are kept from each segment (default 40) and written
@@ -30,6 +32,16 @@ while read -r name url frames _; do
     film-*:mp4|film-*:mov|film-*:webm)
       frames_for[$name]=${frames:-40}
       echo "film segment: $name (${frames_for[$name]} frames)" ;;
+    review-*:mp4)
+      # A contact sheet for checking a segment before it goes into the film:
+      # twelve evenly spaced frames in a 4 × 3 grid.
+      mkdir -p assets/review
+      n=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "$file")
+      pick=""
+      for ((k = 0; k < 12; k++)); do pick+="${pick:++}eq(n\\,$(( k * (n - 1) / 11 )))"; done
+      ffmpeg -nostdin -loglevel error -y -i "$file" -vf "select='$pick',scale=480:-2,tile=4x3:padding=4:color=black" \
+        -fps_mode passthrough -frames:v 1 -q:v 3 "assets/review/$name.jpg" \
+        && echo "contact sheet: $name" || { echo "FAILED: contact sheet $name"; failed=$((failed+1)); } ;;
     key-*:*)
       mkdir -p assets/keys
       ffmpeg -nostdin -loglevel error -y -i "$file" -vf "scale='min(1600,iw)':-2" -q:v 3 "assets/keys/$name.jpg" \
