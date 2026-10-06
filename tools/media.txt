@@ -27,3 +27,5 @@ packshot https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/h
 # film-08  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_da7db78f-9765-4e53-a68e-f0cd3eeaa4ea.mp4 32
 # film-09  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_8d0a88c4-45e4-4cc6-aec5-a07e6ff758d8.mp4 30 0.62
 # film-10  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_113248_56f3b20c-b064-4cc8-bcf1-15f6932a24a4.mp4 44
+review-10 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130035_5df0166c-45f8-4b61-ad18-a8c61875eef7.mp4
+review-11 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130034_b8c13ac3-b108-4c92-a8f3-692c9694c2aa.mp4
