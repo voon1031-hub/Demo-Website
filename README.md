@@ -13,6 +13,20 @@ keeps readable contrast.
 Headlines and navigation are in English, set in an original typeface; the
 explanations and product copy are in Chinese.
 
+**Opening film.** On the first visit in a session a short film plays full
+screen: a drop of foundation falls onto white, spreads and floods the screen
+in porcelain, then fades into the page as the headline rises. Click, Skip,
+Escape or Enter skip it. It never plays with reduced motion turned on or when
+the page is opened at an anchor.
+
+**Scroll film.** The first screen stays pinned while the visitor scrolls, and
+the scroll plays a product film frame by frame: the pump presses, a drop
+falls, and the drop is spread into a swatch (scrolling back plays it
+backwards). The film is shot on white and drawn with multiply, so the white
+takes on whatever shade the page is in. Phones show a crop around the bottle
+and load every other frame. With reduced motion the film is replaced by its
+last frame.
+
 - `index.html` – the whole site. The brand details (currency, contact email,
   Instagram, free-shipping threshold and the footer note about AI images) are
   in the config block at the top. The six products are plain HTML cards in the
@@ -33,13 +47,21 @@ explanations and product copy are in Chinese.
   see `OFL-AlbertSans.txt`), subset to Latin, for English body text. Chinese
   body text uses the visitor's system font (PingFang, Microsoft YaHei, Noto
   Sans SC).
+- `assets/film/` – the scroll film as 150 WebP frames (`000.webp` to
+  `149.webp`, 1.7 MB in all), `end.jpg` (the last frame, used as the still)
+  and `frames.js`, which lists the frame count and, for each frame, how far
+  into the scroll it sits: frames where a lot changes get more scrolling.
+- `assets/media/intro.webm` and `intro.mp4` – the opening film.
 - `assets/media/cut-*.webp` – the product images with transparent backgrounds,
   so they sit straight on the page colour: liquid foundation, the six-shade
   line-up, cushion, stick, skin tint, concealer, setting powder and a texture
   swatch. `share.jpg` is the link preview image, `assets/favicon.svg` the tab
   icon.
 
-The product images were generated with Higgsfield (GPT Image 2.5). Products,
+The product images were generated with Higgsfield (GPT Image 2.5); the
+opening film and the three film segments with FLUX 3 Video, each segment
+starting on the previous segment's last keyframe so the joins are seamless.
+Products,
 prices, ingredients and figures are samples. The sample sign-up form and the
 checkout button do not send anything. Replace the pictures and data before
 the site goes live, then set `imageNote` in the config block to `""` to
@@ -49,7 +71,7 @@ Serve the folder with any static server (for example `python3 -m http.server`)
 and open `index.html`; browsers block web fonts on pages opened straight from
 the disk.
 
-### Regenerating product images
+### Regenerating images and films
 
 The cloud dev environment can't download from the media host, so a GitHub
 Actions workflow (`.github/workflows/fetch-media.yml`) does it: it runs
@@ -62,4 +84,11 @@ then commits the results back to the branch.
 - `cut-*` images keep their transparent background, are trimmed to the
   product and become `assets/media/<name>.webp`;
 - other images become `assets/media/<name>.jpg`;
-- videos become `assets/media/<name>.mp4`.
+- `film-1`, `film-2`, `film-3` are the scroll film segments, joined in order
+  and cut into the frames in `assets/film/` (with the near-white backdrop
+  lifted to pure white);
+- other videos become `assets/media/<name>.mp4` and `.webm`.
+
+Files that are already in `assets/` are skipped, and the film is only cut
+again when its `film-*` lines change; start the script with `FORCE=1` to fetch
+everything again.

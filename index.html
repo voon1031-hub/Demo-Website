@@ -38,6 +38,23 @@ window.SITE = {
   imageNote: "页面上的产品图由 Higgsfield 生成，产品、价格和成分数据都是示例。"
 };
 </script>
+<script>
+/* The opening film plays once per visit, never with reduced motion or when
+   the page is opened at an anchor. Decided here so the page never flashes. */
+(function () {
+  try {
+    var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!still) {
+      var l = document.createElement("link");
+      l.rel = "preload"; l.as = "image"; l.href = "assets/film/000.webp";
+      document.head.appendChild(l);
+    }
+    if (!location.hash && !still && !sessionStorage.getItem("owntone-intro"))
+      document.documentElement.classList.add("intro-on");
+  } catch (e) {}
+})();
+</script>
+<script src="assets/film/frames.js"></script>
 <link rel="preload" href="assets/fonts/owntone-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/albert-sans-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -79,8 +96,12 @@ window.SITE = {
   --gutter: clamp(16px, 4vw, 56px);
   --max: 1440px;
   --bar: 64px;
+  --stage-h: calc(100vh - var(--bar));   /* the pinned hero film */
+  --film-run: 270vh;                     /* scroll distance that plays it */
   color-scheme: light;
 }
+@supports (height: 100svh) { :root { --stage-h: calc(100svh - var(--bar)); } }
+@media (max-width: 760px) { :root { --film-run: 220vh; } }
 html.ease { transition: --canvas .7s ease, --ink .7s ease, --paper .7s ease; }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -181,10 +202,8 @@ a { color: inherit; }
   .bar-left, .bar-right [data-open-search] { display: none; }
   .bar-menu { display: inline-flex; }
 }
-@media (max-width: 420px) {
-  .brand { font-size: 18px; }
-  .bar-right .pill--fill { display: none; }
-}
+@media (max-width: 420px) { .brand { font-size: 18px; } }
+@media (max-width: 379px) { .bar-right .pill--fill { display: none; } }
 .menu {
   position: fixed; inset: 0; z-index: 60; background: var(--canvas);
   padding: calc(env(safe-area-inset-top, 0px) + 16px) var(--gutter) calc(env(safe-area-inset-bottom, 0px) + 24px);
@@ -205,17 +224,45 @@ a { color: inherit; }
 }
 .head { display: grid; gap: 22px; margin-top: clamp(28px, 4vw, 48px); }
 
-/* hero */
-.hero { padding-top: clamp(20px, 3vw, 40px); }
-.hero .mark { right: -2vw; bottom: 6%; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(16px, 2vw, 32px); align-items: start; }
-.hero-text { min-width: 0; }
+/* hero: a pinned stage; scrolling plays the film frame by frame */
+.hero { padding: 0 0 clamp(40px, 5vw, 72px); }
+.film { position: relative; height: calc(var(--stage-h) + var(--film-run)); }
+.film-stage {
+  position: sticky; top: calc(var(--bar) + env(safe-area-inset-top, 0px)); height: var(--stage-h);
+  overflow: hidden; background: var(--canvas);
+}
+.film-stage .mark { left: -1.5vw; bottom: 2%; font-size: clamp(120px, 21vw, 330px); }
+@media (max-aspect-ratio: 23/20) { .film-stage .mark { display: none; } }
+/* the film is shot on white; multiply turns the white into the page colour */
+.film-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; mix-blend-mode: multiply; }
+.film-still { display: none; }
+.film-text { position: absolute; z-index: 2; left: max(var(--gutter), calc((100% - var(--max)) / 2)); right: max(var(--gutter), calc((100% - var(--max)) / 2)); top: clamp(16px, 2.6vw, 36px); }
 .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; }
-.hero h1 { margin-top: clamp(22px, 3vw, 36px); font-size: min(10.3vw, 150px); }
-.hero-bottle { grid-column: 2; grid-row: 1; width: auto; height: clamp(380px, 40vw, 600px); }
-.hero-copy { display: grid; gap: 18px; max-width: 520px; margin-top: clamp(26px, 3.4vw, 44px); }
+.hero h1 { margin-top: clamp(18px, 2.4vw, 30px); font-size: min(10.3vw, 150px); }
+.hero h1 .ln { display: inline-block; }
+.film-steps { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: clamp(16px, 2vw, 26px); }
+.film-steps li { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+.film-steps b { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; font: 900 12px/1 var(--f-display); transition: background-color .2s ease, color .2s ease; }
+.film-steps li.is-on b { background: var(--ink); color: var(--canvas); }
+.film-hint { margin-top: 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; transition: opacity .3s ease; }
+.film-hint::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex: none; }
+.film-hint.is-gone { opacity: 0; }
+.hero-after { padding: clamp(28px, 4vw, 52px) var(--gutter) 0; }
+.hero-copy { display: grid; gap: 18px; max-width: 560px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
-.picker { margin-top: clamp(48px, 6vw, 84px); display: grid; gap: 14px; position: relative; z-index: 2; }
+/* without the film (no script, reduced motion): a still of the last frame */
+.no-js .film, .no-film .film { height: auto; }
+.no-js .film-stage, .no-film .film-stage { position: relative; top: auto; height: auto; overflow: visible; display: grid; }
+.no-js .film-canvas, .no-film .film-canvas, .no-js .film-steps, .no-film .film-steps, .no-js .film-hint, .no-film .film-hint { display: none; }
+.no-js .film-text, .no-film .film-text { position: relative; left: auto; right: auto; top: auto; padding: clamp(16px, 2.6vw, 36px) max(var(--gutter), calc((100% - var(--max)) / 2)) 0; }
+.no-js .film-still, .no-film .film-still {
+  display: block; order: 2; position: relative; z-index: 1; width: min(100%, 1180px); justify-self: end;
+  margin-top: clamp(-120px, -6vw, -20px); mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 70% 78% at 62% 58%, #000 58%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 78% at 62% 58%, #000 58%, transparent 100%);
+}
+.no-js .film-text, .no-film .film-text { order: 1; }
+.picker { margin-top: clamp(40px, 5vw, 72px); display: grid; gap: 14px; position: relative; z-index: 2; }
 .picker-row { display: grid; grid-template-columns: repeat(40, minmax(0, 1fr)); }
 .pick-dot {
   appearance: none; border: 0; padding: 0; margin: 0; background: none; cursor: pointer;
@@ -233,13 +280,28 @@ a { color: inherit; }
 @media (max-width: 760px) {
   .picker-row { grid-template-columns: repeat(20, minmax(0, 1fr)); row-gap: 2px; }
   .pick-dot::before { width: 62%; }
+  .film-steps li { font-size: 13px; }
 }
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hero h1 { font-size: 12.9vw; }
-  .hero-bottle { grid-column: 1; grid-row: auto; justify-self: center; height: clamp(300px, 80vw, 440px); margin-top: 28px; }
   .hero-copy { max-width: none; }
 }
+
+/* opening film: plays once, then melts into the porcelain page */
+.intro { display: none; }
+.intro-on { overflow: hidden; }
+.intro-on .intro { display: block; position: fixed; inset: 0; z-index: 100; background: #FFFFFF; transition: opacity .6s ease; }
+.intro video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.intro-skip { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 16px); right: 16px; border-color: #22120B; color: #22120B; background: rgba(255, 255, 255, .72); }
+.intro-skip:hover { background: #22120B; color: #FFF8F1; }
+.intro-out .intro { opacity: 0; pointer-events: none; }
+.hero-in .hero h1 .ln { animation: ot-rise .9s cubic-bezier(.2, .75, .2, 1) both; }
+.hero-in .hero h1 .ln + br + .ln { animation-delay: .12s; }
+.hero-in .hero h1 .dot { display: inline-block; animation: ot-drop .7s .55s cubic-bezier(.3, 1.45, .5, 1) both; }
+.hero-in .hero-badges, .hero-in .film-steps, .hero-in .film-hint { animation: ot-fade .6s .45s ease both; }
+@keyframes ot-rise { from { transform: translateY(.45em); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes ot-drop { from { transform: translateY(-1.6em); opacity: 0; } 60% { opacity: 1; } to { transform: none; opacity: 1; } }
+@keyframes ot-fade { from { opacity: 0; } to { opacity: 1; } }
 
 /* shades */
 .shades .mark { left: -2vw; top: 4%; }
@@ -413,6 +475,14 @@ a { color: inherit; }
 <body>
 <a class="skip" href="#main">跳到主要内容</a>
 
+<div class="intro" data-intro aria-hidden="true">
+  <video data-intro-video muted playsinline preload="auto">
+    <source src="assets/media/intro.webm" type="video/webm">
+    <source src="assets/media/intro.mp4" type="video/mp4">
+  </video>
+  <button class="pill intro-skip" type="button" data-intro-skip tabindex="-1">Skip</button>
+</div>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15.5 15.5 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
@@ -457,28 +527,39 @@ a { color: inherit; }
 
 <!-- ============ HERO: lightest shade ============ -->
 <section class="scene hero" data-shade="100C" aria-labelledby="hero-h">
-  <div class="mark" data-mark aria-hidden="true">100C</div>
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-text">
+  <div class="film" data-film>
+    <div class="film-stage">
+      <div class="mark" data-mark aria-hidden="true">100C</div>
+      <canvas class="film-canvas" data-film-canvas aria-hidden="true"></canvas>
+      <img class="film-still" src="assets/film/end.jpg" width="1600" height="900" alt="OWN TONE 本色粉底液旁边，一滴粉底被推开成一道柔光抹痕" loading="lazy">
+      <div class="film-text">
         <div class="hero-badges"><span class="badge badge--red">New</span><span class="badge">40 shades</span><span class="badge badge--soft badge--cn">本色粉底液</span></div>
-        <h1 class="d d-hero" id="hero-h">Made to<br>disappear<span class="dot">.</span></h1>
-        <div class="hero-copy">
-          <p class="cn-big">看不出涂了，只看出好看。</p>
-          <p class="lede">本色粉底液有 40 个色号，从瓷白到浓缩咖啡色，每个深浅再分冷调、中性和暖调。选对了，它就消失在你的皮肤里。</p>
-          <div class="hero-actions">
-            <a class="pill pill--fill pill--cn" href="#shop">立即购买</a>
-            <a class="pill pill--cn" href="#finder">找到我的色号</a>
-          </div>
+        <h1 class="d d-hero" id="hero-h"><span class="ln">Made to</span><br><span class="ln">disappear<span class="dot">.</span></span></h1>
+        <ol class="film-steps" aria-label="短片的三个步骤">
+          <li class="is-on"><b>1</b>按压</li>
+          <li><b>2</b>落下</li>
+          <li><b>3</b>推开</li>
+        </ol>
+        <p class="film-hint">往下滑，按一下泵头</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-after">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="cn-big">看不出涂了，只看出好看。</p>
+        <p class="lede">本色粉底液有 40 个色号，从瓷白到浓缩咖啡色，每个深浅再分冷调、中性和暖调。选对了，它就消失在你的皮肤里。</p>
+        <div class="hero-actions">
+          <a class="pill pill--fill pill--cn" href="#shop">立即购买</a>
+          <a class="pill pill--cn" href="#finder">找到我的色号</a>
         </div>
       </div>
-      <img class="hero-bottle" src="assets/media/cut-liquid.webp" width="693" height="1600" alt="OWN TONE 本色粉底液，磨砂玻璃瓶，深咖啡色按压泵头，色号 200W" fetchpriority="high">
-    </div>
-    <div class="picker">
-      <div class="picker-row" data-picker role="group" aria-label="40 个色号，点一个让整页换成这个肤色"></div>
-      <div class="picker-meta small">
-        <p>点一个色号，整页会换成那个肤色。</p>
-        <p class="picker-now" aria-live="polite">现在的颜色 <b data-now-code>100C</b> <span data-now-name>瓷白</span></p>
+      <div class="picker">
+        <div class="picker-row" data-picker role="group" aria-label="40 个色号，点一个让整页换成这个肤色"></div>
+        <div class="picker-meta small">
+          <p>点一个色号，整页会换成那个肤色。</p>
+          <p class="picker-now" aria-live="polite">现在的颜色 <b data-now-code>100C</b> <span data-now-name>瓷白</span></p>
+        </div>
       </div>
     </div>
   </div>
@@ -1127,6 +1208,148 @@ a { color: inherit; }
     msg.textContent = "已登记 " + email + "，小样会按色号 " + currentCode() + " 准备（演示网站，不会真的发送）。";
     sample.reset();
   });
+
+  /* ---------------- opening film ---------------- */
+  var intro = $("[data-intro]");
+  if (root.classList.contains("intro-on") && intro) {
+    var vid = $("[data-intro-video]", intro), done = false, started = false;
+    var finish = function () {
+      if (done) return;
+      done = true;
+      try { sessionStorage.setItem("owntone-intro", "1"); } catch (e) {}
+      root.classList.add("intro-out", "hero-in");
+      setTimeout(function () { root.classList.remove("intro-on", "intro-out"); intro.remove(); }, 650);
+    };
+    intro.addEventListener("click", finish);
+    addEventListener("keydown", function (e) {
+      if (!done && (e.key === "Escape" || e.key === "Enter" || e.key === " ")) { e.preventDefault(); finish(); }
+    });
+    vid.addEventListener("playing", function () { started = true; });
+    vid.addEventListener("ended", finish);
+    vid.addEventListener("error", finish);
+    var lastSource = $$("source", vid).pop();
+    if (lastSource) lastSource.addEventListener("error", finish);
+    // start fading just before the last frame so the colour melts into the page
+    vid.addEventListener("timeupdate", function () { if (vid.duration && vid.currentTime > vid.duration - 0.5) finish(); });
+    var playing = vid.play();
+    if (playing && playing.catch) playing.catch(finish);
+    setTimeout(function () { if (!started) finish(); }, 2500);
+    setTimeout(finish, 9000);
+  } else if (intro) {
+    intro.remove();
+  }
+
+  /* ---------------- hero film: scrolling plays it frame by frame ---------------- */
+  var film = $("[data-film]"), F = window.FILM_FRAMES;
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canvas = $("[data-film-canvas]");
+  if (!film || !F || !F.count || reduce || !canvas.getContext) {
+    root.classList.add("no-film");
+  } else {
+    var stage = $(".film-stage", film), textBox = $(".film-text", film), ctx = canvas.getContext("2d");
+    var steps = $$(".film-steps li", film), hint = $(".film-hint", film);
+    var N = F.count, frames = [], ready = [];
+    // F.ease[i] is how far into the scroll frame i sits: busy frames get more scrolling
+    var curve = Array.isArray(F.ease) && F.ease.length === N ? F.ease : null;
+    var frameAt = function (p) {
+      if (!curve) return Math.round(p * (N - 1));
+      var lo = 0, hi = N - 1;
+      while (lo < hi) { var mid = (lo + hi + 1) >> 1; if (curve[mid] <= p) lo = mid; else hi = mid - 1; }
+      if (lo < N - 1 && p - curve[lo] > curve[lo + 1] - p) lo++;
+      return lo;
+    };
+    // the film is three equal segments: press, fall, spread
+    var cut1 = curve ? curve[Math.round(N / 3)] : 1 / 3, cut2 = curve ? curve[Math.round(N * 2 / 3)] : 2 / 3;
+    // phones and data saver load every other frame
+    var lite = (navigator.connection && navigator.connection.saveData) || innerWidth < 700;
+    var order = [0, N - 1], seen = {};
+    seen[0] = seen[N - 1] = true;
+    [16, 8, 4, 2, 1].forEach(function (step) {
+      if (lite && step === 1) return;
+      for (var i = 0; i < N; i += step) if (!seen[i]) { seen[i] = true; order.push(i); }
+    });
+    var next = 0, loading = 0, want = 0, drawn = -1, W = 0, H = 0, dpr = 1, stick = 0, framePending = false;
+    var src = function (i) { return "assets/film/" + String(i).padStart(3, "0") + "." + F.ext; };
+    var load = function () {
+      while (loading < 4 && next < order.length) {
+        (function (i) {
+          loading++;
+          var im = new Image();
+          im.decoding = "async";
+          im.onload = function () { frames[i] = im; ready[i] = true; loading--; if (drawn < 0 || Math.abs(i - want) < 4) queueDraw(); load(); };
+          im.onerror = function () { loading--; load(); };
+          im.src = src(i);
+        })(order[next++]);
+      }
+    };
+    var nearest = function (i) {
+      for (var d = 0; d < N; d++) { if (ready[i - d]) return i - d; if (ready[i + d]) return i + d; }
+      return -1;
+    };
+    // Wide screens: the whole frame, a little smaller, tucked into the bottom right
+    // under the headline. Tall screens: just the bottle and swatch, under the headline.
+    var place = function (img) {
+      var fw = img.naturalWidth, fh = img.naturalHeight;
+      if (W / H >= 1.15) {
+        var base = Math.min(W / fw, H / fh), k = 0.78;
+        return [W - fw * base * k, H - fh * base * k, fw * base * k, fh * base * k];
+      }
+      var top = textBox.offsetTop + textBox.offsetHeight + 12, room = H - top - 12;
+      var fx0 = 0.5, fx1 = 1, fy0 = 0.2, fy1 = 0.95;
+      var s = Math.min(W / ((fx1 - fx0) * fw), room / ((fy1 - fy0) * fh));
+      var x = (W - (fx1 - fx0) * fw * s) / 2 - fx0 * fw * s;
+      var y = top + (room - (fy1 - fy0) * fh * s) / 2 - fy0 * fh * s;
+      return [x, y, fw * s, fh * s];
+    };
+    var draw = function () {
+      framePending = false;
+      var i = nearest(want);
+      if (i < 0 || i === drawn) return;
+      var r = place(frames[i]);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(frames[i], r[0], r[1], r[2], r[3]);
+      // fade the frame's edges out so no rectangle shows against the page colour
+      ctx.globalCompositeOperation = "destination-in";
+      var gx = ctx.createLinearGradient(r[0], 0, r[0] + r[2], 0);
+      gx.addColorStop(0, "rgba(0,0,0,0)"); gx.addColorStop(0.14, "#000"); gx.addColorStop(0.95, "#000"); gx.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = gx; ctx.fillRect(0, 0, W, H);
+      var gy = ctx.createLinearGradient(0, r[1], 0, r[1] + r[3]);
+      gy.addColorStop(0, "rgba(0,0,0,0)"); gy.addColorStop(0.16, "#000"); gy.addColorStop(0.97, "#000"); gy.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = gy; ctx.fillRect(0, 0, W, H);
+      ctx.globalCompositeOperation = "source-over";
+      drawn = i;
+    };
+    var queueDraw = function () { if (!framePending) { framePending = true; requestAnimationFrame(draw); } };
+    var layout = function () {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = stage.clientWidth; H = stage.clientHeight;
+      canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+      stick = parseFloat(getComputedStyle(stage).top) || 0;
+      drawn = -1;
+      progress();
+    };
+    var lastStep = -1;
+    var progress = function () {
+      var r = film.getBoundingClientRect(), run = r.height - H;
+      var p = run > 0 ? Math.min(1, Math.max(0, (stick - r.top) / run)) : 0;
+      want = frameAt(p);
+      var step = p < cut1 ? 0 : p < cut2 ? 1 : 2;
+      if (step !== lastStep) {
+        lastStep = step;
+        steps.forEach(function (li, k) { li.classList.toggle("is-on", k === step); });
+      }
+      hint.classList.toggle("is-gone", p > 0.02);
+      queueDraw();
+    };
+    addEventListener("scroll", progress, { passive: true });
+    var resizeT;
+    addEventListener("resize", function () { clearTimeout(resizeT); resizeT = setTimeout(layout, 120); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+    layout();
+    load();
+  }
 
   /* ---------------- toast + details ---------------- */
   var toastEl = $("[data-toast]");
