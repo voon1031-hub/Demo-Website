@@ -77,9 +77,10 @@ window.SITE = {
   font-display: swap;
 }
 
-/* The page colour is one of the 40 shades. The script moves it from the
-   lightest shade at the top to the deepest at the bottom, or holds the
-   shade a visitor picks. Ink and paper flip so text keeps its contrast. */
+/* The page colour runs through the 40 shades: the script moves it a little
+   with every bit of scrolling, from the lightest shade at the top to the
+   deepest at the bottom, or holds the shade a visitor picks. Ink and paper
+   follow so text keeps its contrast. */
 @property --canvas { syntax: "<color>"; inherits: true; initial-value: #F6DECB; }
 @property --ink    { syntax: "<color>"; inherits: true; initial-value: #22120B; }
 @property --paper  { syntax: "<color>"; inherits: true; initial-value: #FFF8F1; }
@@ -105,13 +106,17 @@ window.SITE = {
 }
 @supports (height: 100svh) { :root { --stage-h: calc(100svh - var(--bar)); } }
 @media (max-width: 760px) { :root { --film-run: 220vh; } }
+html.flip { transition: --ink .3s ease, --paper .3s ease; }   /* ink fades as it flips sides */
 html.ease { transition: --canvas .7s ease, --ink .7s ease, --paper .7s ease; }
+html.ease .backdrop, html.ease .bar, html.ease .film-stage { transition: background-color .7s ease; }
+/* the page colour, repainted as the page scrolls */
+.backdrop { position: fixed; inset: 0 0 auto; height: 100vh; height: 100lvh; z-index: -1; background: var(--canvas); pointer-events: none; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { background: var(--canvas); scroll-behavior: smooth; scroll-padding-top: calc(var(--bar) + 12px); }
 body {
   margin: 0;
-  background: var(--canvas);
+  isolation: isolate;          /* the backdrop sits behind everything in the page, above the root */
   color: var(--ink);
   font: 400 16px/1.4 var(--f-body);
   -webkit-font-smoothing: antialiased;
@@ -293,10 +298,14 @@ a { color: inherit; }
 /* opening film: plays once, then melts into the porcelain page */
 .intro { display: none; }
 .intro-on { overflow: hidden; }
-.intro-on .intro { display: block; position: fixed; inset: 0; z-index: 100; background: #FFFFFF; transition: opacity .6s ease; }
+.intro-on .intro { display: block; position: fixed; inset: 0; z-index: 100; background: #FFFFFF; transition: opacity .6s cubic-bezier(.4, 0, .2, 1); }
 .intro video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.intro-skip { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 16px); right: 16px; border-color: #22120B; color: #22120B; background: rgba(255, 255, 255, .72); }
+/* the end of the film dissolves into the page colour, so the page appears under it without a jump */
+.intro::after { content: ""; position: absolute; inset: 0; background: var(--canvas); opacity: 0; transition: opacity .7s cubic-bezier(.45, 0, .25, 1); pointer-events: none; }
+.intro-wash .intro::after { opacity: 1; }
+.intro-skip { position: absolute; z-index: 1; top: calc(env(safe-area-inset-top, 0px) + 16px); right: 16px; border-color: #22120B; color: #22120B; background: rgba(255, 255, 255, .72); transition: opacity .3s ease, background-color .15s ease, color .15s ease; }
 .intro-skip:hover { background: #22120B; color: #FFF8F1; }
+.intro-wash .intro-skip { opacity: 0; pointer-events: none; }
 .intro-out .intro { opacity: 0; pointer-events: none; }
 .hero-in .hero h1 .ln { animation: ot-rise .9s cubic-bezier(.2, .75, .2, 1) both; }
 .hero-in .hero h1 .ln + br + .ln { animation-delay: .12s; }
@@ -476,6 +485,7 @@ a { color: inherit; }
 </style>
 </head>
 <body>
+<div class="backdrop" data-backdrop aria-hidden="true"></div>
 <a class="skip" href="#main">跳到主要内容</a>
 
 <div class="intro" data-intro aria-hidden="true">
@@ -561,7 +571,7 @@ a { color: inherit; }
         <div class="picker-row" data-picker role="group" aria-label="40 个色号，点一个让整页换成这个肤色"></div>
         <div class="picker-meta small">
           <p>点一个色号，整页会换成那个肤色。</p>
-          <p class="picker-now" aria-live="polite">现在的颜色 <b data-now-code>100C</b> <span data-now-name>瓷白</span></p>
+          <p class="picker-now">现在的颜色 <b data-now-code>100C</b> <span data-now-name>瓷白</span></p>
         </div>
       </div>
     </div>
@@ -923,27 +933,74 @@ a { color: inherit; }
   function shadeName(s) { return FAMILIES[s.family].name + "，" + TONES[s.tone]; }
 
   /* ---------------- page colour ---------------- */
-  // Ink is a warm near-black or a warm off-white, whichever keeps 4.6:1. A few
-  // mid shades are too close to call; they get pure black or white instead.
-  var INK_DARK = rgb("#22120B"), INK_LIGHT = rgb("#FFF8F1");
-  function inkFor(c) {
-    if (contrast(c, INK_DARK) >= 4.6) return { ink: INK_DARK, paper: rgb("#FFF8F1") };
-    if (contrast(c, INK_LIGHT) >= 4.6) return { ink: INK_LIGHT, paper: rgb("#140904") };
-    return contrast(c, [0, 0, 0]) >= contrast(c, [255, 255, 255])
-      ? { ink: [0, 0, 0], paper: [255, 255, 255] }
-      : { ink: [255, 255, 255], paper: [0, 0, 0] };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Ink is a warm near-black or a warm off-white, nudged toward pure black or
+  // white only as far as the shade needs for 4.6:1. Going down the page it
+  // flips from dark to light once, in the mid shades, and only when the side
+  // it is on can no longer keep 4.5:1, so it never flickers back and forth.
+  var SIDES = {
+    dark:  { ink: rgb("#22120B"), inkTo: [0, 0, 0],       paper: rgb("#FFF8F1"), paperTo: [255, 255, 255] },
+    light: { ink: rgb("#FFF8F1"), inkTo: [255, 255, 255], paper: rgb("#140904"), paperTo: [0, 0, 0] }
+  };
+  function need(side, c) {      // the least nudge toward the extreme that reaches 4.6:1
+    if (contrast(side.ink, c) >= 4.6) return 0;
+    var lo = 0, hi = 1;
+    for (var n = 0; n < 10; n++) {
+      var m = (lo + hi) / 2;
+      if (contrast(mixRGB(side.ink, side.inkTo, m), c) >= 4.6) hi = m; else lo = m;
+    }
+    return hi;
   }
+  // a and b: the page colour and the nearest shade. The nudge goes in quarter
+  // steps so the ink changes only a handful of times down the page.
+  function fit(side, a, b) {
+    var t = Math.ceil(Math.max(need(side, a), need(side, b)) * 4 - 1e-6) / 4;
+    var ink = mixRGB(side.ink, side.inkTo, t);
+    return { ink: ink, paper: mixRGB(side.paper, side.paperTo, t), ratio: Math.min(contrast(ink, a), contrast(ink, b)) };
+  }
+  var inkSide = "dark", inkFlipped = false;
+  function inkFor(a, b) {
+    var here = fit(SIDES[inkSide], a, b);
+    if (here.ratio >= 4.5) return here;
+    var other = inkSide === "dark" ? "light" : "dark", there = fit(SIDES[other], a, b);
+    if (there.ratio <= here.ratio) return here;
+    inkSide = other;
+    inkFlipped = true;
+    return there;
+  }
+  // Two layers of colour. The page colour itself (a fixed backdrop behind the
+  // page, the top bar and the film stage) follows every frame: three
+  // backgrounds cost next to nothing to change. The theme on the root (--canvas
+  // for cards and fills, --ink, --paper) changes only when the colour reaches
+  // the next of the 40 shades or the ink has to change, because every change
+  // there restyles the whole page.
   var themeMeta = $('meta[name="theme-color"]');
-  var painted = "";
-  function paint(c) {
-    var h = hex(c);
-    if (h === painted) return;
-    painted = h;
-    var p = inkFor(c);
-    root.style.setProperty("--canvas", h);
-    root.style.setProperty("--ink", hex(p.ink));
-    root.style.setProperty("--paper", hex(p.paper));
-    if (themeMeta) themeMeta.setAttribute("content", h);
+  var pageBg = $$("[data-backdrop], .bar, .film-stage"), pageHex = "", themed = "", inked = "";
+  function paint(c, s) {
+    var h = hex(c), k;
+    if (h !== pageHex) {
+      pageHex = h;
+      for (k = 0; k < pageBg.length; k++) pageBg[k].style.backgroundColor = h;
+    }
+    var p = inkFor(c, s.rgb), ink = hex(p.ink) + hex(p.paper);
+    if (inkFlipped) {
+      inkFlipped = false;
+      if (inked) {
+        root.classList.add("flip");
+        clearTimeout(paint.t);
+        paint.t = setTimeout(function () { root.classList.remove("flip"); }, 350);
+      }
+    }
+    if (ink !== inked) {
+      inked = ink;
+      root.style.setProperty("--ink", hex(p.ink));
+      root.style.setProperty("--paper", hex(p.paper));
+    }
+    if (s.hex !== themed) {
+      themed = s.hex;
+      root.style.setProperty("--canvas", s.hex);
+      if (themeMeta) themeMeta.setAttribute("content", s.hex);
+    }
   }
   function ease() {
     root.classList.add("ease");
@@ -957,39 +1014,63 @@ a { color: inherit; }
   });
   var held = null;            // a shade the visitor picked, or null to follow the scroll
   var nowCode = $("[data-now-code]"), nowName = $("[data-now-name]");
+  var filmBox = $("[data-film]"), padTop = 0;
+  function measure() { padTop = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0; }
+  measure();
 
-  // Each scene keeps its own shade while it fills the middle of the screen and
-  // blends into the next one across the last 180px before the boundary.
-  function scrollShade() {
-    var mid = innerHeight * 0.5, B = 180;
-    for (var k = 0; k < scenes.length; k++) {
-      var r = scenes[k].el.getBoundingClientRect();
-      if (r.bottom <= mid && k < scenes.length - 1) continue;
-      var next = scenes[k + 1], d = r.bottom - mid;
-      if (next && d < B && d > -B) {
-        var u = (B - d) / (2 * B);
-        u = u * u * (3 - 2 * u);
-        return { rgb: mixRGB(scenes[k].shade.rgb, next.shade.rgb, u), shade: u < 0.5 ? scenes[k].shade : next.shade };
-      }
-      return { rgb: scenes[k].shade.rgb, shade: scenes[k].shade };
+  // The colour follows the scroll the whole way down. Each scene's shade sits
+  // where a link to the scene lands (its top just under the bar), and the colour
+  // runs through every shade in between, so it changes a little with each bit
+  // of scrolling instead of jumping from one scene to the next. The hero keeps
+  // its shade until its film has played. Returns a place on the ramp, 0 to 1.
+  function scrollT() {
+    var y = scrollY, max = root.scrollHeight - innerHeight, at = [], prev = 0, k;
+    for (k = 0; k < scenes.length; k++) {
+      var s = k ? y + scenes[k].el.getBoundingClientRect().top - padTop
+        : filmBox && !root.classList.contains("no-film") ? y + filmBox.getBoundingClientRect().bottom - innerHeight : 0;
+      prev = Math.max(prev, Math.min(s, max));
+      at.push(prev);
     }
-    return { rgb: SHADES[0].rgb, shade: SHADES[0] };
+    for (k = 0; k < scenes.length; k++) {
+      if (y >= at[k]) continue;
+      if (!k) break;
+      var u = (y - at[k - 1]) / (at[k] - at[k - 1]);
+      u = 0.5 * u + 0.5 * u * u * (3 - 2 * u);   // a little slower where each scene lands
+      return (scenes[k - 1].shade.i + (scenes[k].shade.i - scenes[k - 1].shade.i) * u) / 39;
+    }
+    return scenes[k ? scenes.length - 1 : 0].shade.i / 39;
   }
   var shown = null;
-  function update() {
-    var s = held ? { rgb: held.rgb, shade: held } : scrollShade();
-    paint(s.rgb);
-    if (shown !== s.shade) {
-      shown = s.shade;
-      if (nowCode) nowCode.textContent = shown.code;
-      if (nowName) nowName.textContent = FAMILIES[shown.family].name;
-      $$("[data-picker] .pick-dot").forEach(function (b) { b.setAttribute("aria-pressed", String(!!held && b.dataset.code === held.code)); });
-    }
+  function show(c, s) {
+    paint(c, s);
+    if (shown === s) return;
+    shown = s;
+    if (nowCode) nowCode.textContent = s.code;
+    if (nowName) nowName.textContent = FAMILIES[s.family].name;
   }
-  var queued = false;
-  function onScroll() { if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; update(); }); } }
-  addEventListener("scroll", onScroll, { passive: true });
-  addEventListener("resize", onScroll);
+  // The scroll sets a target on the ramp and the colour glides after it, about
+  // a tenth of a second behind, so even a jump in the scroll reads as a blend.
+  var tNow = null, stepping = false, lastTs = 0;
+  function step(ts) {
+    stepping = false;
+    if (held) { show(held.rgb, held); return; }
+    var goal = scrollT();
+    if (tNow === null || reduce || root.classList.contains("ease")) tNow = goal;
+    else {
+      var dt = lastTs ? Math.min(0.1, (ts - lastTs) / 1000) : 1 / 60;
+      tNow += (goal - tNow) * (1 - Math.exp(-dt / 0.12));
+      if (Math.abs(goal - tNow) < 0.0005) tNow = goal;
+    }
+    show(ramp(tNow), SHADES[Math.round(tNow * 39)]);
+    lastTs = tNow === goal ? 0 : ts;
+    if (tNow !== goal) update();
+  }
+  function update() { if (!stepping) { stepping = true; requestAnimationFrame(step); } }
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", function () { measure(); update(); });
+  function syncDots() {
+    $$("[data-picker] .pick-dot").forEach(function (b) { b.setAttribute("aria-pressed", String(!!held && b.dataset.code === held.code)); });
+  }
 
   /* ---------------- holding a shade ---------------- */
   var heldBar = $("[data-held]");
@@ -997,6 +1078,7 @@ a { color: inherit; }
     held = s;
     ease();
     update();
+    syncDots();
     scenes.forEach(function (sc) { if (sc.mark) sc.mark.textContent = s.code; });
     heldBar.hidden = false;
     $("[data-held-dot]").style.background = s.hex;
@@ -1008,7 +1090,9 @@ a { color: inherit; }
   function release() {
     held = null;
     ease();
+    tNow = null;               // straight to the scroll colour; the transition blends it
     update();
+    syncDots();
     scenes.forEach(function (sc) { if (sc.mark) sc.mark.textContent = sc.shade.code; });
     heldBar.hidden = true;
     syncCardShades();
@@ -1213,38 +1297,44 @@ a { color: inherit; }
   });
 
   /* ---------------- opening film ---------------- */
+  // The drop falls and spreads for under three seconds. Once the pool has nearly
+  // filled the screen the film dissolves into the page colour while it is still
+  // moving, and the page rises underneath: no hold on a still frame, no cut.
   var intro = $("[data-intro]");
   if (root.classList.contains("intro-on") && intro) {
     var vid = $("[data-intro-video]", intro), done = false, started = false;
+    var WASH = 2.75, REVEAL = 3.2;    // seconds into the film
     var finish = function () {
       if (done) return;
       done = true;
       try { sessionStorage.setItem("owntone-intro", "1"); } catch (e) {}
-      root.classList.add("intro-out", "hero-in");
-      setTimeout(function () { root.classList.remove("intro-on", "intro-out"); intro.remove(); }, 650);
+      root.classList.add("intro-wash", "intro-out", "hero-in");
+      setTimeout(function () { root.classList.remove("intro-on", "intro-wash", "intro-out"); intro.remove(); }, 650);
+    };
+    var watch = function () {
+      if (done) return;
+      if (vid.currentTime >= WASH) root.classList.add("intro-wash");
+      if (vid.currentTime >= REVEAL) finish(); else requestAnimationFrame(watch);
     };
     intro.addEventListener("click", finish);
     addEventListener("keydown", function (e) {
       if (!done && (e.key === "Escape" || e.key === "Enter" || e.key === " ")) { e.preventDefault(); finish(); }
     });
-    vid.addEventListener("playing", function () { started = true; });
+    vid.addEventListener("playing", function () { if (!started) { started = true; requestAnimationFrame(watch); } });
     vid.addEventListener("ended", finish);
     vid.addEventListener("error", finish);
     var lastSource = $$("source", vid).pop();
     if (lastSource) lastSource.addEventListener("error", finish);
-    // start fading just before the last frame so the colour melts into the page
-    vid.addEventListener("timeupdate", function () { if (vid.duration && vid.currentTime > vid.duration - 0.5) finish(); });
     var playing = vid.play();
     if (playing && playing.catch) playing.catch(finish);
     setTimeout(function () { if (!started) finish(); }, 2500);
-    setTimeout(finish, 9000);
+    setTimeout(finish, 7000);
   } else if (intro) {
     intro.remove();
   }
 
   /* ---------------- hero film: scrolling plays it frame by frame ---------------- */
   var film = $("[data-film]"), F = window.FILM_FRAMES;
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var canvas = $("[data-film-canvas]");
   if (!film || !F || !F.count || reduce || !canvas.getContext) {
     root.classList.add("no-film");

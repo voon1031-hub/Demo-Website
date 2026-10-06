@@ -3,21 +3,25 @@
 ## OWN TONE 本色 – "Made to disappear"
 
 A single-page site for a foundation brand with 40 shades. The page itself is a
-shade card: its background is one of the 40 foundation shades, moving from the
-lightest (100C) at the top to the deepest (590C) at the bottom as the visitor
-scrolls. Picking a shade (the 40 dots under the headline, the "All 40" wall or
-the shade finder) holds the whole page in that skin tone until "恢复色阶" is
-pressed. Text and surfaces switch between dark and light ink so every shade
-keeps readable contrast.
+shade card: as the visitor scrolls, its background runs through all 40
+foundation shades, from the lightest (100C) at the top to the deepest (590C) at
+the bottom, a little with every bit of scrolling. Each section's own shade is
+reached where a link to that section lands. Picking a shade (the 40 dots under
+the headline, the "All 40" wall or the shade finder) holds the whole page in
+that skin tone until "恢复色阶" is pressed. Text switches between dark and light
+ink, with a short fade, so every shade keeps readable contrast.
 
 Headlines and navigation are in English, set in an original typeface; the
 explanations and product copy are in Chinese.
 
 **Opening film.** On the first visit in a session a short film plays full
-screen: a drop of foundation falls onto white, spreads and floods the screen
-in porcelain, then fades into the page as the headline rises. Click, Skip,
-Escape or Enter skip it. It never plays with reduced motion turned on or when
-the page is opened at an anchor.
+screen for about four seconds: a drop of foundation falls onto white and
+spreads. While the pool is still spreading, the picture dissolves into the page
+colour and the page rises underneath, so there is no pause and no cut. Click,
+Skip, Escape or Enter skip it. It never plays with reduced motion turned on or
+when the page is opened at an anchor. If the film is replaced, set `WASH` and
+`REVEAL` in the opening-film script: the seconds into the film where it starts
+to dissolve and where the page appears.
 
 **Scroll film.** The first screen stays pinned while the visitor scrolls, and
 the scroll plays a product film frame by frame: the pump presses, a drop
