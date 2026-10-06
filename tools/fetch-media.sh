@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
-# Downloads every "<name> <url>" line in tools/media.txt and prepares it for the site.
-#   images (.png/.jpg/.webp)  -> assets/media/<name>.jpg  (fits in 1920x1400)
-#   videos (.mp4)             -> assets/media/<name>.mp4  (1280px, H.264, no audio)
-#   clip-* videos             -> the same, played forward then backward so the
-#                                loop has no jump (fits in 1280x1280)
-#   build-1, build-2 … videos -> the hero construction timelapse, joined in order and
-#                                cut into assets/build/NNN.webp frames, plus
-#                                assets/build/frames.js, start.jpg and end.jpg
+# Downloads every "<name> <url> [frames]" line in tools/media.txt and prepares it for the site.
+#   key-NN images   -> assets/keys/key-NN.jpg    the film's keyframes (1600 px wide); the page
+#                                                 shows them as stills when motion is reduced
+#   packshot image  -> assets/media/packshot.jpg the watch shown inside the ring in the finale
+#   other images    -> assets/media/<name>.jpg   (fits in 1920x1400)
+#   film-NN videos  -> the scroll film. Segments are taken in name order; each one starts on the
+#                      previous one's last frame, so that duplicate frame is dropped. "frames"
+#                      evenly spaced frames are kept from each segment (default 40) and written
+#                      to assets/film/NNN.webp, plus assets/film/film.js, which tells the page
+#                      how many frames there are, their size and where each segment starts.
 # A later line with the same name replaces an earlier one.
 # Needs: curl, ffmpeg, ffprobe. Run from the repository root.
 set -uo pipefail
-FRAMES=${FRAMES:-120}     # frames in the hero sequence
-FRAME_W=${FRAME_W:-1600}  # frame width in px
+FRAME_W=${FRAME_W:-1600}  # film frame width in px
 src=.media-src
-rm -rf "$src"; mkdir -p "$src" assets/media
+rm -rf "$src"; mkdir -p "$src"
 failed=0
+declare -A frames_for
 
-while read -r name url _; do
+while read -r name url frames _; do
   [ -z "${name:-}" ] && continue
   case "$name" in \#*) continue ;; esac
   ext="${url##*.}"; ext="${ext%%\?*}"; ext="${ext,,}"
@@ -25,64 +27,74 @@ while read -r name url _; do
     echo "FAILED: $name $url"; failed=$((failed+1)); continue
   fi
   case "$name:$ext" in
-    build-*:mp4) echo "build segment: $name" ;;  # used below, not published on its own
-    clip-*:mp4)
-      ffmpeg -nostdin -loglevel error -y -i "$file" -an -filter_complex \
-        "[0:v]scale='min(1280,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2,split[f][b];[b]reverse,trim=start_frame=1,setpts=PTS-STARTPTS[r];[f][r]concat=n=2:v=1:a=0,format=yuv420p[v]" \
-        -map "[v]" -c:v libx264 -preset slow -crf 26 -maxrate 3M -bufsize 6M -movflags +faststart "assets/media/$name.mp4"
-      echo "loop clip: $name $(du -h "assets/media/$name.mp4" | cut -f1)" ;;
-    *:mp4|*:mov|*:webm)
-      ffmpeg -nostdin -loglevel error -y -i "$file" -an -vf "scale=1280:-2" \
-        -c:v libx264 -preset slow -crf 24 -maxrate 4M -bufsize 8M -pix_fmt yuv420p \
-        -movflags +faststart "assets/media/$name.mp4"
-      echo "video: $name $(du -h "assets/media/$name.mp4" | cut -f1)" ;;
-    *)
+    film-*:mp4|film-*:mov|film-*:webm)
+      frames_for[$name]=${frames:-40}
+      echo "film segment: $name (${frames_for[$name]} frames)" ;;
+    key-*:*)
+      mkdir -p assets/keys
+      ffmpeg -nostdin -loglevel error -y -i "$file" -vf "scale='min(1600,iw)':-2" -q:v 3 "assets/keys/$name.jpg" \
+        && echo "keyframe: $name" || { echo "FAILED: converting $name"; failed=$((failed+1)); } ;;
+    packshot:*)
+      mkdir -p assets/media
+      ffmpeg -nostdin -loglevel error -y -i "$file" -vf "scale='min(1400,iw)':-2" -q:v 2 assets/media/packshot.jpg \
+        && echo "packshot" || { echo "FAILED: converting packshot"; failed=$((failed+1)); } ;;
+    *:png|*:jpg|*:jpeg|*:webp)
+      mkdir -p assets/media
       ffmpeg -nostdin -loglevel error -y -i "$file" \
-        -vf "scale='min(1920,iw)':'min(1400,ih)':force_original_aspect_ratio=decrease" -q:v 4 "assets/media/$name.jpg"
-      echo "image: $name $(du -h "assets/media/$name.jpg" | cut -f1)" ;;
+        -vf "scale='min(1920,iw)':'min(1400,ih)':force_original_aspect_ratio=decrease" -q:v 4 "assets/media/$name.jpg" \
+        && echo "image: $name" || { echo "FAILED: converting $name"; failed=$((failed+1)); } ;;
+    *) echo "skipped: $name ($ext)" ;;
   esac
 done < tools/media.txt
 
-mapfile -t segs < <(ls "$src"/build-*.mp4 2>/dev/null | sort -V)
+mapfile -t segs < <(printf '%s\n' "${!frames_for[@]}" | grep . | sort -V)
 if [ "${#segs[@]}" -gt 0 ]; then
-  # Each segment after the first starts on the previous segment's last frame,
-  # so drop that duplicate frame when joining.
-  inputs=(); graph=""; labels=""
-  for i in "${!segs[@]}"; do
-    inputs+=(-i "${segs[$i]}")
-    trim=""; [ "$i" -gt 0 ] && trim="trim=start_frame=1,setpts=PTS-STARTPTS,"
-    graph+="[$i:v]fps=24,${trim}scale=${FRAME_W}:-2:flags=lanczos,setsar=1,format=yuv420p[v$i];"
-    labels+="[v$i]"
-  done
-  graph+="${labels}concat=n=${#segs[@]}:v=1:a=0[out]"
-  ffmpeg -nostdin -loglevel error -y "${inputs[@]}" -filter_complex "$graph" -map "[out]" \
-    -c:v libx264 -preset fast -crf 10 "$src/joined.mp4" || { echo "FAILED: joining build segments"; exit 1; }
-
-  total=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "$src/joined.mp4")
-  [ "$FRAMES" -gt "$total" ] && FRAMES=$total
-  # FRAMES evenly spaced frames, always including the first and the last one.
-  pick=""
-  for ((k = 0; k < FRAMES; k++)); do
-    n=$(( (k * (total - 1) * 2 + (FRAMES - 1)) / ((FRAMES - 1) * 2) ))
-    pick+="${pick:++}eq(n\\,$n)"
-  done
-
-  rm -rf assets/build; mkdir -p assets/build
   ext=webp
-  if ! ffmpeg -nostdin -loglevel error -y -i "$src/joined.mp4" -vf "select='$pick'" -fps_mode passthrough \
-      -c:v libwebp -quality 70 -compression_level 6 -start_number 0 assets/build/%03d.webp; then
-    echo "WebP encoding failed, using JPEG frames"
-    rm -f assets/build/*.webp; ext=jpg
-    ffmpeg -nostdin -loglevel error -y -i "$src/joined.mp4" -vf "select='$pick'" -fps_mode passthrough \
-      -q:v 4 -start_number 0 assets/build/%03d.jpg || { echo "FAILED: extracting frames"; exit 1; }
-  fi
-  count=$(ls assets/build/*."$ext" | wc -l)
-  size=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0:s=x "$src/joined.mp4")
-  ffmpeg -nostdin -loglevel error -y -i "$src/joined.mp4" -frames:v 1 -q:v 2 assets/build/start.jpg
-  ffmpeg -nostdin -loglevel error -y -sseof -0.1 -i "$src/joined.mp4" -update 1 -q:v 2 assets/build/end.jpg
-  printf '// Generated by tools/fetch-media.sh: the hero construction frames.\nwindow.BUILD_FRAMES = { count: %d, ext: "%s", width: %d, height: %d };\n' \
-    "$count" "$ext" "${size%x*}" "${size#*x}" > assets/build/frames.js
-  echo "frames: $count x $size $ext, $(du -sh assets/build | cut -f1) total (from $total joined frames)"
+  encoders=$(ffmpeg -hide_banner -encoders 2>/dev/null)
+  [[ $encoders == *libwebp* ]] || ext=jpg
+  rm -rf assets/film; mkdir -p assets/film
+  start=0; parts=""; size=""
+  for i in "${!segs[@]}"; do
+    name=${segs[$i]}; want=${frames_for[$name]}
+    in=$(ls "$src/$name".* | head -1)
+    norm="$src/$name.norm.mp4"
+    if ! ffmpeg -nostdin -loglevel error -y -i "$in" -an \
+        -vf "fps=24,scale=${FRAME_W}:-2:flags=lanczos,setsar=1,format=yuv420p" -c:v libx264 -preset fast -crf 10 "$norm"; then
+      echo "FAILED: normalising $name"; exit 1
+    fi
+    total=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "$norm")
+    [ -z "$size" ] && size=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0:s=x "$norm")
+    # The first segment keeps its first frame; later ones start where the previous one ended.
+    first=0; [ "$i" -gt 0 ] && first=1
+    avail=$(( total - first ))
+    [ "$want" -gt "$avail" ] && want=$avail
+    [ "$want" -lt 2 ] && want=2
+    pick=""
+    for ((k = 1; k <= want; k++)); do
+      if [ "$first" -eq 0 ]; then  # want frames over [0, total-1], both ends included
+        n=$(( ((k - 1) * (total - 1) * 2 + (want - 1)) / ((want - 1) * 2) ))
+      else                         # want frames over (0, total-1], ending on the last one
+        n=$(( (k * (total - 1) * 2 + want) / (want * 2) ))
+      fi
+      pick+="${pick:++}eq(n\\,$n)"
+    done
+    if [ "$ext" = webp ]; then
+      enc=(-c:v libwebp -quality 72 -compression_level 6)
+    else
+      enc=(-q:v 4)
+    fi
+    if ! ffmpeg -nostdin -loglevel error -y -i "$norm" -vf "select='$pick'" -fps_mode passthrough \
+        "${enc[@]}" -start_number "$start" "assets/film/%03d.$ext"; then
+      echo "FAILED: extracting frames from $name"; exit 1
+    fi
+    got=$(( $(ls assets/film/*."$ext" | wc -l) - start ))
+    parts+="${parts:+,}{\"name\":\"$name\",\"start\":$start,\"count\":$got}"
+    echo "segment $name: $got of $total frames"
+    start=$(( start + got ))
+  done
+  printf '// Generated by tools/fetch-media.sh: the scroll film'"'"'s frames.\nwindow.FILM = {"count":%d,"ext":"%s","width":%d,"height":%d,"segments":[%s]};\n' \
+    "$start" "$ext" "${size%x*}" "${size#*x}" "$parts" > assets/film/film.js
+  echo "film: $start frames, $size $ext, $(du -sh assets/film | cut -f1) total"
 fi
 
 rm -rf "$src"

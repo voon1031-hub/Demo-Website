@@ -4,7 +4,7 @@
 name: Fetch generated media
 on:
   push:
-    branches: [claude/inspiring-volta-dtrlw7]
+    branches: [claude/dazzling-knuth-shmbbo]
     paths: ['tools/media.txt', 'tools/fetch-media.sh']
   workflow_dispatch:
 permissions:
