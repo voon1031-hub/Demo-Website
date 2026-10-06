@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Downloads every "<name> <url> [frames]" line in tools/media.txt and prepares it for the site.
+# Downloads every "<name> <url> [frames] [keep]" line in tools/media.txt and prepares it for the site.
 #   key-NN images   -> assets/keys/key-NN.jpg    the film's keyframes (1600 px wide); the page
 #                                                 shows them as stills when motion is reduced
 #   packshot image  -> assets/media/packshot.jpg the watch shown inside the ring in the finale
@@ -11,6 +11,8 @@
 #                      evenly spaced frames are kept from each segment (default 40) and written
 #                      to assets/film/NNN.webp, plus assets/film/film.js, which tells the page
 #                      how many frames there are, their size and where each segment starts.
+#                      "keep" (0–1, default 1) uses only that leading share of a segment, for
+#                      clips whose motion finishes early and then stands still.
 # A later line with the same name replaces an earlier one.
 # Needs: curl, ffmpeg, ffprobe. Run from the repository root.
 set -uo pipefail
@@ -18,9 +20,9 @@ FRAME_W=${FRAME_W:-1600}  # film frame width in px
 src=.media-src
 rm -rf "$src"; mkdir -p "$src"
 failed=0
-declare -A frames_for
+declare -A frames_for keep_for
 
-while read -r name url frames _; do
+while read -r name url frames keep _; do
   [ -z "${name:-}" ] && continue
   case "$name" in \#*) continue ;; esac
   ext="${url##*.}"; ext="${ext%%\?*}"; ext="${ext,,}"
@@ -31,7 +33,8 @@ while read -r name url frames _; do
   case "$name:$ext" in
     film-*:mp4|film-*:mov|film-*:webm)
       frames_for[$name]=${frames:-40}
-      echo "film segment: $name (${frames_for[$name]} frames)" ;;
+      keep_for[$name]=${keep:-1}
+      echo "film segment: $name (${frames_for[$name]} frames, keep ${keep_for[$name]})" ;;
     review-*:mp4)
       # A contact sheet for checking a segment before it goes into the film:
       # twelve evenly spaced frames in a 4 × 3 grid.
@@ -75,6 +78,7 @@ if [ "${#segs[@]}" -gt 0 ]; then
       echo "FAILED: normalising $name"; exit 1
     fi
     total=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "$norm")
+    total=$(awk -v t="$total" -v k="${keep_for[$name]}" 'BEGIN { n = int(t * k + 0.5); print (n < 2 ? 2 : n) }')
     [ -z "$size" ] && size=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0:s=x "$norm")
     # The first segment keeps its first frame; later ones start where the previous one ended.
     first=0; [ "$i" -gt 0 ] && first=1
