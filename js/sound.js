@@ -339,7 +339,7 @@
       this.city.gain.setTargetAtTime(this.levels.city * 0.36, t, k);
       this.room.gain.setTargetAtTime(this.levels.room * 0.3, t, k);
       this.tickSend.gain.setTargetAtTime(this.levels.deep * 0.45, t, k);
-      const whirl = clamp((v - 985) / (1180 - 985), 0, 1);
+      const whirl = clamp((v - 975) / (1180 - 975), 0, 1);
       this.whirlBand.frequency.setTargetAtTime(300 + 2100 * whirl, t, 0.2);
       this.air.gain.setTargetAtTime(this.levels.air * 0.6, t, k);
       this.pad.gain.setTargetAtTime(this.levels.pad * 0.09, t, 0.4);

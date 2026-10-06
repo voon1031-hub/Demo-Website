@@ -9,8 +9,8 @@
           another, to the sixty seconds of a ring and become its tick marks; the
           ring draws itself closed; the watch appears inside it.
 
-   Also keeps the live counter in cue 10 ("4 minutes and 7 seconds since you
-   set out from the clouds…"), measured from the visitor's first scroll.
+   Also keeps the live counter in cue 10 ("You have spent 4 minutes and 7
+   seconds with Montciel…"), measured from the visitor's first scroll.
    ============================================================================= */
 (function () {
   "use strict";
@@ -29,12 +29,13 @@
     return parts.join(" and ");
   }
 
+  /* Completes "In that time the tourbillon has …" */
   function formatTurns(sec, secondsPerTurn) {
     const n = Math.floor(sec / secondsPerTurn);
-    if (n === 0) return "The tourbillon is still on its first turn for you.";
-    if (n === 1) return "The tourbillon has turned once for you.";
-    if (n === 2) return "The tourbillon has turned twice for you.";
-    return `The tourbillon has turned ${WORDS[n] || n.toLocaleString("en-GB")} times for you.`;
+    if (n === 0) return "not yet completed its first turn";
+    if (n === 1) return "turned once";
+    if (n === 2) return "turned twice";
+    return `turned ${WORDS[n] || n.toLocaleString("en-GB")} times`;
   }
 
   class Finale {
