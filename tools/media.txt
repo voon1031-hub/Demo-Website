@@ -14,7 +14,7 @@ cut-concealer  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvai
 cut-swatch     https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_040023_c7421427-ab83-4a93-b716-f4c74a0a8bd8.png
 # Opening film: a drop of foundation floods the screen (FLUX 3 Video, 1080p)
 intro    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_050015_31187dda-fecc-468a-bc2c-312cf555d10b.mp4
-# Headline film: marbled foundation that plays inside the hero letters. The same
-# keyframe starts and ends it, so it loops (FLUX 3 Video). Only the middle band
-# shows through the letters, so the rest is cropped away.
-type      https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_075138_c36b2c2d-164a-4c7c-a99d-3d1484e4cc8c.mp4  crop=iw:ih*0.46
+# Headline film: marbled foundation that plays inside the hero letters (FLUX 3
+# Video from one keyframe). The filter cross-fades its last second into its first
+# so it loops (4 s), and keeps only the middle band the letters show.
+type      https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_075929_4d097473-2126-4181-a208-603afa9e4ed2.mp4  split[a][b];[a]trim=start=1:end=5,setpts=PTS-STARTPTS[x];[b]trim=start=0:end=1,setpts=PTS-STARTPTS[y];[x][y]xfade=transition=fade:duration=1:offset=3,crop=iw:ih*0.46

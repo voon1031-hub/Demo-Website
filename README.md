@@ -26,8 +26,8 @@ to dissolve and where the page appears.
 **Headline film.** The headline is a window: inside the letters of MADE TO
 DISAPPEAR. a film of foundation in several shades, marbled together, slowly
 swirls. The letters are a mask drawn from the display face, so nothing else
-crowds the headline. The film loops (its first and last frames are the same
-keyframe), starts when the opening film ends, pauses while the headline is off
+crowds the headline. The film loops (its last second cross-fades into its
+first), starts when the opening film ends, pauses while the headline is off
 screen and stays on its first frame with reduced motion.
 
 - `index.html` – the whole site. The brand details (currency, contact email,
@@ -89,8 +89,9 @@ then commits the results back to the branch.
 - other images become `assets/media/<name>.jpg`;
 - videos become `assets/media/<name>.mp4` and `.webm`, plus
   `<name>-poster.jpg` (the first frame). An ffmpeg filter after the url runs
-  first: the headline film keeps only its middle band (`crop=iw:ih*0.46`),
-  because that is all the letters show.
+  first: the headline film cross-fades its last second into its first, so it
+  loops, and keeps only its middle band (`crop=iw:ih*0.46`), because that is
+  all the letters show.
 
 Files that are already in `assets/` are skipped; start the script with
 `FORCE=1` to fetch everything again.

@@ -233,6 +233,8 @@ a { color: inherit; }
   mask: url("assets/hero-type.svg") center / 100% 100% no-repeat;
 }
 .type-fill video { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* if autoplay is refused (iOS low power mode) the poster stays; no play button in the letters */
+.type-fill video::-webkit-media-controls, .type-fill video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
 .type-dot { position: absolute; left: 96.81%; top: 85.587%; width: 3.19%; aspect-ratio: 1; border-radius: 50%; background: var(--red); }
 .hero-after { margin-top: clamp(32px, 4.5vw, 64px); }
 .hero-copy { display: grid; gap: 18px; max-width: 560px; }
