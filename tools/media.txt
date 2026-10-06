@@ -4,7 +4,11 @@
 #   packshot  the finale's watch    -> assets/media/packshot.jpg
 #   film-NN   scroll film segments  -> assets/film/, "frames" frames kept from each segment
 key-00   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_110333_4ad37341-ff65-4672-9b08-a64b7a8b52c0.png
-key-01   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_110334_62e4ed9c-9748-481e-8654-515c3abf81e6.png
+key-01   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_111009_616cab16-4679-4688-939e-a9f7a8554d86.png
 key-02   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_110334_ebeea025-564e-409b-9a48-79e790e0e08e.png
+key-03   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_111010_1fb67a03-37f4-48c8-925b-81fecc2e48f0.png
+key-06   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_111004_d3bded27-70bc-431d-a3c4-49fdcdb43971.png
+key-07   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_111005_d429c5e7-8d09-4e1e-88f7-cf19df5e159a.png
+key-08   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_110706_2fa4eca9-bf62-4c05-bade-45055f319262.png
 key-10   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_110334_1b9c02b6-f3ba-4384-9c6c-5201413c747e.png
 packshot https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_110333_4ad37341-ff65-4672-9b08-a64b7a8b52c0.png
