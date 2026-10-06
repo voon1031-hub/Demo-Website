@@ -1,8 +1,10 @@
-# name  url  [frames]   (one generated file per line; the "Fetch generated media" workflow
+# name  url  [frames] [keep]   (one generated file per line; the "Fetch generated media" workflow
 #   downloads them and runs tools/fetch-media.sh)
 #   key-NN    keyframe stills       -> assets/keys/
 #   packshot  the finale's watch    -> assets/media/packshot.jpg
 #   film-NN   scroll film segments  -> assets/film/, "frames" frames kept from each segment
+#                                       ("keep" 0–1: use only that leading share)
+#   review-NN a segment to check     -> assets/review/review-NN.jpg contact sheet
 key-00   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_125549_06fb9637-82d0-4cfb-a1ab-f38eeb8d1373.png
 key-01   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_111009_616cab16-4679-4688-939e-a9f7a8554d86.png
 key-02   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_110334_ebeea025-564e-409b-9a48-79e790e0e08e.png
@@ -17,16 +19,14 @@ key-10   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/h
 key-11   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_125548_94051979-6530-4e6b-b18f-781ff3add34c.png
 key-12   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112306_3db41e10-51be-4733-aff1-efc571422bb6.png
 packshot https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_125549_06fb9637-82d0-4cfb-a1ab-f38eeb8d1373.png
-# film-01  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_b8a57732-ceba-4e25-8026-6a4317052cf8.mp4 50
-# film-02  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112339_a23a4a64-bee4-46f5-b8f9-9a03b71946e3.mp4 36
-# film-03  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112339_0162ca5e-e091-4044-8f44-55cd9cf81019.mp4 40
-# film-04  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_7faa615a-5609-4d53-804a-b70e3efeae12.mp4 40
-# film-05  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112310_54143ef8-40d6-4e94-a4ac-88d398d996f6.mp4 44
-# film-06  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112339_bf23a716-fc48-4e04-a2cc-2949e76988f9.mp4 30
-# film-07  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_1e26c98c-6c3b-427e-9aa8-5195ea3174b1.mp4 32
-# film-08  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_da7db78f-9765-4e53-a68e-f0cd3eeaa4ea.mp4 32
-# film-09  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_8d0a88c4-45e4-4cc6-aec5-a07e6ff758d8.mp4 30 0.62
-# film-10  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_113248_56f3b20c-b064-4cc8-bcf1-15f6932a24a4.mp4 44
-review-10 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130035_5df0166c-45f8-4b61-ad18-a8c61875eef7.mp4
-review-11 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130034_b8c13ac3-b108-4c92-a8f3-692c9694c2aa.mp4
-review-04 https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130845_6f50f60e-5c5f-4392-8b7c-782796340a48.mp4
+film-01  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_b8a57732-ceba-4e25-8026-6a4317052cf8.mp4 50
+film-02  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112339_a23a4a64-bee4-46f5-b8f9-9a03b71946e3.mp4 36
+film-03  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112339_0162ca5e-e091-4044-8f44-55cd9cf81019.mp4 40
+film-04  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130845_6f50f60e-5c5f-4392-8b7c-782796340a48.mp4 40
+film-05  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130845_8bb5b3a5-097f-4b12-b08d-df7d09f1a940.mp4 44
+film-06  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112339_bf23a716-fc48-4e04-a2cc-2949e76988f9.mp4 30
+film-07  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_1e26c98c-6c3b-427e-9aa8-5195ea3174b1.mp4 32
+film-08  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_da7db78f-9765-4e53-a68e-f0cd3eeaa4ea.mp4 32
+film-09  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_112309_8d0a88c4-45e4-4cc6-aec5-a07e6ff758d8.mp4 30 0.62
+film-10  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130035_5df0166c-45f8-4b61-ad18-a8c61875eef7.mp4 32
+film-11  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261006_130034_b8c13ac3-b108-4c92-a8f3-692c9694c2aa.mp4 36
