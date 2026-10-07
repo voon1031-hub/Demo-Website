@@ -6,6 +6,8 @@
 #                                loop has no jump (fits in 1280x1280)
 #   hero-* videos             -> full-screen backgrounds: looped the same way, up to
 #                                1600px wide (HERO_SMALL=1 adds <name>-sm.mp4, 720px)
+# CLIP_LOOP=crossfade loops clip-* videos by fading their last XFADE seconds into
+# the start instead (for motion that looks wrong played backwards, like pouring).
 #   build-1, build-2 … videos -> the hero construction timelapse, joined in order and
 #                                cut into assets/build/NNN.webp frames, plus
 #                                assets/build/frames.js, start.jpg and end.jpg
@@ -20,6 +22,8 @@ LIST=${MEDIA_LIST:-tools/media.txt}
 OUT=${MEDIA_DIR:-assets/media}
 POSTERS=${POSTERS:-0}
 HERO_SMALL=${HERO_SMALL:-0}
+CLIP_LOOP=${CLIP_LOOP:-pingpong}
+XFADE=${XFADE:-1}
 # Forward then backward (minus the repeated turn-around frame), so the loop has no jump.
 PINGPONG="split[f][b];[b]reverse,trim=start_frame=1,setpts=PTS-STARTPTS[r];[f][r]concat=n=2:v=1:a=0,format=yuv420p[v]"
 src=.media-src
@@ -47,8 +51,18 @@ while read -r name url _; do
         echo "hero loop (small): $name $(du -h "$OUT/$name-sm.mp4" | cut -f1)"
       fi ;;
     clip-*:mp4)
-      ffmpeg -nostdin -loglevel error -y -i "$file" -an -filter_complex \
-        "[0:v]scale='min(1280,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2,$PINGPONG" \
+      fit="scale='min(1280,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2"
+      loop="$fit,$PINGPONG"
+      if [ "$CLIP_LOOP" = crossfade ]; then
+        # Play from XFADE to the end, fading the last XFADE seconds into the first
+        # XFADE seconds: the loop ends exactly where it starts.
+        dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$file")
+        off=$(awk -v d="$dur" -v x="$XFADE" 'BEGIN { printf "%.3f", d - 2 * x }')
+        if awk -v o="$off" 'BEGIN { exit !(o > 0) }'; then
+          loop="$fit,split[a][b];[a]trim=start=$XFADE,setpts=PTS-STARTPTS[m];[b]trim=end=$XFADE,setpts=PTS-STARTPTS[h];[m][h]xfade=transition=fade:duration=$XFADE:offset=$off,format=yuv420p[v]"
+        fi
+      fi
+      ffmpeg -nostdin -loglevel error -y -i "$file" -an -filter_complex "[0:v]$loop" \
         -map "[v]" -c:v libx264 -preset slow -crf 26 -maxrate 3M -bufsize 6M -movflags +faststart "$OUT/$name.mp4"
       echo "loop clip: $name $(du -h "$OUT/$name.mp4" | cut -f1)" ;;
     *:mp4|*:mov|*:webm)

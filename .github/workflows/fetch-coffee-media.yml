@@ -25,6 +25,7 @@ jobs:
           MEDIA_DIR: coffee/assets/media
           POSTERS: '1'
           HERO_SMALL: '1'
+          CLIP_LOOP: crossfade
         run: bash tools/fetch-media.sh
       - name: Commit media
         run: |
