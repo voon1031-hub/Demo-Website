@@ -1,0 +1,1322 @@
+{
+ "content": [
+  {
+   "id": "ee4dcee",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "48",
+     "right": "24",
+     "bottom": "72",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "32",
+     "right": "16",
+     "bottom": "48",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section",
+    "border_border": "solid",
+    "border_width": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "1",
+     "left": "0",
+     "isLinked": false
+    },
+    "border_color": "rgba(42,26,18,0.14)"
+   },
+   "elements": [
+    {
+     "id": "71b67da",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "64",
+       "row": "64",
+       "isLinked": true,
+       "unit": "px",
+       "size": 64
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "center"
+     },
+     "elements": [
+      {
+       "id": "762375f",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 55,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "32fc9fb",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p><a href=\"/\">首页</a> / 联系我们</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "df97bfc",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "想下单、想预约？WhatsApp 最快",
+          "header_size": "h1",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 56,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 44,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 32,
+           "sizes": []
+          },
+          "typography_font_weight": "900",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.25,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "7556ce0",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>我们只做网店，没有门市。下单、预约下一炉、订阅或批发合作，都可以直接 WhatsApp 我们，或填写下面的表单，客服会在一个工作日内回复。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "4fa700e",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 45,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "43d27df",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "28",
+           "right": "28",
+           "bottom": "28",
+           "left": "28",
+           "isLinked": true
+          },
+          "css_classes": "lathill-video",
+          "overflow": "hidden"
+         },
+         "elements": [
+          {
+           "id": "0e28362",
+           "elType": "widget",
+           "widgetType": "video",
+           "isInner": false,
+           "settings": {
+            "video_type": "hosted",
+            "insert_url": "yes",
+            "external_url": {
+             "url": "/wp-content/uploads/lathill/clip-phin.mp4",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "hosted_url": {
+             "url": "/wp-content/uploads/lathill/clip-phin.mp4",
+             "id": ""
+            },
+            "autoplay": "yes",
+            "mute": "yes",
+            "loop": "yes",
+            "controls": "",
+            "play_on_mobile": "yes",
+            "download_button": "",
+            "poster": {
+             "url": "/wp-content/uploads/lathill/clip-phin.jpg",
+             "id": ""
+            }
+           },
+           "elements": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4606eb5",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "f8e2c7a",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "40",
+       "row": "40",
+       "isLinked": true,
+       "unit": "px",
+       "size": 40
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start"
+     },
+     "elements": [
+      {
+       "id": "9626eaf",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "48",
+         "right": "40",
+         "bottom": "48",
+         "left": "40",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "28",
+         "right": "20",
+         "bottom": "28",
+         "left": "20",
+         "isLinked": false
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "28",
+         "right": "28",
+         "bottom": "28",
+         "left": "28",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)",
+        "_element_id": "reserve"
+       },
+       "elements": [
+        {
+         "id": "e8b2f7d",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "预约与咨询",
+          "header_size": "h2",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 36,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 32,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 28,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "0ae0045",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>带 * 的为必填项。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "b18f214",
+         "elType": "widget",
+         "widgetType": "shortcode",
+         "isInner": false,
+         "settings": {
+          "shortcode": "[wpforms id=\"123\" title=\"false\"]"
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "a6dac2e",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "24",
+         "row": "24",
+         "isLinked": true,
+         "unit": "px",
+         "size": 24
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 42,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "a25211b",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "12",
+           "row": "12",
+           "isLinked": true,
+           "unit": "px",
+           "size": 12
+          },
+          "padding": {
+           "unit": "px",
+           "top": "32",
+           "right": "32",
+           "bottom": "32",
+           "left": "32",
+           "isLinked": true
+          },
+          "padding_mobile": {
+           "unit": "px",
+           "top": "28",
+           "right": "24",
+           "bottom": "28",
+           "left": "24",
+           "isLinked": false
+          },
+          "background_background": "classic",
+          "background_color": "#2A1A12",
+          "border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          }
+         },
+         "elements": [
+          {
+           "id": "971410c",
+           "elType": "widget",
+           "widgetType": "heading",
+           "isInner": false,
+           "settings": {
+            "title": "WhatsApp 下单最快",
+            "header_size": "h2",
+            "title_color": "#F7F0E5",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Serif SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 26,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "f8b9b74",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<p>下单、改地址、暂停订阅，都可以直接发信息给我们。</p>",
+            "text_color": "rgba(247,240,229,0.72)",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 16,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.75,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "914fc7a",
+           "elType": "widget",
+           "widgetType": "heading",
+           "isInner": false,
+           "settings": {
+            "title": "+60 12-345 6789",
+            "header_size": "div",
+            "title_color": "#F7F0E5",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Serif SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 34,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            },
+            "link": {
+             "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "e3dff35",
+           "elType": "widget",
+           "widgetType": "button",
+           "isInner": false,
+           "settings": {
+            "text": "打开 WhatsApp",
+            "link": {
+             "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "button_text_color": "#2A1A12",
+            "hover_color": "#2A1A12",
+            "background_background": "classic",
+            "background_color": "#F7F0E5",
+            "button_background_hover_background": "classic",
+            "button_background_hover_color": "#FFFFFF",
+            "border_radius": {
+             "unit": "px",
+             "top": "999",
+             "right": "999",
+             "bottom": "999",
+             "left": "999",
+             "isLinked": true
+            },
+            "text_padding": {
+             "unit": "px",
+             "top": "14",
+             "right": "26",
+             "bottom": "14",
+             "left": "26",
+             "isLinked": false
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 15,
+             "sizes": []
+            },
+            "typography_font_weight": "500",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.2,
+             "sizes": []
+            },
+            "selected_icon": {
+             "value": "fab fa-whatsapp",
+             "library": "fa-brands"
+            },
+            "icon_align": "left",
+            "icon_indent": {
+             "unit": "px",
+             "size": 8,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "24c79c3",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<p>合作与媒体联络：<a href=\"mailto:hello@lathill.coffee\" style=\"color:#F7F0E5\">hello@lathill.coffee</a></p>",
+            "text_color": "rgba(247,240,229,0.72)",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 14,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.75,
+             "sizes": []
+            }
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "0b442ef",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "12",
+           "row": "12",
+           "isLinked": true,
+           "unit": "px",
+           "size": 12
+          },
+          "padding": {
+           "unit": "px",
+           "top": "32",
+           "right": "32",
+           "bottom": "32",
+           "left": "32",
+           "isLinked": true
+          },
+          "padding_mobile": {
+           "unit": "px",
+           "top": "28",
+           "right": "24",
+           "bottom": "28",
+           "left": "24",
+           "isLinked": false
+          },
+          "background_background": "classic",
+          "background_color": "#F7F0E5",
+          "border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.14)"
+         },
+         "elements": [
+          {
+           "id": "1efc7c6",
+           "elType": "widget",
+           "widgetType": "heading",
+           "isInner": false,
+           "settings": {
+            "title": "客服时间",
+            "header_size": "h2",
+            "title_color": "#2A1A12",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Serif SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 26,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "151b114",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<table class=\"lathill-rows\"><tbody><tr><th style=\"text-align:left;font-weight:500\">周一至周五</th><td style=\"text-align:right\">09:00 – 18:00</td></tr><tr><th style=\"text-align:left;font-weight:500\">周六</th><td style=\"text-align:right\">10:00 – 14:00</td></tr><tr><th style=\"text-align:left;font-weight:500\">周日及公共假期</th><td style=\"text-align:right\">休息</td></tr></tbody></table>",
+            "text_color": "#2A1A12",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 16,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.75,
+             "sizes": []
+            },
+            "_css_classes": "lathill-table"
+           },
+           "elements": []
+          },
+          {
+           "id": "c2d8cec",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<p>非客服时间也可以留言，我们会在下个工作日依次回复。</p>",
+            "text_color": "#6A5546",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 14,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.75,
+             "sizes": []
+            }
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "a35327d",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "12",
+           "row": "12",
+           "isLinked": true,
+           "unit": "px",
+           "size": 12
+          },
+          "padding": {
+           "unit": "px",
+           "top": "32",
+           "right": "32",
+           "bottom": "32",
+           "left": "32",
+           "isLinked": true
+          },
+          "padding_mobile": {
+           "unit": "px",
+           "top": "28",
+           "right": "24",
+           "bottom": "28",
+           "left": "24",
+           "isLinked": false
+          },
+          "background_background": "classic",
+          "background_color": "#F7F0E5",
+          "border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.14)"
+         },
+         "elements": [
+          {
+           "id": "da2a700",
+           "elType": "widget",
+           "widgetType": "heading",
+           "isInner": false,
+           "settings": {
+            "title": "烘焙与发货",
+            "header_size": "h2",
+            "title_color": "#2A1A12",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Serif SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 26,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "059daf5",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<table class=\"lathill-rows\"><tbody><tr><th style=\"text-align:left;font-weight:500\">烘焙日</th><td style=\"text-align:right\">每周二、周五</td></tr><tr><th style=\"text-align:left;font-weight:500\">截单时间</th><td style=\"text-align:right\">烘焙前一天 23:59</td></tr><tr><th style=\"text-align:left;font-weight:500\">发货</th><td style=\"text-align:right\">烘焙隔天</td></tr></tbody></table>",
+            "text_color": "#2A1A12",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans SC",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 16,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.75,
+             "sizes": []
+            },
+            "_css_classes": "lathill-table"
+           },
+           "elements": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "19e6c46",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F7F0E5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "31f83ef",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "48",
+       "row": "48",
+       "isLinked": true,
+       "unit": "px",
+       "size": 48
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start"
+     },
+     "elements": [
+      {
+       "id": "1d83bad",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 50,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "c57531b",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "全马配送",
+          "header_size": "h2",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 34,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "2adceeb",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<table class=\"lathill-rows\"><thead><tr><th style=\"text-align:left;font-weight:500;color:#6A5546\">地区</th><th style=\"text-align:left;font-weight:500;color:#6A5546\">时效</th><th style=\"text-align:left;font-weight:500;color:#6A5546\">运费</th></tr></thead><tbody><tr><th style=\"text-align:left\">西马（半岛）</th><td>1–3 个工作日</td><td>满 RM 80 包邮，否则 RM 8</td></tr><tr><th style=\"text-align:left\">东马（沙巴、砂拉越、纳闽）</th><td>3–5 个工作日</td><td>满 RM 150 包邮，否则 RM 15</td></tr></tbody></table>",
+          "text_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          },
+          "_css_classes": "lathill-table"
+         },
+         "elements": []
+        },
+        {
+         "id": "62135bc",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>暂不寄送海外。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "e7bffd5",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 50,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "ea356e6",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "28",
+           "right": "28",
+           "bottom": "28",
+           "left": "28",
+           "isLinked": true
+          },
+          "overflow": "hidden"
+         },
+         "elements": [
+          {
+           "id": "c4948df",
+           "elType": "widget",
+           "widgetType": "google_maps",
+           "isInner": false,
+           "settings": {
+            "address": "Malaysia",
+            "zoom": {
+             "unit": "px",
+             "size": 5,
+             "sizes": []
+            },
+            "height": {
+             "unit": "px",
+             "size": 380,
+             "sizes": []
+            }
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "26ace1a",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>西马与东马全境配送，订单从巴生谷的烘焙工坊寄出。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "page_settings": {
+  "hide_title": "yes"
+ },
+ "version": "0.4",
+ "title": "叻山 联系我们",
+ "type": "page"
+}

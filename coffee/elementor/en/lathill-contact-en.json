@@ -1,0 +1,1322 @@
+{
+ "content": [
+  {
+   "id": "a0f952b",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "48",
+     "right": "24",
+     "bottom": "72",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "32",
+     "right": "16",
+     "bottom": "48",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section",
+    "border_border": "solid",
+    "border_width": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "1",
+     "left": "0",
+     "isLinked": false
+    },
+    "border_color": "rgba(42,26,18,0.14)"
+   },
+   "elements": [
+    {
+     "id": "6f7b33b",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "64",
+       "row": "64",
+       "isLinked": true,
+       "unit": "px",
+       "size": 64
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "center"
+     },
+     "elements": [
+      {
+       "id": "0f2882b",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 55,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "a7b23d2",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p><a href=\"/en/\">Home</a> / Contact</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "7653530",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Want to order or reserve? WhatsApp is fastest",
+          "header_size": "h1",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 56,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 44,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 32,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.25,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "9c7a6fc",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>We're online only, with no café. To order, reserve a roast, subscribe or talk wholesale, message us on WhatsApp or use the form below. We reply within one working day.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "faa2982",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 45,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "b17b2a6",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "28",
+           "right": "28",
+           "bottom": "28",
+           "left": "28",
+           "isLinked": true
+          },
+          "css_classes": "lathill-video",
+          "overflow": "hidden"
+         },
+         "elements": [
+          {
+           "id": "0b6fe9f",
+           "elType": "widget",
+           "widgetType": "video",
+           "isInner": false,
+           "settings": {
+            "video_type": "hosted",
+            "insert_url": "yes",
+            "external_url": {
+             "url": "/wp-content/uploads/lathill/clip-phin.mp4",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "hosted_url": {
+             "url": "/wp-content/uploads/lathill/clip-phin.mp4",
+             "id": ""
+            },
+            "autoplay": "yes",
+            "mute": "yes",
+            "loop": "yes",
+            "controls": "",
+            "play_on_mobile": "yes",
+            "download_button": "",
+            "poster": {
+             "url": "/wp-content/uploads/lathill/clip-phin.jpg",
+             "id": ""
+            }
+           },
+           "elements": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "f7b2ad8",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "3dbb21c",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "40",
+       "row": "40",
+       "isLinked": true,
+       "unit": "px",
+       "size": 40
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start"
+     },
+     "elements": [
+      {
+       "id": "4e9ce11",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "48",
+         "right": "40",
+         "bottom": "48",
+         "left": "40",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "28",
+         "right": "20",
+         "bottom": "28",
+         "left": "20",
+         "isLinked": false
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "28",
+         "right": "28",
+         "bottom": "28",
+         "left": "28",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)",
+        "_element_id": "reserve"
+       },
+       "elements": [
+        {
+         "id": "f4aaa34",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Reserve or ask us anything",
+          "header_size": "h2",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 36,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 32,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 28,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "10e94a0",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Fields marked * are required.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "9b3d3c9",
+         "elType": "widget",
+         "widgetType": "shortcode",
+         "isInner": false,
+         "settings": {
+          "shortcode": "[wpforms id=\"123\" title=\"false\"]"
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "cfa79f6",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "24",
+         "row": "24",
+         "isLinked": true,
+         "unit": "px",
+         "size": 24
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 42,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "16e112f",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "12",
+           "row": "12",
+           "isLinked": true,
+           "unit": "px",
+           "size": 12
+          },
+          "padding": {
+           "unit": "px",
+           "top": "32",
+           "right": "32",
+           "bottom": "32",
+           "left": "32",
+           "isLinked": true
+          },
+          "padding_mobile": {
+           "unit": "px",
+           "top": "28",
+           "right": "24",
+           "bottom": "28",
+           "left": "24",
+           "isLinked": false
+          },
+          "background_background": "classic",
+          "background_color": "#2A1A12",
+          "border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          }
+         },
+         "elements": [
+          {
+           "id": "cd83637",
+           "elType": "widget",
+           "widgetType": "heading",
+           "isInner": false,
+           "settings": {
+            "title": "Fastest: WhatsApp",
+            "header_size": "h2",
+            "title_color": "#F7F0E5",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Serif",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 26,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "ca2d183",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<p>Order, change your address or pause a subscription. Just send us a message.</p>",
+            "text_color": "rgba(247,240,229,0.72)",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 16,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.6,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "7ef9914",
+           "elType": "widget",
+           "widgetType": "heading",
+           "isInner": false,
+           "settings": {
+            "title": "+60 12-345 6789",
+            "header_size": "div",
+            "title_color": "#F7F0E5",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Serif",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 34,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            },
+            "link": {
+             "url": "https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%20have%20a%20question%3A%20",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "def5a60",
+           "elType": "widget",
+           "widgetType": "button",
+           "isInner": false,
+           "settings": {
+            "text": "Open WhatsApp",
+            "link": {
+             "url": "https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%20have%20a%20question%3A%20",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "button_text_color": "#2A1A12",
+            "hover_color": "#2A1A12",
+            "background_background": "classic",
+            "background_color": "#F7F0E5",
+            "button_background_hover_background": "classic",
+            "button_background_hover_color": "#FFFFFF",
+            "border_radius": {
+             "unit": "px",
+             "top": "999",
+             "right": "999",
+             "bottom": "999",
+             "left": "999",
+             "isLinked": true
+            },
+            "text_padding": {
+             "unit": "px",
+             "top": "14",
+             "right": "26",
+             "bottom": "14",
+             "left": "26",
+             "isLinked": false
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 15,
+             "sizes": []
+            },
+            "typography_font_weight": "500",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.2,
+             "sizes": []
+            },
+            "selected_icon": {
+             "value": "fab fa-whatsapp",
+             "library": "fa-brands"
+            },
+            "icon_align": "left",
+            "icon_indent": {
+             "unit": "px",
+             "size": 8,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "52f2777",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<p>Partnerships and press: <a href=\"mailto:hello@lathill.coffee\" style=\"color:#F7F0E5\">hello@lathill.coffee</a></p>",
+            "text_color": "rgba(247,240,229,0.72)",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 14,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.6,
+             "sizes": []
+            }
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "60b5e5e",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "12",
+           "row": "12",
+           "isLinked": true,
+           "unit": "px",
+           "size": 12
+          },
+          "padding": {
+           "unit": "px",
+           "top": "32",
+           "right": "32",
+           "bottom": "32",
+           "left": "32",
+           "isLinked": true
+          },
+          "padding_mobile": {
+           "unit": "px",
+           "top": "28",
+           "right": "24",
+           "bottom": "28",
+           "left": "24",
+           "isLinked": false
+          },
+          "background_background": "classic",
+          "background_color": "#F7F0E5",
+          "border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.14)"
+         },
+         "elements": [
+          {
+           "id": "32e2193",
+           "elType": "widget",
+           "widgetType": "heading",
+           "isInner": false,
+           "settings": {
+            "title": "Customer care hours",
+            "header_size": "h2",
+            "title_color": "#2A1A12",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Serif",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 26,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "99fb9f7",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<table class=\"lathill-rows\"><tbody><tr><th style=\"text-align:left;font-weight:500\">Monday to Friday</th><td style=\"text-align:right\">09:00 – 18:00</td></tr><tr><th style=\"text-align:left;font-weight:500\">Saturday</th><td style=\"text-align:right\">10:00 – 14:00</td></tr><tr><th style=\"text-align:left;font-weight:500\">Sunday & public holidays</th><td style=\"text-align:right\">Closed</td></tr></tbody></table>",
+            "text_color": "#2A1A12",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 16,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.6,
+             "sizes": []
+            },
+            "_css_classes": "lathill-table"
+           },
+           "elements": []
+          },
+          {
+           "id": "a8a2a79",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<p>You can message us any time; we reply in order on the next working day.</p>",
+            "text_color": "#6A5546",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 14,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.6,
+             "sizes": []
+            }
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "b32396b",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "12",
+           "row": "12",
+           "isLinked": true,
+           "unit": "px",
+           "size": 12
+          },
+          "padding": {
+           "unit": "px",
+           "top": "32",
+           "right": "32",
+           "bottom": "32",
+           "left": "32",
+           "isLinked": true
+          },
+          "padding_mobile": {
+           "unit": "px",
+           "top": "28",
+           "right": "24",
+           "bottom": "28",
+           "left": "24",
+           "isLinked": false
+          },
+          "background_background": "classic",
+          "background_color": "#F7F0E5",
+          "border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.14)"
+         },
+         "elements": [
+          {
+           "id": "0e3f86d",
+           "elType": "widget",
+           "widgetType": "heading",
+           "isInner": false,
+           "settings": {
+            "title": "Roasting and dispatch",
+            "header_size": "h2",
+            "title_color": "#2A1A12",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Serif",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 26,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            }
+           },
+           "elements": []
+          },
+          {
+           "id": "c45bb1a",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "isInner": false,
+           "settings": {
+            "editor": "<table class=\"lathill-rows\"><tbody><tr><th style=\"text-align:left;font-weight:500\">Roast days</th><td style=\"text-align:right\">Tuesday and Friday</td></tr><tr><th style=\"text-align:left;font-weight:500\">Order cutoff</th><td style=\"text-align:right\">11:59 pm the day before</td></tr><tr><th style=\"text-align:left;font-weight:500\">Dispatch</th><td style=\"text-align:right\">The day after roasting</td></tr></tbody></table>",
+            "text_color": "#2A1A12",
+            "typography_typography": "custom",
+            "typography_font_family": "Noto Sans",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 16,
+             "sizes": []
+            },
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.6,
+             "sizes": []
+            },
+            "_css_classes": "lathill-table"
+           },
+           "elements": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "398b334",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F7F0E5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "9d58e9f",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "48",
+       "row": "48",
+       "isLinked": true,
+       "unit": "px",
+       "size": 48
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start"
+     },
+     "elements": [
+      {
+       "id": "e5e9749",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 50,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "663c082",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Delivery across Malaysia",
+          "header_size": "h2",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 34,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1bb224e",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<table class=\"lathill-rows\"><thead><tr><th style=\"text-align:left;font-weight:500;color:#6A5546\">Area</th><th style=\"text-align:left;font-weight:500;color:#6A5546\">Delivery time</th><th style=\"text-align:left;font-weight:500;color:#6A5546\">Shipping</th></tr></thead><tbody><tr><th style=\"text-align:left\">West Malaysia</th><td>1–3 working days</td><td>Free over RM 80, otherwise RM 8</td></tr><tr><th style=\"text-align:left\">East Malaysia</th><td>3–5 working days</td><td>Free over RM 150, otherwise RM 15</td></tr></tbody></table>",
+          "text_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          },
+          "_css_classes": "lathill-table"
+         },
+         "elements": []
+        },
+        {
+         "id": "650a113",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>We don't ship overseas yet.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "444e77f",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 50,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "14de656",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "28",
+           "right": "28",
+           "bottom": "28",
+           "left": "28",
+           "isLinked": true
+          },
+          "overflow": "hidden"
+         },
+         "elements": [
+          {
+           "id": "c4a35dd",
+           "elType": "widget",
+           "widgetType": "google_maps",
+           "isInner": false,
+           "settings": {
+            "address": "Malaysia",
+            "zoom": {
+             "unit": "px",
+             "size": 5,
+             "sizes": []
+            },
+            "height": {
+             "unit": "px",
+             "size": 380,
+             "sizes": []
+            }
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "c81daf7",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>We deliver to every state in West and East Malaysia, from our roastery in the Klang Valley.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "page_settings": {
+  "hide_title": "yes"
+ },
+ "version": "0.4",
+ "title": "Lat Hill Contact",
+ "type": "page"
+}

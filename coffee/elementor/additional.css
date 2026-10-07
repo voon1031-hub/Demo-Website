@@ -1,0 +1,28 @@
+/* 叻山咖啡 Lat Hill — extra CSS for the Elementor templates (optional)
+   WordPress: Appearance → Customize → Additional CSS, paste everything below.
+   外观 → 自定义 → 额外 CSS，把下面全部贴进去。 */
+
+/* Chinese headings break at punctuation, not in the middle of a phrase
+   中文标题在标点处换行，不在词语中间断开 */
+.elementor-heading-title { word-break: keep-all; overflow-wrap: anywhere; }
+
+/* Looping videos fill their rounded frame  循环视频填满圆角外框 */
+.lathill-video video { display: block; width: 100%; height: auto; }
+.lathill-video .elementor-wrapper { background: #3d281d; }
+
+/* Rows in the hours, schedule and delivery tables  客服时间、烘焙时间与配送表格 */
+.lathill-table table { width: 100%; margin: 0; border: 0; border-collapse: collapse; }
+.lathill-table th, .lathill-table td {
+  padding: 10px 12px 10px 0; border: 0; border-bottom: 1px solid rgba(42, 26, 18, 0.14);
+  background: none !important; vertical-align: top;
+}
+.lathill-table thead th { font-size: 14px; }
+
+/* WPForms fields in the brand colours  WPForms 表单配色 */
+#reserve .wpforms-container input, #reserve .wpforms-container select, #reserve .wpforms-container textarea {
+  border: 1.5px solid rgba(42, 26, 18, 0.28); border-radius: 6px; background: #fffaf3;
+}
+#reserve .wpforms-container button[type="submit"] {
+  background: #9e2b25; color: #fff8f0; border: 0; border-radius: 999px; padding: 14px 28px;
+}
+#reserve .wpforms-container button[type="submit"]:hover { background: #82211c; }

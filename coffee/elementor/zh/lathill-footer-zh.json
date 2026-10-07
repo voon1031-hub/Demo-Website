@@ -1,0 +1,700 @@
+{
+ "content": [
+  {
+   "id": "3fa5dbd",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "48",
+     "row": "48",
+     "isLinked": true,
+     "unit": "px",
+     "size": 48
+    },
+    "padding": {
+     "unit": "px",
+     "top": "72",
+     "right": "24",
+     "bottom": "24",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "56",
+     "right": "16",
+     "bottom": "24",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#2A1A12",
+    "html_tag": "footer"
+   },
+   "elements": [
+    {
+     "id": "b5b7059",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "32",
+       "row": "32",
+       "isLinked": true,
+       "unit": "px",
+       "size": 32
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start",
+      "flex_wrap": "wrap"
+     },
+     "elements": [
+      {
+       "id": "20843b2",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 32,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "92f4477",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/logo-light.png",
+           "id": "",
+           "alt": "叻山咖啡",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "left",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          },
+          "link_to": "custom",
+          "link": {
+           "url": "/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "f91aa05",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>叻山咖啡直接向越南大叻的小农采购生豆，在马来西亚巴生谷小批量烘焙。只做网店，全马配送。</p>",
+          "text_color": "rgba(247,240,229,0.72)",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "5f243af",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 17,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 30,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "394a8a8",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "网站导航",
+          "header_size": "h2",
+          "title_color": "#F7F0E5",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "9abe7f9",
+         "elType": "widget",
+         "widgetType": "icon-list",
+         "isInner": false,
+         "settings": {
+          "view": "traditional",
+          "icon_list": [
+           {
+            "text": "首页",
+            "_id": "c174880",
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "link": {
+             "url": "/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            }
+           },
+           {
+            "text": "关于我们",
+            "_id": "c6a53c9",
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "link": {
+             "url": "/about/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            }
+           },
+           {
+            "text": "咖啡豆与服务",
+            "_id": "69100e2",
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "link": {
+             "url": "/coffee/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            }
+           },
+           {
+            "text": "联系我们",
+            "_id": "129b51c",
+            "selected_icon": {
+             "value": "",
+             "library": ""
+            },
+            "link": {
+             "url": "/contact/",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            }
+           }
+          ],
+          "text_color": "rgba(247,240,229,0.72)",
+          "icon_color": "#7A4A2E",
+          "icon_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "space_between": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          },
+          "icon_typography_typography": "custom",
+          "icon_typography_font_family": "Noto Sans SC",
+          "icon_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "icon_typography_font_weight": "400",
+          "text_color_hover": "#F7F0E5"
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "714d94f",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 24,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 35,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "f7233c3",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "订购与客服",
+          "header_size": "h2",
+          "title_color": "#F7F0E5",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "e66904c",
+         "elType": "widget",
+         "widgetType": "icon-list",
+         "isInner": false,
+         "settings": {
+          "view": "traditional",
+          "icon_list": [
+           {
+            "text": "WhatsApp +60 12-345 6789",
+            "_id": "90b36ac",
+            "selected_icon": {
+             "value": "fab fa-whatsapp",
+             "library": "fa-brands"
+            },
+            "link": {
+             "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            }
+           },
+           {
+            "text": "hello@lathill.coffee",
+            "_id": "7d2c6c6",
+            "selected_icon": {
+             "value": "fas fa-envelope",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": "mailto:hello@lathill.coffee",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            }
+           },
+           {
+            "text": "客服：周一至周五 9:00–18:00",
+            "_id": "2f6f92d",
+            "selected_icon": {
+             "value": "fas fa-clock",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           }
+          ],
+          "text_color": "rgba(247,240,229,0.72)",
+          "icon_color": "#D9A86C",
+          "icon_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "space_between": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          },
+          "icon_typography_typography": "custom",
+          "icon_typography_font_family": "Noto Sans SC",
+          "icon_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "icon_typography_font_weight": "400",
+          "text_color_hover": "#F7F0E5"
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "991f473",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 17,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 30,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "83a1b1e",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "关注我们",
+          "header_size": "h2",
+          "title_color": "#F7F0E5",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "a430336",
+         "elType": "widget",
+         "widgetType": "social-icons",
+         "isInner": false,
+         "settings": {
+          "social_icon_list": [
+           {
+            "social_icon": {
+             "value": "fab fa-instagram",
+             "library": "fa-brands"
+            },
+            "link": {
+             "url": "#",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "_id": "4b3199a"
+           },
+           {
+            "social_icon": {
+             "value": "fab fa-facebook-f",
+             "library": "fa-brands"
+            },
+            "link": {
+             "url": "#",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "_id": "42418ed"
+           },
+           {
+            "social_icon": {
+             "value": "fab fa-tiktok",
+             "library": "fa-brands"
+            },
+            "link": {
+             "url": "#",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "_id": "006d91d"
+           },
+           {
+            "social_icon": {
+             "value": "fas fa-book-open",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": "#",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "_id": "4220a8a"
+           }
+          ],
+          "shape": "circle",
+          "align": "left",
+          "icon_color": "custom",
+          "icon_primary_color": "#3D281D",
+          "icon_secondary_color": "#F7F0E5",
+          "icon_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "icon_padding": {
+           "unit": "em",
+           "size": 0.7,
+           "sizes": []
+          },
+          "icon_spacing": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "4e59d50",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "16",
+       "row": "16",
+       "isLinked": true,
+       "unit": "px",
+       "size": 16
+      },
+      "padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start",
+      "flex_justify_content": "space-between",
+      "flex_wrap": "wrap",
+      "border_border": "solid",
+      "border_width": {
+       "unit": "px",
+       "top": "1",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "border_color": "rgba(247,240,229,0.12)"
+     },
+     "elements": [
+      {
+       "id": "36b4ba2",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>© 2026 叻山咖啡 Lat Hill Coffee Roasters。保留所有权利。</p>",
+        "text_color": "rgba(247,240,229,0.55)",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "58f0ee2",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>页面中的视频由 AI 生成，仅作示意。</p>",
+        "text_color": "rgba(247,240,229,0.55)",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "page_settings": [],
+ "version": "0.4",
+ "title": "叻山 页尾",
+ "type": "section"
+}

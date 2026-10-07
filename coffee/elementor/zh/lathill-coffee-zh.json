@@ -1,0 +1,5548 @@
+{
+ "content": [
+  {
+   "id": "99ee370",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "48",
+     "right": "24",
+     "bottom": "72",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "32",
+     "right": "16",
+     "bottom": "48",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section",
+    "border_border": "solid",
+    "border_width": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "1",
+     "left": "0",
+     "isLinked": false
+    },
+    "border_color": "rgba(42,26,18,0.14)"
+   },
+   "elements": [
+    {
+     "id": "1e267e3",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "64",
+       "row": "64",
+       "isLinked": true,
+       "unit": "px",
+       "size": 64
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "center"
+     },
+     "elements": [
+      {
+       "id": "f15ea3d",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 55,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "19bd8ef",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p><a href=\"/\">首页</a> / 咖啡豆与服务</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "57b1462",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "咖啡豆、订阅与合作",
+          "header_size": "h1",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 56,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 44,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 32,
+           "sizes": []
+          },
+          "typography_font_weight": "900",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.25,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "b15cd4d",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>所有咖啡都按订单烘焙，西马满 RM 80 包邮。看中哪一支，点“WhatsApp 下单”就好。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "938188a",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 45,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "925577a",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "28",
+           "right": "28",
+           "bottom": "28",
+           "left": "28",
+           "isLinked": true
+          },
+          "css_classes": "lathill-video",
+          "overflow": "hidden"
+         },
+         "elements": [
+          {
+           "id": "2e463ff",
+           "elType": "widget",
+           "widgetType": "video",
+           "isInner": false,
+           "settings": {
+            "video_type": "hosted",
+            "insert_url": "yes",
+            "external_url": {
+             "url": "/wp-content/uploads/lathill/clip-roast.mp4",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "hosted_url": {
+             "url": "/wp-content/uploads/lathill/clip-roast.mp4",
+             "id": ""
+            },
+            "autoplay": "yes",
+            "mute": "yes",
+            "loop": "yes",
+            "controls": "",
+            "play_on_mobile": "yes",
+            "download_button": "",
+            "poster": {
+             "url": "/wp-content/uploads/lathill/clip-roast.jpg",
+             "id": ""
+            }
+           },
+           "elements": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "42cee79",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section",
+    "_element_id": "beans"
+   },
+   "elements": [
+    {
+     "id": "247c4f5",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "12",
+       "row": "12",
+       "isLinked": true,
+       "unit": "px",
+       "size": 12
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "width": {
+       "unit": "%",
+       "size": 62,
+       "sizes": []
+      },
+      "width_tablet": {
+       "unit": "%",
+       "size": 90,
+       "sizes": []
+      },
+      "width_mobile": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      }
+     },
+     "elements": [
+      {
+       "id": "3a57779",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "咖啡豆",
+        "header_size": "h2",
+        "title_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 34,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "000cd71",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>当季在售 10 款。烘焙度从浅到深用 5 格表示。</p>",
+        "text_color": "#6A5546",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "e248e77",
+     "elType": "widget",
+     "widgetType": "heading",
+     "isInner": false,
+     "settings": {
+      "title": "精品单品",
+      "header_size": "h3",
+      "title_color": "#7A4A2E",
+      "typography_typography": "custom",
+      "typography_font_family": "Noto Serif SC",
+      "typography_font_size": {
+       "unit": "px",
+       "size": 22,
+       "sizes": []
+      },
+      "typography_font_weight": "700",
+      "typography_line_height": {
+       "unit": "em",
+       "size": 1.3,
+       "sizes": []
+      }
+     },
+     "elements": []
+    },
+    {
+     "id": "a8954a3",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "stretch",
+      "flex_wrap": "wrap"
+     },
+     "elements": [
+      {
+       "id": "88d7e09",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "9ac2c92",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-caudat.png",
+           "id": "",
+           "alt": "Cầu Đất 水洗波旁",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "914cebb",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>越南林同省 Cầu Đất，海拔 1,650 米</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "7c6ef19",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Cầu Đất 水洗波旁",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "5f6b328",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>柑橘、蜂蜜、茉莉花，干净清爽。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d9d5bbc",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：浅</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "581b265",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 48<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 200g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "dbd3f4c",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9AC%E1%BA%A7u%20%C4%90%E1%BA%A5t%20%E6%B0%B4%E6%B4%97%E6%B3%A2%E6%97%81%EF%BC%88200g%EF%BC%8CRM%2048%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "ad889e3",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "328a860",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-langbiang.png",
+           "id": "",
+           "alt": "朗边山 蜜处理",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "3475442",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>越南林同省 Lạc Dương，海拔 1,500 米</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "68dae44",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "朗边山 蜜处理",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d6aeedf",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>黄桃、红糖、乌龙茶，甜感饱满。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "8be4aeb",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：中浅</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "ef74205",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 52<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 200g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "26450c2",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E6%9C%97%E8%BE%B9%E5%B1%B1%20%E8%9C%9C%E5%A4%84%E7%90%86%EF%BC%88200g%EF%BC%8CRM%2052%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "11eb08b",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "c907ff9",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-sonla.png",
+           "id": "",
+           "alt": "山罗 日晒",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "fc1f619",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>越南西北山罗省，海拔 1,200 米</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "8d04934",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "山罗 日晒",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "eadbbcc",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>草莓、酒酿、可可，发酵感温和。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "8be9c64",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：中浅</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "f61ca79",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 46<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 200g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "5ade9a0",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E5%B1%B1%E7%BD%97%20%E6%97%A5%E6%99%92%EF%BC%88200g%EF%BC%8CRM%2046%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "4829cce",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "db10e06",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-robusta.png",
+           "id": "",
+           "alt": "精品罗布斯塔 日晒",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "640ddc5",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>越南多乐省 Buôn Ma Thuột，海拔 600 米</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d611e08",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "精品罗布斯塔 日晒",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "9accffb",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>黑巧克力、烤花生、黑糖，醇厚低酸。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d2b5ab6",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：中</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "7d8f110",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 38<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 200g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d93de47",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E7%B2%BE%E5%93%81%E7%BD%97%E5%B8%83%E6%96%AF%E5%A1%94%20%E6%97%A5%E6%99%92%EF%BC%88200g%EF%BC%8CRM%2038%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "7cca360",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "5695a4d",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-tasting.png",
+           "id": "",
+           "alt": "单品试饮装",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "09a1d96",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>四款当季单品</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "83d3d71",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "单品试饮装",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "62814ac",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Cầu Đất、朗边山、山罗、精品罗布斯塔各 50g，附冲煮卡。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "92ac515",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：中浅</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "b631bf1",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 39<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 4 × 50g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "b9f41ae",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E5%8D%95%E5%93%81%E8%AF%95%E9%A5%AE%E8%A3%85%EF%BC%884%20%C3%97%2050g%EF%BC%8CRM%2039%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "cd70473",
+     "elType": "widget",
+     "widgetType": "heading",
+     "isInner": false,
+     "settings": {
+      "title": "意式拼配",
+      "header_size": "h3",
+      "title_color": "#7A4A2E",
+      "typography_typography": "custom",
+      "typography_font_family": "Noto Serif SC",
+      "typography_font_size": {
+       "unit": "px",
+       "size": 22,
+       "sizes": []
+      },
+      "typography_font_weight": "700",
+      "typography_line_height": {
+       "unit": "em",
+       "size": 1.3,
+       "sizes": []
+      }
+     },
+     "elements": []
+    },
+    {
+     "id": "6644a5a",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "stretch",
+      "flex_wrap": "wrap"
+     },
+     "elements": [
+      {
+       "id": "05df692",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "a325483",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-house.png",
+           "id": "",
+           "alt": "叻山拼配",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d5ee989",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Cầu Đất 阿拉比卡 70% + 精品罗布斯塔 30%</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "8f6c3f9",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "叻山拼配",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "e643890",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>黑巧克力、焦糖、榛果，油脂丰厚，做拿铁很稳。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "ce8916b",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：中深</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "116367c",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 45<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 250g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "6682f8d",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E5%8F%BB%E5%B1%B1%E6%8B%BC%E9%85%8D%EF%BC%88250g%EF%BC%8CRM%2045%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "bb0ad2a",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "cdab732",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-dawn.png",
+           "id": "",
+           "alt": "清晨拼配",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "8701788",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Cầu Đất 水洗 + 山罗 日晒</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "4482a3f",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "清晨拼配",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "5aa59cd",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>橙皮、牛奶巧克力、蔗糖，适合美式和浓缩。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "34c7a63",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：中</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "9ad9459",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 42<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 250g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d7f2dcf",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E6%B8%85%E6%99%A8%E6%8B%BC%E9%85%8D%EF%BC%88250g%EF%BC%8CRM%2042%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "f3277d5",
+     "elType": "widget",
+     "widgetType": "heading",
+     "isInner": false,
+     "settings": {
+      "title": "越南传统",
+      "header_size": "h3",
+      "title_color": "#7A4A2E",
+      "typography_typography": "custom",
+      "typography_font_family": "Noto Serif SC",
+      "typography_font_size": {
+       "unit": "px",
+       "size": 22,
+       "sizes": []
+      },
+      "typography_font_weight": "700",
+      "typography_line_height": {
+       "unit": "em",
+       "size": 1.3,
+       "sizes": []
+      }
+     },
+     "elements": []
+    },
+    {
+     "id": "739a08e",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "stretch",
+      "flex_wrap": "wrap"
+     },
+     "elements": [
+      {
+       "id": "2a2ece9",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "461453a",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-phin.png",
+           "id": "",
+           "alt": "经典滴滤咖啡粉",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "0aed79d",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>罗布斯塔 + 阿拉比卡，Phin 专用研磨</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "493791b",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "经典滴滤咖啡粉",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d46fae5",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>浓郁、苦甜、焦糖，加炼奶加冰最对味。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "970bffe",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：深</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "a512803",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 32<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 250g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "a0bdd96",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E7%BB%8F%E5%85%B8%E6%BB%B4%E6%BB%A4%E5%92%96%E5%95%A1%E7%B2%89%EF%BC%88250g%EF%BC%8CRM%2032%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "41013c4",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "b446449",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-phinkit.png",
+           "id": "",
+           "alt": "Phin 入门套装",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "aca1c15",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>不锈钢 Phin 滴滤壶 + 250g 经典咖啡粉</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "aaa956d",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Phin 入门套装",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "e731676",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>附图解冲煮卡，十分钟做出一杯越南冰咖啡。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1c20e4d",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：深</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "e445492",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 69<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 套装</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "6a87c97",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9APhin%20%E5%85%A5%E9%97%A8%E5%A5%97%E8%A3%85%EF%BC%88%E5%A5%97%E8%A3%85%EF%BC%8CRM%2069%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "ea48ee4",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "ede0760",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-dripbags.png",
+           "id": "",
+           "alt": "越南滴滤挂耳 10 入",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "e49e666",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>办公室与出差</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "e3a9db7",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "越南滴滤挂耳 10 入",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "3fd9177",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>叻山拼配与经典滴滤各 5 包，热水一冲就好。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "4c6e2e0",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>烘焙度：中深</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "57217d7",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 35<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 10 包</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "ed81b31",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 下单",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E8%B6%8A%E5%8D%97%E6%BB%B4%E6%BB%A4%E6%8C%82%E8%80%B3%2010%20%E5%85%A5%EF%BC%8810%20%E5%8C%85%EF%BC%8CRM%2035%EF%BC%89",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "350fb35",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "40",
+     "row": "40",
+     "isLinked": true,
+     "unit": "px",
+     "size": 40
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#2A1A12",
+    "html_tag": "section",
+    "_element_id": "plans"
+   },
+   "elements": [
+    {
+     "id": "76f6568",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "12",
+       "row": "12",
+       "isLinked": true,
+       "unit": "px",
+       "size": 12
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "width": {
+       "unit": "%",
+       "size": 62,
+       "sizes": []
+      },
+      "width_tablet": {
+       "unit": "%",
+       "size": 90,
+       "sizes": []
+      },
+      "width_mobile": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      }
+     },
+     "elements": [
+      {
+       "id": "04190e0",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "咖啡豆订阅",
+        "header_size": "h2",
+        "title_color": "#F7F0E5",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 34,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "3725589",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>每月 5 日烘焙、7 日前寄出，全马包邮。想换豆、跳过一期或暂停，WhatsApp 说一声就行。</p>",
+        "text_color": "rgba(247,240,229,0.72)",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "6b5c7c8",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "stretch"
+     },
+     "elements": [
+      {
+       "id": "f19bf23",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "32",
+         "bottom": "32",
+         "left": "32",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(247,240,229,0.16)"
+       },
+       "elements": [
+        {
+         "id": "73d5b0d",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "尝鲜",
+          "header_size": "h3",
+          "title_color": "#F7F0E5",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "dd972f7",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>一个人喝，想多试几个产区</p>",
+          "text_color": "rgba(247,240,229,0.65)",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "7200e06",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 89<span style=\"font-size:15px;font-weight:400\"> /月</span>",
+          "header_size": "div",
+          "title_color": "#F7F0E5",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_weight": "900",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.1,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "0d9526c",
+         "elType": "widget",
+         "widgetType": "icon-list",
+         "isInner": false,
+         "settings": {
+          "view": "traditional",
+          "icon_list": [
+           {
+            "text": "每月 2 包 200g 当季单品",
+            "_id": "4733b53",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           },
+           {
+            "text": "附冲煮参数卡与产地故事",
+            "_id": "adcc9d7",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           },
+           {
+            "text": "全马包邮",
+            "_id": "9dfec77",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           }
+          ],
+          "text_color": "#F7F0E5",
+          "icon_color": "#D9A86C",
+          "icon_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "space_between": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "icon_typography_typography": "custom",
+          "icon_typography_font_family": "Noto Sans SC",
+          "icon_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "icon_typography_font_weight": "400"
+         },
+         "elements": []
+        },
+        {
+         "id": "7bed2a3",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 订阅",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E9%98%85%E3%80%8C%E5%B0%9D%E9%B2%9C%E3%80%8D%E6%96%B9%E6%A1%88%E3%80%82",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#F7F0E5",
+          "hover_color": "#F7F0E5",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(247,240,229,0.12)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "14",
+           "right": "26",
+           "bottom": "14",
+           "left": "26",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(247,240,229,0.55)",
+          "button_hover_border_color": "#F7F0E5"
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "253d2de",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "32",
+         "bottom": "32",
+         "left": "32",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        }
+       },
+       "elements": [
+        {
+         "id": "86c3eba",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p><span style=\"display:inline-block;background:#9E2B25;color:#FFF8F0;border-radius:999px;padding:2px 12px\">最多人选</span></p>",
+          "text_color": "#FFF8F0",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "8f501d6",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "常饮",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "670f09d",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>每天一两杯，手冲和意式都喝</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "4f66544",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 159<span style=\"font-size:15px;font-weight:400\"> /月</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_weight": "900",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.1,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "99d2a02",
+         "elType": "widget",
+         "widgetType": "icon-list",
+         "isInner": false,
+         "settings": {
+          "view": "traditional",
+          "icon_list": [
+           {
+            "text": "每月 4 包，单品或拼配自由搭配",
+            "_id": "5ebfdde",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           },
+           {
+            "text": "首次订阅送不锈钢 Phin 滴滤壶",
+            "_id": "513a869",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           },
+           {
+            "text": "优先尝到限量批次",
+            "_id": "2e59a5f",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           },
+           {
+            "text": "随时暂停、跳过或取消",
+            "_id": "2832cb2",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           }
+          ],
+          "text_color": "#2A1A12",
+          "icon_color": "#9E2B25",
+          "icon_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "space_between": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "icon_typography_typography": "custom",
+          "icon_typography_font_family": "Noto Sans SC",
+          "icon_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "icon_typography_font_weight": "400"
+         },
+         "elements": []
+        },
+        {
+         "id": "516f773",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "WhatsApp 订阅",
+          "link": {
+           "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E9%98%85%E3%80%8C%E5%B8%B8%E9%A5%AE%E3%80%8D%E6%96%B9%E6%A1%88%E3%80%82",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#FFF8F0",
+          "hover_color": "#FFF8F0",
+          "background_background": "classic",
+          "background_color": "#9E2B25",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "#82211C",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "14",
+           "right": "26",
+           "bottom": "14",
+           "left": "26",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "a74339d",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "32",
+         "bottom": "32",
+         "left": "32",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(247,240,229,0.16)"
+       },
+       "elements": [
+        {
+         "id": "839451b",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "办公室",
+          "header_size": "h3",
+          "title_color": "#F7F0E5",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "73ba41c",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>10–30 人团队的日常咖啡</p>",
+          "text_color": "rgba(247,240,229,0.65)",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "edb07b4",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 380<span style=\"font-size:15px;font-weight:400\"> /月起</span>",
+          "header_size": "div",
+          "title_color": "#F7F0E5",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_weight": "900",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.1,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "f17708e",
+         "elType": "widget",
+         "widgetType": "icon-list",
+         "isInner": false,
+         "settings": {
+          "view": "traditional",
+          "icon_list": [
+           {
+            "text": "每月 2kg 意式或滴滤咖啡，可随时加量",
+            "_id": "c6b3fc6",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           },
+           {
+            "text": "可借用磨豆机",
+            "_id": "6e93ca0",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           },
+           {
+            "text": "巴生谷免费上门调试一次",
+            "_id": "8debd49",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           },
+           {
+            "text": "月结电子发票",
+            "_id": "fcf3a86",
+            "selected_icon": {
+             "value": "fas fa-check",
+             "library": "fa-solid"
+            },
+            "link": {
+             "url": ""
+            }
+           }
+          ],
+          "text_color": "#F7F0E5",
+          "icon_color": "#D9A86C",
+          "icon_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "space_between": {
+           "unit": "px",
+           "size": 10,
+           "sizes": []
+          },
+          "icon_typography_typography": "custom",
+          "icon_typography_font_family": "Noto Sans SC",
+          "icon_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "icon_typography_font_weight": "400"
+         },
+         "elements": []
+        },
+        {
+         "id": "9402d97",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "咨询办公室方案",
+          "link": {
+           "url": "/contact/#reserve",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#F7F0E5",
+          "hover_color": "#F7F0E5",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(247,240,229,0.12)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "14",
+           "right": "26",
+           "bottom": "14",
+           "left": "26",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(247,240,229,0.55)",
+          "button_hover_border_color": "#F7F0E5"
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "77838d7",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "0",
+     "row": "0",
+     "isLinked": true,
+     "unit": "px",
+     "size": 0
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "b4d00af",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "12",
+       "row": "12",
+       "isLinked": true,
+       "unit": "px",
+       "size": 12
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "width": {
+       "unit": "%",
+       "size": 62,
+       "sizes": []
+      },
+      "width_tablet": {
+       "unit": "%",
+       "size": 90,
+       "sizes": []
+      },
+      "width_mobile": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      }
+     },
+     "elements": [
+      {
+       "id": "7149cc0",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "批发与合作",
+        "header_size": "h2",
+        "title_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 34,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "f1e8f8b",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>咖啡馆、公司，或想做自己咖啡品牌的你，都可以找我们。</p>",
+        "text_color": "#6A5546",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "a9bd7c2",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "0",
+       "bottom": "20",
+       "left": "0",
+       "isLinked": false
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start",
+      "flex_justify_content": "space-between",
+      "border_border": "solid",
+      "border_width": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "1",
+       "left": "0",
+       "isLinked": false
+      },
+      "border_color": "rgba(42,26,18,0.14)"
+     },
+     "elements": [
+      {
+       "id": "bc54fb6",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "4",
+         "row": "4",
+         "isLinked": true,
+         "unit": "px",
+         "size": 4
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "6960a1e",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "咖啡馆批发",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d5e7918",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>为咖啡馆和餐厅定制烘焙曲线，每周固定出炉，免费提供样品。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "e80c216",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>起订量：每周 3kg</p>",
+        "text_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "5ca79a4",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "RM 110/kg 起",
+        "header_size": "div",
+        "title_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        },
+        "align": "right"
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "3af2d5f",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "0",
+       "bottom": "20",
+       "left": "0",
+       "isLinked": false
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start",
+      "flex_justify_content": "space-between",
+      "border_border": "solid",
+      "border_width": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "1",
+       "left": "0",
+       "isLinked": false
+      },
+      "border_color": "rgba(42,26,18,0.14)"
+     },
+     "elements": [
+      {
+       "id": "f370ef2",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "4",
+         "row": "4",
+         "isLinked": true,
+         "unit": "px",
+         "size": 4
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "05ba873",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "企业礼盒",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "3cb99ee",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>农历新年、开斋节、屠妖节等节庆礼盒，可加印企业 logo 腰封。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "87701c6",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>起订量：20 盒</p>",
+        "text_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "1f38e22",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "RM 68/盒起",
+        "header_size": "div",
+        "title_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        },
+        "align": "right"
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "66e4d4f",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "0",
+       "bottom": "20",
+       "left": "0",
+       "isLinked": false
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start",
+      "flex_justify_content": "space-between",
+      "border_border": "solid",
+      "border_width": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "1",
+       "left": "0",
+       "isLinked": false
+      },
+      "border_color": "rgba(42,26,18,0.14)"
+     },
+     "elements": [
+      {
+       "id": "c159b2c",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "4",
+         "row": "4",
+         "isLinked": true,
+         "unit": "px",
+         "size": 4
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "1283e2c",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "线上手冲课",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "d1cfe05",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>60 分钟 Google Meet 小班课，课前寄出 2 × 50g 练习豆。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "f1a61f1",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>起订量：每月两场，每场 8 人</p>",
+        "text_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "4763a1d",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "RM 59/人",
+        "header_size": "div",
+        "title_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        },
+        "align": "right"
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "8c73fe0",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "0",
+       "bottom": "20",
+       "left": "0",
+       "isLinked": false
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start",
+      "flex_justify_content": "space-between",
+      "border_border": "solid",
+      "border_width": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "1",
+       "left": "0",
+       "isLinked": false
+      },
+      "border_color": "rgba(42,26,18,0.14)"
+     },
+     "elements": [
+      {
+       "id": "64b8132",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "4",
+         "row": "4",
+         "isLinked": true,
+         "unit": "px",
+         "size": 4
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "6128435",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "自有品牌代烘",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "28d3073",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>用叻山的越南生豆和烘焙曲线，做你自己品牌的咖啡豆。</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans SC",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.75,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "65b70d8",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>起订量：10kg</p>",
+        "text_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.75,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "2f7bce4",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "RM 95/kg 起",
+        "header_size": "div",
+        "title_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        },
+        "align": "right"
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "d05c7b3",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "16",
+       "row": "16",
+       "isLinked": true,
+       "unit": "px",
+       "size": 16
+      },
+      "padding": {
+       "unit": "px",
+       "top": "16",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "flex_align_items": "flex-start"
+     },
+     "elements": [
+      {
+       "id": "2e1cfab",
+       "elType": "widget",
+       "widgetType": "button",
+       "isInner": false,
+       "settings": {
+        "text": "咨询合作",
+        "link": {
+         "url": "/contact/#reserve",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "button_text_color": "#FFF8F0",
+        "hover_color": "#FFF8F0",
+        "background_background": "classic",
+        "background_color": "#9E2B25",
+        "button_background_hover_background": "classic",
+        "button_background_hover_color": "#82211C",
+        "border_radius": {
+         "unit": "px",
+         "top": "999",
+         "right": "999",
+         "bottom": "999",
+         "left": "999",
+         "isLinked": true
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "26",
+         "bottom": "14",
+         "left": "26",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "typography_font_weight": "500",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.2,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6166275",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "32",
+     "row": "32",
+     "isLinked": true,
+     "unit": "px",
+     "size": 32
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F7F0E5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "98d5e11",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "12",
+       "row": "12",
+       "isLinked": true,
+       "unit": "px",
+       "size": 12
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "width": {
+       "unit": "%",
+       "size": 62,
+       "sizes": []
+      },
+      "width_tablet": {
+       "unit": "%",
+       "size": 90,
+       "sizes": []
+      },
+      "width_mobile": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      }
+     },
+     "elements": [
+      {
+       "id": "086eda0",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "常见问题",
+        "header_size": "h2",
+        "title_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif SC",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 34,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "7b2f56f",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "16",
+       "row": "16",
+       "isLinked": true,
+       "unit": "px",
+       "size": 16
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "width": {
+       "unit": "%",
+       "size": 72,
+       "sizes": []
+      },
+      "width_tablet": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      },
+      "width_mobile": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      }
+     },
+     "elements": [
+      {
+       "id": "30eedf4",
+       "elType": "widget",
+       "widgetType": "accordion",
+       "isInner": false,
+       "settings": {
+        "tabs": [
+         {
+          "tab_title": "怎么下单和付款？",
+          "tab_content": "<p>点咖啡上的“WhatsApp 下单”，咖啡的名字会自动带进对话。确认订单后，我们会发付款链接，支持 FPX 网银转账、Touch 'n Go eWallet 和 DuitNow QR。</p>",
+          "_id": "b3cec90"
+         },
+         {
+          "tab_title": "多久可以收到？",
+          "tab_content": "<p>我们每周二、周五烘焙，前一天 23:59 前下单就能排进那一炉。烘好隔天寄出，西马 1–3 个工作日、东马 3–5 个工作日送达。</p>",
+          "_id": "5b171ea"
+         },
+         {
+          "tab_title": "运费怎么算？",
+          "tab_content": "<p>西马满 RM 80 包邮，未满收 RM 8；东马满 RM 150 包邮，未满收 RM 15。订阅方案全马包邮。</p>",
+          "_id": "28599df"
+         },
+         {
+          "tab_title": "可以帮我磨好粉吗？",
+          "tab_content": "<p>可以。下单时告诉我们你用的器具（手冲、法压壶、摩卡壶、意式机或 Phin），我们会按对应粗细研磨。磨好的粉建议两周内喝完。</p>",
+          "_id": "0e88ab8"
+         },
+         {
+          "tab_title": "喝不惯可以换吗？",
+          "tab_content": "<p>收货 14 天内，豆子还剩一半以上，都可以免费换一包别的，来回运费由我们负责。</p>",
+          "_id": "6172fc5"
+         }
+        ],
+        "selected_icon": {
+         "value": "fas fa-plus",
+         "library": "fa-solid"
+        },
+        "selected_active_icon": {
+         "value": "fas fa-minus",
+         "library": "fa-solid"
+        },
+        "border_color": "rgba(42,26,18,0.14)",
+        "title_background": "rgba(0,0,0,0)",
+        "title_color": "#2A1A12",
+        "tab_active_color": "#9E2B25",
+        "content_background_color": "rgba(0,0,0,0)",
+        "content_color": "#6A5546",
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Noto Serif SC",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 19,
+         "sizes": []
+        },
+        "title_typography_font_weight": "700",
+        "content_typography_typography": "custom",
+        "content_typography_font_family": "Noto Sans SC",
+        "content_typography_font_size": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        },
+        "content_typography_font_weight": "400",
+        "content_typography_line_height": {
+         "unit": "em",
+         "size": 1.7,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "page_settings": {
+  "hide_title": "yes"
+ },
+ "version": "0.4",
+ "title": "叻山 咖啡豆与服务",
+ "type": "page"
+}

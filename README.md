@@ -1,5 +1,32 @@
 # Demo-Website
 
+## 叻山咖啡 Lat Hill Coffee – `coffee/`
+
+A bilingual (中文 / English) site for an online-only Malaysian roaster of
+Vietnamese coffee: four pages (home, about, coffee & services, contact), prices
+in RM, ordering on WhatsApp. The home page opens on a full-screen looping video
+of the Da Lat coffee hills; short clips of the harvest, roasting, phin drip and
+pour-over play in the sections as they scroll into view, and a draggable roast
+curve shows how flavour changes through the roast.
+
+- Open `coffee/index.html` in a browser. The 中 / EN switch in the header
+  changes the whole site and remembers the choice; `?lang=en` links straight to
+  English.
+- All text, in both languages, is in `coffee/tools/content.py` (also the
+  WhatsApp number, email and roast days). After editing it, rebuild:
+  `python3 coffee/tools/build_site.py` for the static pages and
+  `python3 coffee/tools/build_elementor.py` for the WordPress templates.
+- `coffee/elementor/` – Elementor templates (Chinese and English) for moving the
+  site to WordPress, with a step-by-step guide in `coffee/elementor/README.md`.
+- `coffee/assets/media/` – the videos and their poster frames, made by the
+  "Fetch coffee site media" workflow from `coffee/tools/media.txt` (seamless
+  loops: the hero plays forward and back, the clips crossfade their end into
+  their start). `coffee/assets/img/` – logo and coffee-bag PNGs for the
+  templates, rendered by `coffee/tools/render-images.js`.
+
+The videos are AI-generated placeholders, and the names, testimonials, figures
+and WhatsApp number are samples: replace them before the site goes live.
+
 ## Plumbline Builders – "From the ground up"
 
 A dark, cinematic single-page site for a design-and-build construction company.

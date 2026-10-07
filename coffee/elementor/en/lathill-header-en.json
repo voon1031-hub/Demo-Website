@@ -1,0 +1,325 @@
+{
+ "content": [
+  {
+   "id": "91c234e",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "row",
+    "flex_gap": {
+     "column": "16",
+     "row": "16",
+     "isLinked": true,
+     "unit": "px",
+     "size": 16
+    },
+    "padding": {
+     "unit": "px",
+     "top": "12",
+     "right": "24",
+     "bottom": "12",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "12",
+     "right": "16",
+     "bottom": "12",
+     "left": "16",
+     "isLinked": false
+    },
+    "flex_direction_mobile": "column",
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "flex_align_items": "center",
+    "flex_justify_content": "space-between",
+    "css_classes": "lathill-header",
+    "html_tag": "header",
+    "border_border": "solid",
+    "border_width": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "1",
+     "left": "0",
+     "isLinked": false
+    },
+    "border_color": "rgba(42,26,18,0.14)"
+   },
+   "elements": [
+    {
+     "id": "9c0bd50",
+     "elType": "widget",
+     "widgetType": "image",
+     "isInner": false,
+     "settings": {
+      "image": {
+       "url": "/wp-content/uploads/lathill/logo-dark.png",
+       "id": "",
+       "alt": "Lat Hill Coffee",
+       "source": "library"
+      },
+      "image_size": "full",
+      "align": "left",
+      "width": {
+       "unit": "px",
+       "size": 190,
+       "sizes": []
+      },
+      "link_to": "custom",
+      "link": {
+       "url": "/en/",
+       "is_external": "",
+       "nofollow": "",
+       "custom_attributes": ""
+      }
+     },
+     "elements": []
+    },
+    {
+     "id": "d155f64",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "20",
+       "row": "20",
+       "isLinked": true,
+       "unit": "px",
+       "size": 20
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "row",
+      "flex_align_items": "center",
+      "flex_justify_content": "flex-end",
+      "flex_wrap": "wrap"
+     },
+     "elements": [
+      {
+       "id": "c1e7576",
+       "elType": "widget",
+       "widgetType": "icon-list",
+       "isInner": false,
+       "settings": {
+        "view": "inline",
+        "icon_list": [
+         {
+          "text": "Home",
+          "_id": "d5a18cd",
+          "selected_icon": {
+           "value": "",
+           "library": ""
+          },
+          "link": {
+           "url": "/en/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          }
+         },
+         {
+          "text": "About",
+          "_id": "8bdff72",
+          "selected_icon": {
+           "value": "",
+           "library": ""
+          },
+          "link": {
+           "url": "/en/about-us/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          }
+         },
+         {
+          "text": "Coffee & services",
+          "_id": "9334611",
+          "selected_icon": {
+           "value": "",
+           "library": ""
+          },
+          "link": {
+           "url": "/en/our-coffee/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          }
+         },
+         {
+          "text": "Contact",
+          "_id": "627b5ee",
+          "selected_icon": {
+           "value": "",
+           "library": ""
+          },
+          "link": {
+           "url": "/en/contact-us/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          }
+         }
+        ],
+        "text_color": "#2A1A12",
+        "icon_color": "#7A4A2E",
+        "icon_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "space_between": {
+         "unit": "px",
+         "size": 24,
+         "sizes": []
+        },
+        "icon_typography_typography": "custom",
+        "icon_typography_font_family": "Noto Sans",
+        "icon_typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "icon_typography_font_weight": "400",
+        "text_color_hover": "#9E2B25"
+       },
+       "elements": []
+      },
+      {
+       "id": "feba4f3",
+       "elType": "widget",
+       "widgetType": "button",
+       "isInner": false,
+       "settings": {
+        "text": "中文",
+        "link": {
+         "url": "/",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "button_text_color": "#2A1A12",
+        "hover_color": "#2A1A12",
+        "background_background": "classic",
+        "background_color": "rgba(0,0,0,0)",
+        "button_background_hover_background": "classic",
+        "button_background_hover_color": "rgba(42,26,18,0.06)",
+        "border_radius": {
+         "unit": "px",
+         "top": "999",
+         "right": "999",
+         "bottom": "999",
+         "left": "999",
+         "isLinked": true
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "10",
+         "right": "18",
+         "bottom": "10",
+         "left": "18",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "typography_font_weight": "500",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.2,
+         "sizes": []
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.28)",
+        "button_hover_border_color": "#2A1A12"
+       },
+       "elements": []
+      },
+      {
+       "id": "dacb13e",
+       "elType": "widget",
+       "widgetType": "button",
+       "isInner": false,
+       "settings": {
+        "text": "Reserve next roast",
+        "link": {
+         "url": "/en/contact-us/#reserve",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "button_text_color": "#FFF8F0",
+        "hover_color": "#FFF8F0",
+        "background_background": "classic",
+        "background_color": "#9E2B25",
+        "button_background_hover_background": "classic",
+        "button_background_hover_color": "#82211C",
+        "border_radius": {
+         "unit": "px",
+         "top": "999",
+         "right": "999",
+         "bottom": "999",
+         "left": "999",
+         "isLinked": true
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "10",
+         "right": "18",
+         "bottom": "10",
+         "left": "18",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "typography_font_weight": "500",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.2,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "page_settings": [],
+ "version": "0.4",
+ "title": "Lat Hill Header",
+ "type": "section"
+}

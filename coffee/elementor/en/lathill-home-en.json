@@ -1,0 +1,4159 @@
+{
+ "content": [
+  {
+   "id": "f8fc00a",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "16",
+     "row": "16",
+     "isLinked": true,
+     "unit": "px",
+     "size": 16
+    },
+    "padding": {
+     "unit": "px",
+     "top": "120",
+     "right": "24",
+     "bottom": "72",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "96",
+     "right": "16",
+     "bottom": "48",
+     "left": "16",
+     "isLinked": false
+    },
+    "flex_justify_content": "flex-end",
+    "css_classes": "lathill-hero",
+    "html_tag": "section",
+    "min_height": {
+     "unit": "vh",
+     "size": 92,
+     "sizes": []
+    },
+    "min_height_mobile": {
+     "unit": "vh",
+     "size": 84,
+     "sizes": []
+    },
+    "background_background": "video",
+    "background_video_link": "/wp-content/uploads/lathill/hero-hills.mp4",
+    "background_play_on_mobile": "yes",
+    "background_video_fallback": {
+     "url": "/wp-content/uploads/lathill/hero-hills.jpg",
+     "id": ""
+    },
+    "background_overlay_background": "gradient",
+    "background_overlay_color": "rgba(26,15,10,0.86)",
+    "background_overlay_color_stop": {
+     "unit": "%",
+     "size": 0,
+     "sizes": []
+    },
+    "background_overlay_color_b": "rgba(26,15,10,0.18)",
+    "background_overlay_color_b_stop": {
+     "unit": "%",
+     "size": 100,
+     "sizes": []
+    },
+    "background_overlay_gradient_type": "linear",
+    "background_overlay_gradient_angle": {
+     "unit": "deg",
+     "size": 90,
+     "sizes": []
+    },
+    "background_overlay_gradient_angle_mobile": {
+     "unit": "deg",
+     "size": 0,
+     "sizes": []
+    }
+   },
+   "elements": [
+    {
+     "id": "5333d1e",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "20",
+       "row": "20",
+       "isLinked": true,
+       "unit": "px",
+       "size": 20
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "width": {
+       "unit": "%",
+       "size": 72,
+       "sizes": []
+      },
+      "width_tablet": {
+       "unit": "%",
+       "size": 90,
+       "sizes": []
+      },
+      "width_mobile": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      }
+     },
+     "elements": [
+      {
+       "id": "8dce483",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>● Roasted fresh every Tuesday and Friday</p>",
+        "text_color": "#F7F0E5",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "48cc8fd",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "Coffee from the hills of Da Lat,<br>roasted fresh in Malaysia",
+        "header_size": "h1",
+        "title_color": "#F7F0E5",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 72,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 56,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 36,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.18,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "4194635",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 80,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "17206b9",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>We buy green coffee straight from smallholder farms around Da Lat, roast it in small batches in the Klang Valley every Tuesday and Friday, and ship it within 48 hours. Single origins for pour-over, blends for espresso, and proper Vietnamese phin coffee.</p>",
+          "text_color": "rgba(247,240,229,0.88)",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 17,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "a061a7c",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "row",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "flex_direction_mobile": "row",
+        "flex_align_items": "center",
+        "flex_wrap": "wrap"
+       },
+       "elements": [
+        {
+         "id": "5285440",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Shop coffee",
+          "link": {
+           "url": "/en/our-coffee/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#FFF8F0",
+          "hover_color": "#FFF8F0",
+          "background_background": "classic",
+          "background_color": "#9E2B25",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "#82211C",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "14",
+           "right": "26",
+           "bottom": "14",
+           "left": "26",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "5efe1fa",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Reserve next roast",
+          "link": {
+           "url": "/en/contact-us/#reserve",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#F7F0E5",
+          "hover_color": "#F7F0E5",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(247,240,229,0.12)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "14",
+           "right": "26",
+           "bottom": "14",
+           "left": "26",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(247,240,229,0.55)",
+          "button_hover_border_color": "#F7F0E5"
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b7ab295",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "896a0ec",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "12",
+       "row": "12",
+       "isLinked": true,
+       "unit": "px",
+       "size": 12
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "width": {
+       "unit": "%",
+       "size": 62,
+       "sizes": []
+      },
+      "width_tablet": {
+       "unit": "%",
+       "size": 90,
+       "sizes": []
+      },
+      "width_mobile": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      }
+     },
+     "elements": [
+      {
+       "id": "1dd5491",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "One hill, two ways to drink it",
+        "header_size": "h2",
+        "title_color": "#2A1A12",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 34,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "a2c15d7",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>From the same hills we roast two lines: bright single origins for pour-over, and the bold, sweet phin coffee Vietnam is famous for.</p>",
+        "text_color": "#6A5546",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "ef41fb7",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "32",
+       "row": "32",
+       "isLinked": true,
+       "unit": "px",
+       "size": 32
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start"
+     },
+     "elements": [
+      {
+       "id": "f38678c",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 50,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 50,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "af3b2bd",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "28",
+           "right": "28",
+           "bottom": "28",
+           "left": "28",
+           "isLinked": true
+          },
+          "css_classes": "lathill-video",
+          "overflow": "hidden"
+         },
+         "elements": [
+          {
+           "id": "68e7355",
+           "elType": "widget",
+           "widgetType": "video",
+           "isInner": false,
+           "settings": {
+            "video_type": "hosted",
+            "insert_url": "yes",
+            "external_url": {
+             "url": "/wp-content/uploads/lathill/clip-pourover.mp4",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "hosted_url": {
+             "url": "/wp-content/uploads/lathill/clip-pourover.mp4",
+             "id": ""
+            },
+            "autoplay": "yes",
+            "mute": "yes",
+            "loop": "yes",
+            "controls": "",
+            "play_on_mobile": "yes",
+            "download_button": "",
+            "poster": {
+             "url": "/wp-content/uploads/lathill/clip-pourover.jpg",
+             "id": ""
+            }
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "df97c1f",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Specialty pour-over",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 24,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 22,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "de3902a",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Arabica from Cầu Đất and Langbiang, roasted light to medium for citrus, honey and floral notes.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 17,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "1e246e2",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Browse single origins",
+          "link": {
+           "url": "/en/our-coffee/#beans",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#9E2B25",
+          "hover_color": "#82211C",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(0,0,0,0)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "8b254dd",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 50,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 50,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "4d654ca",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "28",
+           "right": "28",
+           "bottom": "28",
+           "left": "28",
+           "isLinked": true
+          },
+          "css_classes": "lathill-video",
+          "overflow": "hidden"
+         },
+         "elements": [
+          {
+           "id": "f5818f8",
+           "elType": "widget",
+           "widgetType": "video",
+           "isInner": false,
+           "settings": {
+            "video_type": "hosted",
+            "insert_url": "yes",
+            "external_url": {
+             "url": "/wp-content/uploads/lathill/clip-phin.mp4",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "hosted_url": {
+             "url": "/wp-content/uploads/lathill/clip-phin.mp4",
+             "id": ""
+            },
+            "autoplay": "yes",
+            "mute": "yes",
+            "loop": "yes",
+            "controls": "",
+            "play_on_mobile": "yes",
+            "download_button": "",
+            "poster": {
+             "url": "/wp-content/uploads/lathill/clip-phin.jpg",
+             "id": ""
+            }
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "1f029e9",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Traditional phin",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 24,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 22,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "bdd4b77",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>A robusta and arabica blend, roasted dark. Add condensed milk and ice and you have cà phê sữa đá.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 17,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "5df2bf2",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Browse traditional coffee",
+          "link": {
+           "url": "/en/our-coffee/#beans",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#9E2B25",
+          "hover_color": "#82211C",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(0,0,0,0)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 16,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "38a7e76",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#F7F0E5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "cd28fde",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "64",
+       "row": "64",
+       "isLinked": true,
+       "unit": "px",
+       "size": 64
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "center"
+     },
+     "elements": [
+      {
+       "id": "343687f",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 46,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "423e624",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "border_radius": {
+           "unit": "px",
+           "top": "28",
+           "right": "28",
+           "bottom": "28",
+           "left": "28",
+           "isLinked": true
+          },
+          "css_classes": "lathill-video",
+          "overflow": "hidden"
+         },
+         "elements": [
+          {
+           "id": "94c3104",
+           "elType": "widget",
+           "widgetType": "video",
+           "isInner": false,
+           "settings": {
+            "video_type": "hosted",
+            "insert_url": "yes",
+            "external_url": {
+             "url": "/wp-content/uploads/lathill/clip-roast.mp4",
+             "is_external": "",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "hosted_url": {
+             "url": "/wp-content/uploads/lathill/clip-roast.mp4",
+             "id": ""
+            },
+            "autoplay": "yes",
+            "mute": "yes",
+            "loop": "yes",
+            "controls": "",
+            "play_on_mobile": "yes",
+            "download_button": "",
+            "poster": {
+             "url": "/wp-content/uploads/lathill/clip-roast.jpg",
+             "id": ""
+            }
+           },
+           "elements": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "39ac27b",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "24",
+         "row": "24",
+         "isLinked": true,
+         "unit": "px",
+         "size": 24
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 54,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "ea75d64",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "From the hills of Da Lat to your cup",
+          "header_size": "h2",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 34,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "798d274",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "flex_direction_mobile": "row",
+          "flex_align_items": "flex-start"
+         },
+         "elements": [
+          {
+           "id": "7f3a52f",
+           "elType": "container",
+           "isInner": true,
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+             "column": "16",
+             "row": "16",
+             "isLinked": true,
+             "unit": "px",
+             "size": 16
+            },
+            "padding": {
+             "unit": "px",
+             "top": "0",
+             "right": "0",
+             "bottom": "0",
+             "left": "0",
+             "isLinked": true
+            },
+            "background_background": "classic",
+            "background_color": "#E9DBC5",
+            "border_radius": {
+             "unit": "px",
+             "top": "999",
+             "right": "999",
+             "bottom": "999",
+             "left": "999",
+             "isLinked": true
+            },
+            "flex_align_items": "center",
+            "flex_justify_content": "center",
+            "border_border": "solid",
+            "border_width": {
+             "unit": "px",
+             "top": "1",
+             "right": "1",
+             "bottom": "1",
+             "left": "1",
+             "isLinked": true
+            },
+            "border_color": "rgba(122,74,46,0.35)",
+            "width": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "width_mobile": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "min_height": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "_flex_size": "none"
+           },
+           "elements": [
+            {
+             "id": "f9f7bee",
+             "elType": "widget",
+             "widgetType": "heading",
+             "isInner": false,
+             "settings": {
+              "title": "1",
+              "header_size": "div",
+              "title_color": "#7A4A2E",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Serif",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 20,
+               "sizes": []
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.3,
+               "sizes": []
+              },
+              "align": "center"
+             },
+             "elements": []
+            }
+           ]
+          },
+          {
+           "id": "8a1a621",
+           "elType": "container",
+           "isInner": true,
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+             "column": "4",
+             "row": "4",
+             "isLinked": true,
+             "unit": "px",
+             "size": 4
+            },
+            "padding": {
+             "unit": "px",
+             "top": "0",
+             "right": "0",
+             "bottom": "0",
+             "left": "0",
+             "isLinked": true
+            }
+           },
+           "elements": [
+            {
+             "id": "73c491e",
+             "elType": "widget",
+             "widgetType": "heading",
+             "isInner": false,
+             "settings": {
+              "title": "Hand-picked by smallholders",
+              "header_size": "h3",
+              "title_color": "#2A1A12",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Serif",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 20,
+               "sizes": []
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.3,
+               "sizes": []
+              }
+             },
+             "elements": []
+            },
+            {
+             "id": "0333da1",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "isInner": false,
+             "settings": {
+              "editor": "<p>Our nine partner farms pick only ripe red cherries. Every harvest we go up the hills to cup with them and choose the lots.</p>",
+              "text_color": "#6A5546",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Sans",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 16,
+               "sizes": []
+              },
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.6,
+               "sizes": []
+              }
+             },
+             "elements": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "id": "e0441ce",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "flex_direction_mobile": "row",
+          "flex_align_items": "flex-start"
+         },
+         "elements": [
+          {
+           "id": "1ce219e",
+           "elType": "container",
+           "isInner": true,
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+             "column": "16",
+             "row": "16",
+             "isLinked": true,
+             "unit": "px",
+             "size": 16
+            },
+            "padding": {
+             "unit": "px",
+             "top": "0",
+             "right": "0",
+             "bottom": "0",
+             "left": "0",
+             "isLinked": true
+            },
+            "background_background": "classic",
+            "background_color": "#E9DBC5",
+            "border_radius": {
+             "unit": "px",
+             "top": "999",
+             "right": "999",
+             "bottom": "999",
+             "left": "999",
+             "isLinked": true
+            },
+            "flex_align_items": "center",
+            "flex_justify_content": "center",
+            "border_border": "solid",
+            "border_width": {
+             "unit": "px",
+             "top": "1",
+             "right": "1",
+             "bottom": "1",
+             "left": "1",
+             "isLinked": true
+            },
+            "border_color": "rgba(122,74,46,0.35)",
+            "width": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "width_mobile": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "min_height": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "_flex_size": "none"
+           },
+           "elements": [
+            {
+             "id": "a7ff5c6",
+             "elType": "widget",
+             "widgetType": "heading",
+             "isInner": false,
+             "settings": {
+              "title": "2",
+              "header_size": "div",
+              "title_color": "#7A4A2E",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Serif",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 20,
+               "sizes": []
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.3,
+               "sizes": []
+              },
+              "align": "center"
+             },
+             "elements": []
+            }
+           ]
+          },
+          {
+           "id": "9c13345",
+           "elType": "container",
+           "isInner": true,
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+             "column": "4",
+             "row": "4",
+             "isLinked": true,
+             "unit": "px",
+             "size": 4
+            },
+            "padding": {
+             "unit": "px",
+             "top": "0",
+             "right": "0",
+             "bottom": "0",
+             "left": "0",
+             "isLinked": true
+            }
+           },
+           "elements": [
+            {
+             "id": "9890a81",
+             "elType": "widget",
+             "widgetType": "heading",
+             "isInner": false,
+             "settings": {
+              "title": "Imported direct",
+              "header_size": "h3",
+              "title_color": "#2A1A12",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Serif",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 20,
+               "sizes": []
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.3,
+               "sizes": []
+              }
+             },
+             "elements": []
+            },
+            {
+             "id": "56483c3",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "isInner": false,
+             "settings": {
+              "editor": "<p>We buy green coffee straight from farms and their washing stations, paying at least 25% above local market price.</p>",
+              "text_color": "#6A5546",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Sans",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 16,
+               "sizes": []
+              },
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.6,
+               "sizes": []
+              }
+             },
+             "elements": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "id": "0d2ac37",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "flex_direction_mobile": "row",
+          "flex_align_items": "flex-start"
+         },
+         "elements": [
+          {
+           "id": "f332ab2",
+           "elType": "container",
+           "isInner": true,
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+             "column": "16",
+             "row": "16",
+             "isLinked": true,
+             "unit": "px",
+             "size": 16
+            },
+            "padding": {
+             "unit": "px",
+             "top": "0",
+             "right": "0",
+             "bottom": "0",
+             "left": "0",
+             "isLinked": true
+            },
+            "background_background": "classic",
+            "background_color": "#E9DBC5",
+            "border_radius": {
+             "unit": "px",
+             "top": "999",
+             "right": "999",
+             "bottom": "999",
+             "left": "999",
+             "isLinked": true
+            },
+            "flex_align_items": "center",
+            "flex_justify_content": "center",
+            "border_border": "solid",
+            "border_width": {
+             "unit": "px",
+             "top": "1",
+             "right": "1",
+             "bottom": "1",
+             "left": "1",
+             "isLinked": true
+            },
+            "border_color": "rgba(122,74,46,0.35)",
+            "width": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "width_mobile": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "min_height": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "_flex_size": "none"
+           },
+           "elements": [
+            {
+             "id": "1cf846a",
+             "elType": "widget",
+             "widgetType": "heading",
+             "isInner": false,
+             "settings": {
+              "title": "3",
+              "header_size": "div",
+              "title_color": "#7A4A2E",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Serif",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 20,
+               "sizes": []
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.3,
+               "sizes": []
+              },
+              "align": "center"
+             },
+             "elements": []
+            }
+           ]
+          },
+          {
+           "id": "ba6bb39",
+           "elType": "container",
+           "isInner": true,
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+             "column": "4",
+             "row": "4",
+             "isLinked": true,
+             "unit": "px",
+             "size": 4
+            },
+            "padding": {
+             "unit": "px",
+             "top": "0",
+             "right": "0",
+             "bottom": "0",
+             "left": "0",
+             "isLinked": true
+            }
+           },
+           "elements": [
+            {
+             "id": "be326a7",
+             "elType": "widget",
+             "widgetType": "heading",
+             "isInner": false,
+             "settings": {
+              "title": "Roasted twice a week",
+              "header_size": "h3",
+              "title_color": "#2A1A12",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Serif",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 20,
+               "sizes": []
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.3,
+               "sizes": []
+              }
+             },
+             "elements": []
+            },
+            {
+             "id": "cbb6963",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "isInner": false,
+             "settings": {
+              "editor": "<p>Every Tuesday and Friday at our Klang Valley roastery, no more than 5 kg a batch, each coffee on its own profile.</p>",
+              "text_color": "#6A5546",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Sans",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 16,
+               "sizes": []
+              },
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.6,
+               "sizes": []
+              }
+             },
+             "elements": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "id": "6b01eef",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": true
+          },
+          "flex_direction_mobile": "row",
+          "flex_align_items": "flex-start"
+         },
+         "elements": [
+          {
+           "id": "c21dc48",
+           "elType": "container",
+           "isInner": true,
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+             "column": "16",
+             "row": "16",
+             "isLinked": true,
+             "unit": "px",
+             "size": 16
+            },
+            "padding": {
+             "unit": "px",
+             "top": "0",
+             "right": "0",
+             "bottom": "0",
+             "left": "0",
+             "isLinked": true
+            },
+            "background_background": "classic",
+            "background_color": "#E9DBC5",
+            "border_radius": {
+             "unit": "px",
+             "top": "999",
+             "right": "999",
+             "bottom": "999",
+             "left": "999",
+             "isLinked": true
+            },
+            "flex_align_items": "center",
+            "flex_justify_content": "center",
+            "border_border": "solid",
+            "border_width": {
+             "unit": "px",
+             "top": "1",
+             "right": "1",
+             "bottom": "1",
+             "left": "1",
+             "isLinked": true
+            },
+            "border_color": "rgba(122,74,46,0.35)",
+            "width": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "width_mobile": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "min_height": {
+             "unit": "px",
+             "size": 44,
+             "sizes": []
+            },
+            "_flex_size": "none"
+           },
+           "elements": [
+            {
+             "id": "2647728",
+             "elType": "widget",
+             "widgetType": "heading",
+             "isInner": false,
+             "settings": {
+              "title": "4",
+              "header_size": "div",
+              "title_color": "#7A4A2E",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Serif",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 20,
+               "sizes": []
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.3,
+               "sizes": []
+              },
+              "align": "center"
+             },
+             "elements": []
+            }
+           ]
+          },
+          {
+           "id": "930bff9",
+           "elType": "container",
+           "isInner": true,
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+             "column": "4",
+             "row": "4",
+             "isLinked": true,
+             "unit": "px",
+             "size": 4
+            },
+            "padding": {
+             "unit": "px",
+             "top": "0",
+             "right": "0",
+             "bottom": "0",
+             "left": "0",
+             "isLinked": true
+            }
+           },
+           "elements": [
+            {
+             "id": "ae3777c",
+             "elType": "widget",
+             "widgetType": "heading",
+             "isInner": false,
+             "settings": {
+              "title": "Shipped within 48 hours",
+              "header_size": "h3",
+              "title_color": "#2A1A12",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Serif",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 20,
+               "sizes": []
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.3,
+               "sizes": []
+              }
+             },
+             "elements": []
+            },
+            {
+             "id": "a62677f",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "isInner": false,
+             "settings": {
+              "editor": "<p>Bags leave the day after roasting and reach West Malaysia in 1–3 working days, with the roast date printed on each one.</p>",
+              "text_color": "#6A5546",
+              "typography_typography": "custom",
+              "typography_font_family": "Noto Sans",
+              "typography_font_size": {
+               "unit": "px",
+               "size": 16,
+               "sizes": []
+              },
+              "typography_line_height": {
+               "unit": "em",
+               "size": 1.6,
+               "sizes": []
+              }
+             },
+             "elements": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8507d61",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#2A1A12",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "786325b",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "64",
+       "row": "64",
+       "isLinked": true,
+       "unit": "px",
+       "size": 64
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "center"
+     },
+     "elements": [
+      {
+       "id": "f87e628",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 38,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "5a2fc6c",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Drag the curve to find your cup",
+          "header_size": "h2",
+          "title_color": "#F7F0E5",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 34,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "ca3bbec",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>The same bean tastes completely different depending on when the roast stops. This is our profile for the Cầu Đất Washed Bourbon: drag along it to see the colour and flavour at each moment.</p>",
+          "text_color": "rgba(247,240,229,0.72)",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 19,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "11ae6ac",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 62,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "6e3bf66",
+         "elType": "widget",
+         "widgetType": "html",
+         "isInner": false,
+         "settings": {
+          "html": "<div class=\"lh-roast\">\n<style>\n.lh-roast .roast-card{margin:0;background:#3d281d;color:#f7f0e5;border-radius:28px;padding:32px}\n.lh-roast .roast-card-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:16px;flex-wrap:wrap}\n.lh-roast .roast-card-head h3{margin:0;font-family:\"Noto Serif\",serif;font-size:20px;color:#f7f0e5}\n.lh-roast .roast-card-head span{font-size:13px;color:rgba(247,240,229,.6)}\n.lh-roast .roast-chart{position:relative}\n.lh-roast .roast-chart svg{display:block;width:100%;height:auto;overflow:visible;cursor:ew-resize;touch-action:pan-y}\n.lh-roast .grid line{stroke:rgba(247,240,229,.08)}\n.lh-roast .axis text{fill:rgba(247,240,229,.55);font-size:11px}\n.lh-roast .marker line{stroke:rgba(217,168,108,.55);stroke-dasharray:3 4}\n.lh-roast .marker text{fill:#d9a86c;font-size:11px}\n.lh-roast .curve{fill:none;stroke:url(#curveGrad);stroke-width:3;stroke-linecap:round}\n.lh-roast .curve-area{fill:url(#areaGrad)}\n.lh-roast .cursor-line{stroke:rgba(247,240,229,.5)}\n.lh-roast .cursor-dot{stroke:#f7f0e5;stroke-width:3}\n.lh-roast .roast-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;pointer-events:none}\n.lh-roast .roast-chart:has(.roast-range:focus-visible){outline:3px solid #d9a86c;outline-offset:6px;border-radius:8px}\n.lh-roast .roast-readout{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-top:24px;padding-top:24px;border-top:1px solid rgba(247,240,229,.12)}\n.lh-roast .bean-swatch{width:64px;height:64px}\n.lh-roast .roast-stats{display:flex;flex-wrap:wrap;gap:4px 24px;margin:0;font-size:15px;color:rgba(247,240,229,.65)}\n.lh-roast .roast-stats b{color:#f7f0e5;font-weight:500}\n.lh-roast .roast-stage{margin:0;font-family:\"Noto Serif\",serif;font-size:26px;line-height:1.3;color:#f7f0e5}\n.lh-roast .roast-notes{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0;list-style:none}\n.lh-roast .roast-notes li{margin:0;font-size:13px;padding:2px 10px;border-radius:999px;background:rgba(217,168,108,.16);color:#d9a86c}\n.lh-roast .roast-hint{margin:16px 0 0;font-size:13px;color:rgba(247,240,229,.55)}\n@media (max-width:640px){.lh-roast .roast-card{padding:20px}}\n</style>\n<figure class=\"roast-card\" id=\"lh-roast-en\">\n  <div class=\"roast-card-head\"><h3>Roast profile: Cầu Đất Washed Bourbon</h3><span>Bean temp / time</span></div>\n  <div class=\"roast-chart\" data-roast-chart>\n    <svg role=\"presentation\" focusable=\"false\"></svg>\n    <label style=\"position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)\" for=\"lh-roast-range\">Roast time</label>\n    <input class=\"roast-range\" id=\"lh-roast-range\" type=\"range\" min=\"0\" max=\"720\" step=\"5\" value=\"525\">\n  </div>\n  <figcaption class=\"roast-readout\">\n    <svg class=\"bean-swatch\" viewBox=\"0 0 64 64\" aria-hidden=\"true\"><g transform=\"rotate(30 32 32)\"><ellipse data-bean cx=\"32\" cy=\"32\" rx=\"20\" ry=\"27\" fill=\"#74432a\"/><path d=\"M32 7c-8 12 8 38 0 50\" stroke=\"rgba(0,0,0,.35)\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/></g></svg>\n    <div>\n      <div class=\"roast-stats\"><span>Time <b data-out-time>8:45</b></span><span>Bean temp <b data-out-temp>208°C</b></span></div>\n      <p class=\"roast-stage\" data-out-stage>Light-medium roast</p>\n      <p class=\"roast-stats\" data-out-use>Our standard pour-over profile</p>\n      <ul class=\"roast-notes\" data-out-notes></ul>\n    </div>\n  </figcaption>\n  <p class=\"roast-hint\">Drag along the curve, or use the arrow keys.</p>\n</figure>\n<script>\n/* 叻山咖啡 Lat Hill — interactive roast curve\n   Used by the static home page, and inlined into the Elementor HTML widget.\n\n   LatHillRoastCurve.init(chartElement, data, getLang)\n     data     { markers, turning, stages } from tools/content.py. Each text is\n              either a plain string, or { zh, en } to write both languages\n              (the static site's CSS shows the active one).\n     getLang  optional function returning \"zh\" or \"en\", used for the value\n              screen readers announce. */\n(function () {\n  \"use strict\";\n  if (window.LatHillRoastCurve) return;\n\n  var NS = \"http://www.w3.org/2000/svg\";\n  var T_MIN = 50, T_MAX = 250, DURATION = 12; // °C, minutes\n\n  function esc(s) {\n    return String(s).replace(/[&<>\"']/g, function (c) {\n      return { \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\", '\"': \"&quot;\", \"'\": \"&#39;\" }[c];\n    });\n  }\n  function html(x) {\n    return typeof x === \"string\" ? esc(x) : '<span lang=\"zh-Hans\">' + x.zh + '</span><span lang=\"en\">' + x.en + \"</span>\";\n  }\n  function pick(x, l) { return typeof x === \"string\" ? x : x[l]; }\n\n  // Bean temperature over a 12-minute roast: drop after charging, turning\n  // point at 1:30, then a rise that slows down towards the end.\n  function temp(t) {\n    if (t < 1.5) return 200 - 110 * Math.sin((t / 1.5) * Math.PI / 2);\n    var k = 6;\n    return 90 + 138 * (1 - Math.exp(-(t - 1.5) / k)) / (1 - Math.exp(-10.5 / k));\n  }\n  function timeAt(T) { // first moment after the turning point the bean reaches T\n    var lo = 1.5, hi = DURATION;\n    for (var i = 0; i < 40; i++) { var mid = (lo + hi) / 2; if (temp(mid) < T) lo = mid; else hi = mid; }\n    return (lo + hi) / 2;\n  }\n  var colorStops = [\n    [90, [143, 149, 102]], [150, [195, 168, 94]], [175, [176, 122, 62]],\n    [196, [147, 88, 47]], [210, [116, 67, 42]], [222, [85, 50, 32]], [230, [53, 32, 26]]\n  ];\n  function beanColor(T) {\n    var c = colorStops[colorStops.length - 1][1];\n    if (T <= colorStops[0][0]) c = colorStops[0][1];\n    else for (var i = 1; i < colorStops.length; i++) {\n      if (T <= colorStops[i][0]) {\n        var a = colorStops[i - 1], b = colorStops[i], p = (T - a[0]) / (b[0] - a[0]);\n        c = a[1].map(function (v, j) { return Math.round(v + (b[1][j] - v) * p); });\n        break;\n      }\n    }\n    return \"rgb(\" + c.join(\",\") + \")\";\n  }\n  function clock(sec) { var s = Math.round(sec); return Math.floor(s / 60) + \":\" + String(s % 60).padStart(2, \"0\"); }\n\n  function init(chart, data, getLang) {\n    var card = chart.closest(\".roast-card\") || chart.parentNode;\n    var svg = chart.querySelector(\"svg\");\n    var range = chart.querySelector(\".roast-range\");\n    var lang = getLang || function () { return \"zh\"; };\n    // Plot box in SVG units; phones get a narrower viewBox so the labels stay legible\n    var W, H, X0, X1, Y0, Y1, compact = null, cLine, cDot;\n    function x(t) { return X0 + (t / DURATION) * (X1 - X0); }\n    function y(T) { return Y1 - ((T - T_MIN) / (T_MAX - T_MIN)) * (Y1 - Y0); }\n    function el(name, attrs, parent) {\n      var n = document.createElementNS(NS, name);\n      for (var k in attrs) n.setAttribute(k, attrs[k]);\n      (parent || svg).appendChild(n);\n      return n;\n    }\n\n    function draw() {\n      var isCompact = svg.getBoundingClientRect().width < 460;\n      if (isCompact === compact) return false;\n      compact = isCompact;\n      W = compact ? 380 : 560; H = compact ? 270 : 300;\n      X0 = compact ? 36 : 44; X1 = W - 16; Y0 = 20; Y1 = H - 36;\n      svg.innerHTML = \"\";\n      svg.setAttribute(\"viewBox\", \"0 0 \" + W + \" \" + H);\n\n      var defs = el(\"defs\", {});\n      var cg = el(\"linearGradient\", { id: \"curveGrad\", x1: \"0\", x2: \"1\", y1: \"0\", y2: \"0\" }, defs);\n      [[\"0%\", \"#8f9566\"], [\"45%\", \"#c3a85e\"], [\"75%\", \"#d9a86c\"], [\"100%\", \"#b8643a\"]].forEach(function (s) {\n        el(\"stop\", { offset: s[0], \"stop-color\": s[1] }, cg);\n      });\n      var ag = el(\"linearGradient\", { id: \"areaGrad\", x1: \"0\", x2: \"0\", y1: \"0\", y2: \"1\" }, defs);\n      el(\"stop\", { offset: \"0%\", \"stop-color\": \"#d9a86c\", \"stop-opacity\": \"0.22\" }, ag);\n      el(\"stop\", { offset: \"100%\", \"stop-color\": \"#d9a86c\", \"stop-opacity\": \"0\" }, ag);\n\n      var grid = el(\"g\", { class: \"grid\" }), axis = el(\"g\", { class: \"axis\" });\n      for (var T = 50; T <= 250; T += 50) {\n        el(\"line\", { x1: X0, x2: X1, y1: y(T), y2: y(T) }, grid);\n        el(\"text\", { x: X0 - 8, y: y(T) + 4, \"text-anchor\": \"end\" }, axis).textContent = T + \"°\";\n      }\n      for (var m = 0; m <= DURATION; m += 2) {\n        el(\"text\", { x: x(m), y: H - 12, \"text-anchor\": \"middle\" }, axis).textContent = m + \"′\";\n      }\n\n      // Roast events (labelled in both languages when given both)\n      var markers = el(\"g\", { class: \"marker\" });\n      [[160, \"yellow\"], [196, \"first\"], [224, \"second\"]].forEach(function (mk) {\n        var mx = x(timeAt(mk[0])), label = data.markers[mk[1]];\n        el(\"line\", { x1: mx, x2: mx, y1: Y0 + 14, y2: Y1 }, markers);\n        if (typeof label === \"string\") {\n          el(\"text\", { x: mx, y: Y0 + 4, \"text-anchor\": \"middle\" }, markers).textContent = label;\n        } else {\n          el(\"text\", { x: mx, y: Y0 + 4, \"text-anchor\": \"middle\", lang: \"zh-Hans\" }, markers).textContent = label.zh;\n          el(\"text\", { x: mx, y: Y0 + 4, \"text-anchor\": \"middle\", lang: \"en\" }, markers).textContent = label.en;\n        }\n      });\n\n      var pts = [];\n      for (var i = 0; i <= 240; i++) {\n        var t = (i / 240) * DURATION;\n        pts.push(x(t).toFixed(1) + \",\" + y(temp(t)).toFixed(1));\n      }\n      el(\"path\", { class: \"curve-area\", d: \"M\" + pts.join(\" L\") + \" L\" + X1 + \",\" + Y1 + \" L\" + X0 + \",\" + Y1 + \" Z\" });\n      var curve = el(\"path\", { class: \"curve\", d: \"M\" + pts.join(\" L\") });\n      chart.style.setProperty(\"--len\", Math.ceil(curve.getTotalLength()));\n\n      var cursor = el(\"g\", { class: \"cursor\" });\n      cLine = el(\"line\", { class: \"cursor-line\", y1: Y0 + 14, y2: Y1 }, cursor);\n      cDot = el(\"circle\", { class: \"cursor-dot\", r: 8 }, cursor);\n      return true;\n    }\n    draw();\n\n    var swatch = card.querySelector(\"[data-bean]\");\n    var out = {\n      time: card.querySelector(\"[data-out-time]\"), temp: card.querySelector(\"[data-out-temp]\"),\n      stage: card.querySelector(\"[data-out-stage]\"), use: card.querySelector(\"[data-out-use]\"),\n      notes: card.querySelector(\"[data-out-notes]\")\n    };\n    var lastStage = null, current = 0;\n    function stageAt(t, T) {\n      if (t < 1.5) return data.turning;\n      for (var i = 0; i < data.stages.length; i++) if (T < data.stages[i].max) return data.stages[i];\n      return data.stages[data.stages.length - 1];\n    }\n    function valueText() {\n      var t = current / 60, T = temp(t), stage = stageAt(t, T), l = lang();\n      range.setAttribute(\"aria-valuetext\", l === \"zh\"\n        ? clock(current) + \"，豆温 \" + Math.round(T) + \" 度，\" + pick(stage.name, l)\n        : clock(current) + \", bean \" + Math.round(T) + \"°C, \" + pick(stage.name, l));\n    }\n    function update(sec) {\n      current = sec;\n      var t = sec / 60, T = temp(t), stage = stageAt(t, T);\n      var color = beanColor(t < 1.5 ? 90 : T);\n      cLine.setAttribute(\"x1\", x(t)); cLine.setAttribute(\"x2\", x(t));\n      cDot.setAttribute(\"cx\", x(t)); cDot.setAttribute(\"cy\", y(T)); cDot.setAttribute(\"fill\", color);\n      if (swatch) swatch.setAttribute(\"fill\", color);\n      if (out.time) out.time.textContent = clock(sec);\n      if (out.temp) out.temp.textContent = Math.round(T) + \"°C\";\n      if (stage !== lastStage) {\n        lastStage = stage;\n        if (out.stage) out.stage.innerHTML = html(stage.name);\n        if (out.use) out.use.innerHTML = html(stage.use);\n        if (out.notes) out.notes.innerHTML = stage.notes.map(function (n) { return \"<li>\" + html(n) + \"</li>\"; }).join(\"\");\n      }\n      valueText();\n    }\n\n    range.addEventListener(\"input\", function () { update(+range.value); });\n    document.addEventListener(\"langchange\", valueText);\n\n    var dragging = false;\n    function fromPointer(e) {\n      var rect = svg.getBoundingClientRect();\n      var px = ((e.clientX - rect.left) / rect.width) * W;\n      var t = Math.min(Math.max((px - X0) / (X1 - X0), 0), 1) * DURATION;\n      var sec = Math.round((t * 60) / 5) * 5;\n      range.value = sec;\n      update(sec);\n    }\n    svg.addEventListener(\"pointerdown\", function (e) { dragging = true; svg.setPointerCapture(e.pointerId); fromPointer(e); });\n    svg.addEventListener(\"pointermove\", function (e) { if (dragging || e.pointerType === \"mouse\") fromPointer(e); });\n    [\"pointerup\", \"pointercancel\"].forEach(function (ev) { svg.addEventListener(ev, function () { dragging = false; }); });\n\n    // Start on the house pour-over roast (208°C)\n    var start = Math.round((timeAt(208) * 60) / 5) * 5;\n    range.value = start;\n    update(start);\n    // Draw the curve in once; later redraws (resizes) appear without animation\n    chart.classList.add(\"is-drawing\");\n    setTimeout(function () { chart.classList.remove(\"is-drawing\"); }, 2400);\n\n    var resizeTimer;\n    window.addEventListener(\"resize\", function () {\n      clearTimeout(resizeTimer);\n      resizeTimer = setTimeout(function () { if (draw()) { lastStage = null; update(current); } }, 150);\n    });\n  }\n\n  window.LatHillRoastCurve = { init: init };\n})();\n\n</script>\n<script>\n(function () {\n  var card = document.getElementById(\"lh-roast-en\");\n  if (card && window.LatHillRoastCurve) window.LatHillRoastCurve.init(card.querySelector(\"[data-roast-chart]\"),\n    {\"markers\": {\"yellow\": \"Yellowing\", \"first\": \"1st crack\", \"second\": \"2nd crack\"}, \"turning\": {\"name\": \"Charge\", \"use\": \"Green beans just dropped in, soaking up heat\", \"notes\": [\"No aroma yet\"]}, \"stages\": [{\"max\": 150, \"name\": \"Drying\", \"use\": \"Moisture is still leaving the bean\", \"notes\": [\"Grass\", \"Grain\"]}, {\"max\": 175, \"name\": \"Maillard\", \"use\": \"Beans turn yellow and aromas appear\", \"notes\": [\"Toast\", \"Nut skin\"]}, {\"max\": 196, \"name\": \"Before first crack\", \"use\": \"Sugars caramelise before first crack\", \"notes\": [\"Early caramel\", \"Malt\"]}, {\"max\": 205, \"name\": \"Light roast\", \"use\": \"Best for pour-over, keeps the origin character\", \"notes\": [\"Citrus\", \"Jasmine\", \"Honey\"]}, {\"max\": 214, \"name\": \"Light-medium roast\", \"use\": \"Our standard pour-over profile\", \"notes\": [\"Yellow peach\", \"Caramel\", \"Oolong\"]}, {\"max\": 224, \"name\": \"Medium-dark roast\", \"use\": \"For espresso and milk drinks\", \"notes\": [\"Dark chocolate\", \"Nuts\", \"Brown sugar\"]}, {\"max\": 999, \"name\": \"Dark roast\", \"use\": \"The classic roast for phin coffee\", \"notes\": [\"Smoky\", \"Bittersweet\", \"Heavy body\"]}]}, function () { return \"en\"; });\n})();\n</script>\n</div>"
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "50c510f",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "40",
+     "row": "40",
+     "isLinked": true,
+     "unit": "px",
+     "size": 40
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "c743b3d",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "32",
+       "row": "32",
+       "isLinked": true,
+       "unit": "px",
+       "size": 32
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-end",
+      "flex_justify_content": "space-between"
+     },
+     "elements": [
+      {
+       "id": "78901e7",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 62,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 90,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "127fc42",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "This week's picks",
+          "header_size": "h2",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 34,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "74e436f",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Updated every Monday. Tap “Order on WhatsApp” and the coffee's name is filled in for you.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "8a85c66",
+       "elType": "widget",
+       "widgetType": "button",
+       "isInner": false,
+       "settings": {
+        "text": "See all coffee",
+        "link": {
+         "url": "/en/our-coffee/#beans",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "button_text_color": "#2A1A12",
+        "hover_color": "#2A1A12",
+        "background_background": "classic",
+        "background_color": "rgba(0,0,0,0)",
+        "button_background_hover_background": "classic",
+        "button_background_hover_color": "rgba(42,26,18,0.06)",
+        "border_radius": {
+         "unit": "px",
+         "top": "999",
+         "right": "999",
+         "bottom": "999",
+         "left": "999",
+         "isLinked": true
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "14",
+         "right": "26",
+         "bottom": "14",
+         "left": "26",
+         "isLinked": false
+        },
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 15,
+         "sizes": []
+        },
+        "typography_font_weight": "500",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.2,
+         "sizes": []
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.28)",
+        "button_hover_border_color": "#2A1A12"
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "f5c46ca",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "24",
+       "row": "24",
+       "isLinked": true,
+       "unit": "px",
+       "size": 24
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "stretch",
+      "flex_wrap": "wrap"
+     },
+     "elements": [
+      {
+       "id": "2bcaf0f",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "5a1ff56",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-caudat.png",
+           "id": "",
+           "alt": "Cầu Đất Washed Bourbon",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "3af0fba",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Cầu Đất, Lâm Đồng, 1,650 m</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "31fcea3",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Cầu Đất Washed Bourbon",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "4d337b8",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Citrus, honey and jasmine. Clean and bright.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "4526a66",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Roast: Light</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "b7e8417",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 48<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 200 g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "77bf6ae",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Order on WhatsApp",
+          "link": {
+           "url": "https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%27d%20like%20to%20order%3A%20C%E1%BA%A7u%20%C4%90%E1%BA%A5t%20Washed%20Bourbon%20%28200%20g%2C%20RM%2048%29",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "84a39c5",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "f73b62f",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-house.png",
+           "id": "",
+           "alt": "Lat Hill House Blend",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "b0b7acd",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>70% Cầu Đất arabica, 30% fine robusta</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "85f148e",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Lat Hill House Blend",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "b41ce75",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Dark chocolate, caramel and hazelnut. Thick crema, great with milk.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "56887fc",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Roast: Medium-dark</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "6a5728c",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 45<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / 250 g</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "bb7b70a",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Order on WhatsApp",
+          "link": {
+           "url": "https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%27d%20like%20to%20order%3A%20Lat%20Hill%20House%20Blend%20%28250%20g%2C%20RM%2045%29",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "d7d73a7",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "24",
+         "left": "24",
+         "isLinked": false
+        },
+        "width": {
+         "unit": "%",
+         "size": 31.5,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#F7F0E5",
+        "border_radius": {
+         "unit": "px",
+         "top": "14",
+         "right": "14",
+         "bottom": "14",
+         "left": "14",
+         "isLinked": true
+        },
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": true
+        },
+        "border_color": "rgba(42,26,18,0.14)"
+       },
+       "elements": [
+        {
+         "id": "6b9ba6c",
+         "elType": "widget",
+         "widgetType": "image",
+         "isInner": false,
+         "settings": {
+          "image": {
+           "url": "/wp-content/uploads/lathill/bag-phinkit.png",
+           "id": "",
+           "alt": "Phin starter kit",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "px",
+           "size": 180,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "c058e38",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Stainless-steel phin + 250 g Phin Classic</p>",
+          "text_color": "#5F6A3E",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "5c65204",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "Phin starter kit",
+          "header_size": "h3",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "16c6b12",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>With an illustrated brew card. Iced Vietnamese coffee in ten minutes.</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "6cd213d",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Roast: Dark</p>",
+          "text_color": "#6A5546",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "78fef56",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "RM 69<span style=\"font-size:14px;font-weight:400;color:#6A5546\"> / kit</span>",
+          "header_size": "div",
+          "title_color": "#2A1A12",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "66dac35",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Order on WhatsApp",
+          "link": {
+           "url": "https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%27d%20like%20to%20order%3A%20Phin%20starter%20kit%20%28kit%2C%20RM%2069%29",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(42,26,18,0.06)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "10",
+           "right": "18",
+           "bottom": "10",
+           "left": "18",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(42,26,18,0.28)",
+          "button_hover_border_color": "#2A1A12",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "21109c1",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "40",
+     "row": "40",
+     "isLinked": true,
+     "unit": "px",
+     "size": 40
+    },
+    "padding": {
+     "unit": "px",
+     "top": "96",
+     "right": "24",
+     "bottom": "96",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "64",
+     "right": "16",
+     "bottom": "64",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#2A1A12",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "9ab2f10",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_gap": {
+       "column": "12",
+       "row": "12",
+       "isLinked": true,
+       "unit": "px",
+       "size": 12
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "width": {
+       "unit": "%",
+       "size": 62,
+       "sizes": []
+      },
+      "width_tablet": {
+       "unit": "%",
+       "size": 90,
+       "sizes": []
+      },
+      "width_mobile": {
+       "unit": "%",
+       "size": 100,
+       "sizes": []
+      }
+     },
+     "elements": [
+      {
+       "id": "6038d4d",
+       "elType": "widget",
+       "widgetType": "heading",
+       "isInner": false,
+       "settings": {
+        "title": "What our customers say",
+        "header_size": "h2",
+        "title_color": "#F7F0E5",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Serif",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 34,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.3,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "113a9de",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "isInner": false,
+       "settings": {
+        "editor": "<p>From our subscribers and regulars.</p>",
+        "text_color": "rgba(247,240,229,0.72)",
+        "typography_typography": "custom",
+        "typography_font_family": "Noto Sans",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.6,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "9cae76e",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "48",
+       "row": "48",
+       "isLinked": true,
+       "unit": "px",
+       "size": 48
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "flex_align_items": "flex-start"
+     },
+     "elements": [
+      {
+       "id": "d8bf8b3",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "16",
+         "row": "16",
+         "isLinked": true,
+         "unit": "px",
+         "size": 16
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "d7216ed",
+         "elType": "widget",
+         "widgetType": "testimonial",
+         "isInner": false,
+         "settings": {
+          "testimonial_content": "I've freelanced from home for three years, and the morning pour-over is my only commute. Every Lat Hill bag comes with a brew recipe, so it's hard to get wrong.",
+          "testimonial_name": "Nurul Huda",
+          "testimonial_job": "Freelance illustrator, subscriber for 14 months",
+          "testimonial_image": {
+           "url": "",
+           "id": ""
+          },
+          "testimonial_alignment": "left",
+          "content_content_color": "#F7F0E5",
+          "name_text_color": "#F7F0E5",
+          "job_text_color": "rgba(247,240,229,0.72)",
+          "content_typography_typography": "custom",
+          "content_typography_font_family": "Noto Serif",
+          "content_typography_font_size": {
+           "unit": "px",
+           "size": 28,
+           "sizes": []
+          },
+          "content_typography_font_weight": "600",
+          "content_typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          },
+          "name_typography_typography": "custom",
+          "name_typography_font_family": "Noto Sans",
+          "name_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "name_typography_font_weight": "600",
+          "job_typography_typography": "custom",
+          "job_typography_font_family": "Noto Sans",
+          "job_typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "job_typography_font_weight": "400"
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "920e3d2",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "24",
+         "row": "24",
+         "isLinked": true,
+         "unit": "px",
+         "size": 24
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 42,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "9e92a3e",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "24",
+           "right": "24",
+           "bottom": "24",
+           "left": "24",
+           "isLinked": true
+          },
+          "background_background": "classic",
+          "background_color": "#3D281D",
+          "border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          }
+         },
+         "elements": [
+          {
+           "id": "77c2d9f",
+           "elType": "widget",
+           "widgetType": "testimonial",
+           "isInner": false,
+           "settings": {
+            "testimonial_content": "Since our office switched to the House Blend, nobody walks out for afternoon coffee anymore. Ordering on WhatsApp is easy, too.",
+            "testimonial_name": "Daniel Tan",
+            "testimonial_job": "Design studio partner, Petaling Jaya",
+            "testimonial_image": {
+             "url": "",
+             "id": ""
+            },
+            "testimonial_alignment": "left",
+            "content_content_color": "#F7F0E5",
+            "name_text_color": "#F7F0E5",
+            "job_text_color": "rgba(247,240,229,0.72)",
+            "content_typography_typography": "custom",
+            "content_typography_font_family": "Noto Sans",
+            "content_typography_font_size": {
+             "unit": "px",
+             "size": 17,
+             "sizes": []
+            },
+            "content_typography_font_weight": "400",
+            "content_typography_line_height": {
+             "unit": "em",
+             "size": 1.6,
+             "sizes": []
+            },
+            "name_typography_typography": "custom",
+            "name_typography_font_family": "Noto Sans",
+            "name_typography_font_size": {
+             "unit": "px",
+             "size": 15,
+             "sizes": []
+            },
+            "name_typography_font_weight": "600",
+            "job_typography_typography": "custom",
+            "job_typography_font_family": "Noto Sans",
+            "job_typography_font_size": {
+             "unit": "px",
+             "size": 13,
+             "sizes": []
+            },
+            "job_typography_font_weight": "400"
+           },
+           "elements": []
+          }
+         ]
+        },
+        {
+         "id": "6abf7db",
+         "elType": "container",
+         "isInner": true,
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "flex_gap": {
+           "column": "16",
+           "row": "16",
+           "isLinked": true,
+           "unit": "px",
+           "size": 16
+          },
+          "padding": {
+           "unit": "px",
+           "top": "24",
+           "right": "24",
+           "bottom": "24",
+           "left": "24",
+           "isLinked": true
+          },
+          "background_background": "classic",
+          "background_color": "#3D281D",
+          "border_radius": {
+           "unit": "px",
+           "top": "14",
+           "right": "14",
+           "bottom": "14",
+           "left": "14",
+           "isLinked": true
+          }
+         },
+         "elements": [
+          {
+           "id": "c97b1f9",
+           "elType": "widget",
+           "widgetType": "testimonial",
+           "isInner": false,
+           "settings": {
+            "testimonial_content": "The first Vietnamese coffee I've had that isn't bitter. The Cầu Đất is clean and fruity, and the phin kit makes a great gift.",
+            "testimonial_name": "Priya Menon",
+            "testimonial_job": "Software engineer, Penang",
+            "testimonial_image": {
+             "url": "",
+             "id": ""
+            },
+            "testimonial_alignment": "left",
+            "content_content_color": "#F7F0E5",
+            "name_text_color": "#F7F0E5",
+            "job_text_color": "rgba(247,240,229,0.72)",
+            "content_typography_typography": "custom",
+            "content_typography_font_family": "Noto Sans",
+            "content_typography_font_size": {
+             "unit": "px",
+             "size": 17,
+             "sizes": []
+            },
+            "content_typography_font_weight": "400",
+            "content_typography_line_height": {
+             "unit": "em",
+             "size": 1.6,
+             "sizes": []
+            },
+            "name_typography_typography": "custom",
+            "name_typography_font_family": "Noto Sans",
+            "name_typography_font_size": {
+             "unit": "px",
+             "size": 15,
+             "sizes": []
+            },
+            "name_typography_font_weight": "600",
+            "job_typography_typography": "custom",
+            "job_typography_font_family": "Noto Sans",
+            "job_typography_font_size": {
+             "unit": "px",
+             "size": 13,
+             "sizes": []
+            },
+            "job_typography_font_weight": "400"
+           },
+           "elements": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc99883",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "boxed",
+    "flex_direction": "column",
+    "flex_gap": {
+     "column": "24",
+     "row": "24",
+     "isLinked": true,
+     "unit": "px",
+     "size": 24
+    },
+    "padding": {
+     "unit": "px",
+     "top": "24",
+     "right": "24",
+     "bottom": "72",
+     "left": "24",
+     "isLinked": false
+    },
+    "boxed_width": {
+     "unit": "px",
+     "size": 1180,
+     "sizes": []
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "16",
+     "right": "16",
+     "bottom": "48",
+     "left": "16",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#E9DBC5",
+    "html_tag": "section"
+   },
+   "elements": [
+    {
+     "id": "1306aee",
+     "elType": "container",
+     "isInner": true,
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "flex_gap": {
+       "column": "32",
+       "row": "32",
+       "isLinked": true,
+       "unit": "px",
+       "size": 32
+      },
+      "padding": {
+       "unit": "px",
+       "top": "48",
+       "right": "48",
+       "bottom": "48",
+       "left": "48",
+       "isLinked": true
+      },
+      "padding_mobile": {
+       "unit": "px",
+       "top": "32",
+       "right": "24",
+       "bottom": "32",
+       "left": "24",
+       "isLinked": false
+      },
+      "flex_direction_mobile": "column",
+      "background_background": "classic",
+      "background_color": "#9E2B25",
+      "border_radius": {
+       "unit": "px",
+       "top": "28",
+       "right": "28",
+       "bottom": "28",
+       "left": "28",
+       "isLinked": true
+      },
+      "flex_align_items": "center",
+      "flex_justify_content": "space-between"
+     },
+     "elements": [
+      {
+       "id": "37b2c80",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+         "column": "8",
+         "row": "8",
+         "isLinked": true,
+         "unit": "px",
+         "size": 8
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "width": {
+         "unit": "%",
+         "size": 62,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        }
+       },
+       "elements": [
+        {
+         "id": "4e7a57a",
+         "elType": "widget",
+         "widgetType": "heading",
+         "isInner": false,
+         "settings": {
+          "title": "We roast every Tuesday and Friday. Reserve a bag from the next batch.",
+          "header_size": "h2",
+          "title_color": "#FFF8F0",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Serif",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 40,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 34,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 28,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.3,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "4e01145",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "isInner": false,
+         "settings": {
+          "editor": "<p>Reserve by 11:59 pm the day before to make the batch. It ships the next day and reaches West Malaysia in 1–3 working days.</p>",
+          "text_color": "rgba(255,248,240,0.88)",
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 17,
+           "sizes": []
+          },
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.6,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      },
+      {
+       "id": "921e867",
+       "elType": "container",
+       "isInner": true,
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "row",
+        "flex_gap": {
+         "column": "12",
+         "row": "12",
+         "isLinked": true,
+         "unit": "px",
+         "size": 12
+        },
+        "padding": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": true
+        },
+        "flex_direction_mobile": "row",
+        "flex_align_items": "center",
+        "flex_wrap": "wrap"
+       },
+       "elements": [
+        {
+         "id": "39ca46f",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Reserve next roast",
+          "link": {
+           "url": "/en/contact-us/#reserve",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#2A1A12",
+          "hover_color": "#2A1A12",
+          "background_background": "classic",
+          "background_color": "#F7F0E5",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "#FFFFFF",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "14",
+           "right": "26",
+           "bottom": "14",
+           "left": "26",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          }
+         },
+         "elements": []
+        },
+        {
+         "id": "4bcff8c",
+         "elType": "widget",
+         "widgetType": "button",
+         "isInner": false,
+         "settings": {
+          "text": "Chat on WhatsApp",
+          "link": {
+           "url": "https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%27d%20like%20to%20reserve%20coffee%20from%20your%20next%20roast.",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "button_text_color": "#F7F0E5",
+          "hover_color": "#F7F0E5",
+          "background_background": "classic",
+          "background_color": "rgba(0,0,0,0)",
+          "button_background_hover_background": "classic",
+          "button_background_hover_color": "rgba(247,240,229,0.12)",
+          "border_radius": {
+           "unit": "px",
+           "top": "999",
+           "right": "999",
+           "bottom": "999",
+           "left": "999",
+           "isLinked": true
+          },
+          "text_padding": {
+           "unit": "px",
+           "top": "14",
+           "right": "26",
+           "bottom": "14",
+           "left": "26",
+           "isLinked": false
+          },
+          "typography_typography": "custom",
+          "typography_font_family": "Noto Sans",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "typography_font_weight": "500",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.2,
+           "sizes": []
+          },
+          "border_border": "solid",
+          "border_width": {
+           "unit": "px",
+           "top": "1",
+           "right": "1",
+           "bottom": "1",
+           "left": "1",
+           "isLinked": true
+          },
+          "border_color": "rgba(247,240,229,0.55)",
+          "button_hover_border_color": "#F7F0E5",
+          "selected_icon": {
+           "value": "fab fa-whatsapp",
+           "library": "fa-brands"
+          },
+          "icon_align": "left",
+          "icon_indent": {
+           "unit": "px",
+           "size": 8,
+           "sizes": []
+          }
+         },
+         "elements": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "page_settings": {
+  "hide_title": "yes"
+ },
+ "version": "0.4",
+ "title": "Lat Hill Home",
+ "type": "page"
+}
