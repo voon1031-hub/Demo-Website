@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-en-text="About us | Lat Hill Coffee">关于我们｜叻山咖啡 Lat Hill</title>
+  <meta name="description" content="叻山咖啡的品牌故事、团队与理念：从越南大叻山上的一杯咖啡，到马来西亚巴生谷的小烘焙坊。" data-en-content="The story, team and values behind Lat Hill: from a cup of coffee on a hill in Da Lat to a small roastery in Malaysia&#x27;s Klang Valley.">
+  <meta name="theme-color" content="#2a1a12">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%232a1a12' fill-rule='evenodd' d='M6 30A14 16 0 0 1 34 30ZM18.9 14.6C15.2 19.6 23.1 24.6 18.9 30H21.1C25.3 24.6 17.4 19.6 21.1 14.6Z'/%3E%3Cpath d='M3 30H37' stroke='%232a1a12' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='32.5' cy='10.5' r='2.6' fill='%239e2b25'/%3E%3C/svg%3E">
+  <script>
+    (function () {
+      /* Pick the language before the first paint: ?lang=, then the saved choice,
+         then Chinese if the browser lists Chinese at all, otherwise English. */
+      var d = document.documentElement, m = /[?&]lang=(zh|en)\b/.exec(location.search), l = m && m[1];
+      try { if (l) localStorage.setItem("lathill-lang", l); else l = localStorage.getItem("lathill-lang"); } catch (e) {}
+      if (l !== "zh" && l !== "en") l = /(^|,)zh/i.test((navigator.languages || [navigator.language || ""]).join(",")) ? "zh" : "en";
+      d.setAttribute("data-lang", l); d.lang = l === "zh" ? "zh-Hans" : "en";
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@600;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-about">
+  <a class="skip-link" href="#main"><span lang="zh-Hans">跳到正文</span><span lang="en">Skip to content</span></a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="叻山咖啡首页" data-en-aria-label="Lat Hill Coffee home">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M6 30A14 16 0 0 1 34 30ZM18.9 14.6C15.2 19.6 23.1 24.6 18.9 30H21.1C25.3 24.6 17.4 19.6 21.1 14.6Z"/><path d="M3 30H37" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="32.5" cy="10.5" r="2.6" fill="#d9a86c"/></svg>
+        <span class="logo-text"><b>叻山</b><small>Lat Hill Coffee Roasters</small></span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="主导航" data-en-aria-label="Main">
+        <ul>
+          <li><a href="index.html"><span lang="zh-Hans">首页</span><span lang="en">Home</span></a></li>
+          <li><a href="about.html" aria-current="page"><span lang="zh-Hans">关于我们</span><span lang="en">About</span></a></li>
+          <li><a href="services.html"><span lang="zh-Hans">咖啡豆与服务</span><span lang="en">Coffee & services</span></a></li>
+          <li><a href="contact.html"><span lang="zh-Hans">联系我们</span><span lang="en">Contact</span></a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="contact.html?type=reserve#reserve"><span lang="zh-Hans">预约下一炉</span><span lang="en">Reserve next roast</span></a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="语言" data-en-aria-label="Language">
+        <button type="button" data-set-lang="zh" aria-pressed="true" aria-label="中文">中</button>
+        <button type="button" data-set-lang="en" aria-pressed="false" aria-label="English">EN</button>
+      </div>
+      <a class="btn btn-primary btn-sm header-cta" href="contact.html?type=reserve#reserve"><span lang="zh-Hans">预约下一炉</span><span lang="en">Reserve next roast</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单"><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container page-hero-grid">
+        <div class="page-hero-copy">
+          <nav class="breadcrumb" aria-label="面包屑导航" data-en-aria-label="Breadcrumb"><a href="index.html"><span lang="zh-Hans">首页</span><span lang="en">Home</span></a> / <span lang="zh-Hans">关于我们</span><span lang="en">About us</span></nav>
+          <h1><span lang="zh-Hans">一座越南的山，和一间马来西亚的烘焙坊</span><span lang="en">A hill in Vietnam and a roastery in Malaysia</span></h1>
+          <p><span lang="zh-Hans">叻山的名字来自越南咖啡产区大叻（Đà Lạt）。“叻”在马来西亚的广东话里也是“厉害、好”的意思，我们希望每一包豆子都配得上这个字。</span><span lang="en">Our name comes from Đà Lạt, the coffee highland in Vietnam. In Malaysian Cantonese, “lat” (叻) also means clever, or really good. We try to make every bag live up to it.</span></p>
+        </div>
+        <div class="media-frame" style="background-image:url(assets/media/clip-harvest.jpg)">
+          <video muted loop playsinline preload="none" poster="assets/media/clip-harvest.jpg" data-src="assets/media/clip-harvest.mp4" aria-hidden="true"></video>
+          <button class="video-toggle video-toggle-icon-only" type="button" data-video-toggle aria-label="暂停视频"><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 3h3v10H4zM9 3h3v10H9z"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Story ===== -->
+    <section class="section" aria-labelledby="story-title">
+      <div class="container story">
+        <div class="story-text">
+          <h2 id="story-title" class="visually-hidden"><span lang="zh-Hans">品牌故事</span><span lang="en">Our story</span></h2>
+          <p class="pull"><span lang="zh-Hans">我们想让更多人知道，越南咖啡不只有又苦又浓。</span><span lang="en">We want more people to know Vietnamese coffee can be more than bitter and strong.</span></p>
+          <p><span lang="zh-Hans">2018 年，创始人 Jay 在越南大叻背包旅行，在山上一个小咖啡园喝到一杯刚烘好的阿拉比卡：干净，带着柑橘和蜂蜜的甜，完全不像印象中的越南咖啡。</span><span lang="en">In 2018 our founder, Jay, was backpacking through Da Lat and stopped at a small hillside farm. The freshly roasted arabica was clean and sweet, with citrus and honey: nothing like the Vietnamese coffee Jay knew.</span></p>
+          <p><span lang="zh-Hans">回到吉隆坡后，Jay 开始向那几户小农买生豆，在自家后院用一台 1 公斤的烘豆机试烘，送给朋友喝。后来朋友的朋友也开始下单，后院很快就不够用了。</span><span lang="en">Back in Kuala Lumpur, Jay started buying green coffee from those same farmers and roasting it on a 1 kg roaster in the backyard for friends. Then friends of friends started ordering, and the backyard got crowded.</span></p>
+          <p><span lang="zh-Hans">2022 年，叻山正式成立，在巴生谷租下一间小工坊。我们没有开门市，所有咖啡都按订单烘焙，直接寄到你家或办公室。</span><span lang="en">Lat Hill launched in 2022 from a small roastery in the Klang Valley. We don't run a café: every bag is roasted to order and sent straight to your home or office.</span></p>
+        </div>
+        <div>
+          <h2 class="visually-hidden"><span lang="zh-Hans">我们的历程</span><span lang="en">How we got here</span></h2>
+          <ol class="timeline">
+            <li><time datetime="2018">2018</time><h3><span lang="zh-Hans">大叻山上的一杯咖啡</span><span lang="en">A cup on a hill in Da Lat</span></h3><p><span lang="zh-Hans">在小农的咖啡园第一次喝到越南精品阿拉比卡。</span><span lang="en">A first taste of Vietnamese specialty arabica, at a smallholder farm.</span></p></li>
+            <li><time datetime="2019">2019</time><h3><span lang="zh-Hans">后院的 1 公斤烘豆机</span><span lang="en">A 1 kg roaster in the backyard</span></h3><p><span lang="zh-Hans">每周烘几炉，只卖给朋友。</span><span lang="en">A few batches a week, for friends only.</span></p></li>
+            <li><time datetime="2021">2021</time><h3><span lang="zh-Hans">和三户 Cầu Đất 小农直接合作</span><span lang="en">Direct trade with three Cầu Đất farms</span></h3><p><span lang="zh-Hans">开始按我们的标准采摘和处理。</span><span lang="en">They began picking and processing to our spec.</span></p></li>
+            <li><time datetime="2022">2022</time><h3><span lang="zh-Hans">叻山上线</span><span lang="en">Lat Hill goes online</span></h3><p><span lang="zh-Hans">巴生谷工坊每周烘两炉，全马配送。</span><span lang="en">Two roasts a week from the Klang Valley, delivered nationwide.</span></p></li>
+            <li><time datetime="2026">2026</time><h3><span lang="zh-Hans">1,500 位订阅用户</span><span lang="en">1,500 subscribers</span></h3><p><span lang="zh-Hans">合作小农增加到 9 户，新增越南传统系列。</span><span lang="en">Nine partner farms, and a new traditional Vietnamese line.</span></p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Video band ===== -->
+    <section class="video-band" style="background-image:url(assets/media/hero-hills.jpg)" aria-label="Jay Lim，创始人" data-en-aria-label="Jay Lim, founder">
+      <video muted loop playsinline preload="none" poster="assets/media/hero-hills.jpg" data-src="assets/media/hero-hills.mp4" data-src-sm="assets/media/hero-hills-sm.mp4" aria-hidden="true"></video>
+      <div class="container">
+        <figure>
+          <blockquote><p><span lang="zh-Hans">每年收获季，我们都会回到大叻的山上，和农户一起杯测，挑出这一年最好的批次。</span><span lang="en">Every harvest we go back up the hills of Da Lat to cup with our farmers and choose the year's best lots.</span></p></blockquote>
+          <figcaption><span lang="zh-Hans">Jay Lim，创始人</span><span lang="en">Jay Lim, founder</span></figcaption>
+        </figure>
+      </div>
+      <button class="video-toggle video-toggle-icon-only" type="button" data-video-toggle aria-label="暂停视频"><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 3h3v10H4zM9 3h3v10H9z"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></svg></button>
+    </section>
+
+    <!-- ===== Team ===== -->
+    <section class="section section-paper" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="team-title"><span lang="zh-Hans">团队</span><span lang="en">The team</span></h2>
+          <p><span lang="zh-Hans">人不多，每个环节都有专人负责。你在 WhatsApp 上聊天的，就是我们其中一位。</span><span lang="en">We're a small team, and each of us looks after one part of the chain. Whoever answers your WhatsApp message is one of us.</span></p>
+        </div>
+        <div class="team-grid">
+          <article class="member">
+            <div class="member-photo" style="background:#7a4a2e" aria-hidden="true">J</div>
+            <h3>Jay Lim</h3>
+            <p class="role"><span lang="zh-Hans">创始人 / 烘焙师</span><span lang="en">Founder & roaster</span></p>
+            <p><span lang="zh-Hans">SCA 认证烘焙师，负责每一支豆子的打样和曲线。最爱 Cầu Đất 的柑橘酸。</span><span lang="en">SCA-certified roaster who profiles every coffee. Has a soft spot for the citrus in Cầu Đất.</span></p>
+          </article>
+          <article class="member">
+            <div class="member-photo" style="background:#6b6f48" aria-hidden="true">M</div>
+            <h3>Mai Nguyễn</h3>
+            <p class="role"><span lang="zh-Hans">越南产地联络</span><span lang="en">Origin partner, Đà Lạt</span></p>
+            <p><span lang="zh-Hans">在大叻长大，负责和小农沟通采摘与处理。每年收获季，都是 Mai 带我们上山杯测。</span><span lang="en">Grew up in Da Lat and works with our farmers on picking and processing. Every harvest, Mai takes us up the hills to cup.</span></p>
+          </article>
+          <article class="member">
+            <div class="member-photo" style="background:#9e2b25" aria-hidden="true">A</div>
+            <h3>Aisyah Rahman</h3>
+            <p class="role"><span lang="zh-Hans">咖啡师 / 课程讲师</span><span lang="en">Head barista & classes</span></p>
+            <p><span lang="zh-Hans">每批豆子出货前都由 Aisyah 杯测把关，也负责线上手冲课，把“酸质”讲成人人听得懂的话。</span><span lang="en">Cups every batch before it ships and teaches our online brewing classes in plain words.</span></p>
+          </article>
+          <article class="member">
+            <div class="member-photo" style="background:#3d281d" aria-hidden="true">W</div>
+            <h3>Tan Wei Ling</h3>
+            <p class="role"><span lang="zh-Hans">客服与订阅</span><span lang="en">Customer care & subscriptions</span></p>
+            <p><span lang="zh-Hans">WhatsApp 那头回你信息的人。想换豆、暂停订阅或改地址，直接找 Wei Ling。</span><span lang="en">The person answering your WhatsApp messages. To swap coffee, pause a subscription or change your address, message Wei Ling.</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Values ===== -->
+    <section class="section section-dark" aria-labelledby="values-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="values-title"><span lang="zh-Hans">我们坚持的三件事</span><span lang="en">Three things we don't compromise on</span></h2>
+          <p><span lang="zh-Hans">从后院烘豆到现在，这三条从没变过。</span><span lang="en">They haven't changed since the backyard days.</span></p>
+        </div>
+        <div class="values">
+          <div class="value"><h3><span lang="zh-Hans">新鲜是底线</span><span lang="en">Fresh, always</span></h3><p><span lang="zh-Hans">所有豆子按订单烘焙，烘好 48 小时内寄出，包装印烘焙日期。超过 6 周的豆子不再出售。</span><span lang="en">Everything is roasted to order and shipped within 48 hours, with the roast date on the bag. We stop selling any coffee older than six weeks.</span></p></div>
+          <div class="value"><h3><span lang="zh-Hans">公平对待农户</span><span lang="en">Fair to farmers</span></h3><p><span lang="zh-Hans">直接向小农购买，收购价比当地市场价高 25% 以上，每年收获季都回到大叻。</span><span lang="en">We buy directly from smallholders, pay at least 25% above local market price, and go back to Da Lat every harvest.</span></p></div>
+          <div class="value"><h3><span lang="zh-Hans">让越南咖啡被重新认识</span><span lang="en">Vietnamese coffee, rediscovered</span></h3><p><span lang="zh-Hans">从花果香的精品阿拉比卡，到浓郁的传统滴滤，我们想让更多人喝到越南咖啡的另一面。</span><span lang="en">From floral specialty arabica to bold traditional phin, we want more people to taste the other side of Vietnamese coffee.</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2 id="cta-title"><span lang="zh-Hans">还没想好喝哪一支？先订一盒试饮装</span><span lang="en">Not sure where to start? Try the tasting box</span></h2>
+            <p><span lang="zh-Hans">四款当季单品各 50g，附冲煮卡，RM 39 全马包邮。</span><span lang="en">50 g each of four current single origins, with brew cards. RM 39 with free shipping.</span></p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E8%AE%A2%E8%B4%AD%EF%BC%9A%E5%8D%95%E5%93%81%E8%AF%95%E9%A5%AE%E8%A3%85%EF%BC%884%20%C3%97%2050g%EF%BC%8CRM%2039%EF%BC%89" data-en-href="https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%27d%20like%20to%20order%3A%20Tasting%20box%20%284%20%C3%97%2050%20g%2C%20RM%2039%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path fill="currentColor" d="M8.6 7.6c.3-.6.6-.6 1-.6h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.5.7c-.1.2-.1.4 0 .6.6 1 1.4 1.9 2.5 2.5.2.1.4.1.6 0l.7-.6c.2-.2.4-.2.6-.1l1.9.9c.3.1.4.3.4.5 0 .9-.6 1.8-1.5 2.1-.8.3-1.8.2-3.3-.5-2-1-3.6-2.7-4.6-4.7-.6-1.3-.6-2.3-.2-3.1Z"/></svg><span lang="zh-Hans">WhatsApp 订试饮装</span><span lang="en">Order the tasting box</span></a>
+            <a class="btn btn-outline-light" href="services.html#beans"><span lang="zh-Hans">看全部咖啡豆</span><span lang="en">See all coffee</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html" aria-label="叻山咖啡首页" data-en-aria-label="Lat Hill Coffee home">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M6 30A14 16 0 0 1 34 30ZM18.9 14.6C15.2 19.6 23.1 24.6 18.9 30H21.1C25.3 24.6 17.4 19.6 21.1 14.6Z"/><path d="M3 30H37" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="32.5" cy="10.5" r="2.6" fill="#d9a86c"/></svg>
+            <span class="logo-text"><b>叻山</b><small>Lat Hill Coffee Roasters</small></span>
+          </a>
+          <p class="footer-about"><span lang="zh-Hans">叻山咖啡直接向越南大叻的小农采购生豆，在马来西亚巴生谷小批量烘焙。只做网店，全马配送。</span><span lang="en">Lat Hill buys green coffee directly from smallholder farms around Da Lat, Vietnam, and roasts it in small batches in Malaysia's Klang Valley. Online only, delivering nationwide.</span></p>
+        </div>
+        <div>
+          <h2><span lang="zh-Hans">网站导航</span><span lang="en">Explore</span></h2>
+          <ul class="footer-links">
+            <li><a href="index.html"><span lang="zh-Hans">首页</span><span lang="en">Home</span></a></li>
+            <li><a href="about.html"><span lang="zh-Hans">关于我们</span><span lang="en">About</span></a></li>
+            <li><a href="services.html"><span lang="zh-Hans">咖啡豆与服务</span><span lang="en">Coffee & services</span></a></li>
+            <li><a href="contact.html"><span lang="zh-Hans">联系我们</span><span lang="en">Contact</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h2><span lang="zh-Hans">订购与客服</span><span lang="en">Orders & help</span></h2>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A" data-en-href="https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%20have%20a%20question%3A%20" target="_blank" rel="noopener">WhatsApp +60 12-345 6789</a></li>
+            <li><a href="mailto:hello@lathill.coffee">hello@lathill.coffee</a></li>
+            <li><span lang="zh-Hans">客服：周一至周五 9:00–18:00</span><span lang="en">Customer care: Mon–Fri, 9 am–6 pm</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2><span lang="zh-Hans">关注我们</span><span lang="en">Follow us</span></h2>
+          <ul class="social">
+            <li><a href="#" aria-label="Instagram：@lathill.coffee" data-en-aria-label="Instagram: @lathill.coffee"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a></li>
+            <li><a href="#" aria-label="Facebook：Lat Hill Coffee" data-en-aria-label="Facebook: Lat Hill Coffee"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21h3Z"/></svg>Facebook</a></li>
+            <li><a href="#" aria-label="TikTok：@lathill.coffee" data-en-aria-label="TikTok: @lathill.coffee"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 3c.3 2.2 1.6 3.6 3.9 3.8v3.1c-1.4.1-2.6-.3-3.9-1.1v5.7c0 3.6-2.6 6.1-6 6.1-3.3 0-5.6-2.4-5.6-5.5 0-3.4 2.7-5.8 6.3-5.5v3.2c-.4-.1-.7-.1-1-.1-1.4 0-2.3.9-2.3 2.3 0 1.3.9 2.3 2.4 2.3 1.6 0 2.5-1 2.5-2.9V3h3.7Z"/></svg>TikTok</a></li>
+            <li><a href="#" aria-label="小红书：叻山咖啡" data-en-aria-label="Xiaohongshu: 叻山咖啡"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 9h8M8 12h8M8 15h5" stroke-linecap="round"/></svg><span lang="zh-Hans">小红书</span><span lang="en">Xiaohongshu</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> <span lang="zh-Hans">叻山咖啡 Lat Hill Coffee Roasters。保留所有权利。</span><span lang="en">Lat Hill Coffee Roasters. All rights reserved.</span></span>
+        <span><span lang="zh-Hans">页面中的视频由 AI 生成，仅作示意。</span><span lang="en">Videos on this site are AI-generated placeholders.</span></span>
+        <nav aria-label="法律信息" data-en-aria-label="Legal"><a href="#"><span lang="zh-Hans">隐私政策</span><span lang="en">Privacy policy</span></a><a href="#"><span lang="zh-Hans">配送与退换</span><span lang="en">Shipping & returns</span></a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/json" id="site-i18n">{"tz":"Asia/Kuala_Lumpur","roastDays":[2,5],"menuOpen":{"zh":"打开菜单","en":"Open menu"},"menuClose":{"zh":"关闭菜单","en":"Close menu"},"videoPause":{"zh":"暂停视频","en":"Pause video"},"videoPlay":{"zh":"播放视频","en":"Play video"},"nextRoast":{"zh":"下一炉：{date}","en":"Next roast: {date}"},"ctaNext":{"zh":"下一炉：{date}<br>现在预约你的那一包","en":"Next roast: {date}.<br>Reserve your bag now."},"scheduleNext":{"zh":"下一炉：{date}，{cutoff} 前截单","en":"Next roast: {date}. Order by {cutoff}."},"filterStatus":{"zh":"显示 {n} 款","en":"Showing {n}"},"hours":{"online":{"zh":"客服在线，{close} 下线","en":"Online now, until {close}"},"later":{"zh":"今天 {open} 上线","en":"Back today at {open}"},"offline":{"zh":"客服已下线，下个工作日回复","en":"Offline, we'll reply next working day"}},"form":{"err_name":{"zh":"请填写你的称呼","en":"Please tell us your name"},"err_contact_empty":{"zh":"请留下手机号或邮箱，方便我们回复","en":"Please leave a phone number or email so we can reply"},"err_contact":{"zh":"请输入马来西亚手机号（如 012-345 6789）或有效的邮箱","en":"Enter a Malaysian mobile number (e.g. 012-345 6789) or a valid email"},"err_message":{"zh":"请至少写 5 个字，让我们知道你需要什么","en":"Please write a few words so we know what you need"},"success":{"zh":"谢谢你，{name}！我们会在一个工作日内回复你。","en":"Thanks, {name}! We'll get back to you within one working day."}}}</script>
+  <script src="js/main.js"></script>
+</body>
+</html>
