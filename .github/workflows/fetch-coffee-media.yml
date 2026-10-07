@@ -1,0 +1,36 @@
+# Downloads the generated videos listed in coffee/tools/media.txt (Lat Hill coffee
+# site) on a GitHub runner (the cloud dev environment can't reach the media host),
+# turns them into compressed seamless loops with poster frames, and commits
+# coffee/assets/media back to this branch.
+name: Fetch coffee site media
+on:
+  push:
+    branches: [claude/lat-hill-coffee]
+    paths: ['coffee/tools/media.txt', 'tools/fetch-media.sh']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: fetch-coffee-media-${{ github.ref }}
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Download and process media
+        env:
+          MEDIA_LIST: coffee/tools/media.txt
+          MEDIA_DIR: coffee/assets/media
+          POSTERS: '1'
+          HERO_SMALL: '1'
+        run: bash tools/fetch-media.sh
+      - name: Commit media
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A coffee/assets/media
+          git commit -m "Add Lat Hill coffee site media" || exit 0
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

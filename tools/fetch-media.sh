@@ -4,16 +4,26 @@
 #   videos (.mp4)             -> assets/media/<name>.mp4  (1280px, H.264, no audio)
 #   clip-* videos             -> the same, played forward then backward so the
 #                                loop has no jump (fits in 1280x1280)
+#   hero-* videos             -> full-screen backgrounds: looped the same way, up to
+#                                1600px wide (HERO_SMALL=1 adds <name>-sm.mp4, 720px)
 #   build-1, build-2 … videos -> the hero construction timelapse, joined in order and
 #                                cut into assets/build/NNN.webp frames, plus
 #                                assets/build/frames.js, start.jpg and end.jpg
 # A later line with the same name replaces an earlier one.
+# Another site can reuse this script with MEDIA_LIST=<list> MEDIA_DIR=<output dir>;
+# POSTERS=1 also saves the first frame of each hero-*/clip-* video as <name>.jpg.
 # Needs: curl, ffmpeg, ffprobe. Run from the repository root.
 set -uo pipefail
 FRAMES=${FRAMES:-120}     # frames in the hero sequence
 FRAME_W=${FRAME_W:-1600}  # frame width in px
+LIST=${MEDIA_LIST:-tools/media.txt}
+OUT=${MEDIA_DIR:-assets/media}
+POSTERS=${POSTERS:-0}
+HERO_SMALL=${HERO_SMALL:-0}
+# Forward then backward (minus the repeated turn-around frame), so the loop has no jump.
+PINGPONG="split[f][b];[b]reverse,trim=start_frame=1,setpts=PTS-STARTPTS[r];[f][r]concat=n=2:v=1:a=0,format=yuv420p[v]"
 src=.media-src
-rm -rf "$src"; mkdir -p "$src" assets/media
+rm -rf "$src"; mkdir -p "$src" "$OUT"
 failed=0
 
 while read -r name url _; do
@@ -26,22 +36,37 @@ while read -r name url _; do
   fi
   case "$name:$ext" in
     build-*:mp4) echo "build segment: $name" ;;  # used below, not published on its own
+    hero-*:mp4)
+      ffmpeg -nostdin -loglevel error -y -i "$file" -an -filter_complex \
+        "[0:v]scale='min(1600,iw)':-2,$PINGPONG" \
+        -map "[v]" -c:v libx264 -preset slow -crf 25 -maxrate 5M -bufsize 10M -movflags +faststart "$OUT/$name.mp4"
+      echo "hero loop: $name $(du -h "$OUT/$name.mp4" | cut -f1)"
+      if [ "$HERO_SMALL" = 1 ]; then
+        ffmpeg -nostdin -loglevel error -y -i "$OUT/$name.mp4" -an -vf "scale=720:-2" \
+          -c:v libx264 -preset slow -crf 28 -maxrate 1500k -bufsize 3M -pix_fmt yuv420p -movflags +faststart "$OUT/$name-sm.mp4"
+        echo "hero loop (small): $name $(du -h "$OUT/$name-sm.mp4" | cut -f1)"
+      fi ;;
     clip-*:mp4)
       ffmpeg -nostdin -loglevel error -y -i "$file" -an -filter_complex \
-        "[0:v]scale='min(1280,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2,split[f][b];[b]reverse,trim=start_frame=1,setpts=PTS-STARTPTS[r];[f][r]concat=n=2:v=1:a=0,format=yuv420p[v]" \
-        -map "[v]" -c:v libx264 -preset slow -crf 26 -maxrate 3M -bufsize 6M -movflags +faststart "assets/media/$name.mp4"
-      echo "loop clip: $name $(du -h "assets/media/$name.mp4" | cut -f1)" ;;
+        "[0:v]scale='min(1280,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2,$PINGPONG" \
+        -map "[v]" -c:v libx264 -preset slow -crf 26 -maxrate 3M -bufsize 6M -movflags +faststart "$OUT/$name.mp4"
+      echo "loop clip: $name $(du -h "$OUT/$name.mp4" | cut -f1)" ;;
     *:mp4|*:mov|*:webm)
       ffmpeg -nostdin -loglevel error -y -i "$file" -an -vf "scale=1280:-2" \
         -c:v libx264 -preset slow -crf 24 -maxrate 4M -bufsize 8M -pix_fmt yuv420p \
-        -movflags +faststart "assets/media/$name.mp4"
-      echo "video: $name $(du -h "assets/media/$name.mp4" | cut -f1)" ;;
+        -movflags +faststart "$OUT/$name.mp4"
+      echo "video: $name $(du -h "$OUT/$name.mp4" | cut -f1)" ;;
     *)
       ffmpeg -nostdin -loglevel error -y -i "$file" \
-        -vf "scale='min(1920,iw)':'min(1400,ih)':force_original_aspect_ratio=decrease" -q:v 4 "assets/media/$name.jpg"
-      echo "image: $name $(du -h "assets/media/$name.jpg" | cut -f1)" ;;
+        -vf "scale='min(1920,iw)':'min(1400,ih)':force_original_aspect_ratio=decrease" -q:v 4 "$OUT/$name.jpg"
+      echo "image: $name $(du -h "$OUT/$name.jpg" | cut -f1)" ;;
   esac
-done < tools/media.txt
+  case "$POSTERS:$name:$ext" in
+    1:hero-*:mp4|1:clip-*:mp4)
+      ffmpeg -nostdin -loglevel error -y -i "$OUT/$name.mp4" -frames:v 1 -q:v 3 "$OUT/$name.jpg" &&
+        echo "poster: $name $(du -h "$OUT/$name.jpg" | cut -f1)" ;;
+  esac
+done < "$LIST"
 
 mapfile -t segs < <(ls "$src"/build-*.mp4 2>/dev/null | sort -V)
 if [ "${#segs[@]}" -gt 0 ]; then

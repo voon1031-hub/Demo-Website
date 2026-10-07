@@ -1,0 +1,9 @@
+# name  url   (one generated video per line; the "Fetch coffee site media" workflow
+#              downloads them into coffee/assets/media/ as seamless loops + posters)
+# hero-* = full-screen background (also gets a 720px -sm.mp4 for phones)
+hero-hills     https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261007_054536_1d29dc51-5bbf-4513-a5d9-97c9079769da.mp4
+# clip-* = square section loops
+clip-harvest   https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261007_054537_ec46c6ac-69d8-4f2a-a777-56ae11b4dafc.mp4
+clip-roast     https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261007_054537_8245b8e0-875c-49a4-9bd8-35a776406682.mp4
+clip-phin      https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261007_054537_32cfe349-98cd-4e07-8799-6923db5afd79.mp4
+clip-pourover  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261007_054537_6272869c-42b1-40c7-9602-2596a4187f31.mp4
