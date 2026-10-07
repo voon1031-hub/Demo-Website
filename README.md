@@ -24,8 +24,10 @@ curve shows how flavour changes through the roast.
   their start). `coffee/assets/img/` – logo and coffee-bag PNGs for the
   templates, rendered by `coffee/tools/render-images.js`.
 
-The videos are AI-generated placeholders, and the names, testimonials, figures
-and WhatsApp number are samples: replace them before the site goes live.
+This is a practice site: the videos are AI-generated placeholders, and the
+names, testimonials and figures are samples. Orders go to WhatsApp
++65 9048 7168; the footer has no social media links until some are added to
+`SOCIAL` in `content.py`.
 
 ## Plumbline Builders – "From the ground up"
 

@@ -654,7 +654,7 @@
            "widgetType": "heading",
            "isInner": false,
            "settings": {
-            "title": "+60 12-345 6789",
+            "title": "+65 9048 7168",
             "header_size": "div",
             "title_color": "#F7F0E5",
             "typography_typography": "custom",
@@ -671,7 +671,7 @@
              "sizes": []
             },
             "link": {
-             "url": "https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%20have%20a%20question%3A%20",
+             "url": "https://wa.me/6590487168?text=Hi%20Lat%20Hill%2C%20I%20have%20a%20question%3A%20",
              "is_external": "on",
              "nofollow": "",
              "custom_attributes": ""
@@ -687,7 +687,7 @@
            "settings": {
             "text": "Open WhatsApp",
             "link": {
-             "url": "https://wa.me/60123456789?text=Hi%20Lat%20Hill%2C%20I%20have%20a%20question%3A%20",
+             "url": "https://wa.me/6590487168?text=Hi%20Lat%20Hill%2C%20I%20have%20a%20question%3A%20",
              "is_external": "on",
              "nofollow": "",
              "custom_attributes": ""

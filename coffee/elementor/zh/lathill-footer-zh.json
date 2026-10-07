@@ -1,7 +1,7 @@
 {
  "content": [
   {
-   "id": "3fa5dbd",
+   "id": "4220a8a",
    "elType": "container",
    "isInner": false,
    "settings": {
@@ -41,7 +41,7 @@
    },
    "elements": [
     {
-     "id": "b5b7059",
+     "id": "83a1b1e",
      "elType": "container",
      "isInner": true,
      "settings": {
@@ -91,7 +91,7 @@
         },
         "width": {
          "unit": "%",
-         "size": 32,
+         "size": 40,
          "sizes": []
         },
         "width_tablet": {
@@ -184,12 +184,12 @@
         },
         "width": {
          "unit": "%",
-         "size": 17,
+         "size": 22,
          "sizes": []
         },
         "width_tablet": {
          "unit": "%",
-         "size": 30,
+         "size": 40,
          "sizes": []
         },
         "width_mobile": {
@@ -339,12 +339,12 @@
         },
         "width": {
          "unit": "%",
-         "size": 24,
+         "size": 30,
          "sizes": []
         },
         "width_tablet": {
          "unit": "%",
-         "size": 35,
+         "size": 55,
          "sizes": []
         },
         "width_mobile": {
@@ -388,14 +388,14 @@
           "view": "traditional",
           "icon_list": [
            {
-            "text": "WhatsApp +60 12-345 6789",
+            "text": "WhatsApp +65 9048 7168",
             "_id": "90b36ac",
             "selected_icon": {
              "value": "fab fa-whatsapp",
              "library": "fa-brands"
             },
             "link": {
-             "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
+             "url": "https://wa.me/6590487168?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
              "is_external": "on",
              "nofollow": "",
              "custom_attributes": ""
@@ -452,160 +452,11 @@
          "elements": []
         }
        ]
-      },
-      {
-       "id": "991f473",
-       "elType": "container",
-       "isInner": true,
-       "settings": {
-        "content_width": "full",
-        "flex_direction": "column",
-        "flex_gap": {
-         "column": "12",
-         "row": "12",
-         "isLinked": true,
-         "unit": "px",
-         "size": 12
-        },
-        "padding": {
-         "unit": "px",
-         "top": "0",
-         "right": "0",
-         "bottom": "0",
-         "left": "0",
-         "isLinked": true
-        },
-        "width": {
-         "unit": "%",
-         "size": 17,
-         "sizes": []
-        },
-        "width_tablet": {
-         "unit": "%",
-         "size": 30,
-         "sizes": []
-        },
-        "width_mobile": {
-         "unit": "%",
-         "size": 100,
-         "sizes": []
-        }
-       },
-       "elements": [
-        {
-         "id": "83a1b1e",
-         "elType": "widget",
-         "widgetType": "heading",
-         "isInner": false,
-         "settings": {
-          "title": "关注我们",
-          "header_size": "h2",
-          "title_color": "#F7F0E5",
-          "typography_typography": "custom",
-          "typography_font_family": "Noto Sans SC",
-          "typography_font_size": {
-           "unit": "px",
-           "size": 15,
-           "sizes": []
-          },
-          "typography_font_weight": "500",
-          "typography_line_height": {
-           "unit": "em",
-           "size": 1.3,
-           "sizes": []
-          }
-         },
-         "elements": []
-        },
-        {
-         "id": "a430336",
-         "elType": "widget",
-         "widgetType": "social-icons",
-         "isInner": false,
-         "settings": {
-          "social_icon_list": [
-           {
-            "social_icon": {
-             "value": "fab fa-instagram",
-             "library": "fa-brands"
-            },
-            "link": {
-             "url": "#",
-             "is_external": "on",
-             "nofollow": "",
-             "custom_attributes": ""
-            },
-            "_id": "4b3199a"
-           },
-           {
-            "social_icon": {
-             "value": "fab fa-facebook-f",
-             "library": "fa-brands"
-            },
-            "link": {
-             "url": "#",
-             "is_external": "on",
-             "nofollow": "",
-             "custom_attributes": ""
-            },
-            "_id": "42418ed"
-           },
-           {
-            "social_icon": {
-             "value": "fab fa-tiktok",
-             "library": "fa-brands"
-            },
-            "link": {
-             "url": "#",
-             "is_external": "on",
-             "nofollow": "",
-             "custom_attributes": ""
-            },
-            "_id": "006d91d"
-           },
-           {
-            "social_icon": {
-             "value": "fas fa-book-open",
-             "library": "fa-solid"
-            },
-            "link": {
-             "url": "#",
-             "is_external": "on",
-             "nofollow": "",
-             "custom_attributes": ""
-            },
-            "_id": "4220a8a"
-           }
-          ],
-          "shape": "circle",
-          "align": "left",
-          "icon_color": "custom",
-          "icon_primary_color": "#3D281D",
-          "icon_secondary_color": "#F7F0E5",
-          "icon_size": {
-           "unit": "px",
-           "size": 16,
-           "sizes": []
-          },
-          "icon_padding": {
-           "unit": "em",
-           "size": 0.7,
-           "sizes": []
-          },
-          "icon_spacing": {
-           "unit": "px",
-           "size": 8,
-           "sizes": []
-          }
-         },
-         "elements": []
-        }
-       ]
       }
      ]
     },
     {
-     "id": "4e59d50",
+     "id": "006d91d",
      "elType": "container",
      "isInner": true,
      "settings": {
@@ -643,7 +494,7 @@
      },
      "elements": [
       {
-       "id": "36b4ba2",
+       "id": "4b3199a",
        "elType": "widget",
        "widgetType": "text-editor",
        "isInner": false,
@@ -666,7 +517,7 @@
        "elements": []
       },
       {
-       "id": "58f0ee2",
+       "id": "42418ed",
        "elType": "widget",
        "widgetType": "text-editor",
        "isInner": false,

@@ -193,11 +193,18 @@ def footer():
     social = "\n".join(
         f'<li><a href="{s["url"]}" {a("aria-label", fmt(T("{l}：{h}", "{l}: {h}"), l=s["label"], h=s["handle"]))}>'
         f'{ICON[s["key"]]}{t(s["label"])}</a></li>' for s in C.SOCIAL)
+    social_col = f"""
+        <div>
+          <h2>{t(F["social_title"])}</h2>
+          <ul class="social">
+{indent(social, 12)}
+          </ul>
+        </div>""" if C.SOCIAL else ""
     hello = C.WA_MESSAGES["hello"]
     return f"""  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid{" has-social" if C.SOCIAL else ""}">
         <div>
           <a class="logo" href="index.html" {a("aria-label", C.UI["home_label"])}>
             {logo_svg()}
@@ -218,13 +225,7 @@ def footer():
             <li><a href="mailto:{C.EMAIL}">{C.EMAIL}</a></li>
             <li>{t(F["help_hours"])}</li>
           </ul>
-        </div>
-        <div>
-          <h2>{t(F["social_title"])}</h2>
-          <ul class="social">
-{indent(social, 12)}
-          </ul>
-        </div>
+        </div>{social_col}
       </div>
       <div class="footer-bottom">
         <span>© <span data-year>2026</span> {t(F["copyright"])}</span>

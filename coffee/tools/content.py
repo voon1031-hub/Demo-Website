@@ -28,8 +28,8 @@ class T:
 # ---------------------------------------------------------------------------
 # Business details (placeholders: change these first)
 # ---------------------------------------------------------------------------
-WHATSAPP = "60123456789"              # digits only, for wa.me links
-WHATSAPP_DISPLAY = "+60 12-345 6789"
+WHATSAPP = "6590487168"               # digits only, for wa.me links
+WHATSAPP_DISPLAY = "+65 9048 7168"
 EMAIL = "hello@lathill.coffee"
 ROAST_DAYS = (2, 5)                   # Tuesday and Friday (0 = Sunday)
 TIMEZONE = "Asia/Kuala_Lumpur"
@@ -41,12 +41,11 @@ BRAND = {
     "tagline": "Coffee Roasters",
 }
 
-SOCIAL = [
-    {"key": "instagram", "label": "Instagram", "url": "#", "handle": "@lathill.coffee"},
-    {"key": "facebook", "label": "Facebook", "url": "#", "handle": "Lat Hill Coffee"},
-    {"key": "tiktok", "label": "TikTok", "url": "#", "handle": "@lathill.coffee"},
-    {"key": "xhs", "label": T("小红书", "Xiaohongshu"), "url": "#", "handle": "叻山咖啡"},
-]
+# Social media links for the footer. Empty for now, so the footer leaves the
+# column out; add entries like these to bring it back (key: instagram,
+# facebook, tiktok or xhs):
+#   {"key": "instagram", "label": "Instagram", "url": "https://instagram.com/…", "handle": "@lathill.coffee"},
+SOCIAL = []
 
 # Videos (made by tools/fetch-media.sh from coffee/tools/media.txt)
 VIDEOS = {

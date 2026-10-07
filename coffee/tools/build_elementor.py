@@ -453,14 +453,18 @@ def footer(b):
         (C.EMAIL, f"mailto:{C.EMAIL}", "fas fa-envelope"),
         (F["help_hours"], None, "fas fa-clock"),
     ]
-    cols = b.row([
+    social = bool(C.SOCIAL)  # the social column only appears when content.py lists links
+    cols = [
         b.box_([b.image("logo-light.png", width=180, align="left", alt=b.tr(C.BRAND["name"]), url=b.url("index")),
-                b.text(F["about"], 15, ON_DARK)], space=16, width=32, width_t=100),
-        b.box_([small_title(F["nav_title"]), b.icon_list(nav, size=15, color=ON_DARK, hover=PAPER)], space=12, width=17, width_t=30),
+                b.text(F["about"], 15, ON_DARK)], space=16, width=32 if social else 40, width_t=100),
+        b.box_([small_title(F["nav_title"]), b.icon_list(nav, size=15, color=ON_DARK, hover=PAPER)], space=12,
+               width=17 if social else 22, width_t=30 if social else 40),
         b.box_([small_title(F["help_title"]), b.icon_list(help_items, size=15, color=ON_DARK, icon_color=CREMA, hover=PAPER)],
-               space=12, width=24, width_t=35),
-        b.box_([small_title(F["social_title"]), b.social()], space=12, width=17, width_t=30),
-    ], space=32, wrap=True)
+               space=12, width=24 if social else 30, width_t=35 if social else 55),
+    ]
+    if social:
+        cols.append(b.box_([small_title(F["social_title"]), b.social()], space=12, width=17, width_t=30))
+    cols = b.row(cols, space=32, wrap=True)
     bottom = b.row([
         b.text(f"© 2026 {b.tr(F['copyright'])}", 13, "rgba(247,240,229,0.55)"),
         b.text(F["ai_note"], 13, "rgba(247,240,229,0.55)"),

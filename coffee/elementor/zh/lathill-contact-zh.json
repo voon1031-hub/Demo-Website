@@ -654,7 +654,7 @@
            "widgetType": "heading",
            "isInner": false,
            "settings": {
-            "title": "+60 12-345 6789",
+            "title": "+65 9048 7168",
             "header_size": "div",
             "title_color": "#F7F0E5",
             "typography_typography": "custom",
@@ -671,7 +671,7 @@
              "sizes": []
             },
             "link": {
-             "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
+             "url": "https://wa.me/6590487168?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
              "is_external": "on",
              "nofollow": "",
              "custom_attributes": ""
@@ -687,7 +687,7 @@
            "settings": {
             "text": "打开 WhatsApp",
             "link": {
-             "url": "https://wa.me/60123456789?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
+             "url": "https://wa.me/6590487168?text=%E4%BD%A0%E5%A5%BD%E5%8F%BB%E5%B1%B1%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A",
              "is_external": "on",
              "nofollow": "",
              "custom_attributes": ""
