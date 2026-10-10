@@ -4,6 +4,7 @@
 #   videos (.mp4)             -> assets/media/<name>.mp4  (1280px, H.264, no audio)
 #   clip-* videos             -> the same, played forward then backward so the
 #                                loop has no jump (fits in 1280x1280)
+#   raw-* files               -> promo/<name>.<ext>, untouched (sources for promo edits)
 #   build-1, build-2 … videos -> the hero construction timelapse, joined in order and
 #                                cut into assets/build/NNN.webp frames, plus
 #                                assets/build/frames.js, start.jpg and end.jpg
@@ -25,6 +26,7 @@ while read -r name url _; do
     echo "FAILED: $name $url"; failed=$((failed+1)); continue
   fi
   case "$name:$ext" in
+    raw-*) mkdir -p promo; cp "$file" "promo/$name.$ext"; echo "raw: $name $(du -h "$file" | cut -f1)" ;;
     build-*:mp4) echo "build segment: $name" ;;  # used below, not published on its own
     clip-*:mp4)
       ffmpeg -nostdin -loglevel error -y -i "$file" -an -filter_complex \
