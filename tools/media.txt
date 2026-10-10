@@ -21,3 +21,4 @@ raw-scene-a  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx
 raw-scene-b  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261010_135940_361656fe-3ab8-4e08-a352-cf56f54edda2.png
 raw-scene-c  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261010_140316_7a2c3b8e-a542-40a9-9148-70e452f29ee1.png
 raw-scene-d  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261010_140316_98a78de7-916f-4dc3-a1ff-ad08519138d5.png
+raw-hands-1  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261010_140702_dbe89024-f074-43e8-ae87-949b1ba2d113.mp4
