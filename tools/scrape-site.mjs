@@ -14,12 +14,13 @@ import path from 'node:path';
 const [start, out = 'scrape'] = process.argv.slice(2);
 if (!start) throw new Error('usage: node tools/scrape-site.mjs <start-url> [out-dir]');
 const origin = new URL(start).origin;
-const MAX_PAGES = 20;     // ordinary pages (home, menu, about, contact …)
+const MAX_PAGES = 40;     // ordinary pages (home, menu, store categories …)
 const MAX_PRODUCTS = 160; // store product pages
 fs.mkdirSync(path.join(out, 'products'), { recursive: true });
 
 const isProduct = (u) => /\/store\/p\d+|\/product\//i.test(u.pathname);
 const isAsset = (u) => /\.(jpe?g|png|gif|webp|svg|pdf|mp4|css|js)$/i.test(u.pathname);
+const isCart = (u) => /\/store\/(checkout|cart)/i.test(u.pathname);
 const clean = (href) => { const u = new URL(href); u.hash = ''; return u; };
 const slugFor = (u) =>
   (u.pathname.replace(/^\/|\.html?$/g, '').replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'home').slice(0, 80);
@@ -134,7 +135,7 @@ const products = [];
 while (queue.length) {
   const u = queue.shift();
   const key = u.href;
-  if (seen.has(key) || u.origin !== origin || isAsset(u)) continue;
+  if (seen.has(key) || u.origin !== origin || isAsset(u) || isCart(u)) continue;
   const product = isProduct(u);
   if (product ? products.length >= MAX_PRODUCTS : pages.length >= MAX_PAGES) continue;
   seen.add(key);
