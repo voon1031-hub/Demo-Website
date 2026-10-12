@@ -1,0 +1,41 @@
+# Renders the restaurant's old Weebly site on a GitHub runner (the cloud dev
+# environment can't reach weebly.com) and commits a copy of its text, menu data,
+# screenshots and photos to scrape/ on this branch, for building the new site.
+name: Scrape old site
+on:
+  push:
+    branches: [claude/vigilant-fermi-3nmqq0]
+    paths: ['tools/scrape-site.mjs', 'tools/scrape-images.py', '.github/workflows/scrape-site.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: scrape-site-${{ github.ref }}
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Playwright and Pillow
+        run: |
+          npm install --no-save --no-package-lock playwright@1.48.2
+          npx playwright install --with-deps chromium
+          pip install --quiet pillow
+      - name: Render the old site
+        run: |
+          rm -rf scrape
+          node tools/scrape-site.mjs https://shanghairestaurantkennewick.weebly.com/ scrape
+      - name: Download photos
+        run: python3 tools/scrape-images.py scrape
+      - name: Commit the copy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A scrape
+          git commit -m "Add a scraped copy of the old Shang Hai site" || exit 0
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
