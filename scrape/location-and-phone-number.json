@@ -35,6 +35,13 @@
    "frame": "https://www.weebly.com/ajax/apps/generateMap.php?map=google&elementid=753347077178141906&ineditor=0&control=3&width=auto&height=300px&overviewmap=0&scalecontrol=0&typecontrol=0&zoom=15&long=-119.1614183&lat=46.21203&domain=www&point=1&align=1&reseller=false"
   },
   {
+   "src": "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5536!3i11630!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=97454",
+   "alt": "",
+   "w": 256,
+   "h": 256,
+   "frame": "https://www.weebly.com/ajax/apps/generateMap.php?map=google&elementid=753347077178141906&ineditor=0&control=3&width=auto&height=300px&overviewmap=0&scalecontrol=0&typecontrol=0&zoom=15&long=-119.1614183&lat=46.21203&domain=www&point=1&align=1&reseller=false"
+  },
+  {
    "src": "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5536!3i11629!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=80227",
    "alt": "",
    "w": 256,
@@ -57,13 +64,6 @@
   },
   {
    "src": "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5538!3i11630!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=85327",
-   "alt": "",
-   "w": 256,
-   "h": 256,
-   "frame": "https://www.weebly.com/ajax/apps/generateMap.php?map=google&elementid=753347077178141906&ineditor=0&control=3&width=auto&height=300px&overviewmap=0&scalecontrol=0&typecontrol=0&zoom=15&long=-119.1614183&lat=46.21203&domain=www&point=1&align=1&reseller=false"
-  },
-  {
-   "src": "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5536!3i11630!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=97454",
    "alt": "",
    "w": 256,
    "h": 256,
@@ -491,14 +491,14 @@
    "body": "{\"jsonrpc\":\"2.0\",\"id\":0,\"method\":\"CustomerAccounts::getAccountDetails\",\"result\":{\"success\":false,\"message\":\"Customer accounts restricted or not enabled.\",\"event\":\"\",\"data\":{\"code\":\"dontShow\",\"message\":\"Customer accounts restricted or not enabled.\",\"message_tl\":\"Customer accounts restricted or not enabled.\"},\"total\":null,\"http_response_code\":401}}"
   },
   {
-   "url": "https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true",
-   "status": 200,
-   "body": "{}\n"
-  },
-  {
    "url": "https://shanghairestaurantkennewick.weebly.com/ajax/api/JsonRPC/Commerce/?Commerce[Checkout::getMiniCart]",
    "status": 200,
    "body": "{\"jsonrpc\":\"2.0\",\"id\":0,\"method\":\"Checkout::getMiniCart\",\"result\":{\"data\":{\"order\":[],\"cart_template\":\"{{!\\n\\tNOTE: the `checkout_url` variable must be used\\n\\tto allow the user to checkout from the mini-cart\\n}}\\n<div class=\\\"wsite-cart-bottom\\\">\\n\\t<div class=\\\"wsite-vertical-align wsite-subtotal-wrapper\\\">\\n\\t\\t<span>{{#stl}}templates.cart.subtotalText{{\\/stl}}:<\\/span>\\n\\t\\t{{{currency_prefix_html}}}<span class=\\\"wsite-price\\\">{{price_number}}<\\/span>{{{currency_suffix_html}}}\\n\\t<\\/div>\\n\\t<div class=\\\"wsite-vertical-align wsite-button-wrapper\\\">\\n\\t\\t<a id=\\\"wsite-com-minicart-checkout-button\\\" class=\\\"wsite-button wsite-button-highlight\\\" href=\\\"{{checkout_url}}\\\">\\n\\t\\t\\t<span class=\\\"wsite-button-inner\\\">{{#stl}}templates.cart.checkoutText{{\\/stl}}<\\/span><span class=\\\"wsite-button-chevron\\\"><\\/span>\\n\\t\\t<\\/a>\\n\\t<\\/div>\\n<\\/div>\\n\",\"cart_item_template\":\"<div class=\\\"wsite-vertical-align wsite-product-image\\\">\\n\\t<a class=\\\"wsite-product-link\\\" href=\\\"{{url}}\\\">\\n\\t\\t{{{thumbnail_html}}}\\n\\t<\\/a>\\n<\\/div>\\n\\n<div class=\\\"wsite-vertical-align wsite-description-wrapper\\\">\\n\\t<div class=\\\"wsite-product-description\\\">\\n\\t\\t<div class=\\\"wsite-product-name\\\">\\n\\t\\t\\t<span class=\\\"wsite-name-header\\\">{{{title_html}}}<\\/span>\\n\\t\\t<\\/div>\\n\\t\\t{{#options}}\\n\\t\\t\\t{{#value}}\\n\\t\\t\\t<div class=\\\"wsite-product-option\\\">\\n\\t\\t\\t\\t{{name}}: {{value}}\\n\\t\\t\\t<\\/div>\\n\\t\\t\\t{{\\/value}}\\n\\t\\t{{\\/options}}\\n\\t<\\/div>\\n<\\/div>\\n\\n<div class=\\\"wsite-vertical-align wsite-items-right\\\">\\n\\t{{!\\n\\t\\tDesigner note: the `wsite-remove-button` class is required to\\n\\t\\tallow the user to remove an item from the mini-cart\\n\\t}}\\n\\t<div class=\\\"wsite-remove-button\\\"><\\/div>\\n\\t<div class=\\\"wsite-product-price\\\">\\n\\t\\t{{quantity}} x <span class=\\\"wsite-price\\\">{{price_number}}<\\/span>\\n\\t<\\/div>\\n<\\/div>\\n\",\"cart_item_empty_template\":\"<div class=\\\"wsite-empty-cart\\\">{{#stl}}templates.platform.theme.base.commerce.mini-cart.empty_1{{\\/stl}}<\\/div>\\n\",\"currency\":\"USD\",\"checkout_url\":\"https:\\/\\/shanghairestaurantkennewick.weebly.com\\/store\\/checkout?cart=\"},\"success\":true}}"
+  },
+  {
+   "url": "https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true",
+   "status": 200,
+   "body": "{}\n"
   },
   {
    "url": "https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/GetViewportInfo",

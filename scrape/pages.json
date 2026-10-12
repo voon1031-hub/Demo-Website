@@ -6,11 +6,6 @@
    "title": "SHANG HAI RESTAURANT - Home"
   },
   {
-   "url": "https://shanghairestaurantkennewick.weebly.com/store/checkout?cart=",
-   "slug": "store-checkout",
-   "title": "Just a moment..."
-  },
-  {
    "url": "https://shanghairestaurantkennewick.weebly.com/location-and-phone-number.html",
    "slug": "location-and-phone-number",
    "title": "Location and Phone Number - SHANG HAI RESTAURANT"
@@ -99,6 +94,26 @@
    "url": "https://shanghairestaurantkennewick.weebly.com/store/c6/Suggested_Family_Style_Dinners.html",
    "slug": "store-c6-Suggested-Family-Style-Dinners",
    "title": "Suggested Family Style Dinners"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c5/Special_Combination_Dinners.html",
+   "slug": "store-c5-Special-Combination-Dinners",
+   "title": "Special Combination Dinners"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c4/All_Time_Favorite_Combination_of_Your_Choice.html",
+   "slug": "store-c4-All-Time-Favorite-Combination-of-Your-Choice",
+   "title": "All Time Favorite Combination of Your Choice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c3/Soups.html",
+   "slug": "store-c3-Soups",
+   "title": "Soups"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c2/appetizers",
+   "slug": "store-c2-appetizers",
+   "title": "shang hai appetizers"
   }
  ],
  "products": [
@@ -756,6 +771,151 @@
    "url": "https://shanghairestaurantkennewick.weebly.com/store/p35/Family_Dinner%3A_C.html",
    "slug": "store-p35-Family-Dinner-3A-C",
    "title": "Family Dinner: C"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p23/%231_%28Pork_Chow_Mein%2C_Pork_Fried_Rice%2C_Egg_Foo_Young%29.html",
+   "slug": "store-p23-231-28Pork-Chow-Mein-2C-Pork-Fried-Rice-2C-Egg-Foo-Young-29",
+   "title": "#1 (Pork Chow Mein, Pork Fried Rice, Egg Foo Young)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p24/%232_%28Subgum_Chicken_Chow_Mein%2C_Sweet%26Sour_Pork%2C_Pork_Fried_Rice%29.html",
+   "slug": "store-p24-232-28Subgum-Chicken-Chow-Mein-2C-Sweet-26Sour-Pork-2C-Pork-Fried-Rice",
+   "title": "#2 (Subgum Chicken Chow Mein, Sweet&Sour Pork, Pork Fried Rice)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p25/%233_%28Pork_Fried_Rice%2C_Pork_Chow_Mein%2C_Fried_Shrimp%29.html",
+   "slug": "store-p25-233-28Pork-Fried-Rice-2C-Pork-Chow-Mein-2C-Fried-Shrimp-29",
+   "title": "#3 (Pork Fried Rice, Pork Chow Mein, Fried Shrimp)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p26/%234_%28Subgum_Chicken_Chow_Mein%2C_Sweet%26Sour_Pork%2C_Fried_Shrimp%29.html",
+   "slug": "store-p26-234-28Subgum-Chicken-Chow-Mein-2C-Sweet-26Sour-Pork-2C-Fried-Shrimp-29",
+   "title": "#4 (Subgum Chicken Chow Mein, Sweet&Sour Pork, Fried Shrimp)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p27/%235_%28Pork_Fried_Rice%2C_Pork_Chow_Mein%2C_Pork_Egg_Roll%2C_Sweet%26Sour_Chicken%29.html",
+   "slug": "store-p27-235-28Pork-Fried-Rice-2C-Pork-Chow-Mein-2C-Pork-Egg-Roll-2C-Sweet-26So",
+   "title": "#5 (Pork Fried Rice, Pork Chow Mein, Pork Egg Roll, Sweet&Sour Chicken)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p28/%236_%28BBQ_Pork%2C_Fried_Shrimp%2C_Subgum_Chicken_Chow_Mein%2C_Pork_Fried_Rice%29.html",
+   "slug": "store-p28-236-28BBQ-Pork-2C-Fried-Shrimp-2C-Subgum-Chicken-Chow-Mein-2C-Pork-Fri",
+   "title": "#6 (BBQ Pork, Fried Shrimp, Subgum Chicken Chow Mein, Pork Fried Rice)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p29/%237_%28Kung_Pao_Chicken%2C_Pork_Fried_Rice%2C_Sweet%26Sour_Chicken%29.html",
+   "slug": "store-p29-237-28Kung-Pao-Chicken-2C-Pork-Fried-Rice-2C-Sweet-26Sour-Chicken-29",
+   "title": "#7 (Kung Pao Chicken, Pork Fried Rice, Sweet&Sour Chicken)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p30/%238_%28Moo_Goo_Gai_Pan%2C_Pork_Fried_Rice%2C_Sweet%26Sour_Pork%29.html",
+   "slug": "store-p30-238-28Moo-Goo-Gai-Pan-2C-Pork-Fried-Rice-2C-Sweet-26Sour-Pork-29",
+   "title": "#8 (Moo Goo Gai Pan, Pork Fried Rice, Sweet&Sour Pork)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p31/%239_%28Broccoli_Beef%2C_Pork_Fried_Rice%2C_Lemon_Chicken%2C_Pork_Egg_Roll%29.html",
+   "slug": "store-p31-239-28Broccoli-Beef-2C-Pork-Fried-Rice-2C-Lemon-Chicken-2C-Pork-Egg-Ro",
+   "title": "#9 (Broccoli Beef, Pork Fried Rice, Lemon Chicken, Pork Egg Roll)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p32/%2310_%28Pork_Fried_Rice%2C_Sweet%26Sour_Chicken%2C_Fried_Shrimp%2C_BBQ_Pork%29.html",
+   "slug": "store-p32-2310-28Pork-Fried-Rice-2C-Sweet-26Sour-Chicken-2C-Fried-Shrimp-2C-BBQ-",
+   "title": "#10 (Pork Fried Rice, Sweet&Sour Chicken, Fried Shrimp, BBQ Pork)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p20/2_Item_Combination_of_Your_Own_Choice.html",
+   "slug": "store-p20-2-Item-Combination-of-Your-Own-Choice",
+   "title": "2 Item Combination of Your Own Choice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p21/3_Item_Combination_of_Your_Own_Choice.html",
+   "slug": "store-p21-3-Item-Combination-of-Your-Own-Choice",
+   "title": "3 Item Combination of Your Own Choice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p22/4_Item_Combination_of_Your_Own_Choice.html",
+   "slug": "store-p22-4-Item-Combination-of-Your-Own-Choice",
+   "title": "4 Item Combination of Your Own Choice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p18/War_Wonton_Noodle_Soup.html",
+   "slug": "store-p18-War-Wonton-Noodle-Soup",
+   "title": "War Wonton Noodle Soup"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p17/Wonton_Soup.html",
+   "slug": "store-p17-Wonton-Soup",
+   "title": "Wonton Soup"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p16/House_Special_Soup.html",
+   "slug": "store-p16-House-Special-Soup",
+   "title": "House Special Soup"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p15/Chinese_Green_Soup.html",
+   "slug": "store-p15-Chinese-Green-Soup",
+   "title": "Chinese Green Soup"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p14/Hot_and_Sour_Soup_%28Large_Cup%29.html",
+   "slug": "store-p14-Hot-and-Sour-Soup-28Large-Cup-29",
+   "title": "Hot and Sour Soup (Large Cup)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p13/Hot_and_Sour_Soup_%28Small_Cup%29.html",
+   "slug": "store-p13-Hot-and-Sour-Soup-28Small-Cup-29",
+   "title": "Hot and Sour Soup (Small Cup)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p12/Egg_Flower_Soup_%28Large_Cup%29.html",
+   "slug": "store-p12-Egg-Flower-Soup-28Large-Cup-29",
+   "title": "Egg Flower Soup (Large Cup)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p11/Egg_Flower_Soup_%28small_cup%29.html",
+   "slug": "store-p11-Egg-Flower-Soup-28small-cup-29",
+   "title": "Egg Flower Soup (small cup)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p1/Appetizers_Plate.html",
+   "slug": "store-p1-Appetizers-Plate",
+   "title": "Appetizers Plate"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p19/Fried_Shrimp_%2816_Count%29.html",
+   "slug": "store-p19-Fried-Shrimp-2816-Count-29",
+   "title": "Fried Shrimp (16 Count)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p10/Fried_Shrimp_%2810_Count%29.html",
+   "slug": "store-p10-Fried-Shrimp-2810-Count-29",
+   "title": "Fried Shrimp (10 Count)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p9/Crab_Puff.html",
+   "slug": "store-p9-Crab-Puff",
+   "title": "Crab Puff"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p8/Crispy_Fried_Chicken_Wings.html",
+   "slug": "store-p8-Crispy-Fried-Chicken-Wings",
+   "title": "Crispy Fried Chicken Wings"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p7/Potstickers.html",
+   "slug": "store-p7-Potstickers",
+   "title": "Potstickers"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p6/Crispy_Fried_Wontons_%28NO_FILLINGS%29.html",
+   "slug": "store-p6-Crispy-Fried-Wontons-28NO-FILLINGS-29",
+   "title": "Crispy Fried Wontons (NO FILLINGS)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p5/Pork_Egg_Roll_%28Whole_Order%3A_3%29.html",
+   "slug": "store-p5-Pork-Egg-Roll-28Whole-Order-3A-3-29",
+   "title": "Pork Egg Roll (Whole Order: 3)"
   }
  ]
 }

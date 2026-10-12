@@ -23,7 +23,7 @@
    288
   ],
   "transparent": true,
-  "seen_in": "store-p100-Curry-Chicken.json"
+  "seen_in": "store-p1-Appetizers-Plate.json"
  },
  "https://cdn2.editmysite.com/images/editor/theme-background/stock/Oriental-Lantern.jpg": {
   "file": "img/7777e175f089.webp",
@@ -506,6 +506,19 @@
   "transparent": true,
   "seen_in": "store-p107-Black-Mushroom-Chicken.json"
  },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p10_i1_w577.png": {
+  "file": "img/0a1969b63bd2.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p10-Fried-Shrimp-2810-Count-29.json"
+ },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p110_i1_w577.png": {
   "file": "img/34e0b8ce36f0.webp",
   "size": [
@@ -545,6 +558,19 @@
   "transparent": true,
   "seen_in": "store-p115-Broccoli-Chicken.json"
  },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p11_i1_w433.png": {
+  "file": "img/4e4a91ab2b17.webp",
+  "size": [
+   433,
+   577
+  ],
+  "original": [
+   433,
+   577
+  ],
+  "transparent": true,
+  "seen_in": "store-p11-Egg-Flower-Soup-28small-cup-29.json"
+ },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p124_i1_w577.png": {
   "file": "img/29b70f6de651.webp",
   "size": [
@@ -557,6 +583,32 @@
   ],
   "transparent": true,
   "seen_in": "store-p124-Mongolian-Beef.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p12_i1_w433.png": {
+  "file": "img/4c6747bb8cc6.webp",
+  "size": [
+   433,
+   577
+  ],
+  "original": [
+   433,
+   577
+  ],
+  "transparent": true,
+  "seen_in": "store-p12-Egg-Flower-Soup-28Large-Cup-29.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p13_i1_w433.png": {
+  "file": "img/670f3dd4ef47.webp",
+  "size": [
+   433,
+   577
+  ],
+  "original": [
+   433,
+   577
+  ],
+  "transparent": true,
+  "seen_in": "store-p13-Hot-and-Sour-Soup-28Small-Cup-29.json"
  },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p141_i1_w577.png": {
   "file": "img/e9a352de1616.webp",
@@ -597,6 +649,19 @@
   "transparent": true,
   "seen_in": "store-p147-Szechuan-Shrimp.json"
  },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p14_i1_w433.png": {
+  "file": "img/e5ab37d0fbe4.webp",
+  "size": [
+   433,
+   577
+  ],
+  "original": [
+   433,
+   577
+  ],
+  "transparent": true,
+  "seen_in": "store-p14-Hot-and-Sour-Soup-28Large-Cup-29.json"
+ },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p157_i1_w10000.png?width=640": {
   "file": "img/7b3fe7339625.webp",
   "size": [
@@ -635,6 +700,175 @@
   ],
   "transparent": true,
   "seen_in": "store-p162-Baked-Potato.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p17_i1_w577.png": {
+  "file": "img/57e86689295b.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p17-Wonton-Soup.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p18_i1_w577.png": {
+  "file": "img/b1ead7d1daff.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p18-War-Wonton-Noodle-Soup.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p1_i1_w577.png": {
+  "file": "img/9f79091891ef.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p1-Appetizers-Plate.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p20_i1_w577.png": {
+  "file": "img/20dd091e1027.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p20-2-Item-Combination-of-Your-Own-Choice.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p21_i1_w577.png": {
+  "file": "img/32dbbcdfaf73.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p21-3-Item-Combination-of-Your-Own-Choice.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p22_i1_w577.png": {
+  "file": "img/83b9d15c859d.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p22-4-Item-Combination-of-Your-Own-Choice.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p25_i1_w577.png": {
+  "file": "img/3f2c780309b5.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p25-233-28Pork-Fried-Rice-2C-Pork-Chow-Mein-2C-Fried-Shrimp-29.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p27_i1_w577.png": {
+  "file": "img/81de2d195b30.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p27-235-28Pork-Fried-Rice-2C-Pork-Chow-Mein-2C-Pork-Egg-Roll-2C-Sweet-26So.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p28_i1_w577.png": {
+  "file": "img/456330f0dce0.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p28-236-28BBQ-Pork-2C-Fried-Shrimp-2C-Subgum-Chicken-Chow-Mein-2C-Pork-Fri.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p29_i1_w577.png": {
+  "file": "img/ffdb1fe92539.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p29-237-28Kung-Pao-Chicken-2C-Pork-Fried-Rice-2C-Sweet-26Sour-Chicken-29.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p2_i1_w577.png": {
+  "file": "img/32d7c07268a3.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-c2-appetizers.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p31_i1_w577.png": {
+  "file": "img/a26c37f935b3.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p31-239-28Broccoli-Beef-2C-Pork-Fried-Rice-2C-Lemon-Chicken-2C-Pork-Egg-Ro.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p32_i1_w577.png": {
+  "file": "img/b02870ff30b7.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p32-2310-28Pork-Fried-Rice-2C-Sweet-26Sour-Chicken-2C-Fried-Shrimp-2C-BBQ-.json"
  },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p35_i1_w577.png": {
   "file": "img/edab247f2db5.webp",
@@ -727,6 +961,19 @@
   "transparent": true,
   "seen_in": "store-p48-House-Special-Lo-Mein.json"
  },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p4_i2_w577.png": {
+  "file": "img/58ab7f42eea7.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-c2-appetizers.json"
+ },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p51_i1_w577.png": {
   "file": "img/a4a28fee56ec.webp",
   "size": [
@@ -765,6 +1012,19 @@
   ],
   "transparent": true,
   "seen_in": "store-p56-Sweet-and-Sour-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p5_i1_w577.png": {
+  "file": "img/069a38cbf34e.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p5-Pork-Egg-Roll-28Whole-Order-3A-3-29.json"
  },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p63_i1_w577.png": {
   "file": "img/a403c90c6bd4.webp",
@@ -805,6 +1065,19 @@
   "transparent": true,
   "seen_in": "store-p78-Pork-Noodles.json"
  },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p7_i2_w500.png": {
+  "file": "img/7124c7a8449d.webp",
+  "size": [
+   500,
+   500
+  ],
+  "original": [
+   500,
+   500
+  ],
+  "transparent": true,
+  "seen_in": "store-p7-Potstickers.json"
+ },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p89_i1_w577.png": {
   "file": "img/e43cbe880de3.webp",
   "size": [
@@ -843,6 +1116,19 @@
   ],
   "transparent": true,
   "seen_in": "store-p96-General-Tso-27s-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p9_i1_w577.png": {
+  "file": "img/9f9e64a9a61b.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p9-Crab-Puff.json"
  },
  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-bb1.png": {
   "file": "img/f330209c2b3c.webp",
