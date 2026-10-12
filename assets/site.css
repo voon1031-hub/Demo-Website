@@ -919,6 +919,7 @@ mark {
    photos bloom in, petals fly into the list, the count jumps. All of it
    stays off for people who ask their device for less motion. */
 .title-text { display: inline-block; }
+.title-end { white-space: nowrap; }
 .title-bloom {
   display: inline-block;
   width: .36em;

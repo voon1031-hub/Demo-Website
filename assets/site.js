@@ -153,11 +153,14 @@
     return li;
   }
 
+  // The marigold rides on the last word, so a title that wraps never
+  // leaves the flower alone on a line.
   function title(sec) {
-    return el("h2", { class: "course-title", id: sec.id + "-title" }, [
-      el("span", { class: "title-text" }, sec.title),
-      bloom("title-bloom")
-    ]);
+    var words = sec.title.split(" "), last = words.pop();
+    return el("h2", { class: "course-title", id: sec.id + "-title" }, el("span", { class: "title-text" }, [
+      words.length ? words.join(" ") + " " : null,
+      el("span", { class: "title-end" }, [last, bloom("title-bloom")])
+    ]));
   }
 
   function course(sec) {
