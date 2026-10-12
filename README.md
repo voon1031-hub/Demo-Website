@@ -18,10 +18,22 @@ page lists the wrapped bouquet, the four vase sizes and the two subscriptions.
   sections are listed in a column on the left. The "Open now" line follows the
   hours in `content.js` in Woodside time, and the marigold beside it folds into
   a bud while the shop is closed.
+  Two tools sit on top of the menu:
+  - **Your list** – a + beside every dish and extra keeps it on a list. A
+    bar at the bottom shows how many and the menu total; tapping it opens the
+    list, where quantities can be changed. The list is kept in the visitor's
+    own browser only, and dishes later taken off the menu drop out of it.
+  - **Search** – the magnifier in the section bar (on wide screens, the box
+    above the sections, or the `/` key) narrows the menu to dishes and
+    extras that mention a word, with or without accents ("gruyere" finds
+    Gruyère).
 - `flowers.html` – bouquet, vase arrangements and subscriptions, each linking
   to the shop's flower ordering page.
 - `assets/site.css`, `assets/site.js` – shared styles, and the script that
-  builds both pages from `content.js`.
+  builds both pages from `content.js`. Section titles rise and their marigold
+  opens as they scroll into view, and flower photos bloom in; anyone whose
+  device asks for reduced motion gets the page without these.
+- `assets/picks.js` – the list and the search on the café menu.
 - `assets/flowers/` – product photos, cropped from screenshots of the current
   flowers page, so they are only 428 px square. Swap in the original photo
   files (same names) for sharper pictures.

@@ -20,6 +20,32 @@
     return n;
   }
   function money(n) { return n % 1 ? n.toFixed(2) : String(n); }
+  function slug(t) { return t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+
+  // Every dish and extra by id ("all-day:burrito", "salads:extra:avocado"),
+  // in menu order; the list and the search in picks.js read it.
+  var catalog = {};
+
+  var SVG = "http://www.w3.org/2000/svg";
+  function bloom(cls) {
+    var svg = document.createElementNS(SVG, "svg");
+    svg.setAttribute("class", "bloom " + (cls || ""));
+    svg.setAttribute("viewBox", "-50 -50 100 100");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    [["bloom-outer", "#ring-o"], ["bloom-inner", "#ring-i"]].forEach(function (r) {
+      var g = document.createElementNS(SVG, "g"), u = document.createElementNS(SVG, "use");
+      g.setAttribute("class", r[0]);
+      u.setAttribute("href", r[1]);
+      g.appendChild(u);
+      svg.appendChild(g);
+    });
+    var c = document.createElementNS(SVG, "circle");
+    c.setAttribute("class", "bloom-heart");
+    c.setAttribute("r", "8");
+    svg.appendChild(c);
+    return svg;
+  }
   function toMin(t) { var p = t.split(":"); return +p[0] * 60 + +p[1]; }
   function clock(m) {
     var h = Math.floor(m / 60), mm = m % 60;
@@ -113,31 +139,42 @@
   }
 
   /* ── Café menu ── */
-  function dish(it) {
+  function dish(it, sec) {
+    var id = sec.id + ":" + slug(it.name);
+    catalog[id] = { name: it.name, price: it.price, section: sec.title };
     var head = el("p", { class: "dish-head" }, [el("span", { class: "dish-name" }, it.name)]);
     (it.tags || []).forEach(function (t) {
       if (t === "gf") head.appendChild(el("span", { class: "tag" }, "gluten-free"));
     });
     head.appendChild(el("span", { class: "dish-leader", "aria-hidden": "true" }));
     head.appendChild(el("span", { class: "dish-price" }, [el("span", { class: "sr" }, "$"), money(it.price)]));
-    var li = el("li", { class: it.desc ? "dish has-desc" : "dish" }, head);
+    var li = el("li", { class: it.desc ? "dish has-desc" : "dish", "data-id": id }, head);
     if (it.desc) li.appendChild(el("p", { class: "dish-desc" }, it.desc));
     return li;
   }
 
+  function title(sec) {
+    return el("h2", { class: "course-title", id: sec.id + "-title" }, [
+      el("span", { class: "title-text" }, sec.title),
+      bloom("title-bloom")
+    ]);
+  }
+
   function course(sec) {
     var s = el("section", { class: "course", id: sec.id, "aria-labelledby": sec.id + "-title" }, [
-      el("h2", { class: "course-title", id: sec.id + "-title" }, sec.title)
+      title(sec)
     ]);
     sec.groups.forEach(function (g) {
       var group = el("div", { class: "group" });
       if (g.title) group.appendChild(el("h3", { class: "group-title" }, g.title));
-      group.appendChild(el("ul", { class: "dishes" }, g.items.map(dish)));
+      group.appendChild(el("ul", { class: "dishes" }, g.items.map(function (it) { return dish(it, sec); })));
       s.appendChild(group);
     });
     if (sec.extras && sec.extras.length) {
       s.appendChild(el("ul", { class: "extras", "aria-label": sec.title + " extras" }, sec.extras.map(function (x) {
-        return el("li", null, [
+        var id = sec.id + ":extra:" + slug(x.name);
+        catalog[id] = { name: x.name, price: x.price, section: sec.title, extra: true };
+        return el("li", { "data-id": id }, [
           el("span", { class: "extras-name" }, x.name),
           el("span", { class: "extras-price" }, [el("span", { class: "sr" }, "$"), money(x.price)])
         ]);
@@ -169,10 +206,12 @@
     function update() {
       queued = false;
       var line = Math.min(window.innerHeight * .3, 240);
-      var active = secs[0];
-      secs.forEach(function (s) { if (s.getBoundingClientRect().top <= line) active = s; });
+      var shown = secs.filter(function (s) { return !s.hidden; });
+      if (!shown.length) return;
+      var active = shown[0];
+      shown.forEach(function (s) { if (s.getBoundingClientRect().top <= line) active = s; });
       var doc = document.documentElement;
-      if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) active = secs[secs.length - 1];
+      if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) active = shown[shown.length - 1];
       if (active === current) return;
       current = active;
       links.forEach(function (a) {
@@ -189,6 +228,7 @@
       if (!queued) { queued = true; requestAnimationFrame(update); }
     }, { passive: true });
     window.addEventListener("resize", update);
+    document.addEventListener("menu:filtered", function () { current = null; update(); });
     update();
   }
 
@@ -236,7 +276,7 @@
   function feature(sec) {
     var it = sec.items[0];
     return el("section", { class: "f-section f-feature", id: sec.id, "aria-labelledby": sec.id + "-title" }, [
-      el("h2", { class: "course-title", id: sec.id + "-title" }, sec.title),
+      title(sec),
       photo(it, false),
       el("div", { class: "feature-body" }, [
         el("p", { class: "feature-price" }, priceText(it)),
@@ -253,9 +293,27 @@
     F.sections.forEach(function (sec) {
       if (sec.layout === "feature") return host.appendChild(feature(sec));
       host.appendChild(el("section", { class: "f-section", id: sec.id, "aria-labelledby": sec.id + "-title" }, [
-        el("h2", { class: "course-title", id: sec.id + "-title" }, sec.title),
+        title(sec),
         el("ul", { class: "products products--" + sec.layout }, sec.items.map(function (it) { return product(it, sec); }))
       ]));
+    });
+  }
+
+  /* ── Things open up as they scroll in ──
+     Section titles rise and their marigold opens; flower photos bloom in.
+     Nothing is hidden unless motion is allowed and the observer exists. */
+  function reveal(nodes) {
+    if (reduceMotion || !("IntersectionObserver" in window) || !nodes.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("is-revealed");
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: .1 });
+    nodes.forEach(function (n) {
+      n.classList.add("will-reveal");
+      io.observe(n);
     });
   }
 
@@ -318,6 +376,15 @@
       }
     }
   }
-  if (page === "flowers") renderFlowers();
+  if (page === "flowers") {
+    renderFlowers();
+    // photos in a row come in one after another
+    [].forEach.call(document.querySelectorAll(".products"), function (list) {
+      [].forEach.call(list.querySelectorAll(".photo"), function (p, i) { p.style.setProperty("--i", i); });
+    });
+  }
+  reveal([].slice.call(document.querySelectorAll(".course-title, .photo")));
   structuredData();
+
+  window.LittleStore = { el: el, money: money, catalog: catalog, store: S, reduceMotion: reduceMotion, bloom: bloom };
 })();
