@@ -302,6 +302,89 @@
     });
   }
 
+  /* ── Cover ── */
+  function renderCover() {
+    var C = window.COVER || {};
+    var head = document.querySelector('[data-cover="headline"]');
+    if (head && C.headline) head.textContent = C.headline;
+    var host = document.querySelector("[data-story]");
+    if (!host) return;
+    host.appendChild(title({ id: "story", title: "Our story" }));
+    if (C.storyLead) host.appendChild(el("p", { class: "story-lead" }, C.storyLead));
+    host.appendChild(el("div", { class: "story-grid" }, (C.story || []).map(function (part, i) {
+      var a = el("article", { class: "story-part" }, [el("h3", null, part.title), el("p", null, part.text)]);
+      a.style.setProperty("--i", i);
+      return a;
+    })));
+    host.appendChild(el("p", { class: "story-cta" }, el("a", { class: "btn btn--big", href: "menu.html" }, "See the menu and order")));
+    [].forEach.call(document.querySelectorAll(".cover-copy > *"), function (n, i) { n.style.setProperty("--i", i); });
+  }
+
+  // The shop's name follows the arch and drifts slowly over it.
+  var archSvg = document.querySelector(".arch-text");
+  function archText() {
+    var tp = document.querySelector("[data-arch-text]"), path = document.getElementById("arch-path");
+    if (!tp || !path || !tp.getComputedTextLength) return;
+    function fill(n) {
+      tp.textContent = "";
+      for (var i = 0; i < n; i++) {
+        var name = document.createElementNS(SVG, "tspan"), dot = document.createElementNS(SVG, "tspan");
+        name.textContent = S.name;
+        dot.setAttribute("class", "dot");
+        dot.textContent = "\u00a0\u00a0\u2022\u00a0\u00a0";
+        tp.appendChild(name);
+        tp.appendChild(dot);
+      }
+    }
+    fill(1);
+    var unit = tp.getComputedTextLength();
+    if (!unit) return;
+    fill(Math.ceil(path.getTotalLength() / unit) + 2);
+    if (reduceMotion) return;
+    var drift = document.createElementNS(SVG, "animate");
+    drift.setAttribute("attributeName", "startOffset");
+    drift.setAttribute("from", "0");
+    drift.setAttribute("to", String(-unit));
+    drift.setAttribute("dur", (unit / 4.5).toFixed(1) + "s");
+    drift.setAttribute("repeatCount", "indefinite");
+    tp.appendChild(drift);
+    if (videoHeld && archSvg.pauseAnimations) archSvg.pauseAnimations();
+  }
+
+  // Plays on its own unless the device asks for less motion; the button
+  // pauses the video and the drifting name together. Off screen it rests.
+  var videoHeld = reduceMotion;
+  function coverVideo() {
+    var v = document.querySelector(".arch video"), btn = document.querySelector(".video-toggle");
+    if (!v || !btn) return;
+    function paint() {
+      btn.classList.toggle("is-paused", v.paused);
+      btn.setAttribute("aria-label", v.paused ? "Play the video" : "Pause the video");
+    }
+    function play() {
+      var p = v.play();
+      if (p && p.catch) p.catch(paint);
+    }
+    btn.addEventListener("click", function () {
+      videoHeld = !v.paused;
+      if (videoHeld) v.pause(); else play();
+      if (archSvg && archSvg.pauseAnimations) {
+        if (videoHeld) archSvg.pauseAnimations(); else archSvg.unpauseAnimations();
+      }
+    });
+    v.addEventListener("play", paint);
+    v.addEventListener("pause", paint);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { if (!videoHeld) play(); }
+        else if (!v.paused) v.pause();
+      }).observe(v);
+    } else if (!videoHeld) {
+      play();
+    }
+    paint();
+  }
+
   /* ── Things open up as they scroll in ──
      Section titles rise and their marigold opens; flower photos bloom in.
      Nothing is hidden unless motion is allowed and the observer exists. */
@@ -371,7 +454,7 @@
     renderMenu();
     followSections();
     watchBar();
-    // content is built after load, so a link like index.html#coffee needs this nudge
+    // content is built after load, so a link like menu.html#coffee needs this nudge
     if (location.hash) {
       var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
       if (target) {
@@ -386,7 +469,12 @@
       [].forEach.call(list.querySelectorAll(".photo"), function (p, i) { p.style.setProperty("--i", i); });
     });
   }
-  reveal([].slice.call(document.querySelectorAll(".course-title, .photo")));
+  if (page === "home") {
+    renderCover();
+    coverVideo();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(archText); else archText();
+  }
+  reveal([].slice.call(document.querySelectorAll(".course-title, .photo, .arch-wrap, .cover-copy, .story-lead, .story-part")));
   structuredData();
 
   window.LittleStore = { el: el, money: money, catalog: catalog, store: S, reduceMotion: reduceMotion, bloom: bloom };

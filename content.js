@@ -2,9 +2,9 @@
   ══════════════════════════════════════════════════════════════════
   ★ THE LITTLE STORE — everything you edit lives in this file ★
 
-  Both pages (index.html = café menu, flowers.html = flowers) are
-  built from the three blocks below, so a new price, a new dish or
-  new hours only ever needs a change here.
+  All three pages (index.html = cover, menu.html = café menu,
+  flowers.html = flowers) are built from the blocks below, so a new
+  price, a new dish or new hours only ever needs a change here.
 
   STORE    shop details: address, phone, hours, order links.
            hours.days uses 0 = Sunday … 6 = Saturday; open/close are
@@ -20,6 +20,7 @@
              desc   optional, the line under the name
              tags   optional, ["gf"] adds a "gluten-free" mark
            extras are the "+ avocado 3" add-ons shown under a section.
+  COVER    the cover: headline beside the video, and the story.
   FLOWERS  the flowers page: intro line and the three product rows.
            Photos live in assets/flowers/ (square images). "from: true"
            puts "From" before the price, "per" adds "a week" / "a month",
@@ -162,6 +163,21 @@ window.MENU = [
     ]
   }
 ];
+
+/* The cover (index.html): the headline next to the video and the story
+   below it. The video itself is assets/cover/store.webm and store.mp4
+   (the same clip in two formats, so every browser can play one) with its
+   first frame as store.jpg; replace all three, same names, when there is
+   footage of the shop. */
+window.COVER = {
+  headline: "Café and flowers in Woodside",
+  storyLead: "We are committed to creating an exceptional community-centered space that combines great food, a delightful atmosphere and beautiful flowers.",
+  story: [
+    { title: "The café", text: "Located in Woodside, California, The Little Store is a warm and inviting space where fresh, locally sourced ingredients and creative cooking come together. We serve breakfast and lunch, alongside a full service coffee bar and a thoughtful selection of provisions." },
+    { title: "The kitchen", text: "Our food program is led by chef Sierra Hazel, whose inventive and thoughtful menu brings a seasonal and welcoming dining experience to the community." },
+    { title: "The flowers", text: "Our floral program is operated by Marigold and offers fresh seasonal bouquets and custom arrangements for in-store pickup and local delivery. Our floral selection is carefully curated and each arrangement is beautifully designed with florals sourced from local farms and the San Francisco Flower Market." }
+  ]
+};
 
 window.FLOWERS = {
   intro: "Seasonal flowers from local farms and the San Francisco Flower Market.",

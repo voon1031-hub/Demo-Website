@@ -1,18 +1,31 @@
 # Demo-Website
 
-## The Little Store – café menu and flowers
+## The Little Store – cover, café menu and flowers
 
-A two-page site for The Little Store on Woodside Road, a café and flower shop.
-The café page is built for three ways people read a menu: on a phone at the
-table after scanning a QR code, while checking it before a visit, and when
-ordering online (the order buttons open the shop's Toast page). The flowers
-page lists the wrapped bouquet, the four vase sizes and the two subscriptions.
+A three-page site for The Little Store on Woodside Road, a café and flower
+shop. The cover tells the shop's story around a looping video and sends
+guests to the menu. The café page is built for three ways people read a
+menu: on a phone at the table after scanning a QR code, while checking it
+before a visit, and when ordering online (the order buttons open the shop's
+Toast page). The flowers page lists the wrapped bouquet, the four vase sizes
+and the two subscriptions.
 
 - `content.js` – everything that changes: shop details (address, phone,
-  emails, hours, order links), the café menu and the flowers list. Both pages
-  are built from it, so a new price or a new dish is a one-line change there.
-  The comment at the top of the file explains each field.
-- `index.html` – the café menu: All day (eggs, toast, bowls), Sandwiches,
+  emails, hours, order links), the café menu, the cover's headline and story,
+  and the flowers list. Every page is built from it, so a new price or a new
+  dish is a one-line change there. The comment at the top of the file
+  explains each field.
+- `index.html` – the cover. A looping video sits in an arch with the shop's
+  name drifting over it, next to the headline, the open-now line and a
+  "See the menu and order" button that opens the menu page; the story from
+  the About page follows. The video pauses with its button, stops off screen,
+  and stays still for anyone whose device asks for reduced motion.
+- `assets/cover/` – the cover video as `store.webm` and `store.mp4` (the same
+  16-second loop in two formats, so every browser can play one) and its first
+  frame `store.jpg`. It is made from the interior photo on the current About
+  page with a slow push towards the flowers. When there is footage of the
+  shop, replace all three files under the same names.
+- `menu.html` – the café menu: All day (eggs, toast, bowls), Sandwiches,
   Salads, Coffee (espresso, brewed, seasonal) and Tea. On phones a bar of
   section buttons stays at the top while scrolling; on wide screens the
   sections are listed in a column on the left. The "Open now" line follows the
@@ -30,7 +43,7 @@ page lists the wrapped bouquet, the four vase sizes and the two subscriptions.
 - `flowers.html` – bouquet, vase arrangements and subscriptions, each linking
   to the shop's flower ordering page.
 - `assets/site.css`, `assets/site.js` – shared styles, and the script that
-  builds both pages from `content.js`. Section titles rise and their marigold
+  builds every page from `content.js`. Section titles rise and their marigold
   opens as they scroll into view, and flower photos bloom in; anyone whose
   device asks for reduced motion gets the page without these.
 - `assets/picks.js` – the list and the search on the café menu.
@@ -43,6 +56,10 @@ page lists the wrapped bouquet, the four vase sizes and the two subscriptions.
 
 Open `index.html` in a browser, or serve the folder with any static server,
 for example `python3 -m http.server`.
+
+QR codes on the tables should open `menu.html` directly rather than the
+cover, so guests land on the menu. A code can also open one section, for
+example `menu.html#coffee` or `menu.html#tea`.
 
 ### Before going live
 

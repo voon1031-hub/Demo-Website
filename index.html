@@ -3,26 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Café menu – The Little Store, Woodside</title>
-<meta name="description" content="Breakfast all day, sandwiches, salads, coffee and tea at The Little Store on Woodside Road. Open every day, 8 am to 3 pm.">
+<title>The Little Store – Café and flowers in Woodside</title>
+<meta name="description" content="The Little Store on Woodside Road: breakfast and lunch from chef Sierra Hazel, a full coffee bar, provisions and fresh flowers. Open every day, 8 am to 3 pm.">
 <meta name="theme-color" content="#fbebc6">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Café menu – The Little Store">
-<meta property="og:description" content="Breakfast all day, sandwiches, salads, coffee and tea on Woodside Road.">
+<meta property="og:title" content="The Little Store – Café and flowers in Woodside">
+<meta property="og:description" content="Breakfast, lunch, coffee and flowers on Woodside Road.">
+<meta property="og:image" content="assets/cover/store.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Cg fill='%23f0a030'%3E%3Cellipse cy='-27' rx='12' ry='20'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(36)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(72)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(108)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(144)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(180)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(216)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(252)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(288)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(324)'/%3E%3C/g%3E%3Ccircle r='14' fill='%23e0821a'/%3E%3Ccircle r='8' fill='%239a4a08'/%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/fraunces-soft.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/fraunces-soft-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/cover/store.jpg" as="image">
 <link rel="stylesheet" href="assets/site.css">
 <!--
-  The menu, prices, hours, phone numbers and order links all come from
-  content.js. Text written in this file for those is only a fallback for
-  browsers without JavaScript; edit content.js instead.
+  The cover. Its headline and story, like the hours and phone number, come
+  from content.js; text written here is only a fallback for browsers
+  without JavaScript. The video comes in two encodings, assets/cover/store.webm
+  and store.mp4, with its first frame as store.jpg; swap in footage of the
+  shop under the same names.
 -->
 <script src="content.js"></script>
 </head>
-<body data-page="menu">
-<a class="skip" href="#menu-start">Skip to the menu</a>
+<body data-page="home">
+<a class="skip" href="#story">Skip to our story</a>
 
 <svg class="sprite" aria-hidden="true" focusable="false">
   <defs>
@@ -43,50 +47,55 @@
 </svg>
 
 <header class="masthead wrap">
-  <a class="brand" href="index.html">
+  <a class="brand" href="index.html" aria-current="page">
     <svg class="bloom" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g class="bloom-outer"><use href="#ring-o"/></g><g class="bloom-inner"><use href="#ring-i"/></g><circle class="bloom-heart" r="8"/></svg>
     <span class="brand-name">The Little Store</span>
   </a>
   <nav class="pages" aria-label="Site">
-    <a href="index.html" aria-current="page">Café</a>
+    <a href="menu.html">Café</a>
     <a href="flowers.html">Flowers</a>
   </nav>
-  <a class="btn" data-href="orderFood" href="https://www.toasttab.com/local/order/marigold-3340-woodside-road">Order<span class="wide-only">&nbsp;online</span></a>
 </header>
 
 <main>
-  <div class="intro wrap">
-    <h1>Café menu</h1>
-    <div class="visit">
-      <p class="status" data-status>
-        <svg class="bloom is-bud" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g class="bloom-outer"><use href="#ring-o"/></g><g class="bloom-inner"><use href="#ring-i"/></g><circle class="bloom-heart" r="8"/></svg>
-        <span data-status-text>Open every day</span>
-      </p>
-      <p data-text="hours">Every day, 8 am to 3 pm</p>
-      <p><a data-href="map" data-text="streetCity" href="https://www.google.com/maps/search/?api=1&amp;query=The+Little+Store+3340+Woodside+Road+Woodside+CA">3340 Woodside Road, Woodside</a></p>
+  <section class="cover-hero wrap" aria-labelledby="cover-title">
+    <div class="arch-wrap">
+      <!-- the shop's name runs slowly over the top of the arch -->
+      <svg class="arch-text" viewBox="-15 -16 130 66" aria-hidden="true" focusable="false">
+        <path id="arch-path" d="M -7 50 A 57 57 0 0 1 107 50" fill="none"/>
+        <text><textPath href="#arch-path" data-arch-text>The Little Store</textPath></text>
+      </svg>
+      <div class="arch" role="img" aria-label="Inside The Little Store: pale blue panelled walls, a long wooden table and a tall vase of garden flowers">
+        <video muted loop playsinline preload="auto" poster="assets/cover/store.jpg" aria-hidden="true">
+          <source src="assets/cover/store.webm" type='video/webm; codecs="vp9"'>
+          <source src="assets/cover/store.mp4" type='video/mp4; codecs="avc1.64001F"'>
+        </video>
+      </div>
+      <button class="video-toggle" type="button" aria-label="Pause the video">
+        <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="5" width="4" height="14" rx="1.5"/><rect x="14" y="5" width="4" height="14" rx="1.5"/></svg>
+        <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+      </button>
     </div>
-  </div>
 
-  <div class="bar-sentinel" aria-hidden="true"></div>
-  <div class="sectionbar">
-    <div class="sectionbar-inner wrap">
-      <nav class="chipnav" aria-label="Menu sections">
-        <ul class="chips" data-chips></ul>
-      </nav>
-      <a class="btn bar-order" data-href="orderFood" href="https://www.toasttab.com/local/order/marigold-3340-woodside-road">Order</a>
+    <div class="cover-copy">
+      <h1 class="cover-title" id="cover-title" data-cover="headline">Café and flowers in Woodside</h1>
+      <div class="visit">
+        <p class="status" data-status>
+          <svg class="bloom is-bud" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g class="bloom-outer"><use href="#ring-o"/></g><g class="bloom-inner"><use href="#ring-i"/></g><circle class="bloom-heart" r="8"/></svg>
+          <span data-status-text>Open every day</span>
+        </p>
+        <p data-text="hours">Every day, 8 am to 3 pm</p>
+        <p><a data-href="map" data-text="streetCity" href="https://www.google.com/maps/search/?api=1&amp;query=The+Little+Store+3340+Woodside+Road+Woodside+CA">3340 Woodside Road, Woodside</a></p>
+      </div>
+      <div class="cover-actions">
+        <a class="btn btn--big" href="menu.html">See the menu and order</a>
+        <a class="text-link" href="flowers.html">See the flowers</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="menu-layout wrap" id="menu-start">
-    <div class="rail">
-      <nav aria-label="Menu sections">
-        <ul data-rail></ul>
-      </nav>
-      <a class="btn" data-href="orderFood" href="https://www.toasttab.com/local/order/marigold-3340-woodside-road">Order online</a>
-    </div>
-    <div class="menu" data-menu></div>
-  </div>
-  <noscript><p class="wrap noscript">The menu needs JavaScript to show. You can still order online or call us.</p></noscript>
+  <section class="story wrap" id="story" aria-labelledby="story-title" data-story></section>
+  <noscript><p class="wrap noscript">Breakfast, lunch, coffee and flowers on Woodside Road. <a href="menu.html">See the menu</a>.</p></noscript>
 </main>
 
 <footer class="footer">
@@ -120,6 +129,5 @@
 </footer>
 
 <script src="assets/site.js"></script>
-<script src="assets/picks.js"></script>
 </body>
 </html>
