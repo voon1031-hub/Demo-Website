@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flowers – The Little Store, Woodside</title>
+<meta name="description" content="Wrapped bouquets, vase arrangements in four sizes and weekly or monthly flower subscriptions from The Little Store on Woodside Road.">
+<meta name="theme-color" content="#fbebc6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Flowers – The Little Store">
+<meta property="og:description" content="Wrapped bouquets, vase arrangements and flower subscriptions on Woodside Road.">
+<meta property="og:image" content="assets/flowers/wrapped-bouquet.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Cg fill='%23f0a030'%3E%3Cellipse cy='-27' rx='12' ry='20'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(36)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(72)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(108)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(144)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(180)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(216)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(252)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(288)'/%3E%3Cellipse cy='-27' rx='12' ry='20' transform='rotate(324)'/%3E%3C/g%3E%3Ccircle r='14' fill='%23e0821a'/%3E%3Ccircle r='8' fill='%239a4a08'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/fraunces-soft.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-soft-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/karla-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/flowers/wrapped-bouquet.webp" as="image">
+<link rel="stylesheet" href="assets/site.css">
+<!--
+  Prices, photos, hours, phone numbers and order links all come from
+  content.js. Text written in this file for those is only a fallback for
+  browsers without JavaScript; edit content.js instead.
+-->
+<script src="content.js"></script>
+</head>
+<body data-page="flowers">
+<a class="skip" href="#flowers-start">Skip to the flowers</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="petal-o" d="M0-8C-9-13-13-29-10-41C-8-47-3-48 0-43C3-48 8-47 10-41C13-29 9-13 0-8Z"/>
+    <path id="petal-i" d="M0-3C-7-7-9-19-7-27C-5-31-2-31 0-28C2-31 5-31 7-27C9-19 7-7 0-3Z"/>
+    <g id="ring-o">
+      <use href="#petal-o"/><use href="#petal-o" transform="rotate(36)"/><use href="#petal-o" transform="rotate(72)"/>
+      <use href="#petal-o" transform="rotate(108)"/><use href="#petal-o" transform="rotate(144)"/><use href="#petal-o" transform="rotate(180)"/>
+      <use href="#petal-o" transform="rotate(216)"/><use href="#petal-o" transform="rotate(252)"/><use href="#petal-o" transform="rotate(288)"/>
+      <use href="#petal-o" transform="rotate(324)"/>
+    </g>
+    <g id="ring-i">
+      <use href="#petal-i" transform="rotate(22.5)"/><use href="#petal-i" transform="rotate(67.5)"/><use href="#petal-i" transform="rotate(112.5)"/>
+      <use href="#petal-i" transform="rotate(157.5)"/><use href="#petal-i" transform="rotate(202.5)"/><use href="#petal-i" transform="rotate(247.5)"/>
+      <use href="#petal-i" transform="rotate(292.5)"/><use href="#petal-i" transform="rotate(337.5)"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="masthead wrap">
+  <a class="brand" href="index.html">
+    <svg class="bloom" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g class="bloom-outer"><use href="#ring-o"/></g><g class="bloom-inner"><use href="#ring-i"/></g><circle class="bloom-heart" r="8"/></svg>
+    <span class="brand-name">The Little Store</span>
+  </a>
+  <nav class="pages" aria-label="Site">
+    <a href="index.html">Café</a>
+    <a href="flowers.html" aria-current="page">Flowers</a>
+  </nav>
+  <a class="btn" data-href="orderFlowers" href="https://www.thelittlestorewoodside.com/flowers">Order<span class="wide-only">&nbsp;flowers</span></a>
+</header>
+
+<main>
+  <div class="intro intro--flowers wrap">
+    <div>
+      <h1>Flowers</h1>
+      <p class="lede" data-flowers-intro>Seasonal flowers from local farms and the San Francisco Flower Market.</p>
+    </div>
+    <div class="visit">
+      <p class="status" data-status>
+        <svg class="bloom is-bud" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false"><g class="bloom-outer"><use href="#ring-o"/></g><g class="bloom-inner"><use href="#ring-i"/></g><circle class="bloom-heart" r="8"/></svg>
+        <span data-status-text>Open every day</span>
+      </p>
+      <p data-text="hours">Every day, 8 am to 3 pm</p>
+      <p><a data-href="map" data-text="streetCity" href="https://www.google.com/maps/search/?api=1&amp;query=The+Little+Store+3340+Woodside+Road+Woodside+CA">3340 Woodside Road, Woodside</a></p>
+    </div>
+  </div>
+
+  <div class="wrap" id="flowers-start">
+    <div data-flowers></div>
+
+    <section class="events" aria-labelledby="events-title">
+      <h2 id="events-title">Events and larger orders</h2>
+      <p>Email <a data-href="flowersEmail" data-text="flowersEmail" href="mailto:flowers@thelittlestorewoodside.com">flowers@thelittlestorewoodside.com</a> or call <a data-href="phone" data-text="phone" href="tel:+16503328885">(650) 332-8885</a>.</p>
+    </section>
+  </div>
+  <noscript><p class="wrap noscript">The flower list needs JavaScript to show. You can still order flowers online or call us.</p></noscript>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <section>
+        <h2>Visit</h2>
+        <p data-text="street">3340 Woodside Road</p>
+        <p data-text="cityRegion">Woodside, CA</p>
+        <p><a data-href="map" href="https://www.google.com/maps/search/?api=1&amp;query=The+Little+Store+3340+Woodside+Road+Woodside+CA">Get directions</a></p>
+      </section>
+      <section>
+        <h2>Hours</h2>
+        <p data-text="days">Every day</p>
+        <p data-text="times">8 am to 3 pm</p>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <p><a data-href="phone" data-text="phone" href="tel:+16503328885">(650) 332-8885</a></p>
+        <p><a data-href="flowersEmail" data-text="flowersEmail" href="mailto:flowers@thelittlestorewoodside.com">flowers@thelittlestorewoodside.com</a></p>
+        <p><a data-href="instagram" data-text="instagram" href="https://www.instagram.com/thelittlestore_ws/">@thelittlestore_ws</a></p>
+      </section>
+      <section>
+        <h2>Café</h2>
+        <p>Breakfast all day, sandwiches, salads, coffee and tea.</p>
+        <a class="btn" href="index.html">See the café menu</a>
+      </section>
+    </div>
+    <p class="fine">© <span data-text="year">2026</span> The Little Store, Woodside</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
