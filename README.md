@@ -44,3 +44,14 @@ then commits the results back to the branch.
 - `build-1`, `build-2`, `build-3` are the timelapse segments, each starting on
   the previous one's last frame. They are joined in order and cut into the
   frames in `assets/build/`.
+
+### Design skills for Claude Code
+
+`.claude/skills/` holds the skills Claude Code uses when working on the site.
+Besides `frontend-design`, it has the seven skills from
+[ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+v2.13.0 (MIT, see `.claude/skills/LICENSE-ui-ux-pro-max.txt`): `ui-ux-pro-max`,
+`ui-styling`, `design`, `design-system`, `brand`, `banner-design` and `slides`.
+They load automatically in any Claude Code session opened on this repo. To
+update them, copy the newer `.claude/skills/` folders from that repository
+over these ones.
