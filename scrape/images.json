@@ -1,0 +1,938 @@
+{
+ "https://cdn11.editmysite.com/images/site/footer/footer-toast-published-image-1.png": {
+  "file": "img/485abe6b62af.webp",
+  "size": [
+   199,
+   97
+  ],
+  "original": [
+   199,
+   97
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://cdn11.editmysite.com/sprites/common/social-icons-s5ea5500bdb.png": {
+  "file": "img/dfb0fc714328.webp",
+  "size": [
+   24,
+   288
+  ],
+  "original": [
+   24,
+   288
+  ],
+  "transparent": true,
+  "seen_in": "store-p100-Curry-Chicken.json"
+ },
+ "https://cdn2.editmysite.com/images/editor/theme-background/stock/Oriental-Lantern.jpg": {
+  "file": "img/7777e175f089.webp",
+  "size": [
+   1400,
+   1024
+  ],
+  "original": [
+   2280,
+   1667
+  ],
+  "transparent": false,
+  "seen_in": "store-c10-Sweet-and-Sour.json"
+ },
+ "https://cdn2.editmysite.com/images/util/blank-product-w320.png": {
+  "file": "img/8559772597ef.webp",
+  "size": [
+   320,
+   320
+  ],
+  "original": [
+   320,
+   320
+  ],
+  "transparent": false,
+  "seen_in": "store-c10-Sweet-and-Sour.json"
+ },
+ "https://cdn2.editmysite.com/images/util/blank-product-w640.png": {
+  "file": "img/52ad083aae66.webp",
+  "size": [
+   640,
+   640
+  ],
+  "original": [
+   640,
+   640
+  ],
+  "transparent": false,
+  "seen_in": "store-p100-Curry-Chicken.json"
+ },
+ "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5536!3i11629!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=80227": {
+  "file": "img/8314a46b963f.webp",
+  "size": [
+   256,
+   256
+  ],
+  "original": [
+   256,
+   256
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5536!3i11630!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=97454": {
+  "file": "img/4eaf426a4b3a.webp",
+  "size": [
+   256,
+   256
+  ],
+  "original": [
+   256,
+   256
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5537!3i11629!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=8628": {
+  "file": "img/721a75ea4192.webp",
+  "size": [
+   256,
+   256
+  ],
+  "original": [
+   256,
+   256
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5537!3i11630!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=25855": {
+  "file": "img/e4a22d5df020.webp",
+  "size": [
+   256,
+   256
+  ],
+  "original": [
+   256,
+   256
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5538!3i11629!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=68100": {
+  "file": "img/6e6f1cabea26.webp",
+  "size": [
+   256,
+   256
+  ],
+  "original": [
+   256,
+   256
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i15!2i5538!3i11630!4i256!2m3!1e0!2sm!3i798564698!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!5m1!1e3!23i46991212!23i47054750!23i47083502&client=gme-weeblyinc1&token=85327": {
+  "file": "img/3f5c2e95025b.webp",
+  "size": [
+   256,
+   256
+  ],
+  "original": [
+   256,
+   256
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/background-images/2127300144.jpg": {
+  "file": "img/b03032baf650.webp",
+  "size": [
+   1400,
+   1050
+  ],
+  "original": [
+   2000,
+   1500
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/orch.png": {
+  "file": "img/99b6f00b517b.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/pngegg_orig.png": {
+  "file": "img/3fe2d6189628.webp",
+  "size": [
+   572,
+   800
+  ],
+  "original": [
+   572,
+   800
+  ],
+  "transparent": true,
+  "seen_in": "home.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/published/screenshot-2026-04-18-at-2-05-59-pm.png?1776546391": {
+  "file": "img/2415c21fa39c.webp",
+  "size": [
+   124,
+   70
+  ],
+  "original": [
+   124,
+   70
+  ],
+  "transparent": false,
+  "seen_in": "home.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c10_i1_w1524.png?width=640": {
+  "file": "img/59f10eba518a.webp",
+  "size": [
+   640,
+   565
+  ],
+  "original": [
+   640,
+   565
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c11_i1_w1516.png?width=640": {
+  "file": "img/2ada1e0210ea.webp",
+  "size": [
+   640,
+   570
+  ],
+  "original": [
+   640,
+   570
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c12_i1_w1516.png?width=640": {
+  "file": "img/937026dae75c.webp",
+  "size": [
+   640,
+   568
+  ],
+  "original": [
+   640,
+   568
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c13_i1_w1510.png?width=640": {
+  "file": "img/49a63f45e2bb.webp",
+  "size": [
+   640,
+   570
+  ],
+  "original": [
+   640,
+   570
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c14_i1_w1492.png?width=640": {
+  "file": "img/387996fd193b.webp",
+  "size": [
+   640,
+   572
+  ],
+  "original": [
+   640,
+   572
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c15_i1_w1484.png?width=640": {
+  "file": "img/053d7238de2f.webp",
+  "size": [
+   640,
+   574
+  ],
+  "original": [
+   640,
+   574
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c16_i1_w1510.png?width=640": {
+  "file": "img/efc579c5c5e3.webp",
+  "size": [
+   640,
+   565
+  ],
+  "original": [
+   640,
+   565
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c17_i1_w1484.png?width=640": {
+  "file": "img/9e5a7cfeb63f.webp",
+  "size": [
+   640,
+   572
+  ],
+  "original": [
+   640,
+   572
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c18_i2_w1496.png?width=640": {
+  "file": "img/f2355f42562a.webp",
+  "size": [
+   640,
+   563
+  ],
+  "original": [
+   640,
+   563
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c19_i1_w1466.png?width=640": {
+  "file": "img/850f43bd433c.webp",
+  "size": [
+   640,
+   570
+  ],
+  "original": [
+   640,
+   570
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c20_i1_w1500.png?width=640": {
+  "file": "img/61142fe1d145.webp",
+  "size": [
+   640,
+   567
+  ],
+  "original": [
+   640,
+   567
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c21_i1_w1514.png?width=640": {
+  "file": "img/6d4010773c64.webp",
+  "size": [
+   640,
+   564
+  ],
+  "original": [
+   640,
+   564
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c2_i4_w1658.png?width=640": {
+  "file": "img/66b9d6fcccce.webp",
+  "size": [
+   640,
+   543
+  ],
+  "original": [
+   640,
+   543
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c3_i2_w1528.png?width=640": {
+  "file": "img/2cb4fa5d86a2.webp",
+  "size": [
+   640,
+   568
+  ],
+  "original": [
+   640,
+   568
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c4_i1_w1506.png?width=640": {
+  "file": "img/e17c9e272502.webp",
+  "size": [
+   640,
+   572
+  ],
+  "original": [
+   640,
+   572
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c5_i1_w1546.png?width=640": {
+  "file": "img/5b0b338cdcd8.webp",
+  "size": [
+   640,
+   558
+  ],
+  "original": [
+   640,
+   558
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c6_i1_w1518.png?width=640": {
+  "file": "img/94dedcc091cb.webp",
+  "size": [
+   640,
+   568
+  ],
+  "original": [
+   640,
+   568
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c7_i1_w1512.png?width=640": {
+  "file": "img/7d2541ec6ac1.webp",
+  "size": [
+   640,
+   568
+  ],
+  "original": [
+   640,
+   568
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c8_i1_w1526.png?width=640": {
+  "file": "img/62d197bc9571.webp",
+  "size": [
+   640,
+   568
+  ],
+  "original": [
+   640,
+   568
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c9_i1_w1520.png?width=640": {
+  "file": "img/d04e211fee15.webp",
+  "size": [
+   640,
+   565
+  ],
+  "original": [
+   640,
+   565
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p102_i1_w577.png": {
+  "file": "img/2ec948145d5a.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p102-Orange-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p103_i1_w577.png": {
+  "file": "img/fd5097c64744.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p103-Lemon-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p104_i1_w577.png": {
+  "file": "img/5c2d2609890c.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p104-Almond-Fried-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p107_i1_w500.png": {
+  "file": "img/24baf31b7a36.webp",
+  "size": [
+   500,
+   500
+  ],
+  "original": [
+   500,
+   500
+  ],
+  "transparent": true,
+  "seen_in": "store-p107-Black-Mushroom-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p110_i1_w577.png": {
+  "file": "img/34e0b8ce36f0.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p110-Szechuan-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p111_i1_w577.png": {
+  "file": "img/5de281636f6d.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p111-Spicy-Sesame-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p115_i1_w577.png": {
+  "file": "img/a7c4becca299.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p115-Broccoli-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p124_i1_w577.png": {
+  "file": "img/29b70f6de651.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p124-Mongolian-Beef.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p141_i1_w577.png": {
+  "file": "img/e9a352de1616.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p141-Curry-Shrimp.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p146_i1_w577.png": {
+  "file": "img/4f69148244c3.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p146-Happy-Family.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p147_i1_w577.png": {
+  "file": "img/21181b01e574.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p147-Szechuan-Shrimp.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p157_i1_w10000.png?width=640": {
+  "file": "img/7b3fe7339625.webp",
+  "size": [
+   640,
+   640
+  ],
+  "original": [
+   640,
+   640
+  ],
+  "transparent": true,
+  "seen_in": "store-p157-Grilled-Cheese.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p161_i1_w10000.png?width=640": {
+  "file": "img/51d43e5d6b0a.webp",
+  "size": [
+   640,
+   640
+  ],
+  "original": [
+   640,
+   640
+  ],
+  "transparent": true,
+  "seen_in": "store-p161-French-Fries.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p162_i1_w10000.png?width=640": {
+  "file": "img/f9b074e27abf.webp",
+  "size": [
+   640,
+   640
+  ],
+  "original": [
+   640,
+   640
+  ],
+  "transparent": true,
+  "seen_in": "store-p162-Baked-Potato.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p35_i1_w577.png": {
+  "file": "img/edab247f2db5.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p35-Family-Dinner-3A-C.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p36_i1_w577.png": {
+  "file": "img/270a5a9f061e.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p36-Pork-Chow-Mein-or-Chop-Suey.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p38_i1_w577.png": {
+  "file": "img/f14ded77488b.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p38-Chicken-Chow-Mein-or-Chop-Suey.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p42_i1_w577.png": {
+  "file": "img/2a03a4b75901.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p42-House-Special-Chow-Mein.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p45_i1_w577.png": {
+  "file": "img/a3c87fdcd8ba.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p45-BBQ-Pork-Special-Chow-Mein.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p46_i1_w577.png": {
+  "file": "img/13dd6eeec943.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p46-Beef-Special-Chow-Mein.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p48_i1_w577.png": {
+  "file": "img/61778b50bb36.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p48-House-Special-Lo-Mein.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p51_i1_w577.png": {
+  "file": "img/a4a28fee56ec.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p51-BBQ-Pork-Lo-Mein.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p52_i1_w577.png": {
+  "file": "img/398a44db0ae7.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p52-Beef-Lo-Mein.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p56_i1_w577.png": {
+  "file": "img/cb3039729f77.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p56-Sweet-and-Sour-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p63_i1_w577.png": {
+  "file": "img/a403c90c6bd4.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p63-Moo-Shu-Dish.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p65_i1_w577.png": {
+  "file": "img/ac028845013c.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p65-Pork-Fried-Rice.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p78_i1_w577.png": {
+  "file": "img/9968fb47dc45.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p78-Pork-Noodles.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p89_i1_w577.png": {
+  "file": "img/e43cbe880de3.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p89-Vegetable-Foo-Young.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p94_i1_w577.png": {
+  "file": "img/f05b9f90b378.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p94-Ham-Chow-Don.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_p96_i1_w577.png": {
+  "file": "img/b2d4e6e32bf7.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "store-p96-General-Tso-27s-Chicken.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-bb1.png": {
+  "file": "img/f330209c2b3c.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-cp.png": {
+  "file": "img/ecd619b6d455.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-gench.png": {
+  "file": "img/bac3654d589a.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-hscm.png": {
+  "file": "img/026c302d1814.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-mongbf.png": {
+  "file": "img/f3cbd91dd6bc.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-porkns.png": {
+  "file": "img/955b1a4972bf.webp",
+  "size": [
+   577,
+   433
+  ],
+  "original": [
+   577,
+   433
+  ],
+  "transparent": true,
+  "seen_in": "menu.json"
+ },
+ "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-str.jpg": {
+  "file": "img/a222948b4bdc.webp",
+  "size": [
+   600,
+   800
+  ],
+  "original": [
+   600,
+   800
+  ],
+  "transparent": false,
+  "seen_in": "menu.json"
+ }
+}

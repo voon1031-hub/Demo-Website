@@ -1,0 +1,10 @@
+shanghairestaurantkennewick.weebly.com
+Performing security verification
+
+This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.
+
+Ray ID: a497e2646a907561
+Performance and Security by Cloudflare
+Privacy
+
+[iframe https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch/x4bmf/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto]

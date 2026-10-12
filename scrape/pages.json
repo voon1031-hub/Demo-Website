@@ -1,0 +1,761 @@
+{
+ "pages": [
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/",
+   "slug": "home",
+   "title": "SHANG HAI RESTAURANT - Home"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/checkout?cart=",
+   "slug": "store-checkout",
+   "title": "Just a moment..."
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/location-and-phone-number.html",
+   "slug": "location-and-phone-number",
+   "title": "Location and Phone Number - SHANG HAI RESTAURANT"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/menu.html",
+   "slug": "menu",
+   "title": "Menu - SHANG HAI RESTAURANT"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c21/American_Menu.html",
+   "slug": "store-c21-American-Menu",
+   "title": "American Menu"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c20/Seafood.html",
+   "slug": "store-c20-Seafood",
+   "title": "Seafood"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c19/Beef.html",
+   "slug": "store-c19-Beef",
+   "title": "Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c18/Pork.html",
+   "slug": "store-c18-Pork",
+   "title": "Pork"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c17/Chicken.html",
+   "slug": "store-c17-Chicken",
+   "title": "Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c16/Scrambled_Egg_%28Chow_Don%29.html",
+   "slug": "store-c16-Scrambled-Egg-28Chow-Don-29",
+   "title": "Scrambled Egg (Chow Don)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c15/Egg_Foo_Young.html",
+   "slug": "store-c15-Egg-Foo-Young",
+   "title": "Egg Foo Young"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c14/Soup_Noodles.html",
+   "slug": "store-c14-Soup-Noodles",
+   "title": "Soup Noodles"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c13/Rice.html",
+   "slug": "store-c13-Rice",
+   "title": "Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c12/Moo_Shu_Dish.html",
+   "slug": "store-c12-Moo-Shu-Dish",
+   "title": "Moo Shu Dish"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c11/Vegetables.html",
+   "slug": "store-c11-Vegetables",
+   "title": "Vegetables"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c10/Sweet_and_Sour.html",
+   "slug": "store-c10-Sweet-and-Sour",
+   "title": "Sweet and Sour"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c9/House_Special_Lo_Meins.html",
+   "slug": "store-c9-House-Special-Lo-Meins",
+   "title": "House Special Lo Meins"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c8/House_Special_Chow_Meins.html",
+   "slug": "store-c8-House-Special-Chow-Meins",
+   "title": "House Special Chow Meins"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c7/Chow_Mein_or_Chop_Suey_%28Crispy_Noodle%3A_Chow_Mein%29_%28Steamed_Rice%3A_Chow_Suey%29.html",
+   "slug": "store-c7-Chow-Mein-or-Chop-Suey-28Crispy-Noodle-3A-Chow-Mein-29-28Steamed-Rice-3",
+   "title": "Chow Mein or Chop Suey (Crispy Noodle: Chow Mein) (Steamed Rice: Chow Suey)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/c6/Suggested_Family_Style_Dinners.html",
+   "slug": "store-c6-Suggested-Family-Style-Dinners",
+   "title": "Suggested Family Style Dinners"
+  }
+ ],
+ "products": [
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p102/Orange_Chicken.html",
+   "slug": "store-p102-Orange-Chicken",
+   "title": "Orange Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p151/Rib_Steak.html",
+   "slug": "store-p151-Rib-Steak",
+   "title": "Rib Steak"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p152/New_York_Steak.html",
+   "slug": "store-p152-New-York-Steak",
+   "title": "New York Steak"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p153/Ground_Round_Steak.html",
+   "slug": "store-p153-Ground-Round-Steak",
+   "title": "Ground Round Steak"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p154/Fish_and_Chips.html",
+   "slug": "store-p154-Fish-and-Chips",
+   "title": "Fish and Chips"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p155/Hamburger.html",
+   "slug": "store-p155-Hamburger",
+   "title": "Hamburger"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p156/Cheeseburger.html",
+   "slug": "store-p156-Cheeseburger",
+   "title": "Cheeseburger"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p157/Grilled_Cheese.html",
+   "slug": "store-p157-Grilled-Cheese",
+   "title": "Grilled Cheese"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p158/Grilled_Ham_and_Cheese_Sandwich.html",
+   "slug": "store-p158-Grilled-Ham-and-Cheese-Sandwich",
+   "title": "Grilled Ham and Cheese Sandwich"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p159/Ham_and_Egg_Sandwich.html",
+   "slug": "store-p159-Ham-and-Egg-Sandwich",
+   "title": "Ham and Egg Sandwich"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p160/BBQ_Pork_Sandwich.html",
+   "slug": "store-p160-BBQ-Pork-Sandwich",
+   "title": "BBQ Pork Sandwich"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p161/French_Fries.html",
+   "slug": "store-p161-French-Fries",
+   "title": "French Fries"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p162/Baked_Potato.html",
+   "slug": "store-p162-Baked-Potato",
+   "title": "Baked Potato"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p163/Dinner_Salad.html",
+   "slug": "store-p163-Dinner-Salad",
+   "title": "Dinner Salad"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p138/Kung_Pao_Shrimp.html",
+   "slug": "store-p138-Kung-Pao-Shrimp",
+   "title": "Kung Pao Shrimp"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p139/Cashew_Nut_Shrimp.html",
+   "slug": "store-p139-Cashew-Nut-Shrimp",
+   "title": "Cashew Nut Shrimp"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p140/Shrimp_Chow_Yuk.html",
+   "slug": "store-p140-Shrimp-Chow-Yuk",
+   "title": "Shrimp Chow Yuk"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p141/Curry_Shrimp.html",
+   "slug": "store-p141-Curry-Shrimp",
+   "title": "Curry Shrimp"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p142/Shrimp_with_Snow_Peas.html",
+   "slug": "store-p142-Shrimp-with-Snow-Peas",
+   "title": "Shrimp with Snow Peas"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p143/Seafood_Delight.html",
+   "slug": "store-p143-Seafood-Delight",
+   "title": "Seafood Delight"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p144/Pepper_Salted_Shrimp.html",
+   "slug": "store-p144-Pepper-Salted-Shrimp",
+   "title": "Pepper Salted Shrimp"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p145/House_Special_Sizzling_Platter.html",
+   "slug": "store-p145-House-Special-Sizzling-Platter",
+   "title": "House Special Sizzling Platter"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p146/Happy_Family.html",
+   "slug": "store-p146-Happy-Family",
+   "title": "Happy Family"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p147/Szechuan_Shrimp.html",
+   "slug": "store-p147-Szechuan-Shrimp",
+   "title": "Szechuan Shrimp"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p148/Shrimp_with_Hot_Garlic_Sauce.html",
+   "slug": "store-p148-Shrimp-with-Hot-Garlic-Sauce",
+   "title": "Shrimp with Hot Garlic Sauce"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p149/General_Tso%27s_Shrimp.html",
+   "slug": "store-p149-General-Tso-27s-Shrimp",
+   "title": "General Tso's Shrimp"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p150/Shrimp_with_Lobster_Sauce.html",
+   "slug": "store-p150-Shrimp-with-Lobster-Sauce",
+   "title": "Shrimp with Lobster Sauce"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p122/Ginger_Beef.html",
+   "slug": "store-p122-Ginger-Beef",
+   "title": "Ginger Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p123/Broccoli_Beef.html",
+   "slug": "store-p123-Broccoli-Beef",
+   "title": "Broccoli Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p124/Mongolian_Beef.html",
+   "slug": "store-p124-Mongolian-Beef",
+   "title": "Mongolian Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p125/Curry_Beef.html",
+   "slug": "store-p125-Curry-Beef",
+   "title": "Curry Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p126/Mandarin_Beef.html",
+   "slug": "store-p126-Mandarin-Beef",
+   "title": "Mandarin Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p127/Kung_Pao_Beef.html",
+   "slug": "store-p127-Kung-Pao-Beef",
+   "title": "Kung Pao Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p128/Szechuan_Beef.html",
+   "slug": "store-p128-Szechuan-Beef",
+   "title": "Szechuan Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p129/Orange_Beef.html",
+   "slug": "store-p129-Orange-Beef",
+   "title": "Orange Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p130/Beef_with_Snow_Pea.html",
+   "slug": "store-p130-Beef-with-Snow-Pea",
+   "title": "Beef with Snow Pea"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p131/Beef_with_Oyster_Sauce.html",
+   "slug": "store-p131-Beef-with-Oyster-Sauce",
+   "title": "Beef with Oyster Sauce"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p132/Beef_with_Tomatoes.html",
+   "slug": "store-p132-Beef-with-Tomatoes",
+   "title": "Beef with Tomatoes"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p133/Beef_with_Green_Pepper.html",
+   "slug": "store-p133-Beef-with-Green-Pepper",
+   "title": "Beef with Green Pepper"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p134/Beef_Chow_Yuk.html",
+   "slug": "store-p134-Beef-Chow-Yuk",
+   "title": "Beef Chow Yuk"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p135/Hunan_Beef.html",
+   "slug": "store-p135-Hunan-Beef",
+   "title": "Hunan Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p136/Honey_Garlic_Beef.html",
+   "slug": "store-p136-Honey-Garlic-Beef",
+   "title": "Honey Garlic Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p137/String_Bean_Beef.html",
+   "slug": "store-p137-String-Bean-Beef",
+   "title": "String Bean Beef"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p121/Black_Mushroom_Pork.html",
+   "slug": "store-p121-Black-Mushroom-Pork",
+   "title": "Black Mushroom Pork"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p120/BBQ_Pork_Chow_Yuk.html",
+   "slug": "store-p120-BBQ-Pork-Chow-Yuk",
+   "title": "BBQ Pork Chow Yuk"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p119/String_Bean_BBQ_Pork.html",
+   "slug": "store-p119-String-Bean-BBQ-Pork",
+   "title": "String Bean BBQ Pork"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p118/BBQ_Pork_Almondine.html",
+   "slug": "store-p118-BBQ-Pork-Almondine",
+   "title": "BBQ Pork Almondine"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p117/Twice_Cooked_Pork.html",
+   "slug": "store-p117-Twice-Cooked-Pork",
+   "title": "Twice Cooked Pork"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p96/General_Tso%27s_Chicken.html",
+   "slug": "store-p96-General-Tso-27s-Chicken",
+   "title": "General Tso's Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p97/Moo_Goo_Gai_Pan.html",
+   "slug": "store-p97-Moo-Goo-Gai-Pan",
+   "title": "Moo Goo Gai Pan"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p98/Chicken_with_Hot_Garlic_Sauce.html",
+   "slug": "store-p98-Chicken-with-Hot-Garlic-Sauce",
+   "title": "Chicken with Hot Garlic Sauce"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p99/Cashew_Nut_Chicken.html",
+   "slug": "store-p99-Cashew-Nut-Chicken",
+   "title": "Cashew Nut Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p100/Curry_Chicken.html",
+   "slug": "store-p100-Curry-Chicken",
+   "title": "Curry Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p101/Mandarin_Chicken.html",
+   "slug": "store-p101-Mandarin-Chicken",
+   "title": "Mandarin Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p103/Lemon_Chicken.html",
+   "slug": "store-p103-Lemon-Chicken",
+   "title": "Lemon Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p104/Almond_Fried_Chicken.html",
+   "slug": "store-p104-Almond-Fried-Chicken",
+   "title": "Almond Fried Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p105/String_Bean_Chicken.html",
+   "slug": "store-p105-String-Bean-Chicken",
+   "title": "String Bean Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p106/Shrimp_and_Chicken_Combination.html",
+   "slug": "store-p106-Shrimp-and-Chicken-Combination",
+   "title": "Shrimp and Chicken Combination"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p107/Black_Mushroom_Chicken.html",
+   "slug": "store-p107-Black-Mushroom-Chicken",
+   "title": "Black Mushroom Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p108/Hunan_Chicken.html",
+   "slug": "store-p108-Hunan-Chicken",
+   "title": "Hunan Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p109/Kung_Pao_Chicken.html",
+   "slug": "store-p109-Kung-Pao-Chicken",
+   "title": "Kung Pao Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p110/Szechuan_Chicken.html",
+   "slug": "store-p110-Szechuan-Chicken",
+   "title": "Szechuan Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p111/Spicy_Sesame_Chicken.html",
+   "slug": "store-p111-Spicy-Sesame-Chicken",
+   "title": "Spicy Sesame Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p112/Honey_Garlic_Chicken.html",
+   "slug": "store-p112-Honey-Garlic-Chicken",
+   "title": "Honey Garlic Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p113/Chicken_With_Snow_Peas.html",
+   "slug": "store-p113-Chicken-With-Snow-Peas",
+   "title": "Chicken With Snow Peas"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p114/Chicken_Chow_Yuk.html",
+   "slug": "store-p114-Chicken-Chow-Yuk",
+   "title": "Chicken Chow Yuk"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p115/Broccoli_Chicken.html",
+   "slug": "store-p115-Broccoli-Chicken",
+   "title": "Broccoli Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p116/Chicken_Three_Style.html",
+   "slug": "store-p116-Chicken-Three-Style",
+   "title": "Chicken Three Style"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p90/House_Special_Chow_Don.html",
+   "slug": "store-p90-House-Special-Chow-Don",
+   "title": "House Special Chow Don"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p91/Shrimp_Chow_Don.html",
+   "slug": "store-p91-Shrimp-Chow-Don",
+   "title": "Shrimp Chow Don"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p92/BBQ_Pork_Chow_Don.html",
+   "slug": "store-p92-BBQ-Pork-Chow-Don",
+   "title": "BBQ Pork Chow Don"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p93/Chicken_Chow_Don.html",
+   "slug": "store-p93-Chicken-Chow-Don",
+   "title": "Chicken Chow Don"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p94/Ham_Chow_Don.html",
+   "slug": "store-p94-Ham-Chow-Don",
+   "title": "Ham Chow Don"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p95/Meatless_Chow_Don.html",
+   "slug": "store-p95-Meatless-Chow-Don",
+   "title": "Meatless Chow Don"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p85/Pork_Foo_Young.html",
+   "slug": "store-p85-Pork-Foo-Young",
+   "title": "Pork Foo Young"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p86/Chicken_Foo_Young.html",
+   "slug": "store-p86-Chicken-Foo-Young",
+   "title": "Chicken Foo Young"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p87/Shrimp_Foo_Young.html",
+   "slug": "store-p87-Shrimp-Foo-Young",
+   "title": "Shrimp Foo Young"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p88/Ham_Foo_Young.html",
+   "slug": "store-p88-Ham-Foo-Young",
+   "title": "Ham Foo Young"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p89/Vegetable_Foo_Young.html",
+   "slug": "store-p89-Vegetable-Foo-Young",
+   "title": "Vegetable Foo Young"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p77/House_Special_Noodles.html",
+   "slug": "store-p77-House-Special-Noodles",
+   "title": "House Special Noodles"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p78/Pork_Noodles.html",
+   "slug": "store-p78-Pork-Noodles",
+   "title": "Pork Noodles"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p79/Chicken_Noodle.html",
+   "slug": "store-p79-Chicken-Noodle",
+   "title": "Chicken Noodle"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p80/Beef_Noodle_with_Vegetable.html",
+   "slug": "store-p80-Beef-Noodle-with-Vegetable",
+   "title": "Beef Noodle with Vegetable"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p81/Beef_Tomato_Curry_Noodles.html",
+   "slug": "store-p81-Beef-Tomato-Curry-Noodles",
+   "title": "Beef Tomato Curry Noodles"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p82/Chicken_Noodle_with_Vegetable.html",
+   "slug": "store-p82-Chicken-Noodle-with-Vegetable",
+   "title": "Chicken Noodle with Vegetable"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p83/Shrimp_Noodle_with_Vegetable.html",
+   "slug": "store-p83-Shrimp-Noodle-with-Vegetable",
+   "title": "Shrimp Noodle with Vegetable"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p84/Pan_Fried_Noodles.html",
+   "slug": "store-p84-Pan-Fried-Noodles",
+   "title": "Pan Fried Noodles"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p64/House_Fried_Rice.html",
+   "slug": "store-p64-House-Fried-Rice",
+   "title": "House Fried Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p65/Pork_Fried_Rice.html",
+   "slug": "store-p65-Pork-Fried-Rice",
+   "title": "Pork Fried Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p66/Chicken_Fried_Rice.html",
+   "slug": "store-p66-Chicken-Fried-Rice",
+   "title": "Chicken Fried Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p67/Beef_Fried_Rice.html",
+   "slug": "store-p67-Beef-Fried-Rice",
+   "title": "Beef Fried Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p68/Shrimp_Fried_Rice.html",
+   "slug": "store-p68-Shrimp-Fried-Rice",
+   "title": "Shrimp Fried Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p69/Ham_Fried_Rice.html",
+   "slug": "store-p69-Ham-Fried-Rice",
+   "title": "Ham Fried Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p70/Egg_Fried_Rice.html",
+   "slug": "store-p70-Egg-Fried-Rice",
+   "title": "Egg Fried Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p71/Vegetable_Fried_Rice.html",
+   "slug": "store-p71-Vegetable-Fried-Rice",
+   "title": "Vegetable Fried Rice"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p72/Chicken_Rice_With_Vegetables.html",
+   "slug": "store-p72-Chicken-Rice-With-Vegetables",
+   "title": "Chicken Rice With Vegetables"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p73/Beef_Rice_with_Vegetable.html",
+   "slug": "store-p73-Beef-Rice-with-Vegetable",
+   "title": "Beef Rice with Vegetable"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p74/Shrimp_Rice_With_Vegetables.html",
+   "slug": "store-p74-Shrimp-Rice-With-Vegetables",
+   "title": "Shrimp Rice With Vegetables"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p75/Steamed_Rice_%28Small_Cup%29.html",
+   "slug": "store-p75-Steamed-Rice-28Small-Cup-29",
+   "title": "Steamed Rice (Small Cup)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p76/Steamed_Rice_%28Large_Cup%29.html",
+   "slug": "store-p76-Steamed-Rice-28Large-Cup-29",
+   "title": "Steamed Rice (Large Cup)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p63/Moo_Shu_Dish.html",
+   "slug": "store-p63-Moo-Shu-Dish",
+   "title": "Moo Shu Dish"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p58/Vegetable_Deluxe.html",
+   "slug": "store-p58-Vegetable-Deluxe",
+   "title": "Vegetable Deluxe"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p59/Green_Jade_Vegetable.html",
+   "slug": "store-p59-Green-Jade-Vegetable",
+   "title": "Green Jade Vegetable"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p60/Bean_Curd_%28Tofu%29_Family_Style.html",
+   "slug": "store-p60-Bean-Curd-28Tofu-29-Family-Style",
+   "title": "Bean Curd (Tofu) Family Style"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p61/Bean_Curd_%28Tofu%29_Szechuan_Style_%28Mapo_Tofu%29.html",
+   "slug": "store-p61-Bean-Curd-28Tofu-29-Szechuan-Style-28Mapo-Tofu-29",
+   "title": "Bean Curd (Tofu) Szechuan Style (Mapo Tofu)"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p62/Saut%C3%A9ed_Green_Bean.html",
+   "slug": "store-p62-Saut-C3-A9ed-Green-Bean",
+   "title": "Sautéed Green Bean"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p54/Sweet_and_Sour_Shrimp.html",
+   "slug": "store-p54-Sweet-and-Sour-Shrimp",
+   "title": "Sweet and Sour Shrimp"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p55/Sweet_and_Sour_Pork.html",
+   "slug": "store-p55-Sweet-and-Sour-Pork",
+   "title": "Sweet and Sour Pork"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p56/Sweet_and_Sour_Chicken.html",
+   "slug": "store-p56-Sweet-and-Sour-Chicken",
+   "title": "Sweet and Sour Chicken"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p57/Sweet_and_Sour_Spareribs.html",
+   "slug": "store-p57-Sweet-and-Sour-Spareribs",
+   "title": "Sweet and Sour Spareribs"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p48/House_Special_Lo_Mein.html",
+   "slug": "store-p48-House-Special-Lo-Mein",
+   "title": "House Special Lo Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p49/Shrimp_Lo_Mein.html",
+   "slug": "store-p49-Shrimp-Lo-Mein",
+   "title": "Shrimp Lo Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p50/Chicken_Lo_Mein.html",
+   "slug": "store-p50-Chicken-Lo-Mein",
+   "title": "Chicken Lo Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p51/BBQ_Pork_Lo_Mein.html",
+   "slug": "store-p51-BBQ-Pork-Lo-Mein",
+   "title": "BBQ Pork Lo Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p52/Beef_Lo_Mein.html",
+   "slug": "store-p52-Beef-Lo-Mein",
+   "title": "Beef Lo Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p53/Vegetable_Lo_Mein.html",
+   "slug": "store-p53-Vegetable-Lo-Mein",
+   "title": "Vegetable Lo Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p42/House_Special_Chow_Mein.html",
+   "slug": "store-p42-House-Special-Chow-Mein",
+   "title": "House Special Chow Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p43/Shrimp_Special_Chow_Mein.html",
+   "slug": "store-p43-Shrimp-Special-Chow-Mein",
+   "title": "Shrimp Special Chow Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p44/Chicken_Special_Chow_Mein.html",
+   "slug": "store-p44-Chicken-Special-Chow-Mein",
+   "title": "Chicken Special Chow Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p45/BBQ_Pork_Special_Chow_Mein.html",
+   "slug": "store-p45-BBQ-Pork-Special-Chow-Mein",
+   "title": "BBQ Pork Special Chow Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p46/Beef_Special_Chow_Mein.html",
+   "slug": "store-p46-Beef-Special-Chow-Mein",
+   "title": "Beef Special Chow Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p47/Vegetable_Special_Chow_Mein.html",
+   "slug": "store-p47-Vegetable-Special-Chow-Mein",
+   "title": "Vegetable Special Chow Mein"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p36/Pork_Chow_Mein_or_Chop_Suey.html",
+   "slug": "store-p36-Pork-Chow-Mein-or-Chop-Suey",
+   "title": "Pork Chow Mein or Chop Suey"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p37/Beef_Chow_Mein_or_Chop_Suey.html",
+   "slug": "store-p37-Beef-Chow-Mein-or-Chop-Suey",
+   "title": "Beef Chow Mein or Chop Suey"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p38/Chicken_Chow_Mein_or_Chop_Suey.html",
+   "slug": "store-p38-Chicken-Chow-Mein-or-Chop-Suey",
+   "title": "Chicken Chow Mein or Chop Suey"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p39/Shrimp_Chow_Mein_or_Chow_Suey.html",
+   "slug": "store-p39-Shrimp-Chow-Mein-or-Chow-Suey",
+   "title": "Shrimp Chow Mein or Chow Suey"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p40/Subgum_Chicken_Chow_Mein_or_Chop_Suey.html",
+   "slug": "store-p40-Subgum-Chicken-Chow-Mein-or-Chop-Suey",
+   "title": "Subgum Chicken Chow Mein or Chop Suey"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p41/Meatless_Chow_Mein_or_Chop_Suey.html",
+   "slug": "store-p41-Meatless-Chow-Mein-or-Chop-Suey",
+   "title": "Meatless Chow Mein or Chop Suey"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p33/Family_Dinner%3A_A.html",
+   "slug": "store-p33-Family-Dinner-3A-A",
+   "title": "Family Dinner: A"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p34/Family_Dinner%3A_B.html",
+   "slug": "store-p34-Family-Dinner-3A-B",
+   "title": "Family Dinner: B"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/store/p35/Family_Dinner%3A_C.html",
+   "slug": "store-p35-Family-Dinner-3A-C",
+   "title": "Family Dinner: C"
+  }
+ ]
+}

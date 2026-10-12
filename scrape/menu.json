@@ -1,0 +1,537 @@
+{
+ "url": "https://shanghairestaurantkennewick.weebly.com/menu.html",
+ "title": "Menu - SHANG HAI RESTAURANT",
+ "imgs": [
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/published/screenshot-2026-04-18-at-2-05-59-pm.png?1776546391",
+   "srcset": "",
+   "alt": "SHANG HAI RESTAURANT",
+   "w": 124,
+   "h": 70,
+   "href": "https://shanghairestaurantkennewick.weebly.com/",
+   "around": ""
+  },
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/orch.png",
+   "srcset": "",
+   "alt": "",
+   "w": 577,
+   "h": 433,
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/p102/Orange_Chicken.html",
+   "around": "Orange Chicken $14.75"
+  },
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-gench.png",
+   "srcset": "",
+   "alt": "",
+   "w": 577,
+   "h": 433,
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-gench_orig.png",
+   "around": ""
+  },
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-hscm.png",
+   "srcset": "",
+   "alt": "",
+   "w": 577,
+   "h": 433,
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-hscm_orig.png",
+   "around": ""
+  },
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-mongbf.png",
+   "srcset": "",
+   "alt": "",
+   "w": 577,
+   "h": 433,
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-mongbf_orig.png",
+   "around": ""
+  },
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-porkns.png",
+   "srcset": "",
+   "alt": "",
+   "w": 577,
+   "h": 433,
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-porkns_orig.png",
+   "around": ""
+  },
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-str.jpg",
+   "srcset": "",
+   "alt": "",
+   "w": 600,
+   "h": 800,
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-str_orig.jpg",
+   "around": ""
+  },
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-bb1.png",
+   "srcset": "",
+   "alt": "",
+   "w": 577,
+   "h": 433,
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-bb1_orig.png",
+   "around": ""
+  },
+  {
+   "src": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-cp.png",
+   "srcset": "",
+   "alt": "",
+   "w": 577,
+   "h": 433,
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-cp_orig.png",
+   "around": ""
+  },
+  {
+   "src": "https://cdn11.editmysite.com/images/site/footer/footer-toast-published-image-1.png",
+   "srcset": "",
+   "alt": "",
+   "w": 199,
+   "h": 97,
+   "href": "https://www.weebly.com/signup?utm_source=internal&utm_medium=footer",
+   "around": "POWERED BY Create your own unique website with customizable templates. Get Started"
+  }
+ ],
+ "bgs": [
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c2_i4_w1658.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c3_i2_w1528.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c4_i1_w1506.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c5_i1_w1546.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c6_i1_w1518.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c7_i1_w1512.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c8_i1_w1526.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c9_i1_w1520.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c10_i1_w1524.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c11_i1_w1516.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c12_i1_w1516.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c13_i1_w1510.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c14_i1_w1492.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c15_i1_w1484.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c16_i1_w1510.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c17_i1_w1484.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c18_i2_w1496.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c19_i1_w1466.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c20_i1_w1500.png?width=640",
+  "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/s435216012842430449_c21_i1_w1514.png?width=640",
+  "https://cdn11.editmysite.com/images/landing-pages/global/logotype.svg"
+ ],
+ "links": [
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/menu.html#"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/"
+  },
+  {
+   "text": "HOME",
+   "href": "https://shanghairestaurantkennewick.weebly.com/"
+  },
+  {
+   "text": "MENU",
+   "href": "https://shanghairestaurantkennewick.weebly.com/menu.html"
+  },
+  {
+   "text": "LOCATION AND PHONE NUMBER",
+   "href": "https://shanghairestaurantkennewick.weebly.com/location-and-phone-number.html"
+  },
+  {
+   "text": "Orange Chicken $14.75",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/p102/Orange_Chicken.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-gench_orig.png"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-hscm_orig.png"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-mongbf_orig.png"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-porkns_orig.png"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-str_orig.jpg"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-bb1_orig.png"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-cp_orig.png"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c2/appetizers"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c2/appetizers"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c3/Soups.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c3/Soups.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c4/All_Time_Favorite_Combination_of_Your_Choice.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c4/All_Time_Favorite_Combination_of_Your_Choice.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c5/Special_Combination_Dinners.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c5/Special_Combination_Dinners.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c6/Suggested_Family_Style_Dinners.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c6/Suggested_Family_Style_Dinners.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c7/Chow_Mein_or_Chop_Suey_%28Crispy_Noodle%3A_Chow_Mein%29_%28Steamed_Rice%3A_Chow_Suey%29.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c7/Chow_Mein_or_Chop_Suey_%28Crispy_Noodle%3A_Chow_Mein%29_%28Steamed_Rice%3A_Chow_Suey%29.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c8/House_Special_Chow_Meins.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c8/House_Special_Chow_Meins.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c9/House_Special_Lo_Meins.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c9/House_Special_Lo_Meins.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c10/Sweet_and_Sour.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c10/Sweet_and_Sour.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c11/Vegetables.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c11/Vegetables.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c12/Moo_Shu_Dish.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c12/Moo_Shu_Dish.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c13/Rice.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c13/Rice.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c14/Soup_Noodles.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c14/Soup_Noodles.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c15/Egg_Foo_Young.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c15/Egg_Foo_Young.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c16/Scrambled_Egg_%28Chow_Don%29.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c16/Scrambled_Egg_%28Chow_Don%29.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c17/Chicken.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c17/Chicken.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c18/Pork.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c18/Pork.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c19/Beef.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c19/Beef.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c20/Seafood.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c20/Seafood.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c21/American_Menu.html"
+  },
+  {
+   "text": "VIEW",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/c21/American_Menu.html"
+  },
+  {
+   "text": "",
+   "href": "https://shanghairestaurantkennewick.weebly.com/menu.html#"
+  },
+  {
+   "text": "Home",
+   "href": "https://shanghairestaurantkennewick.weebly.com/"
+  },
+  {
+   "text": "Menu",
+   "href": "https://shanghairestaurantkennewick.weebly.com/menu.html"
+  },
+  {
+   "text": "Location and Phone Number",
+   "href": "https://shanghairestaurantkennewick.weebly.com/location-and-phone-number.html"
+  },
+  {
+   "text": "Checkout",
+   "href": "https://shanghairestaurantkennewick.weebly.com/store/checkout?cart="
+  },
+  {
+   "text": "POWERED BY Create your own unique website with customizable templates. Get Started",
+   "href": "https://www.weebly.com/signup?utm_source=internal&utm_medium=footer"
+  }
+ ],
+ "headings": [
+  {
+   "tag": "H2",
+   "cls": "wsite-content-title",
+   "text": "Menu"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Appetizers"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Soups"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "All Time Favorite Combination of Your Choice"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Special Combination Dinners"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Suggested Family Style Dinners"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Chow Mein or Chop Suey (Crispy Noodle: Chow Mein) (Steamed Rice: Chow Suey)"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "House Special Chow Meins"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "House Special Lo Meins"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Sweet and Sour"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Vegetables"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Moo Shu Dish"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Rice"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Soup Noodles"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Egg Foo Young"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Scrambled Egg (Chow Don)"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Chicken"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Pork"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Beef"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "Seafood"
+  },
+  {
+   "tag": "H2",
+   "cls": "product-grid__title",
+   "text": "American Menu"
+  }
+ ],
+ "selects": [],
+ "choices": [],
+ "ld": [],
+ "meta": [
+  {
+   "k": "og:site_name",
+   "v": "SHANG HAI RESTAURANT"
+  },
+  {
+   "k": "og:title",
+   "v": "Menu"
+  },
+  {
+   "k": "og:description",
+   "v": "Update on Jan 2024. Any Questions? Please contact 509-783-8998 *Prices are subject to change"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/orch.png"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-gench.png"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-hscm.png"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-mongbf.png"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-porkns.png"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-str.jpg"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-bb1.png"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/sh-cp.png"
+  },
+  {
+   "k": "og:image",
+   "v": "https://shanghairestaurantkennewick.weebly.com/uploads/1/3/2/3/132395371/published/screenshot-2026-04-18-at-2-05-59-pm.png?1776546391"
+  },
+  {
+   "k": "og:url",
+   "v": "https://shanghairestaurantkennewick.weebly.com/menu.html"
+  },
+  {
+   "k": "viewport",
+   "v": "width=device-width, initial-scale=1.0"
+  }
+ ],
+ "xhr": [
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/ajax/api/JsonRPC/CustomerAccounts/?CustomerAccounts[CustomerAccounts::getAccountDetails]",
+   "status": 200,
+   "body": "{\"jsonrpc\":\"2.0\",\"id\":0,\"method\":\"CustomerAccounts::getAccountDetails\",\"result\":{\"success\":false,\"message\":\"Customer accounts restricted or not enabled.\",\"event\":\"\",\"data\":{\"code\":\"dontShow\",\"message\":\"Customer accounts restricted or not enabled.\",\"message_tl\":\"Customer accounts restricted or not enabled.\"},\"total\":null,\"http_response_code\":401}}"
+  },
+  {
+   "url": "https://shanghairestaurantkennewick.weebly.com/ajax/api/JsonRPC/Commerce/?Commerce[Checkout::getMiniCart]",
+   "status": 200,
+   "body": "{\"jsonrpc\":\"2.0\",\"id\":0,\"method\":\"Checkout::getMiniCart\",\"result\":{\"data\":{\"order\":[],\"cart_template\":\"{{!\\n\\tNOTE: the `checkout_url` variable must be used\\n\\tto allow the user to checkout from the mini-cart\\n}}\\n<div class=\\\"wsite-cart-bottom\\\">\\n\\t<div class=\\\"wsite-vertical-align wsite-subtotal-wrapper\\\">\\n\\t\\t<span>{{#stl}}templates.cart.subtotalText{{\\/stl}}:<\\/span>\\n\\t\\t{{{currency_prefix_html}}}<span class=\\\"wsite-price\\\">{{price_number}}<\\/span>{{{currency_suffix_html}}}\\n\\t<\\/div>\\n\\t<div class=\\\"wsite-vertical-align wsite-button-wrapper\\\">\\n\\t\\t<a id=\\\"wsite-com-minicart-checkout-button\\\" class=\\\"wsite-button wsite-button-highlight\\\" href=\\\"{{checkout_url}}\\\">\\n\\t\\t\\t<span class=\\\"wsite-button-inner\\\">{{#stl}}templates.cart.checkoutText{{\\/stl}}<\\/span><span class=\\\"wsite-button-chevron\\\"><\\/span>\\n\\t\\t<\\/a>\\n\\t<\\/div>\\n<\\/div>\\n\",\"cart_item_template\":\"<div class=\\\"wsite-vertical-align wsite-product-image\\\">\\n\\t<a class=\\\"wsite-product-link\\\" href=\\\"{{url}}\\\">\\n\\t\\t{{{thumbnail_html}}}\\n\\t<\\/a>\\n<\\/div>\\n\\n<div class=\\\"wsite-vertical-align wsite-description-wrapper\\\">\\n\\t<div class=\\\"wsite-product-description\\\">\\n\\t\\t<div class=\\\"wsite-product-name\\\">\\n\\t\\t\\t<span class=\\\"wsite-name-header\\\">{{{title_html}}}<\\/span>\\n\\t\\t<\\/div>\\n\\t\\t{{#options}}\\n\\t\\t\\t{{#value}}\\n\\t\\t\\t<div class=\\\"wsite-product-option\\\">\\n\\t\\t\\t\\t{{name}}: {{value}}\\n\\t\\t\\t<\\/div>\\n\\t\\t\\t{{\\/value}}\\n\\t\\t{{\\/options}}\\n\\t<\\/div>\\n<\\/div>\\n\\n<div class=\\\"wsite-vertical-align wsite-items-right\\\">\\n\\t{{!\\n\\t\\tDesigner note: the `wsite-remove-button` class is required to\\n\\t\\tallow the user to remove an item from the mini-cart\\n\\t}}\\n\\t<div class=\\\"wsite-remove-button\\\"><\\/div>\\n\\t<div class=\\\"wsite-product-price\\\">\\n\\t\\t{{quantity}} x <span class=\\\"wsite-price\\\">{{price_number}}<\\/span>\\n\\t<\\/div>\\n<\\/div>\\n\",\"cart_item_empty_template\":\"<div class=\\\"wsite-empty-cart\\\">{{#stl}}templates.platform.theme.base.commerce.mini-cart.empty_1{{\\/stl}}<\\/div>\\n\",\"currency\":\"USD\",\"checkout_url\":\"https:\\/\\/shanghairestaurantkennewick.weebly.com\\/store\\/checkout?cart=\"},\"success\":true}}"
+  }
+ ]
+}
