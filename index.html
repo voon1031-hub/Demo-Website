@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Shang Hai Restaurant – Chinese food in Kennewick, WA</title>
-<meta name="description" content="Old-school Chinese American cooking in generous portions, on Clearwater Ave in Kennewick since 2001. Browse the menu, build your order and call (509) 783-8998 for pickup.">
+<meta name="description" content="Old-school Chinese American cooking on Clearwater Ave in Kennewick since 2001. Browse the menu, build your order and call (509) 783-8998 for pickup.">
 <meta name="theme-color" content="#103A32">
 <!-- This is a demo, so it stays out of search results and isn't mistaken for the
      restaurant's official site. Delete this line when it becomes the real site. -->
@@ -744,7 +744,7 @@ section[id], .menu-cat { scroll-margin-top: calc(var(--header-h) + 4.5rem); }
   <section class="section favorites" id="favorites" aria-labelledby="fav-title">
     <div class="wrap">
       <h2 class="section-title" id="fav-title">House favorites</h2>
-      <p class="section-lede">The three dishes our regulars order most, and the stories behind them.</p>
+      <p class="section-lede">Three dishes to start with, and the stories behind them.</p>
       <div class="fav-grid" data-favorites></div>
     </div>
   </section>
@@ -1378,7 +1378,7 @@ document.documentElement.classList.add("js");
   /* ── Search engines: restaurant details as structured data ── */
   const ld = {
     "@context": "https://schema.org", "@type": "Restaurant", name: SITE.name, servesCuisine: ["Chinese", "Chinese American"],
-    priceRange: "$", telephone: SITE.phoneLink, foundingDate: String(SITE.since), acceptsReservations: false,
+    priceRange: "$", telephone: SITE.phoneLink, foundingDate: String(SITE.since),
     address: { "@type": "PostalAddress", streetAddress: SITE.address[0], addressLocality: "Kennewick", addressRegion: "WA", postalCode: "99336", addressCountry: "US" },
     geo: { "@type": "GeoCoordinates", latitude: 46.21203, longitude: -119.1614183 },
     openingHoursSpecification: WEEK.filter(span).map((d) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: d[0].toUpperCase() + d.slice(1), opens: span(d)[0], closes: span(d)[1] }))
