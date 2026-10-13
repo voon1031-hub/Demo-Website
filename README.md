@@ -1,49 +1,95 @@
 # Demo-Website
 
-## Plumbline Builders – "From the ground up"
+## Shang Hai Restaurant – "Pull up a chair"
 
-A dark, cinematic single-page site for a design-and-build construction company.
-The opening screen is a construction timelapse driven by scrolling: the page
-opens on an unfinished concrete frame, and as the visitor scrolls the house is
-built from the bottom up (slabs and roof, walls, windows and finishes) until
-the lights come on. Scrolling back up takes the build back down.
+A single-page site for Shang Hai Restaurant, an old-school Chinese American
+restaurant on Clearwater Ave in Kennewick, WA, open since 2001. It is written
+for local diners who may be new to Chinese food. The restaurant's own dishes sit
+on a slowly turning lazy susan at the top of the page. Every dish shows its
+Chinese name, and many have a short story behind them. Guests build an order
+list on the page and then call it in.
 
-- `index.html` – the whole site. The company name, phone, email, office hours
-  and the four figures next to "One team from survey to keys" are in the config
-  block at the top of the file. Services, projects and the five steps are plain
-  text further down.
-- `assets/build/` – the hero timelapse as 120 WebP frames (`000.webp` to
-  `119.webp`), plus `frames.js`, which tells the page how many there are.
-- `assets/media/` – photos and project clips: `house.jpg` (finished house,
-  also the contact background and share image), `svc-*.jpg` (services),
-  `prj-*.jpg` (project photos) and `clip-*.mp4` (short looping project videos
-  that play while they are on screen).
-- `assets/fonts/` – Archivo (variable width and weight, SIL Open Font License),
-  self-hosted so headlines never fall back to a system font.
+The look is 1930s Shanghai Art Deco: the jade green of the Bund's copper roofs,
+gold line work, a cream paper menu card and a cinnabar seal.
 
-All pictures and videos are AI-generated placeholders, and the project names,
-sizes and figures are samples. Replace them with real project photos and
-numbers before the site goes live, then set `imageNote` in the config block to
-`""` to remove the footer note about AI images.
+- `index.html` – the page. The phone number, address, opening hours and the
+  optional online-ordering link are in the config block at the top.
+- `menu.js` – the whole menu: 20 sections and 158 dishes. Each dish has its
+  price, photo, Chinese name with pinyin and story, plus the choices it comes
+  with (rice, soup, size, the items on a pick-your-own plate). The file also
+  lists which dishes sit on the turning table and in House favorites. Prices
+  are from the old site's January 2024 menu.
+- `assets/menu/` – the restaurant's own dish photos with the background removed,
+  in two sizes each (`<dish>.webp` and `<dish>-sm.webp`).
+- `assets/media/` – the house-favorite and wok loops (MP4 plus a JPEG poster
+  each), and `share.jpg` for link previews.
+- `assets/fonts/` – Limelight (headings), Jost (text) and a subset of ZCOOL
+  XiaoWei for the Chinese characters. All three are under the SIL Open Font
+  License and self-hosted.
 
 Open `index.html` in a browser, or serve the folder with any static server.
+
+### How ordering works
+
+The restaurant takes orders by phone. Guests tap + next to a dish, or open the
+dish to choose a size, rice or soup and how many. The list is saved in the
+browser on that device. "Your order" shows the list with an estimated total
+before tax and a "Call (509) 783-8998 to order" button. Guests read the list
+out when the restaurant picks up. If the restaurant starts taking orders online,
+put that page's address in `orderLink` in the config block, and an "Order
+online" button appears next to the call button.
+
+Dishes without a photo show the Chinese character for their main ingredient
+(鸡 chicken, 牛 beef, 虾 shrimp …). The "Read the plate" box on the page
+teaches the six most common ones.
+
+### Editing the menu
+
+- Change a price or a name: edit that dish's line in `menu.js`.
+- Add or replace a photo: `python3 tools/prepare-photo.py photo.png dish-name`
+  (best with the background removed), then set `photo: "dish-name"` on the dish.
+- After adding or changing Chinese text, run `python3 tools/subset-cjk-font.py`
+  so the Chinese font includes the new characters (needs
+  `pip install fonttools brotli`).
+
+### Pictures
+
+The dish photos come from the restaurant's old website. The three house-favorite
+loops are AI-generated from those photos. GPT Image 2.5 placed each dish on a
+lacquered table, and Kling 3.0 added the steam; the first and last frames match,
+so they loop smoothly. The wok scene is entirely AI-generated. The footer says
+so (`imageNote` in the config block).
+
+Before the site goes live, check these with the owner:
+
+- prices, which date from January 2024;
+- the opening hours, copied from the old site;
+- the Chinese dish names;
+- that the owner is happy with the AI loops.
+
+While it's a demo, the page asks search engines not to index it, so it isn't
+taken for the restaurant's official site. Delete the `<meta name="robots">`
+line near the top of `index.html` when it becomes the real site.
 
 ### Regenerating media
 
 The cloud dev environment can't download from the media host, so a GitHub
-Actions workflow (`.github/workflows/fetch-media.yml`) does it: it runs
-`tools/fetch-media.sh` on pushes that change `tools/media.txt` (on the branch
-named in the workflow; it can also be started by hand from the Actions tab),
-then commits the results back to the branch.
+Actions workflow (`.github/workflows/fetch-media.yml`) does it. It runs
+`tools/fetch-media.sh` whenever a push changes `tools/media.txt` on the branch
+named in the workflow, and can also be started by hand from the Actions tab.
+It then commits the results to `assets/media/`. `tools/media.txt` lists one
+`name url` per line: images become `<name>.jpg`, videos become `<name>.mp4`
+(silent, H.264, at most 1280px).
 
-`tools/media.txt` lists one `name url` per line:
+### Copying the old site
 
-- images become `assets/media/<name>.jpg`;
-- videos become `assets/media/<name>.mp4`; `clip-*` videos are played forward
-  then backward so they loop without a jump;
-- `build-1`, `build-2`, `build-3` are the timelapse segments, each starting on
-  the previous one's last frame. They are joined in order and cut into the
-  frames in `assets/build/`.
+The old Weebly site can't be reached from the cloud dev environment either.
+`tools/scrape-site.mjs` and `tools/scrape-images.py`, run by
+`.github/workflows/scrape-site.yml`, render it in Chromium on a GitHub runner
+and commit a copy to `scrape/`. The copy includes every page's text, the store's
+categories and dishes, screenshots and photos. The menu in `menu.js` was built
+from that copy; the copy itself was removed afterwards and stays in the git
+history.
 
 ### Design skills for Claude Code
 
