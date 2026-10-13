@@ -1014,7 +1014,8 @@ document.documentElement.classList.add("js");
     entries.forEach((e) => { if (e.isIntersecting) currentCat = e.target.dataset.cat; });
     catLinks.forEach((a, id) => a.setAttribute("aria-current", String(id === currentCat)));
     const a = catLinks.get(currentCat);
-    if (a) catList.scrollTo({ left: a.offsetLeft - 16, behavior: reduceMotion.matches ? "auto" : "smooth" });
+    // Measured against the bar itself: offsetLeft counts from the menu card, which overshoots on wide screens.
+    if (a) catList.scrollTo({ left: catList.scrollLeft + a.getBoundingClientRect().left - catList.getBoundingClientRect().left - 16, behavior: reduceMotion.matches ? "auto" : "smooth" });
   }, { rootMargin: "-35% 0px -55% 0px" });
   $$("[data-cat]").forEach((s) => spy.observe(s));
 
