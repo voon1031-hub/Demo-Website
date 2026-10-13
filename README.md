@@ -67,11 +67,16 @@ Before the site goes live, check these with the owner:
 - prices, which date from January 2024;
 - the opening hours, copied from the old site;
 - the Chinese dish names;
+- which dishes to feature on the turning table and in House favorites (they were
+  picked for the page, not from sales);
 - that the owner is happy with the AI loops.
 
 While it's a demo, the page asks search engines not to index it, so it isn't
-taken for the restaurant's official site. Delete the `<meta name="robots">`
-line near the top of `index.html` when it becomes the real site.
+taken for the restaurant's official site. When it becomes the real site, delete
+the `<meta name="robots">` line near the top of `index.html`. Also change the
+two `https://voon1031-hub.github.io/Demo-Website/` addresses in the `og:` tags
+to the new address, so links shared on Instagram, Facebook or iMessage keep
+their preview picture.
 
 ### Regenerating media
 
