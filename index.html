@@ -59,6 +59,7 @@ window.SITE = {
 };
 </script>
 <script src="menu.js"></script>
+<link rel="preload" href="assets/media/wok.jpg" as="image" fetchpriority="high">
 <link rel="preload" href="assets/fonts/limelight.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/jost-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -209,41 +210,64 @@ section[id], .menu-cat { scroll-margin-top: calc(var(--header-h) + 4.5rem); }
 @media (min-width: 960px) { .site-nav { display: flex; } }
 @media (min-width: 1180px) { .header-phone { display: inline; } }
 
-/* ── Hero: the round table ───────────────────────────────── */
+/* ── Hero: the wok ──────────────────────────────────────── */
 .hero {
-  position: relative; overflow: hidden;
-  min-height: min(100svh, 62rem);
-  padding: calc(var(--header-h) + 2rem) 0 4rem;
-  background:
-    radial-gradient(60rem 40rem at 72% 55%, rgba(36, 90, 77, .55), transparent 70%),
-    var(--jade-800);
-  display: grid; align-items: center;
+  position: relative; overflow: hidden; isolation: isolate;
+  min-height: min(100svh, 58rem);
+  display: grid; align-items: end;
+  padding: calc(var(--header-h) + 3rem) 0 clamp(3rem, 2rem + 4vw, 5.5rem);
+  background: var(--jade-950) url("assets/media/wok.jpg") 70% 50% / cover no-repeat;
 }
-.hero-grid { display: grid; gap: 2rem; align-items: center; }
-.hero-sign {
+.hero-video { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; }
+.hero::before { /* keeps the header and the words readable over the fire */
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(10, 38, 33, .75), rgba(10, 38, 33, 0) 24%),
+    linear-gradient(to top, rgba(10, 38, 33, .96) 4%, rgba(10, 38, 33, .6) 40%, rgba(10, 38, 33, 0) 72%),
+    linear-gradient(to right, rgba(10, 38, 33, .6), rgba(10, 38, 33, 0) 62%);
+}
+.hero-copy { max-width: 46rem; }
+.hero h1 {
+  font: var(--step-5)/.94 var(--font-display); color: var(--paper-50);
+  letter-spacing: -.005em; margin-bottom: 1.4rem;
+}
+.hero-lede { font-size: var(--step-1); line-height: 1.55; color: var(--paper-100); max-width: 36rem; }
+.hero-lede span[lang] { color: var(--gold-300); }
+.hero-sub { margin-top: .9rem; font-size: 1.0625rem; line-height: 1.6; color: var(--paper-100); max-width: 34rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
+.hero-status { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.1rem; margin-top: 1.5rem; font-size: 1rem; color: var(--paper-100); }
+.status { display: inline-flex; align-items: center; gap: .55rem; }
+.status::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--gold-500); box-shadow: 0 0 0 3px rgba(201, 163, 91, .25); }
+.status.is-open::before { background: #8FD3A8; box-shadow: 0 0 0 3px rgba(143, 211, 168, .22); }
+
+/* ── Pull up a chair: the turning table ──────────────────── */
+.table-section {
+  position: relative; overflow: hidden; text-align: center;
+  padding: clamp(4rem, 3rem + 5vw, 7.5rem) 0 clamp(3rem, 2rem + 3vw, 5rem);
+  background:
+    radial-gradient(70rem 34rem at 50% 72%, rgba(36, 90, 77, .6), transparent 70%),
+    var(--jade-800);
+}
+.table-section .section-title { color: var(--paper-50); }
+.table-section .section-lede { color: var(--paper-100); margin-inline: auto; }
+.table-sign {
   display: none;
   position: absolute; left: var(--gutter); top: 50%; translate: 0 -50%;
   writing-mode: vertical-rl; font-size: 1.6rem; letter-spacing: .5em; color: var(--gold-500);
   padding: 1.25rem 0; border-block: 1px solid rgba(201, 163, 91, .6);
 }
-.hero-copy { position: relative; z-index: 2; max-width: 34rem; }
-.hero h1 {
-  font: var(--step-5)/.94 var(--font-display); color: var(--paper-50);
-  letter-spacing: -.005em; margin-bottom: 1.5rem;
-}
-.hero-lede { font-size: var(--step-1); line-height: 1.55; color: var(--paper-100); max-width: 30rem; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
-.hero-status { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.1rem; margin-top: 1.75rem; font-size: 1rem; color: var(--paper-100); }
-.status { display: inline-flex; align-items: center; gap: .55rem; }
-.status::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--gold-500); box-shadow: 0 0 0 3px rgba(201, 163, 91, .25); }
-.status.is-open::before { background: #8FD3A8; box-shadow: 0 0 0 3px rgba(143, 211, 168, .22); }
-.hero-status a { color: var(--gold-300); }
-
+@media (min-width: 1360px) { .table-sign { display: block; } }
 .table-stage {
-  position: relative; width: 100%; max-width: 46rem; margin-inline: auto; container-type: inline-size;
-  aspect-ratio: 1 / .84; touch-action: pan-y; user-select: none; -webkit-user-select: none;
+  position: relative; width: 100%; max-width: 72rem; margin: clamp(.5rem, 2vw, 2rem) auto 0; container-type: inline-size;
+  aspect-ratio: 1 / .5; text-align: left; touch-action: pan-y; user-select: none; -webkit-user-select: none;
 }
-.sunburst { position: absolute; left: -12%; top: -18%; width: 124%; color: var(--gold-500); opacity: .3; pointer-events: none; }
+@media (max-width: 899px) { .table-stage { aspect-ratio: 1 / .56; } }
+@media (max-width: 599px) { .table-stage { aspect-ratio: 1 / .72; } }
+.sunburst {
+  position: absolute; left: 0; top: 0; width: 100%; color: var(--gold-500); opacity: .3; pointer-events: none;
+  /* fade the rays out before they reach the heading */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 28%, #000 62%); mask-image: linear-gradient(to bottom, transparent 28%, #000 62%);
+}
 .tabletop {
   position: absolute; left: 4%; width: 92%; aspect-ratio: 1; bottom: calc(3rem - 26.45cqw);
   border-radius: 50%; transform: rotateX(68deg);
@@ -280,17 +304,6 @@ section[id], .menu-cat { scroll-margin-top: calc(var(--header-h) + 4.5rem); }
   font-size: 1rem; line-height: 1.6rem; color: var(--paper-100); white-space: nowrap;
 }
 .table-caption b { font: 1.3rem var(--font-display); font-weight: 400; color: var(--gold-300); margin-right: .6rem; }
-
-@media (min-width: 1024px) {
-  .hero-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1rem; }
-  .hero-copy { padding-left: clamp(0rem, 3vw, 3rem); }
-}
-@media (min-width: 1360px) { .hero-sign { display: block; } }
-@media (max-width: 1023px) {
-  .hero { padding-bottom: 3rem; }
-  .hero-grid { grid-template-columns: minmax(0, 1fr); }
-  .table-stage { order: -1; max-width: 34rem; aspect-ratio: 1 / .7; margin-bottom: 1rem; }
-}
 
 /* ── Character plates: dishes without a photo show the
       Chinese character for their main ingredient ──────────── */
@@ -575,15 +588,6 @@ section[id], .menu-cat { scroll-margin-top: calc(var(--header-h) + 4.5rem); }
 .toast .btn { min-height: 2.5rem; padding: .45rem .9rem; }
 @media (min-width: 960px) { .toast { bottom: 2rem; } }
 
-/* ── Wok hei ─────────────────────────────────────────────── */
-.wok { position: relative; min-height: clamp(26rem, 56vw, 40rem); display: grid; align-items: end; overflow: hidden; background: var(--jade-950); }
-.wok video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.wok::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 38, 33, .94) 10%, rgba(10, 38, 33, .45) 50%, rgba(10, 38, 33, 0) 80%); }
-.wok-copy { position: relative; z-index: 1; padding: 4rem 0; }
-.wok-copy h2 { font: var(--step-4)/1.02 var(--font-display); color: var(--paper-50); }
-.wok-copy p { margin-top: 1rem; max-width: 34rem; font-size: var(--step-1); color: var(--paper-100); }
-.wok-copy span[lang] { color: var(--gold-300); }
-
 /* ── Visit ───────────────────────────────────────────────── */
 .visit-grid { display: grid; gap: 3rem; margin-top: 3rem; }
 .visit .section-title { color: var(--paper-50); }
@@ -645,17 +649,15 @@ section[id], .menu-cat { scroll-margin-top: calc(var(--header-h) + 4.5rem); }
   .dish-add.is-added:hover { background: var(--jade-600); }
 }
 
-/* ── Page-load: the table is set ─────────────────────────── */
+/* ── Page-load ───────────────────────────────────────────── */
 .js .hero-copy > * { opacity: 0; transform: translateY(14px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .js .is-set .hero-copy > * { opacity: 1; transform: none; }
 .js .is-set .hero-copy > :nth-child(2) { transition-delay: .08s; }
 .js .is-set .hero-copy > :nth-child(3) { transition-delay: .16s; }
 .js .is-set .hero-copy > :nth-child(4) { transition-delay: .24s; }
-.js .tabletop, .js .sunburst { opacity: 0; transition: opacity 1.2s var(--ease); }
-.js .is-set .tabletop { opacity: 1; }
-.js .is-set .sunburst { opacity: .3; }
+.js .is-set .hero-copy > :nth-child(5) { transition-delay: .32s; }
 @media (prefers-reduced-motion: reduce) {
-  .js .hero-copy > *, .js .tabletop, .js .sunburst { transition: none; }
+  .js .hero-copy > * { transition: none; }
   .dish-dialog[open], .order-sheet[open] { animation: none; }
   .toast { transition: none; }
 }
@@ -680,17 +682,26 @@ section[id], .menu-cat { scroll-margin-top: calc(var(--header-h) + 4.5rem); }
 
 <main id="top">
   <section class="hero" aria-labelledby="hero-title" data-hero>
-    <p class="hero-sign" lang="zh-Hans" aria-hidden="true">上海菜馆</p>
-    <div class="wrap hero-grid">
+    <video class="hero-video" muted loop playsinline preload="none" poster="assets/media/wok.jpg" aria-hidden="true" data-autoplay><source src="assets/media/wok.mp4" type="video/mp4"><source src="assets/media/wok.webm" type="video/webm"></video>
+    <div class="wrap">
       <div class="hero-copy">
-        <h1 id="hero-title">Pull up a chair.</h1>
-        <p class="hero-lede">Old-school Chinese American cooking in generous portions, on Clearwater Ave since <span data-since>2001</span>. Pick your dishes here, give us a call, and take them home hot.</p>
+        <h1 id="hero-title">The breath of the wok</h1>
+        <p class="hero-lede">That smoky, toasty edge on good fried rice has a name in Cantonese: <span lang="zh-Hans">镬气</span> wok hei. It comes from a blazing-hot wok and food that never stops moving.</p>
+        <p class="hero-sub">Old-school Chinese American cooking on Clearwater Ave since <span data-since>2001</span>. Pick your dishes here, give us a call, and take them home hot.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#menu">Start your order</a>
           <a class="btn btn-line" data-phone-link href="tel:+15097838998">Call <span data-phone>(509) 783-8998</span></a>
         </div>
         <p class="hero-status"><span class="status" data-status>Open today</span><span>Dine in or take out</span></p>
       </div>
+    </div>
+  </section>
+
+  <section class="table-section" id="table" aria-labelledby="table-title">
+    <p class="table-sign" lang="zh-Hans" aria-hidden="true">上海菜馆</p>
+    <div class="wrap">
+      <h2 class="section-title" id="table-title">Pull up a chair.</h2>
+      <p class="section-lede">Chinese food is meant to be shared. Turn the table and pick a dish to see it up close.</p>
       <div class="table-stage" data-table>
         <svg class="sunburst" viewBox="-100 -100 200 140" aria-hidden="true" data-sunburst></svg>
         <div class="tabletop" aria-hidden="true"><div class="lazy-susan" data-susan></div></div>
@@ -705,7 +716,7 @@ section[id], .menu-cat { scroll-margin-top: calc(var(--header-h) + 4.5rem); }
   <section class="section paper" id="new-here" aria-labelledby="guide-title">
     <div class="wrap">
       <h2 class="section-title" id="guide-title">First time? Order like a regular.</h2>
-      <p class="section-lede">Chinese food is meant to be shared. Here is how a table of regulars orders.</p>
+      <p class="section-lede">Here is how a table of regulars orders.</p>
       <div class="guide-grid">
         <div class="tips">
           <div class="tip">
@@ -762,13 +773,6 @@ section[id], .menu-cat { scroll-margin-top: calc(var(--header-h) + 4.5rem); }
           <span data-prices-note>Prices are before tax, from our January 2024 menu, and can change.</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="wok" aria-labelledby="wok-title" data-wok>
-    <div class="wrap wok-copy">
-      <h2 id="wok-title">The breath of the wok</h2>
-      <p>That smoky, toasty edge on good fried rice has a name in Cantonese: <span lang="zh-Hans">镬气</span> wok hei. It comes from a blazing-hot wok and food that never stops moving.</p>
     </div>
   </section>
 
@@ -1253,7 +1257,7 @@ document.documentElement.classList.add("js");
     if (!d) return "";
     const story = MENU.stories[d.story];
     return `<article class="fav">
-      <div class="arch"><video muted loop playsinline preload="none" poster="assets/media/${f.video}.jpg" aria-hidden="true" data-autoplay><source src="assets/media/${f.video}.mp4" type="video/mp4"></video></div>
+      <div class="arch"><video muted loop playsinline preload="none" poster="assets/media/${f.video}.jpg" aria-hidden="true" data-autoplay><source src="assets/media/${f.video}.mp4" type="video/mp4"><source src="assets/media/${f.video}.webm" type="video/webm"></video></div>
       <div><h3>${esc(d.name)}</h3>${d.zh ? `<p class="zh"><span lang="zh-Hans">${d.zh}</span><small>${esc(d.py || "")}</small></p>` : ""}</div>
       ${story ? `<p class="fav-story"><b>${esc(story.title)}</b>${esc(story.text)}</p>` : ""}
       <div class="fav-foot"><span class="fav-price">${priceText(d)}</span>
@@ -1262,8 +1266,6 @@ document.documentElement.classList.add("js");
     </article>`;
   }).join("");
 
-  /* ── Wok band ── */
-  $("[data-wok]").insertAdjacentHTML("afterbegin", `<video muted loop playsinline preload="none" poster="assets/media/${MENU.wok.video}.jpg" aria-hidden="true" data-autoplay><source src="assets/media/${MENU.wok.video}.mp4" type="video/mp4"></video>`);
   /* Videos play only while on screen, and not at all with reduced motion. */
   const vids = new IntersectionObserver((entries) => entries.forEach((e) => {
     const v = e.target;
@@ -1278,7 +1280,7 @@ document.documentElement.classList.add("js");
     return `<line x1="${(Math.cos(a) * r1).toFixed(2)}" y1="${(Math.sin(a) * r1).toFixed(2)}" x2="${(Math.cos(a) * r2).toFixed(2)}" y2="${(Math.sin(a) * r2).toFixed(2)}" stroke="currentColor" stroke-width="${i % 2 ? .25 : .5}"/>`;
   }).join("") + [22, 30, 60].map((r) => `<circle r="${r}" fill="none" stroke="currentColor" stroke-width=".4"/>`).join("");
 
-  const stage = $("[data-table]"), caption = $("[data-caption]"), susan = $("[data-susan]"), tabletop = $(".tabletop", stage);
+  const stage = $("[data-table]"), caption = $("[data-caption]"), susan = $("[data-susan]"), tabletop = $(".tabletop", stage), sun = $("[data-sunburst]");
   const onTable = MENU.table.map((id) => byId.get(id)).filter((d) => d && d.photo);
   $("[data-plates]").innerHTML = onTable.map((d, i) => `<li><button class="plate" type="button" data-dish="${d.id}" data-plate="${i}" aria-haspopup="dialog" aria-label="${esc(d.name)}, ${priceText(d)}">
       <img src="${photo(d)}" alt="" draggable="false"></button></li>`).join("");
@@ -1289,9 +1291,12 @@ document.documentElement.classList.add("js");
   // Plates ride on the lazy susan, so read where the tilted tabletop actually is.
   const measure = () => {
     const s = stage.getBoundingClientRect(), t = tabletop.getBoundingClientRect();
-    const rx = t.width / 2 * .6;
-    geo = { cx: t.left - s.left + t.width / 2, cy: t.top - s.top + t.height / 2, rx, ry: rx * (t.height / t.width), plate: Math.min(s.width * (s.width < 600 ? .36 : .31), 250) };
+    const rx = t.width / 2 * .62;
+    geo = { cx: t.left - s.left + t.width / 2, cy: t.top - s.top + t.height / 2, rx, ry: rx * (t.height / t.width), plate: Math.min(s.width * (s.width < 1024 ? .36 : .3), 330) };
     stage.style.setProperty("--plate", geo.plate + "px");
+    // The sunburst's rays start at the middle of the lazy susan.
+    const r = s.width * .62;
+    Object.assign(sun.style, { width: 2 * r + "px", left: geo.cx - r + "px", top: geo.cy - r + "px" });
   };
   const place = () => {
     let best = -2, bestI = 0;

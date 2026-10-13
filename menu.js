@@ -345,7 +345,6 @@ window.MENU = {
     { dish: "crab-puffs", video: "fav-crab-puff" },
     { dish: "house-special-chow-mein", video: "fav-chow-mein" }
   ],
-  wok: { video: "wok" },
 
   glyphs: [
     { char: "汤", py: "tāng", en: "Soup", match: ["soup"] },
@@ -422,7 +421,7 @@ window.MENU = {
       text: "Lo mein means \"scooped noodles.\" The noodles are boiled soft and tossed with sauce, meat and vegetables, so they stay silky rather than crisp."
     },
     "fried-rice": {
-      title: "The breath of the wok",
+      title: "Rested rice, a roaring wok",
       text: "Good fried rice starts with cooked rice that has rested and dried a little, so every grain fries on its own. Tossed in a very hot wok, it picks up a smoky edge Cantonese cooks call wok hei, \"the breath of the wok.\""
     },
     "foo-young": {

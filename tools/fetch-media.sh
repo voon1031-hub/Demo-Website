@@ -3,6 +3,8 @@
 #   images (.png/.jpg/.webp) -> assets/media/<name>.jpg  (fits in 1600x1600)
 #   videos (.mp4/.mov/.webm) -> assets/media/<name>.mp4  (fits in 1280x1280, H.264,
 #                               no audio, starts playing before it has fully loaded)
+#                               and assets/media/<name>.webm (VP9), for browsers
+#                               without H.264
 # A later line with the same name replaces an earlier one.
 # Needs: curl, ffmpeg. Run from the repository root.
 set -uo pipefail
@@ -24,7 +26,9 @@ while read -r name url _; do
         -vf "scale='min(1280,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2" \
         -c:v libx264 -preset slow -crf 25 -maxrate 3M -bufsize 6M -pix_fmt yuv420p \
         -movflags +faststart "assets/media/$name.mp4" || { echo "FAILED: encoding $name"; failed=$((failed+1)); continue; }
-      echo "video: $name $(du -h "assets/media/$name.mp4" | cut -f1)" ;;
+      ffmpeg -nostdin -loglevel error -y -i "assets/media/$name.mp4" -an -c:v libvpx-vp9 -b:v 0 -crf 38 \
+        -row-mt 1 -deadline good -cpu-used 2 -pix_fmt yuv420p "assets/media/$name.webm" || { echo "FAILED: webm $name"; failed=$((failed+1)); continue; }
+      echo "video: $name $(du -h "assets/media/$name.mp4" | cut -f1) mp4, $(du -h "assets/media/$name.webm" | cut -f1) webm" ;;
     *)
       ffmpeg -nostdin -loglevel error -y -i "$file" \
         -vf "scale='min(1600,iw)':'min(1600,ih)':force_original_aspect_ratio=decrease" -q:v 4 \

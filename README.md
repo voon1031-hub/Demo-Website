@@ -4,10 +4,11 @@
 
 A single-page site for Shang Hai Restaurant, an old-school Chinese American
 restaurant on Clearwater Ave in Kennewick, WA, open since 2001. It is written
-for local diners who may be new to Chinese food. The restaurant's own dishes sit
-on a slowly turning lazy susan at the top of the page. Every dish shows its
-Chinese name, and many have a short story behind them. Guests build an order
-list on the page and then call it in.
+for local diners who may be new to Chinese food. The page opens on a wok
+tossing fried rice over a roaring flame ("The breath of the wok"). Below it, the
+restaurant's own dishes sit on a slowly turning lazy susan ("Pull up a chair.").
+Every dish shows its Chinese name, and many have a short story behind them.
+Guests build an order list on the page and then call it in.
 
 The look is 1930s Shanghai Art Deco: the jade green of the Bund's copper roofs,
 gold line work, a cream paper menu card and a cinnabar seal.
@@ -21,7 +22,8 @@ gold line work, a cream paper menu card and a cinnabar seal.
   are from the old site's January 2024 menu.
 - `assets/menu/` – the restaurant's own dish photos with the background removed,
   in two sizes each (`<dish>.webp` and `<dish>-sm.webp`).
-- `assets/media/` – the house-favorite and wok loops (MP4 plus a JPEG poster
+- `assets/media/` – the wok loop at the top of the page and the three
+  house-favorite loops (MP4, WebM for browsers without H.264, and a JPEG poster
   each), and `share.jpg` for link previews.
 - `assets/fonts/` – Limelight (headings), Jost (text) and a subset of ZCOOL
   XiaoWei for the Chinese characters. All three are under the SIL Open Font
@@ -79,7 +81,7 @@ Actions workflow (`.github/workflows/fetch-media.yml`) does it. It runs
 named in the workflow, and can also be started by hand from the Actions tab.
 It then commits the results to `assets/media/`. `tools/media.txt` lists one
 `name url` per line: images become `<name>.jpg`, videos become `<name>.mp4`
-(silent, H.264, at most 1280px).
+(silent, H.264, at most 1280px) plus `<name>.webm` (VP9).
 
 ### Copying the old site
 
