@@ -1,10 +1,10 @@
 # Downloads the generated media listed in tools/media.txt on a GitHub runner
-# (the cloud dev environment can't reach the media host), compresses it, cuts the
-# hero timelapse into frames, and commits assets/ back to this branch.
+# (the cloud dev environment can't reach the media host), compresses it and
+# commits assets/media back to this branch.
 name: Fetch generated media
 on:
   push:
-    branches: [claude/inspiring-volta-dtrlw7]
+    branches: [claude/vigilant-fermi-3nmqq0]
     paths: ['tools/media.txt', 'tools/fetch-media.sh']
   workflow_dispatch:
 permissions:
