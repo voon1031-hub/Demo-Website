@@ -6,3 +6,8 @@ fav-general-tso  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJv
 fav-crab-puff    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261013_034153_14716236-5f14-4516-9772-7bed1e71dff9.png
 fav-chow-mein    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261013_034153_87d17fb2-9d5f-4f2e-8190-f72e10b8e56d.png
 wok              https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261013_034153_bf4f4e48-cc43-4958-a791-3c861e03013b.png
+# Five-second loops (Kling 3.0, first frame = last frame, so they repeat without a jump).
+fav-general-tso  https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261013_034646_4fd3cc35-e75a-4a83-af61-9ce845853024.mp4
+fav-crab-puff    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261013_034646_0ae5a588-b274-4499-a90d-98a21b564234.mp4
+fav-chow-mein    https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261013_034646_f592c74c-c801-464b-a6df-60aa825cf278.mp4
+wok              https://d8j0ntlcm91z4.cloudfront.net/user_3K59eeAhTYrmns8lc7vJvaiOx1X/hf_20261013_034646_3b52b5fa-3c3f-483c-b86a-2fc3048aac1d.mp4
