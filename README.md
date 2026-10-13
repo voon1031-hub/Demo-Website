@@ -67,6 +67,10 @@ Before the site goes live, check these with the owner:
 - the Chinese dish names;
 - that the owner is happy with the AI loops.
 
+While it's a demo, the page asks search engines not to index it, so it isn't
+taken for the restaurant's official site. Delete the `<meta name="robots">`
+line near the top of `index.html` when it becomes the real site.
+
 ### Regenerating media
 
 The cloud dev environment can't download from the media host, so a GitHub
