@@ -87,8 +87,8 @@ It then commits the results to `assets/media/`. `tools/media.txt` lists one
 
 The old Weebly site can't be reached from the cloud dev environment either.
 `tools/scrape-site.mjs` and `tools/scrape-images.py`, run by
-`.github/workflows/scrape-site.yml`, render it in Chromium on a GitHub runner
-and commit a copy to `scrape/`. The copy includes every page's text, the store's
+`.github/workflows/scrape-site.yml` (started by hand from the Actions tab),
+render it in Chromium on a GitHub runner and commit a copy to `scrape/`. The copy includes every page's text, the store's
 categories and dishes, screenshots and photos. The menu in `menu.js` was built
 from that copy; the copy itself was removed afterwards and stays in the git
 history.

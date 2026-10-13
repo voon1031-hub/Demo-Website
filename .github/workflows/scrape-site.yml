@@ -1,11 +1,10 @@
 # Renders the restaurant's old Weebly site on a GitHub runner (the cloud dev
 # environment can't reach weebly.com) and commits a copy of its text, menu data,
-# screenshots and photos to scrape/ on this branch, for building the new site.
+# screenshots and photos to scrape/ on the branch it is run on, for building the
+# new site. The copy has been made, so this only runs when started by hand from
+# the Actions tab.
 name: Scrape old site
 on:
-  push:
-    branches: [claude/vigilant-fermi-3nmqq0]
-    paths: ['tools/scrape-site.mjs', 'tools/scrape-images.py', '.github/workflows/scrape-site.yml']
   workflow_dispatch:
 permissions:
   contents: write
