@@ -98,6 +98,15 @@ categories and dishes, screenshots and photos. The menu in `menu.js` was built
 from that copy; the copy itself was removed afterwards and stays in the git
 history.
 
+## Plumbline Builders – `construction/`
+
+The construction company site from #9 lives in `construction/` and is served at
+https://voon1031-hub.github.io/Demo-Website/construction/. Its hero is a
+construction timelapse that plays as you scroll. The company name, phone, email
+and figures are placeholders, set in the config block at the top of
+`construction/index.html`. `construction/promo/` holds a 12 s Instagram Reel of
+the site on a laptop, and the steps to re-render it after the site changes.
+
 ### Design skills for Claude Code
 
 `.claude/skills/` holds the skills Claude Code uses when working on the site.
